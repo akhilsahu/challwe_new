@@ -1,0 +1,47 @@
+.cl-hidden{
+	display:none;
+}
+.cl-img{
+	width: 273px;
+    height: 205px;
+}
+.cl-frame-img{
+    width: 174px;
+    height: 130px;
+}
+.animation_image {
+    background: #F9FFFF;
+    border: 1px solid #E1FFFF;
+    padding: 10px;
+    width: 500px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.white_content {
+    display: none;
+    padding: 2px;
+    position: fixed;
+    left: 16%;
+    width: 70%;
+    height: auto;
+    padding: 2px;
+    top:76px;
+    border: 16px solid white;
+      border-radius: 4px 4px 4px 4px;
+    background-color: white;
+    z-index:1002;
+    /*overflow: auto;*/
+    overflow:hidden;
+  }
+  .black_overlay {
+    background-color: black;
+    display: none;
+    height: 100%;
+    left: 0;
+    opacity: .85;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1001;
+  } 
