@@ -1,246 +1,412 @@
-﻿/*
-* Based on Skeleton by Dave Gamache (www.getskeleton.com)
-* Modified by Vasterad
-*/
-
-
-/* Table of Contents
-==================================================
-    #Base (1180 Grid)
-    #Desktop (960 Grid)
-    #Tablet (Portrait)
-    #Mobile (Portrait)
-    #Mobile (Landscape)
-    #Clearing */
-    
-    
-/* #Base (1180 Grid)
-================================================== */
-
-    .container                                  { position: relative; width: 1200px; margin: 0 auto; padding: 0; }
-    .container .column,
-    .container .columns                         { float: left; display: inline; margin-left: 10px; margin-right: 10px; }
-    .row                                        { margin-bottom: 20px; }
-
-    /* Nested Column Classes */
-    .column.alpha, .columns.alpha               { margin-left: 0; }
-    .column.omega, .columns.omega               { margin-right: 0; }
-
-    /* Base Grid */
-    .container .one.column,
-    .container .one.columns                     { width: 55px;  }
-    .container .two.columns                     { width: 130px; }
-    .container .three.columns                   { width: 205px; }
-    .container .four.columns                    { width: 280px; }
-    .container .five.columns                    { width: 355px; }
-    .container .six.columns                     { width: 430px; }
-    .container .seven.columns                   { width: 505px; }
-    .container .eight.columns                   { width: 580px; }
-    .container .nine.columns                    { width: 655px; }
-    .container .ten.columns                     { width: 730px; }
-    .container .eleven.columns                  { width: 805px; }
-    .container .twelve.columns                  { width: 880px; }
-    .container .thirteen.columns                { width: 955px; }
-    .container .fourteen.columns                { width: 1030px; }
-    .container .fifteen.columns                 { width: 1105px; }
-    .container .sixteen.columns                 { width: 1180px; }
-
-    .container .one-third.column                { width: 380px; }
-    .container .two-thirds.column               { width: 780px; }
-
-    body.boxed                                  { width: 1340px; }
-
-    @media only screen and (min-width: 1289px) and (max-width: 1360px) {
-        body.boxed { width: 100%; }
+/* mobile view */
+@media screen and (min-width: 320px) and (max-width: 480px) {
+    /*nav-bar*/
+    #navBar .topnav .title-bar{
+        background: #fff;
     }
-    
-
-/* #Dekstop (960 Grid)
-================================================== */
-
-    /* Note: Design for a width of 960px */
-
-    @media only screen and (min-width: 960px) and (max-width: 1289px) {
-        .container                                  { position: relative; width: 960px; margin: 0 auto; padding: 0; }
-        .container .column,
-        .container .columns                         { float: left; display: inline; margin-left: 10px; margin-right: 10px; }
-        .row                                        { margin-bottom: 20px; }
-
-        /* Nested Column Classes */
-        .column.alpha, .columns.alpha               { margin-left: 0; }
-        .column.omega, .columns.omega               { margin-right: 0; }
-
-        /* Base Grid */
-        .container .one.column,
-        .container .one.columns                     { width: 40px;  }
-        .container .two.columns                     { width: 100px; }
-        .container .three.columns                   { width: 160px; }
-        .container .four.columns                    { width: 220px; }
-        .container .five.columns                    { width: 280px; }
-        .container .six.columns                     { width: 340px; }
-        .container .seven.columns                   { width: 400px; }
-        .container .eight.columns                   { width: 460px; }
-        .container .nine.columns                    { width: 520px; }
-        .container .ten.columns                     { width: 580px; }
-        .container .eleven.columns                  { width: 640px; }
-        .container .twelve.columns                  { width: 700px; }
-        .container .thirteen.columns                { width: 760px; }
-        .container .fourteen.columns                { width: 820px; }
-        .container .fifteen.columns                 { width: 880px; }
-        .container .sixteen.columns                 { width: 940px; }
-
-        .container .one-third.column                { width: 300px; }
-        .container .two-thirds.column               { width: 620px; }
-
-        body.boxed { width: 1060px; }
-
+    #navBar .topnav .title-bar-dark{
+        background: #444444;
+    }
+    #navBar .topnav .title-bar .menu-icon::after{
+        background: #444444;
+        box-shadow: 0 7px 0 #444, 0 14px 0 #444;
+    }
+    #navBar .topnav .title-bar-dark .menu-icon::after{
+        background: #fff;
+        box-shadow: 0 7px 0 #fff, 0 14px 0 #fff;
+    }
+    #navBar .topnav .title-bar .menu-icon{
+        float: left;
+        display: inline-block;
+        margin-top: 7px;
+    }
+    #navBar .topnav .title-bar .title-bar-title{
+        width: 80%;
+        float: left;
+        text-align: center;
+        display: inline-block;
+    }
+    /* vertical slider */
+    .thumb-slider{
+        height: 200px;
+    }
+    .thumb-slider .main-image{
+        width: 100%;
+    }
+    .thumb-slider .main-image .image{
+        height: 200px;
+    }
+    .thumb-slider .main-image .image iframe{
+        border: 0 none !important;
+        height: 200px !important;
+        width: 100% !important;
+    }
+    .thumb-slider .thumbs{
+        width: 100%;
+    }
+    .thumbs .thumbnails .ver-thumbnail .item-title span{
+        bottom: 52px;
+    }
+    /* content */
+    .content .list-group .grid-medium{
+        width: 100%;
+    }
+    .content .list-group .list .post .post-thumb{
+        width: 100%;
+    }
+    .content .list-group .list .post .post-des{
+        width: 100%;
+        margin: 0;
+        padding: 10px 0;
+    }
+    /* content with sidebar */
+    .content.content-with-sidebar .list-group .grid-default{
+        width: 100% !important;
+        padding: 10px;
+    }
+    .content.content-with-sidebar .list-group .group-item-grid-default{
+        width: 100% !important;
+        padding: 10px;
+    }
+    .content.content-with-sidebar .list-group .grid-medium{
+        width: 100% !important;
+        padding: 10px;
+    }
+    .content.content-with-sidebar .list-group .list .post .post-thumb{
+        width: 100% !important;
+    }
+    .content.content-with-sidebar .list-group .list .post .post-des{
+        width: 100% !important;
+        margin: 0;
+    }
+    /* sidebar */
+    .sidebar .widgetBox .widgetContent .social-links .socialButton{
+        margin-bottom: 10px;
+    }
+    .sidebar .widgetBox .widgetContent .advBanner{
+        width: 100%;
+    }
+    /* carousel page 3 */
+    #carouselSlider .item .inner-item .item-title span{
+        bottom: 54px;
     }
 
-    @media only screen and (max-width: 1080px) {
-        body.boxed { width: 100%; }
+    #randomMedia .random-media-head .tabs li a{
+        margin-right: 24px;
+        padding: 17px 0;
+    }
+    .content .main-heading .head-title h4{
+        font-size: 16px;
     }
 
-
-/* #Tablet (Portrait)
-================================================== */
-
-    /* Note: Design for a width of 768px */
-
-    @media only screen and (min-width: 768px) and (max-width: 990px) {
-        .container                                  { width: 768px; }
-        .container .column,
-        .container .columns                         { margin-left: 10px; margin-right: 10px;  }
-        .column.alpha, .columns.alpha               { margin-left: 0; margin-right: 10px; }
-        .column.omega, .columns.omega               { margin-right: 0; margin-left: 10px; }
-        .alpha.omega                                { margin-left: 0; margin-right: 0; }
-
-        .container .one.column,
-        .container .one.columns                     { width: 28px; }
-        .container .two.columns                     { width: 76px; }
-        .container .three.columns                   { width: 124px; }
-        .container .four.columns                    { width: 172px; }
-        .container .five.columns                    { width: 220px; }
-        .container .six.columns                     { width: 268px; }
-        .container .seven.columns                   { width: 316px; }
-        .container .eight.columns                   { width: 364px; }
-        .container .nine.columns                    { width: 412px; }
-        .container .ten.columns                     { width: 460px; }
-        .container .eleven.columns                  { width: 508px; }
-        .container .twelve.columns                  { width: 556px; }
-        .container .thirteen.columns                { width: 604px; }
-        .container .fourteen.columns                { width: 652px; }
-        .container .fifteen.columns                 { width: 700px; }
-        .container .sixteen.columns                 { width: 748px; }
-
-        .container .one-third.column                { width: 236px; }
-        .container .two-thirds.column               { width: 492px; }
+    .content.content-with-sidebar .list-group .landing-extra-small{
+        width: 100%;
+        padding-right: 10px;
+    }
+    /* profile */
+    .topProfile .main-text{
+        padding: 45px 0;
+    }
+    .topProfile .profile-stats{
+        position: relative;
+        bottom: 0;
+    }
+    .topProfile .profile-stats .profile-author-img{
+        position: relative;
+        bottom:0;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        margin-bottom: 10px;
+    }
+    .topProfile .profile-stats .profile-subscribe{
+        position: relative;
+        left: 0;
+        top:0;
+        right: 0;
+        margin: 0 auto;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .topProfile .profile-stats .profile-share{
+        position: relative;
+        right: 0;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%);
+    }
+    .topProfile .profile-stats .profile-author-name{
+        margin-left: 0;
+        display: block;
+        float: none !important;
+        text-align: center;
+    }
+    .profile-author-stats.float-right{
+        float: none !important;
+    }
+    .topProfile .profile-stats .profile-author-stats ul{
+        width: 100%;
+        text-align: center;
+        display: block;
+    }
+    .topProfile .profile-stats .profile-author-stats ul li{
+        display: inline-block;
+        height: auto;
+    }
+    .topProfile .profile-stats .profile-author-stats ul li div.icon{
+        width: 100%;
+        float: none !important;
+        display: block;
+    }
+    .topProfile .profile-stats .profile-author-stats ul li div.li-text{
+        padding: 7px 3px;
+        float: none !important;
+        display: block;
+    }
+    .sidebar{
+        margin-top: 50px;
     }
 
+    .comments .comment-box{
+        padding-bottom: 35px;
+    }
+    .comments .comment-box .media-object .comment-img{
+        text-align: left;
+    }
+    .profile-inner .profile-videos .profile-video .media-object .video-img{
+        border: none;
+        width: 100%;
+        height: 100%;
+    }
+    .profile-inner .profile-videos .profile-video .media-object .video-detail .video-stats{
+        width: 100%;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+    .profile-inner .profile-videos .profile-video .media-object .video-btns{
+        width: 100%;
+        text-align: center;
+    }
+    .followers .follower .follower-img{
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        margin-bottom: 10px;
+    }
+    .followers .follower .follower-img img{
+        height: 100px;
+        width: 115px;
+    }
+    .topProfile-inner{
+        padding: 45px 0;
+    }
+    /* single video */
+    .SinglePostStats .media-object .author-des .post-title p{
+        margin-bottom: 10px;
+    }
+    .SinglePostStats .media-object .author-des .post-title p span{
+        margin-right: 10px;
+    }
+    .SinglePostStats .media-object .author-des .subscribe{
+        display: block;
+        float: none !important;
+        text-align: center;
+    }
+    .SinglePostStats .media-object .author-img-sec{
+        border: none;
+    }
+    .SinglePostStats .media-object .author-img-sec p{
+        text-align: left;
+    }
+    .sidebar .widgetBox .widgetContent .media-object .media-object-section .recent-img{
+        height: 100%;
+        width: 100%;
+    }
+    footer .widgetBox{
+        margin-bottom: 10px;
+    }
+    #slider p.ls-l{
+        display: none !important;
+    }
+}
 
-/*  #Mobile (Portrait)
-================================================== */
+@media screen and (max-width: 640px){
+    .topProfile .profile-stats .profile-author-stats ul{
+        width: 100% !important;
+        text-align: center !important;
+        display: block !important;
+    }
+    .topProfile .profile-stats .profile-author-stats ul li{
+        display: inline-block !important;
+        height: auto !important;
+    }
+    .topProfile .profile-stats .profile-author-stats ul li div.icon{
+        width: 100% !important;
+        float: none !important;
+        display: block !important;
+    }
+    .topProfile .profile-stats .profile-author-stats ul li div.li-text{
+        padding: 7px 3px !important;
+        float: none !important;
+        display: block !important;
+    }
+    .topProfile .profile-stats .profile-author-name{
+        top: 87px !important;
+    }
+    .topProfile .profile-stats .profile-share{
+        right: 2% !important;
+    }
+}
+    /* tablet view */
 
-    /* Note: Design for a width of 320px */
-
-    @media only screen and (max-width: 767px) {
-        .container { width: 300px; }
-        .container .columns,
-        .container .column { margin: 0; }
-
-        .container .one.column,
-        .container .one.columns,
-        .container .two.columns,
-        .container .three.columns,
-        .container .four.columns,
-        .container .five.columns,
-        .container .six.columns,
-        .container .seven.columns,
-        .container .eight.columns,
-        .container .nine.columns,
-        .container .ten.columns,
-        .container .eleven.columns,
-        .container .twelve.columns,
-        .container .thirteen.columns,
-        .container .fourteen.columns,
-        .container .fifteen.columns,
-        .container .sixteen.columns,
-        .container .one-third.column,
-        .container .two-thirds.column,
-        .container .twelve.sidebar-right.columns,
-        .container .twelve.sidebar-left.columns,
-        .container .five.sidebar-right.columns,
-        .container .eleven.sidebar-right.columns { width: 300px; }
-
+@media screen and (min-width: 640px) and (max-width: 1024px) {
+    /*nav-bar*/
+    #navBar .topnav .title-bar{
+        background: #fff;
+    }
+    #navBar .topnav .title-bar-dark{
+        background: #444444;
+    }
+    #navBar .topnav .title-bar .menu-icon::after{
+        background: #444444;
+        box-shadow: 0 7px 0 #444, 0 14px 0 #444;
+    }
+    #navBar .topnav .title-bar-dark .menu-icon::after{
+        background: #fff;
+        box-shadow: 0 7px 0 #fff, 0 14px 0 #fff;
+    }
+    #navBar .topnav .title-bar .menu-icon{
+        float: left;
+        display: inline-block;
+        margin-top: 7px;
+    }
+    #navBar .topnav .title-bar .title-bar-title{
+        width: 80%;
+        float: left;
+        text-align: center;
+        display: inline-block;
+    }
+    /* vertical slider */
+    .thumb-slider .main-image{
+        width: 60%;
+    }
+    .thumb-slider .main-image .image{
+        height: 400px;
+    }
+    .thumb-slider .thumbs{
+        width: 40%;
+    }
+    .thumb-slider .thumbs .thumbnails{
+        width: 100%;
+    }
+    .thumbs .thumbnails .ver-thumbnail .item-title span{
+        bottom: 53px;}
+    /* content */
+    .content .list-group .grid-medium{
+        width: 50%;
+    }
+    .content .list-group .list .post .post-thumb{
+        width: 35%;
+    }
+    .content .list-group .list .post .post-des{
+        width: 60%;
+        margin: 0;
+        padding: 10px 0;
+    }
+    /* content with sidebar */
+    .content.content-with-sidebar .list-group .grid-default{
+        width: 50% !important;
+        padding: 10px;
+    }
+    .content.content-with-sidebar .list-group .group-item-grid-default{
+        width: 50% !important;
+        padding: 10px;
+    }
+    .content.content-with-sidebar .list-group .grid-medium{
+        width: 50% !important;
+        padding: 10px;
+    }
+    .content.content-with-sidebar .list-group .list .post .post-thumb{
+        width: 35% !important;
+    }
+    .content.content-with-sidebar .list-group .list .post .post-des{
+        width: 60% !important;
+        margin: 0;
+    }
+    aside .columns:last-child:not(:first-child){
+        float: none !important;
+    }
+    footer .widgetBox{
+        margin-bottom: 10px;
+    }
+    .topProfile .profile-stats .profile-author-img{
+        bottom: 60px;
+    }
+    .topProfile .profile-stats .profile-subscribe{
+        left: 25%;
+    }
+    .topProfile .profile-stats .profile-share{
+        right: 3%;
+    }
+    .topProfile .profile-stats .profile-author-name{
+        position: absolute;
+        left: 28px;
+        top: 36px;
+        margin-left: 0;
+    }
+    .followers .follower .follower-img{
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .followers .follower .follower-img img{
+        width: 100px;
+        height: 115px;
+    }
+    .easy-share span[data-easyshare-total-count],
+    .easy-share span[data-easyshare-button-count]{
+        margin: 0 10px 0 7px;
     }
 
-
-/* #Mobile (Landscape)
-================================================== */
-
-    /* Note: Design for a width of 480px */
-
-    @media only screen and (min-width: 480px) and (max-width: 767px) {
-        .container { width: 420px; }
-        .container .columns,
-        .container .column { margin: 0; }
-
-        .container .one.column,
-        .container .one.columns,
-        .container .two.columns,
-        .container .three.columns,
-        .container .four.columns,
-        .container .five.columns,
-        .container .six.columns,
-        .container .seven.columns,
-        .container .eight.columns,
-        .container .nine.columns,
-        .container .ten.columns,
-        .container .eleven.columns,
-        .container .twelve.columns,
-        .container .thirteen.columns,
-        .container .fourteen.columns,
-        .container .fifteen.columns,
-        .container .sixteen.columns,
-        .container .one-third.column,
-        .container .two-thirds.column,
-        .container .twelve.sidebar-right.columns,
-        .container .twelve.sidebar-left.columns,
-        .container .five.sidebar-right.columns,
-        .container .eleven.sidebar-right.columns { width: 420px; }
+}
+@media screen and (min-width: 320px) and (max-width: 320px){
+    .error-page .error-page-content .error-img .spark{
+        width: 10px !important;
+        right: 21% !important;
+        top: 5px !important;
     }
-
-
-/* #Clearing
-================================================== */
-
-    /* Self Clearing Goodness */
-    .container:after { content: "\0020"; display: block; height: 0; clear: both; visibility: hidden; }
-
-    /* Use clearfix class on parent to clear nested columns,
-    or wrap each row of columns in a <div class="row"> */
-    .clearfix:before,
-    .clearfix:after,
-    .row:before,
-    .row:after {
-      content: '\0020';
-      display: block;
-      overflow: hidden;
-      visibility: hidden;
-      width: 0;
-      height: 0; }
-    .row:after,
-    .clearfix:after {
-      clear: both; }
-    .row,
-    .clearfix {
-      zoom: 1; }
-
-    /* You can also use a <br class="clear" /> to clear columns */
-    .clear {
-      clear: both;
-      display: block;
-      overflow: hidden;
-      visibility: hidden;
-      width: 0;
-      height: 0;
+}
+@media screen and (min-width: 360px) and (max-width: 360px){
+    .error-page .error-page-content .error-img .spark{
+        right: 21% !important;
+        top: 8px !important;
+        width: 12px !important;
     }
+}
+@media screen and (min-width: 480px) and (max-width: 480px){
+    .error-page .error-page-content .error-img .spark{
+        width: 16px !important;
+        right: 21% !important;
+        top: 14px !important;
+    }
+}
+@media screen and (min-width: 640px) and (max-width: 640px){
+    .error-page .error-page-content .error-img .spark{
+        right: 23% !important;
+        top: 21px !important;
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 768px){
+    .error-page .error-page-content .error-img .spark{
+        right: 28% !important;
+    }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1024px){
+    .error-page .error-page-content .error-img .spark{
+        right: 34% !important;
+        top: 22px !important;
+        width: 13px !important;
+    }
+}
