@@ -26,6 +26,14 @@ class User extends CI_Controller {
         $this->load->view('public/page',$data);
 	}
 
+	public function category()
+	{
+		$data['page']='category';
+		$data['page_title']='Category';
+        $this->load->view('public/page',$data);
+	}
+
+
 	public function register(){
 
 		$this->load->library('form_validation');

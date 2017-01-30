@@ -31,7 +31,7 @@
                 <li class="has-submenu" data-dropdown-menu="example1">
                     <a href="#"><i class="fa fa-film"></i>Challenges</a>
                 </li>
-                <li><a href="categories.html"><i class="fa fa-th"></i>Category</a></li>
+                <li><a href="<?php echo site_url('user/category');?>"><i class="fa fa-th"></i>Category</a></li>
                 <li>
                     <a href="#"><i class="fa fa-edit"></i>Blog</a>
                 </li>
@@ -163,7 +163,7 @@
                                             <li class="has-submenu" data-dropdown-menu="example1">
                                                 <a href="#"><i class="fa fa-film"></i>Challenges</a>
                                             </li>
-                                            <li><a href="categories.html"><i class="fa fa-th"></i>Category</a></li>
+                                            <li><a href="<?php echo site_url('user/category');?>"><i class="fa fa-th"></i>Category</a></li>
                                             <li>
                                                 <a href="#"><i class="fa fa-edit"></i>Blog</a>
                                             </li>
