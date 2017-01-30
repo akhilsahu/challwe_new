@@ -89,7 +89,7 @@
                                 <ul class="menu float-right">
                                 	 <?php if($user['txt_email'] != ''){?>
                                     <li>
-                                         <a href="<?php echo site_url('artist/create_post');?>">Upload Video</a>
+                                        <a href="<?php echo site_url('artist/create_post');?>">Upload Video</a>
                                     </li>
                                      <?php }else if($user['txt_email'] == ''){?>
                                     <li class="dropdown-login">

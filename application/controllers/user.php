@@ -19,24 +19,30 @@ class User extends CI_Controller {
         $this->load->view('public/page',$data);
 	}
 
+	public function aboutUs()
+	{
+		$data['page']='aboutUs';
+		$data['page_title']='About Us';
+        $this->load->view('public/page',$data);
+	}
+
 	public function register(){
 
-	$this->load->library('form_validation');
-    $this->form_validation->set_rules('txt_email', 'Email', 'required');
-    $this->form_validation->set_rules('txt_password', 'Password', 'required');
-     if ($this->form_validation->run() == TRUE){
-                $this->Artist_Model->register();
-                $data['page']='home';
-		        $data['page_title']='Home';
-               $this->load->view('public/page',$data);
-       }
-      else
-        {
-         $data['page']='login-register';
-		$data['page_title']='Register';
-        $this->load->view('public/page',$data);
-        }
-		
+		$this->load->library('form_validation');
+	    $this->form_validation->set_rules('txt_email', 'Email', 'required');
+	    $this->form_validation->set_rules('txt_password', 'Password', 'required');
+	    $this->form_validation->set_rules('txt_fname', 'First Name', 'required');
+	    $this->form_validation->set_rules('txt_lname', 'Last Name', 'required');
+		if ($this->form_validation->run() == TRUE){
+			$this->Artist_Model->register();
+			$data['page']='home';
+			$data['page_title']='Home';
+			$this->load->view('public/page',$data);
+		}else{
+			$data['page']='login-register';
+			$data['page_title']='Register';
+			$this->load->view('public/page',$data);
+		}		
 	}
 
 	public function login(){
