@@ -1,14 +1,14 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class User extends CI_Controller {
+class User extends CI_Controller 
+{
 
    
 	public function __construct()
     {
         parent::__construct();
         $this->load->model('Artist_Model');
-
     }
 
 
@@ -32,46 +32,67 @@ class User extends CI_Controller {
 		$data['page_title']='Category';
         $this->load->view('public/page',$data);
 	}
-
-
-	public function register(){
+	
+	public function profile()
+	{
+		$data=$this->session->userdata('user');
+		$data['pro']=$this->Artist_Model->get_profile_detail($data['txt_email']);
+		$data['follow']=$this->Artist_Model->get_all_followers($data['pro'][0]['int_artist_id']);
+		//print_r($data['follow']);exit;
+		$data['page']='profile-followers';
+		$data['page_title']='Profile';
+        $this->load->view('public/page',$data);
+	}
+	
+	
+	public function register()
+	{
 
 		$this->load->library('form_validation');
 	    $this->form_validation->set_rules('txt_email', 'Email', 'required');
 	    $this->form_validation->set_rules('txt_password', 'Password', 'required');
 	    $this->form_validation->set_rules('txt_fname', 'First Name', 'required');
 	    $this->form_validation->set_rules('txt_lname', 'Last Name', 'required');
-		if ($this->form_validation->run() == TRUE){
+		if ($this->form_validation->run() == TRUE)
+		{
 			$this->Artist_Model->register();
 			$data['page']='home';
 			$data['page_title']='Home';
 			$this->load->view('public/page',$data);
-		}else{
+		}
+		else
+		{
 			$data['page']='login-register';
 			$data['page_title']='Register';
 			$this->load->view('public/page',$data);
 		}		
 	}
 
-	public function login(){
+	public function login()
+	{
 		$valid_login =  $this->Artist_Model->login($this->input->post('txt_email'),$this->input->post('txt_password'));
 		//echo"<pre>"; print_r($valid_login); die();
-		if($valid_login){
+		if($valid_login)
+		{
 	   	   $this->session->set_userdata('user',$valid_login);
 		  redirect('User','refresh');
-	   }else{
+		  //$this->load->view('User/profile');
+	   }
+	   else
+	   {
 	   	//echo "usernmae & password wrong ";
         $data['page']='home';
 		$data['page_title']='Home';
         $this->load->view('public/page',$data);
-   }
+       }
 
  }
 
- function logout(){
+ function logout()
+ {
  $this->session->sess_destroy();
  redirect('User','refresh');
-}
+ }
 
 
 
