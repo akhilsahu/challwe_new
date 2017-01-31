@@ -140,7 +140,7 @@
                                         <a class="loginReg" data-toggle="example-dropdown" href="#">login/Register</a>
                                         <div class="login-form">
                                             <h6 class="text-center">Great to have you back!</h6>
-                                            <form method="post" action="User/login">
+                                            <form method="post" action="<?php echo site_url();?>/User/login">
                                                 <div class="input-group">
                                                     <span class="input-group-label"><i class="fa fa-user"></i></span>
                                                     <input class="input-group-field" name="txt_email" type="text" placeholder="Enter username">
@@ -226,7 +226,7 @@
                                             </li>
                                             <li><a href="categories.html"><i class="fa fa-th"></i>category</a></li>
                                             <li>
-                                                <a href="blog.html"><i class="fa fa-edit"></i>blog</a>
+                                                <a href="<?php echo site_url();?>/blog/get_blog"><i class="fa fa-edit"></i>blog</a>
                                                 <ul class="submenu menu vertical" data-submenu data-animate="slide-in-down slide-out-up">
                                                     <li><a href="blog-single-post.html"><i class="fa fa-edit"></i>blog single post</a></li>
                                                 </ul>
