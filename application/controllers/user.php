@@ -4,10 +4,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class User extends CI_Controller {
 
    
-	public function __construct()
+	public function User()
     {
         parent::__construct();
         $this->load->model('Artist_Model');
+        $this->load->model('user_model');
 
     }
 
@@ -23,16 +24,27 @@ class User extends CI_Controller {
 	{
 		$data['page']='aboutUs';
 		$data['page_title']='About Us';
-        $this->load->view('public/page',$data);
+                $this->load->view('public/page',$data);
 	}
 
 	public function category()
 	{
 		$data['page']='category';
 		$data['page_title']='Category';
-        $this->load->view('public/page',$data);
+                $data['category']= $this->user_model->category();
+                $this->load->view('public/page',$data);
+               //print_r($data['category']);exit;
 	}
-
+        public function sub_category($id)
+                
+	{
+            echo $id;die;
+		$data['page']='category';
+		$data['page_title']='Category';
+                $data['sub_cat']= $this->user_model->sub_category($id);
+               // $this->load->view('public/page',$data);
+               print_r($data['sub_cat']);exit;
+	}
 
 	public function register(){
 
