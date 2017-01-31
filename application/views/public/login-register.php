@@ -22,7 +22,7 @@
                                 <div class="medium-6 large-centered medium-centered">
                                     <div class="page-heading text-center">
                                         <h3>User Registeration</h3>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                                        <!--p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p-->
                                     </div>
                                 </div>
                             </div>
@@ -56,9 +56,17 @@
                                 <div class="large-4 medium-6 columns end">
                                     <div class="register-form">
                                         <h5 class="text-center">Create your Account</h5>
-                                        <form method="post" data-abide novalidate>
+                                        <form method="post" data-abide novalidate action="<?php echo site_url('User/register');?>">
                                             <div data-abide-error class="alert callout" style="display: none;">
                                                 <p><i class="fa fa-exclamation-triangle"></i> There are some errors in your form.</p>
+                                            </div>
+                                            <div class="input-group">
+                                                <span class="input-group-label"><i class="fa fa-user"></i></span>
+                                                <input class="input-group-field" name="txt_fname" type="text" placeholder="Enter First Name" required>
+                                            </div>
+                                            <div class="input-group">
+                                                <span class="input-group-label"><i class="fa fa-user"></i></span>
+                                                <input class="input-group-field" name="txt_lname" type="text" placeholder="Enter Last Name" required>
                                             </div>
 
                                             <div class="input-group">

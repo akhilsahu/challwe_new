@@ -1,20 +1,20 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.2
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Jan 30, 2017 at 07:15 AM
--- Server version: 5.5.25a
--- PHP Version: 5.4.4
+-- Host: 127.0.0.1
+-- Generation Time: Jan 31, 2017 at 05:44 PM
+-- Server version: 10.1.13-MariaDB
+-- PHP Version: 5.5.37
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `db_artistweb`
@@ -26,13 +26,12 @@ SET time_zone = "+00:00";
 -- Table structure for table `cities`
 --
 
-CREATE TABLE IF NOT EXISTS `cities` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `cities` (
+  `id` int(11) NOT NULL,
   `name` varchar(30) NOT NULL,
   `state_id` int(11) NOT NULL,
-  `int_is_popular` tinyint(4) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=48315 ;
+  `int_is_popular` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `cities`
@@ -16921,9 +16920,9 @@ INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
 (16876, 'Nadi', 1150, 0),
 (16877, 'Rakiraki', 1150, 0),
 (16878, 'Sigatoka', 1150, 0),
-(16879, 'Tavua', 1150, 0);
+(16879, 'Tavua', 1150, 0),
+(16880, 'Vatukoula', 1150, 0);
 INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
-(16880, 'Vatukoula', 1150, 0),
 (16881, 'Maarianhamina', 1151, 0),
 (16882, 'Imatra', 1152, 0),
 (16883, 'Joutseno', 1152, 0),
@@ -18580,10 +18579,10 @@ INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
 (18534, 'Niederstetten', 1355, 0),
 (18535, 'Niefern-Oschelbronn', 1355, 0),
 (18536, 'NuBloch', 1355, 0),
-(18537, 'Nurtingen', 1355, 0);
-INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
+(18537, 'Nurtingen', 1355, 0),
 (18538, 'Oberhausen-Rheinhausen', 1355, 0),
-(18539, 'Oberkirch', 1355, 0),
+(18539, 'Oberkirch', 1355, 0);
+INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
 (18540, 'Oberndorf', 1355, 0),
 (18541, 'Oberstenfeld', 1355, 0),
 (18542, 'Obersulm', 1355, 0),
@@ -20296,11 +20295,11 @@ INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
 (20249, 'Flensburg', 1396, 0),
 (20250, 'Friedrichstadt', 1396, 0),
 (20251, 'Geesthacht', 1396, 0),
-(20252, 'Glinde', 1396, 0);
-INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
+(20252, 'Glinde', 1396, 0),
 (20253, 'Gluckstadt', 1396, 0),
 (20254, 'Grob Pampau', 1396, 0),
-(20255, 'Halstenbek', 1396, 0),
+(20255, 'Halstenbek', 1396, 0);
+INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
 (20256, 'Hamfelde', 1396, 0),
 (20257, 'Harrislee', 1396, 0),
 (20258, 'Hartenholm', 1396, 0),
@@ -22050,11 +22049,11 @@ INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
 (22002, 'Downpatrick', 1775, 0),
 (22003, 'Dungarvan', 1776, 0),
 (22004, 'Tramore', 1776, 0),
-(22005, 'Waterford', 1776, 0);
-INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
+(22005, 'Waterford', 1776, 0),
 (22006, 'Athlone', 1777, 0),
 (22007, 'Mullingar', 1777, 0),
-(22008, 'Enniscorthy', 1778, 0),
+(22008, 'Enniscorthy', 1778, 0);
+INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
 (22009, 'Gorey', 1778, 0),
 (22010, 'New Ross', 1778, 0),
 (22011, 'Wexford', 1778, 0),
@@ -23697,12 +23696,12 @@ INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
 (23648, 'Marsala', 1880, 0),
 (23649, 'Mascali', 1880, 0),
 (23650, 'Mascalucia', 1880, 0),
-(23651, 'Mazara del Vallo', 1880, 0);
-INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
+(23651, 'Mazara del Vallo', 1880, 0),
 (23652, 'Mazzarino', 1880, 0),
 (23653, 'Melilli', 1880, 0),
 (23654, 'Menfi', 1880, 0),
-(23655, 'Messina', 1880, 0),
+(23655, 'Messina', 1880, 0);
+INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
 (23656, 'Milazzo', 1880, 0),
 (23657, 'Militello in Val di Catania', 1880, 0),
 (23658, 'Misilmeri', 1880, 0),
@@ -25471,12 +25470,12 @@ INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
 (25421, 'Temirtau', 1996, 0),
 (25422, 'Tokaryovka', 1996, 0),
 (25423, 'Arkalik', 1997, 0),
-(25424, 'Borovskoy', 1997, 0);
-INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
+(25424, 'Borovskoy', 1997, 0),
 (25425, 'Cetikara', 1997, 0),
 (25426, 'Derjavinsk', 1997, 0),
 (25427, 'Esil', 1997, 0),
-(25428, 'Fodorov', 1997, 0),
+(25428, 'Fodorov', 1997, 0);
+INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
 (25429, 'Kacar', 1997, 0),
 (25430, 'Komsomol', 1997, 0),
 (25431, 'Kostanay', 1997, 0),
@@ -27224,11 +27223,11 @@ INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
 (27173, 'Innamaadhoo', 2341, 0),
 (27174, 'Kadholhudhoo', 2341, 0),
 (27175, 'Kinolhas', 2341, 0),
-(27176, 'Maakurathu', 2341, 0);
-INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
+(27176, 'Maakurathu', 2341, 0),
 (27177, 'Maduvvari', 2341, 0),
 (27178, 'Meedhoo', 2341, 0),
-(27179, 'Rasgetheemu', 2341, 0),
+(27179, 'Rasgetheemu', 2341, 0);
+INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
 (27180, 'Rasmaadhoo', 2341, 0),
 (27181, 'Ugoofaaru', 2341, 0),
 (27182, 'Vaadhoo', 2341, 0),
@@ -28887,11 +28886,11 @@ INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
 (28835, 'Los Ranchos', 2448, 0),
 (28836, 'Los Reyes de Juarez', 2448, 0),
 (28837, 'Malacatepec', 2448, 0),
-(28838, 'Metlaltoyuca', 2448, 0);
-INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
+(28838, 'Metlaltoyuca', 2448, 0),
 (28839, 'Miahuatlan', 2448, 0),
 (28840, 'Mihuacan', 2448, 0),
-(28841, 'Momoxpan', 2448, 0),
+(28841, 'Momoxpan', 2448, 0);
+INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
 (28842, 'Moyotzingo', 2448, 0),
 (28843, 'Nealtican', 2448, 0),
 (28844, 'Necaxa', 2448, 0),
@@ -30615,11 +30614,11 @@ INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
 (30562, 'Ngaruawahia', 2619, 0),
 (30563, 'Otorohanga', 2619, 0),
 (30564, 'Paeroa', 2619, 0),
-(30565, 'Pukekohe', 2619, 0);
-INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
+(30565, 'Pukekohe', 2619, 0),
 (30566, 'Putaruru', 2619, 0),
 (30567, 'Taupo', 2619, 0),
-(30568, 'Te Aroha', 2619, 0),
+(30568, 'Te Aroha', 2619, 0);
+INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
 (30569, 'Te Awamutu', 2619, 0),
 (30570, 'Te Kuiti', 2619, 0),
 (30571, 'Thames', 2619, 0),
@@ -32392,12 +32391,12 @@ INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
 (32338, 'Opoczno', 2869, 0),
 (32339, 'Ozorkow', 2869, 0),
 (32340, 'Pabianice', 2869, 0),
-(32341, 'Piotrkow Trybunalski', 2869, 0);
-INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
+(32341, 'Piotrkow Trybunalski', 2869, 0),
 (32342, 'Radomsko', 2869, 0),
 (32343, 'Rawa Mazowiecka', 2869, 0),
 (32344, 'Sieradz', 2869, 0),
-(32345, 'Skierniewice', 2869, 0),
+(32345, 'Skierniewice', 2869, 0);
+INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
 (32346, 'Tomaszow Mazowiecki', 2869, 0),
 (32347, 'Tuszyn', 2869, 0),
 (32348, 'Wielun', 2869, 0),
@@ -34143,13 +34142,13 @@ INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
 (34088, 'Castelu', 2948, 0),
 (34089, 'Cerchezu', 2948, 0),
 (34090, 'Cernavoda', 2948, 0),
-(34091, 'Chirnogeni', 2948, 0);
-INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
+(34091, 'Chirnogeni', 2948, 0),
 (34092, 'Ciobanu', 2948, 0),
 (34093, 'Ciocarlia', 2948, 0),
 (34094, 'Cobadin', 2948, 0),
 (34095, 'Cogealac', 2948, 0),
-(34096, 'Comana', 2948, 0),
+(34096, 'Comana', 2948, 0);
+INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
 (34097, 'Constanta', 2948, 0),
 (34098, 'Corbu', 2948, 0),
 (34099, 'Costinesti', 2948, 0),
@@ -35901,13 +35900,13 @@ INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
 (35845, 'Ocnele Mari', 2974, 0),
 (35846, 'Olanu', 2974, 0),
 (35847, 'Orlesti', 2974, 0),
-(35848, 'Otesani', 2974, 0);
-INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
+(35848, 'Otesani', 2974, 0),
 (35849, 'Pausesti', 2974, 0),
 (35850, 'Pausesti-Maglasi', 2974, 0),
 (35851, 'Perisani', 2974, 0),
 (35852, 'Pesceana', 2974, 0),
-(35853, 'Pietrari', 2974, 0),
+(35853, 'Pietrari', 2974, 0);
+INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
 (35854, 'Popesti', 2974, 0),
 (35855, 'Prundeni', 2974, 0),
 (35856, 'Racovita', 2974, 0),
@@ -37644,13 +37643,13 @@ INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
 (37587, 'Pavlovce nad Uhom', 3189, 0),
 (37588, 'Rozhnava', 3189, 0),
 (37589, 'Sechovce', 3189, 0),
-(37590, 'Smizhany', 3189, 0);
-INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
+(37590, 'Smizhany', 3189, 0),
 (37591, 'Sobrance', 3189, 0),
 (37592, 'Strazhske', 3189, 0),
 (37593, 'Trebishov', 3189, 0),
 (37594, 'Vel''ke Kapushany', 3189, 0),
-(37595, 'Vranov', 3189, 0),
+(37595, 'Vranov', 3189, 0);
+INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
 (37596, 'Dvory nad Zhitavou', 3190, 0),
 (37597, 'Hurbanovo', 3190, 0),
 (37598, 'Kolarovo', 3190, 0),
@@ -39348,13 +39347,13 @@ INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
 (39290, 'Biel', 3429, 0),
 (39291, 'Biel-Bienne', 3429, 0),
 (39292, 'Bolligen', 3429, 0),
-(39293, 'Burgdorf', 3429, 0);
-INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
+(39293, 'Burgdorf', 3429, 0),
 (39294, 'Frutigen', 3429, 0),
 (39295, 'Heimberg', 3429, 0),
 (39296, 'Herzogenbuchsee', 3429, 0),
 (39297, 'Huttwil', 3429, 0),
-(39298, 'Interlaken', 3429, 0),
+(39298, 'Interlaken', 3429, 0);
+INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
 (39299, 'Ittigen', 3429, 0),
 (39300, 'Kirchberg', 3429, 0),
 (39301, 'Koniz', 3429, 0),
@@ -41144,14 +41143,14 @@ INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
 (41085, 'Edremit', 3742, 0),
 (41086, 'Ercis', 3742, 0),
 (41087, 'Gevas', 3742, 0),
-(41088, 'Gurpinar', 3742, 0);
-INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
+(41088, 'Gurpinar', 3742, 0),
 (41089, 'Muradiye', 3742, 0),
 (41090, 'Ozalp', 3742, 0),
 (41091, 'Saray', 3742, 0),
 (41092, 'Van', 3742, 0),
 (41093, 'Altinova', 3743, 0),
-(41094, 'Armutlu', 3743, 0),
+(41094, 'Armutlu', 3743, 0);
+INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
 (41095, 'Ciftlikkoy', 3743, 0),
 (41096, 'Cinarcik', 3743, 0),
 (41097, 'Termal', 3743, 0),
@@ -42860,14 +42859,14 @@ INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
 (42800, 'Agoura Hills', 3924, 0),
 (42801, 'Aguanga', 3924, 0),
 (42802, 'Alameda', 3924, 0),
-(42803, 'Alamo', 3924, 0);
-INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
+(42803, 'Alamo', 3924, 0),
 (42804, 'Albany', 3924, 0),
 (42805, 'Alhambra', 3924, 0),
 (42806, 'Aliso Viejo', 3924, 0),
 (42807, 'Alondra Park', 3924, 0),
 (42808, 'Alpine', 3924, 0),
-(42809, 'Alta Loma', 3924, 0),
+(42809, 'Alta Loma', 3924, 0);
+INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
 (42810, 'Altadena', 3924, 0),
 (42811, 'American Canyon', 3924, 0),
 (42812, 'Anaheim', 3924, 0),
@@ -44546,14 +44545,14 @@ INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
 (44485, 'Williams', 3935, 0),
 (44486, 'Altoona', 3936, 0),
 (44487, 'Ames', 3936, 0),
-(44488, 'Ankeny', 3936, 0);
-INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
+(44488, 'Ankeny', 3936, 0),
 (44489, 'Bettendorf', 3936, 0),
 (44490, 'Boone', 3936, 0),
 (44491, 'Burlington', 3936, 0),
 (44492, 'Carroll', 3936, 0),
 (44493, 'Cedar Falls', 3936, 0),
-(44494, 'Cedar Rapids', 3936, 0),
+(44494, 'Cedar Rapids', 3936, 0);
+INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
 (44495, 'Clarinda', 3936, 0),
 (44496, 'Clinton', 3936, 0),
 (44497, 'Clive', 3936, 0),
@@ -46248,14 +46247,14 @@ INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
 (46186, 'Wyncote', 3963, 0),
 (46187, 'Wyndmoor', 3963, 0),
 (46188, 'Wynnewood', 3963, 0),
-(46189, 'Yardley', 3963, 0);
-INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
+(46189, 'Yardley', 3963, 0),
 (46190, 'Yeadon', 3963, 0),
 (46191, 'York', 3963, 0),
 (46192, 'Ramey', 3964, 0),
 (46193, 'Adamsville', 3969, 0),
 (46194, 'Alcoa', 3969, 0),
-(46195, 'Antioch', 3969, 0),
+(46195, 'Antioch', 3969, 0);
+INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
 (46196, 'Arlington', 3969, 0),
 (46197, 'Athens', 3969, 0),
 (46198, 'Bartlett', 3969, 0),
@@ -47981,13 +47980,13 @@ INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
 (47918, 'Evans', 3956, 0),
 (47919, 'Fallsburg', 3956, 0),
 (47920, 'Farmingdale', 3956, 0),
-(47921, 'Farmington', 3956, 0);
-INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
+(47921, 'Farmington', 3956, 0),
 (47922, 'Fishkill', 3956, 0),
 (47923, 'Floral Park', 3956, 0),
 (47924, 'Fredonia', 3956, 0),
 (47925, 'Freeport', 3956, 0),
-(47926, 'Fulton', 3956, 0),
+(47926, 'Fulton', 3956, 0);
+INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
 (47927, 'Garden City', 3956, 0),
 (47928, 'Gates', 3956, 0),
 (47929, 'Geddes', 3956, 0),
@@ -48383,12 +48382,11 @@ INSERT INTO `cities` (`id`, `name`, `state_id`, `int_is_popular`) VALUES
 -- Table structure for table `countries`
 --
 
-CREATE TABLE IF NOT EXISTS `countries` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `countries` (
+  `id` int(11) NOT NULL,
   `sortname` varchar(3) NOT NULL,
-  `name` varchar(150) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=247 ;
+  `name` varchar(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `countries`
@@ -48645,8 +48643,8 @@ INSERT INTO `countries` (`id`, `sortname`, `name`) VALUES
 -- Table structure for table `payments`
 --
 
-CREATE TABLE IF NOT EXISTS `payments` (
-  `payment_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `payments` (
+  `payment_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `txn_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -48654,9 +48652,8 @@ CREATE TABLE IF NOT EXISTS `payments` (
   `currency_code` varchar(5) COLLATE utf8_unicode_ci NOT NULL,
   `payer_email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `payment_status` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `dt_payment_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`payment_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+  `dt_payment_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `payments`
@@ -48671,12 +48668,11 @@ INSERT INTO `payments` (`payment_id`, `user_id`, `product_id`, `txn_id`, `paymen
 -- Table structure for table `states`
 --
 
-CREATE TABLE IF NOT EXISTS `states` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `states` (
+  `id` int(11) NOT NULL,
   `name` varchar(30) NOT NULL,
-  `country_id` int(11) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4121 ;
+  `country_id` int(11) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `states`
@@ -52809,13 +52805,12 @@ INSERT INTO `states` (`id`, `name`, `country_id`) VALUES
 -- Table structure for table `tab_album`
 --
 
-CREATE TABLE IF NOT EXISTS `tab_album` (
-  `int_album_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tab_album` (
+  `int_album_id` int(11) NOT NULL,
   `txt_name` varchar(255) NOT NULL,
   `int_artist_id` int(11) NOT NULL,
-  `slug` varchar(25) NOT NULL,
-  PRIMARY KEY (`int_album_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+  `slug` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tab_album`
@@ -52830,8 +52825,8 @@ INSERT INTO `tab_album` (`int_album_id`, `txt_name`, `int_artist_id`, `slug`) VA
 -- Table structure for table `tab_artists`
 --
 
-CREATE TABLE IF NOT EXISTS `tab_artists` (
-  `int_artist_id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tab_artists` (
+  `int_artist_id` bigint(20) NOT NULL,
   `txt_fname` varchar(50) DEFAULT NULL,
   `txt_lname` varchar(50) DEFAULT NULL,
   `int_gender` tinyint(4) NOT NULL,
@@ -52862,9 +52857,8 @@ CREATE TABLE IF NOT EXISTS `tab_artists` (
   `int_skill2` int(11) NOT NULL,
   `int_skill3` int(11) NOT NULL,
   `int_skill4` int(11) NOT NULL,
-  `int_skill5` int(11) NOT NULL,
-  PRIMARY KEY (`int_artist_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+  `int_skill5` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tab_artists`
@@ -52882,16 +52876,15 @@ INSERT INTO `tab_artists` (`int_artist_id`, `txt_fname`, `txt_lname`, `int_gende
 -- Table structure for table `tab_artist_business`
 --
 
-CREATE TABLE IF NOT EXISTS `tab_artist_business` (
-  `int_business_id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tab_artist_business` (
+  `int_business_id` bigint(20) NOT NULL,
   `txt_name` varchar(255) DEFAULT NULL,
   `txt_description` text,
   `txt_reg_city` varchar(100) DEFAULT NULL,
   `int_registered_year` int(11) DEFAULT NULL,
   `txt_website` varchar(255) DEFAULT NULL,
-  `int_artist_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`int_business_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+  `int_artist_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tab_artist_business`
@@ -52908,13 +52901,12 @@ INSERT INTO `tab_artist_business` (`int_business_id`, `txt_name`, `txt_descripti
 -- Table structure for table `tab_artist_links`
 --
 
-CREATE TABLE IF NOT EXISTS `tab_artist_links` (
-  `int_unique_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tab_artist_links` (
+  `int_unique_id` int(11) NOT NULL,
   `int_artist_id` int(11) NOT NULL,
   `txt_title` varchar(100) NOT NULL,
-  `txt_url` varchar(255) NOT NULL,
-  PRIMARY KEY (`int_unique_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `txt_url` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -52922,14 +52914,13 @@ CREATE TABLE IF NOT EXISTS `tab_artist_links` (
 -- Table structure for table `tab_artist_media`
 --
 
-CREATE TABLE IF NOT EXISTS `tab_artist_media` (
-  `int_media_id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tab_artist_media` (
+  `int_media_id` bigint(20) NOT NULL,
   `txt_path` varchar(255) DEFAULT NULL,
   `int_artist_id` int(11) DEFAULT NULL,
   `int_type` int(11) DEFAULT NULL,
-  `int_album_id` int(11) NOT NULL,
-  PRIMARY KEY (`int_media_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+  `int_album_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tab_artist_media`
@@ -52945,13 +52936,12 @@ INSERT INTO `tab_artist_media` (`int_media_id`, `txt_path`, `int_artist_id`, `in
 -- Table structure for table `tab_artist_views`
 --
 
-CREATE TABLE IF NOT EXISTS `tab_artist_views` (
-  `int_unique_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tab_artist_views` (
+  `int_unique_id` int(11) NOT NULL,
   `int_artist_id` int(11) NOT NULL,
   `dt_date` date NOT NULL,
-  `int_no_of_views` int(11) NOT NULL,
-  PRIMARY KEY (`int_unique_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+  `int_no_of_views` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tab_artist_views`
@@ -52967,8 +52957,8 @@ INSERT INTO `tab_artist_views` (`int_unique_id`, `int_artist_id`, `dt_date`, `in
 -- Table structure for table `tab_blogs`
 --
 
-CREATE TABLE IF NOT EXISTS `tab_blogs` (
-  `int_blog_id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tab_blogs` (
+  `int_blog_id` bigint(20) NOT NULL,
   `int_media_type` int(11) DEFAULT NULL,
   `txt_media_url` varchar(255) DEFAULT NULL,
   `txt_title` varchar(255) DEFAULT NULL,
@@ -52978,9 +52968,8 @@ CREATE TABLE IF NOT EXISTS `tab_blogs` (
   `int_source` int(11) DEFAULT NULL,
   `int_is_active` tinyint(4) NOT NULL,
   `dt_created_on` date NOT NULL,
-  `int_is_publish` tinyint(4) NOT NULL,
-  PRIMARY KEY (`int_blog_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+  `int_is_publish` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tab_blogs`
@@ -52993,18 +52982,44 @@ INSERT INTO `tab_blogs` (`int_blog_id`, `int_media_type`, `txt_media_url`, `txt_
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tab_catagories`
+--
+
+CREATE TABLE `tab_catagories` (
+  `int_catagory_id` bigint(20) NOT NULL,
+  `txt_title` varchar(100) DEFAULT NULL,
+  `txt_description` varchar(225) DEFAULT NULL,
+  `txt_logo` varchar(225) DEFAULT NULL,
+  `int_sub_catagory` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tab_catagories`
+--
+
+INSERT INTO `tab_catagories` (`int_catagory_id`, `txt_title`, `txt_description`, `txt_logo`, `int_sub_catagory`) VALUES
+(1, 'Entertainment', 'Entertainment is essential for entertainment.', 'assets\\images\\category\\category1.png', 0),
+(4, 'Technology', 'Techincal data', 'assets\\images\\category\\category2.png', 0),
+(5, 'Fashion & Beauty', 'Latest Fashion And Beauty Tips', 'assets\\images\\category\\category4.png', 0),
+(6, 'Sports & Recreation', 'Football-Volleyball-Cricket', 'assets\\images\\category\\category5.png', 0),
+(7, 'Drama', 'Drama is fun', 'assets\\images\\category\\category3.png', 1),
+(9, 'movie', 'movie movie', 'assets\\images\\category\\category6.png', 1),
+(10, 'Adventure', 'assets\\ima', 'assets\\images\\category\\category6.png', 0);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tab_comments`
 --
 
-CREATE TABLE IF NOT EXISTS `tab_comments` (
-  `int_comment_id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tab_comments` (
+  `int_comment_id` bigint(20) NOT NULL,
   `txt_comment` text,
   `int_blog_id` int(11) DEFAULT NULL,
   `int_user_id` int(11) DEFAULT NULL,
   `int_source` int(11) DEFAULT NULL,
-  `dt_created_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`int_comment_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+  `dt_created_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tab_comments`
@@ -53022,8 +53037,8 @@ INSERT INTO `tab_comments` (`int_comment_id`, `txt_comment`, `int_blog_id`, `int
 -- Table structure for table `tab_contest`
 --
 
-CREATE TABLE IF NOT EXISTS `tab_contest` (
-  `int_contest_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tab_contest` (
+  `int_contest_id` int(11) NOT NULL,
   `txt_contest_name` varchar(255) NOT NULL,
   `txt_contest_description` text NOT NULL,
   `int_skill1` int(11) DEFAULT NULL,
@@ -53040,9 +53055,8 @@ CREATE TABLE IF NOT EXISTS `tab_contest` (
   `int_winner1` int(11) NOT NULL,
   `int_winner2` int(11) NOT NULL,
   `int_winner3` int(11) NOT NULL,
-  `txt_attachements` varchar(500) NOT NULL,
-  PRIMARY KEY (`int_contest_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+  `txt_attachements` varchar(500) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tab_contest`
@@ -53066,14 +53080,13 @@ INSERT INTO `tab_contest` (`int_contest_id`, `txt_contest_name`, `txt_contest_de
 -- Table structure for table `tab_contest_comments`
 --
 
-CREATE TABLE IF NOT EXISTS `tab_contest_comments` (
-  `int_comment_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tab_contest_comments` (
+  `int_comment_id` int(11) NOT NULL,
   `int_artist_id` int(11) NOT NULL,
   `int_submission_id` int(11) NOT NULL,
   `txt_comment` varchar(500) NOT NULL,
-  `dt_commented_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`int_comment_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
+  `dt_commented_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tab_contest_comments`
@@ -53100,17 +53113,16 @@ INSERT INTO `tab_contest_comments` (`int_comment_id`, `int_artist_id`, `int_subm
 -- Table structure for table `tab_contest_submit`
 --
 
-CREATE TABLE IF NOT EXISTS `tab_contest_submit` (
-  `int_unique_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tab_contest_submit` (
+  `int_unique_id` int(11) NOT NULL,
   `int_artist_id` int(11) NOT NULL,
   `int_contest_id` int(11) NOT NULL,
   `int_status` tinyint(4) NOT NULL,
   `dt_submited_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `txt_description` text NOT NULL,
   `txt_attachments` varchar(500) NOT NULL,
-  `int_votes` int(11) NOT NULL,
-  PRIMARY KEY (`int_unique_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+  `int_votes` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tab_contest_submit`
@@ -53126,12 +53138,11 @@ INSERT INTO `tab_contest_submit` (`int_unique_id`, `int_artist_id`, `int_contest
 -- Table structure for table `tab_contest_vote`
 --
 
-CREATE TABLE IF NOT EXISTS `tab_contest_vote` (
-  `int_unique_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tab_contest_vote` (
+  `int_unique_id` int(11) NOT NULL,
   `int_submission_id` int(11) NOT NULL,
-  `int_artist_id` int(11) NOT NULL,
-  PRIMARY KEY (`int_unique_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+  `int_artist_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tab_contest_vote`
@@ -53146,14 +53157,13 @@ INSERT INTO `tab_contest_vote` (`int_unique_id`, `int_submission_id`, `int_artis
 -- Table structure for table `tab_fields`
 --
 
-CREATE TABLE IF NOT EXISTS `tab_fields` (
-  `int_field_id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tab_fields` (
+  `int_field_id` bigint(20) NOT NULL,
   `txt_field_name` varchar(100) DEFAULT NULL,
   `int_is_active` tinyint(4) NOT NULL,
   `txt_description` text NOT NULL,
-  `txt_cover_image` varchar(150) NOT NULL,
-  PRIMARY KEY (`int_field_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=39 ;
+  `txt_cover_image` varchar(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tab_fields`
@@ -53202,12 +53212,11 @@ INSERT INTO `tab_fields` (`int_field_id`, `txt_field_name`, `int_is_active`, `tx
 -- Table structure for table `tab_follow`
 --
 
-CREATE TABLE IF NOT EXISTS `tab_follow` (
-  `int_unique_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tab_follow` (
+  `int_unique_id` int(11) NOT NULL,
   `int_follower_id` int(11) NOT NULL,
-  `int_following_id` int(11) NOT NULL,
-  PRIMARY KEY (`int_unique_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+  `int_following_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tab_follow`
@@ -53224,13 +53233,12 @@ INSERT INTO `tab_follow` (`int_unique_id`, `int_follower_id`, `int_following_id`
 -- Table structure for table `tab_invites`
 --
 
-CREATE TABLE IF NOT EXISTS `tab_invites` (
-  `int_unique_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tab_invites` (
+  `int_unique_id` int(11) NOT NULL,
   `int_artist_id` int(11) NOT NULL,
   `int_contest_id` int(11) NOT NULL,
-  `int_status` tinyint(4) NOT NULL,
-  PRIMARY KEY (`int_unique_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+  `int_status` tinyint(4) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tab_invites`
@@ -53246,14 +53254,13 @@ INSERT INTO `tab_invites` (`int_unique_id`, `int_artist_id`, `int_contest_id`, `
 -- Table structure for table `tab_media_comments`
 --
 
-CREATE TABLE IF NOT EXISTS `tab_media_comments` (
-  `int_comment_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tab_media_comments` (
+  `int_comment_id` int(11) NOT NULL,
   `int_artist_id` int(11) NOT NULL,
   `int_media_id` int(11) NOT NULL,
   `txt_comment` varchar(500) NOT NULL,
-  `dt_commented_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`int_comment_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+  `dt_commented_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tab_media_comments`
@@ -53272,8 +53279,8 @@ INSERT INTO `tab_media_comments` (`int_comment_id`, `int_artist_id`, `int_media_
 -- Table structure for table `tab_post`
 --
 
-CREATE TABLE IF NOT EXISTS `tab_post` (
-  `int_post_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tab_post` (
+  `int_post_id` int(11) NOT NULL,
   `txt_title` varchar(255) NOT NULL,
   `txt_description` text NOT NULL,
   `txt_filepath` varchar(255) NOT NULL,
@@ -53281,9 +53288,8 @@ CREATE TABLE IF NOT EXISTS `tab_post` (
   `dt_created_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `int_privacy` tinyint(4) NOT NULL,
   `int_status` tinyint(4) NOT NULL,
-  `int_post_type` tinyint(4) NOT NULL,
-  PRIMARY KEY (`int_post_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+  `int_post_type` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tab_post`
@@ -53301,14 +53307,13 @@ INSERT INTO `tab_post` (`int_post_id`, `txt_title`, `txt_description`, `txt_file
 -- Table structure for table `tab_post_comments`
 --
 
-CREATE TABLE IF NOT EXISTS `tab_post_comments` (
-  `int_comment_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tab_post_comments` (
+  `int_comment_id` int(11) NOT NULL,
   `int_artist_id` int(11) NOT NULL,
   `int_post_id` int(11) NOT NULL,
   `txt_comment` varchar(500) NOT NULL,
-  `dt_commented_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`int_comment_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `dt_commented_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -53316,8 +53321,8 @@ CREATE TABLE IF NOT EXISTS `tab_post_comments` (
 -- Table structure for table `tab_profile_preferances`
 --
 
-CREATE TABLE IF NOT EXISTS `tab_profile_preferances` (
-  `int_unique_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tab_profile_preferances` (
+  `int_unique_id` int(11) NOT NULL,
   `int_email` tinyint(4) NOT NULL,
   `int_dob` tinyint(4) NOT NULL,
   `int_place_of_birth` tinyint(4) NOT NULL,
@@ -53330,9 +53335,8 @@ CREATE TABLE IF NOT EXISTS `tab_profile_preferances` (
   `int_hourly_charge` tinyint(4) NOT NULL,
   `int_roles` tinyint(4) NOT NULL,
   `int_artist_id` int(4) NOT NULL,
-  `int_gender` tinyint(4) NOT NULL,
-  PRIMARY KEY (`int_unique_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+  `int_gender` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tab_profile_preferances`
@@ -53347,13 +53351,12 @@ INSERT INTO `tab_profile_preferances` (`int_unique_id`, `int_email`, `int_dob`, 
 -- Table structure for table `tab_settings`
 --
 
-CREATE TABLE IF NOT EXISTS `tab_settings` (
-  `int_unique_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tab_settings` (
+  `int_unique_id` int(11) NOT NULL,
   `txt_meta_key` varchar(50) NOT NULL,
   `txt_meta_value` varchar(255) NOT NULL,
-  `txt_lable` varchar(50) NOT NULL,
-  PRIMARY KEY (`int_unique_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+  `txt_lable` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tab_settings`
@@ -53374,8 +53377,8 @@ INSERT INTO `tab_settings` (`int_unique_id`, `txt_meta_key`, `txt_meta_value`, `
 -- Table structure for table `tab_users`
 --
 
-CREATE TABLE IF NOT EXISTS `tab_users` (
-  `int_user_id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tab_users` (
+  `int_user_id` bigint(20) NOT NULL,
   `txt_fname` varchar(100) DEFAULT NULL,
   `txt_lname` varchar(100) NOT NULL,
   `txt_email` varchar(255) DEFAULT NULL,
@@ -53387,9 +53390,8 @@ CREATE TABLE IF NOT EXISTS `tab_users` (
   `int_user_type` tinyint(4) NOT NULL,
   `txt_user_type_code` varchar(15) NOT NULL,
   `int_is_active` tinyint(4) NOT NULL,
-  `txt_activation_code` varchar(50) NOT NULL,
-  PRIMARY KEY (`int_user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+  `txt_activation_code` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tab_users`
@@ -53404,12 +53406,11 @@ INSERT INTO `tab_users` (`int_user_id`, `txt_fname`, `txt_lname`, `txt_email`, `
 -- Table structure for table `tab_user_type`
 --
 
-CREATE TABLE IF NOT EXISTS `tab_user_type` (
-  `int_unique_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tab_user_type` (
+  `int_unique_id` int(11) NOT NULL,
   `txt_name` varchar(30) NOT NULL,
-  `txt_code` varchar(15) NOT NULL,
-  PRIMARY KEY (`int_unique_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+  `txt_code` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tab_user_type`
@@ -53426,13 +53427,12 @@ INSERT INTO `tab_user_type` (`int_unique_id`, `txt_name`, `txt_code`) VALUES
 -- Table structure for table `tab_visitor_log`
 --
 
-CREATE TABLE IF NOT EXISTS `tab_visitor_log` (
-  `int_visitor_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tab_visitor_log` (
+  `int_visitor_id` int(11) NOT NULL,
   `txt_ip` varchar(25) NOT NULL,
   `int_counter` int(11) NOT NULL,
-  `ts_last_visit` datetime NOT NULL,
-  PRIMARY KEY (`int_visitor_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+  `ts_last_visit` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tab_visitor_log`
@@ -53441,6 +53441,322 @@ CREATE TABLE IF NOT EXISTS `tab_visitor_log` (
 INSERT INTO `tab_visitor_log` (`int_visitor_id`, `txt_ip`, `int_counter`, `ts_last_visit`) VALUES
 (1, '::1', 19, '2017-01-29 12:39:55');
 
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `cities`
+--
+ALTER TABLE `cities`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `countries`
+--
+ALTER TABLE `countries`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `payments`
+--
+ALTER TABLE `payments`
+  ADD PRIMARY KEY (`payment_id`);
+
+--
+-- Indexes for table `states`
+--
+ALTER TABLE `states`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tab_album`
+--
+ALTER TABLE `tab_album`
+  ADD PRIMARY KEY (`int_album_id`);
+
+--
+-- Indexes for table `tab_artists`
+--
+ALTER TABLE `tab_artists`
+  ADD PRIMARY KEY (`int_artist_id`);
+
+--
+-- Indexes for table `tab_artist_business`
+--
+ALTER TABLE `tab_artist_business`
+  ADD PRIMARY KEY (`int_business_id`);
+
+--
+-- Indexes for table `tab_artist_links`
+--
+ALTER TABLE `tab_artist_links`
+  ADD PRIMARY KEY (`int_unique_id`);
+
+--
+-- Indexes for table `tab_artist_media`
+--
+ALTER TABLE `tab_artist_media`
+  ADD PRIMARY KEY (`int_media_id`);
+
+--
+-- Indexes for table `tab_artist_views`
+--
+ALTER TABLE `tab_artist_views`
+  ADD PRIMARY KEY (`int_unique_id`);
+
+--
+-- Indexes for table `tab_blogs`
+--
+ALTER TABLE `tab_blogs`
+  ADD PRIMARY KEY (`int_blog_id`);
+
+--
+-- Indexes for table `tab_catagories`
+--
+ALTER TABLE `tab_catagories`
+  ADD PRIMARY KEY (`int_catagory_id`);
+
+--
+-- Indexes for table `tab_comments`
+--
+ALTER TABLE `tab_comments`
+  ADD PRIMARY KEY (`int_comment_id`);
+
+--
+-- Indexes for table `tab_contest`
+--
+ALTER TABLE `tab_contest`
+  ADD PRIMARY KEY (`int_contest_id`);
+
+--
+-- Indexes for table `tab_contest_comments`
+--
+ALTER TABLE `tab_contest_comments`
+  ADD PRIMARY KEY (`int_comment_id`);
+
+--
+-- Indexes for table `tab_contest_submit`
+--
+ALTER TABLE `tab_contest_submit`
+  ADD PRIMARY KEY (`int_unique_id`);
+
+--
+-- Indexes for table `tab_contest_vote`
+--
+ALTER TABLE `tab_contest_vote`
+  ADD PRIMARY KEY (`int_unique_id`);
+
+--
+-- Indexes for table `tab_fields`
+--
+ALTER TABLE `tab_fields`
+  ADD PRIMARY KEY (`int_field_id`);
+
+--
+-- Indexes for table `tab_follow`
+--
+ALTER TABLE `tab_follow`
+  ADD PRIMARY KEY (`int_unique_id`);
+
+--
+-- Indexes for table `tab_invites`
+--
+ALTER TABLE `tab_invites`
+  ADD PRIMARY KEY (`int_unique_id`);
+
+--
+-- Indexes for table `tab_media_comments`
+--
+ALTER TABLE `tab_media_comments`
+  ADD PRIMARY KEY (`int_comment_id`);
+
+--
+-- Indexes for table `tab_post`
+--
+ALTER TABLE `tab_post`
+  ADD PRIMARY KEY (`int_post_id`);
+
+--
+-- Indexes for table `tab_post_comments`
+--
+ALTER TABLE `tab_post_comments`
+  ADD PRIMARY KEY (`int_comment_id`);
+
+--
+-- Indexes for table `tab_profile_preferances`
+--
+ALTER TABLE `tab_profile_preferances`
+  ADD PRIMARY KEY (`int_unique_id`);
+
+--
+-- Indexes for table `tab_settings`
+--
+ALTER TABLE `tab_settings`
+  ADD PRIMARY KEY (`int_unique_id`);
+
+--
+-- Indexes for table `tab_users`
+--
+ALTER TABLE `tab_users`
+  ADD PRIMARY KEY (`int_user_id`);
+
+--
+-- Indexes for table `tab_user_type`
+--
+ALTER TABLE `tab_user_type`
+  ADD PRIMARY KEY (`int_unique_id`);
+
+--
+-- Indexes for table `tab_visitor_log`
+--
+ALTER TABLE `tab_visitor_log`
+  ADD PRIMARY KEY (`int_visitor_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `cities`
+--
+ALTER TABLE `cities`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48315;
+--
+-- AUTO_INCREMENT for table `countries`
+--
+ALTER TABLE `countries`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=247;
+--
+-- AUTO_INCREMENT for table `payments`
+--
+ALTER TABLE `payments`
+  MODIFY `payment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `states`
+--
+ALTER TABLE `states`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4121;
+--
+-- AUTO_INCREMENT for table `tab_album`
+--
+ALTER TABLE `tab_album`
+  MODIFY `int_album_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `tab_artists`
+--
+ALTER TABLE `tab_artists`
+  MODIFY `int_artist_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `tab_artist_business`
+--
+ALTER TABLE `tab_artist_business`
+  MODIFY `int_business_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `tab_artist_links`
+--
+ALTER TABLE `tab_artist_links`
+  MODIFY `int_unique_id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `tab_artist_media`
+--
+ALTER TABLE `tab_artist_media`
+  MODIFY `int_media_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `tab_artist_views`
+--
+ALTER TABLE `tab_artist_views`
+  MODIFY `int_unique_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `tab_blogs`
+--
+ALTER TABLE `tab_blogs`
+  MODIFY `int_blog_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `tab_catagories`
+--
+ALTER TABLE `tab_catagories`
+  MODIFY `int_catagory_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+--
+-- AUTO_INCREMENT for table `tab_comments`
+--
+ALTER TABLE `tab_comments`
+  MODIFY `int_comment_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `tab_contest`
+--
+ALTER TABLE `tab_contest`
+  MODIFY `int_contest_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+--
+-- AUTO_INCREMENT for table `tab_contest_comments`
+--
+ALTER TABLE `tab_contest_comments`
+  MODIFY `int_comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+--
+-- AUTO_INCREMENT for table `tab_contest_submit`
+--
+ALTER TABLE `tab_contest_submit`
+  MODIFY `int_unique_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `tab_contest_vote`
+--
+ALTER TABLE `tab_contest_vote`
+  MODIFY `int_unique_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `tab_fields`
+--
+ALTER TABLE `tab_fields`
+  MODIFY `int_field_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+--
+-- AUTO_INCREMENT for table `tab_follow`
+--
+ALTER TABLE `tab_follow`
+  MODIFY `int_unique_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT for table `tab_invites`
+--
+ALTER TABLE `tab_invites`
+  MODIFY `int_unique_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `tab_media_comments`
+--
+ALTER TABLE `tab_media_comments`
+  MODIFY `int_comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `tab_post`
+--
+ALTER TABLE `tab_post`
+  MODIFY `int_post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `tab_post_comments`
+--
+ALTER TABLE `tab_post_comments`
+  MODIFY `int_comment_id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `tab_profile_preferances`
+--
+ALTER TABLE `tab_profile_preferances`
+  MODIFY `int_unique_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `tab_settings`
+--
+ALTER TABLE `tab_settings`
+  MODIFY `int_unique_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT for table `tab_users`
+--
+ALTER TABLE `tab_users`
+  MODIFY `int_user_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `tab_user_type`
+--
+ALTER TABLE `tab_user_type`
+  MODIFY `int_unique_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `tab_visitor_log`
+--
+ALTER TABLE `tab_visitor_log`
+  MODIFY `int_visitor_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
