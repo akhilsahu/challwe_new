@@ -149,20 +149,21 @@
                                 <div class="row column head-text clearfix">
                                     <h4 class="pull-left"><i class="fa fa-users"></i>Followers</h4>
                                 </div>
-								<?php foreach($follow as $fol){ ?>
+								
                                 <div class="row collapse">
+								<?php foreach($follow as $fol){ ?>
                                     <div class="large-2 small-6 medium-3 columns">
                                         <div class="follower">
-                                            <div class="follower-img">
+                                            <div class="follower-img" >
                                                 <img src="<?php echo base_url().$fol['txt_profile_image']; ?>" alt="followers">
                                             </div>
                                             <span><?php echo $fol['txt_fname'].' '.$fol['txt_lname']; ?></span>
                                             <button type="submit" name="follow">Subscribe</button>
                                         </div>
                                     </div>
-                                    
+                                    <?php } ?>
                                 </div>
-								<?php } ?>
+								
                             </div>
                             <div class="show-more-inner text-center">
                                 <a href="#" class="show-more-btn">show more</a>

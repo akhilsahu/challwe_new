@@ -36,9 +36,10 @@
 	  
 	  function get_all_followers($user_id)
 	{
-		$abc="select tab1.txt_profile_image,tab1.txt_fname,tab1.txt_lname from tab_artists as tab1 left join tab_follow as tab2 on tab2.int_following_id=tab1.int_artist_id where tab2.int_follower_id=$user_id"; 
+		$abc="select tab1.txt_profile_image,tab1.txt_fname,tab1.txt_lname from tab_artists as tab1 left join tab_follow as tab2 on tab2.int_follower_id=tab1.int_artist_id where tab2.int_following_id=$user_id"; 
 		$query=$this->db->query($abc);
 		$result=$query->result_array();
+		//print_r($result);die;
 		return $result;
 	}
 	  
