@@ -33,7 +33,7 @@
                 </li>
                 <li><a href="<?php echo site_url('user/category');?>"><i class="fa fa-th"></i>Category</a></li>
                 <li>
-                    <a href="#"><i class="fa fa-edit"></i>Blog</a>
+                    <a href="<?php echo site_url('Blog/get_blog');?>"><i class="fa fa-edit"></i>Blog</a>
                 </li>
                 <li><a href="#"><i class="fa fa-th"></i>Profile</a></li>
                 <li><a href="<?php echo site_url();?>/user/aboutUs"><i class="fa fa-user"></i>About Us</a></li>
@@ -165,7 +165,7 @@
                                             </li>
                                             <li><a href="<?php echo site_url('user/category');?>"><i class="fa fa-th"></i>Category</a></li>
                                             <li>
-                                                <a href="#"><i class="fa fa-edit"></i>Blog</a>
+                                                <a href="<?php echo site_url('Blog/get_blog');?>"><i class="fa fa-edit"></i>Blog</a>
                                             </li>
                                             <li><a href="#"><i class="fa fa-th"></i>Profile</a></li>
                                             <li><a href="<?php echo site_url();?>/user/aboutUs"><i class="fa fa-user"></i>About Us</a></li>
