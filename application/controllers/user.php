@@ -29,11 +29,13 @@ class User extends CI_Controller {
 
 	public function category()
 	{
+            //$data=array();
 		$data['page']='category';
 		$data['page_title']='Category';
-                $data['category']= $this->user_model->category();
+                $data['cat']= $this->user_model->category();
                 $this->load->view('public/page',$data);
                //print_r($data['category']);exit;
+               //print_r($data);die;
 	}
         public function sub_category($id)
                 
