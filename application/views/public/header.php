@@ -181,7 +181,7 @@
                                         <input type="search" name="search" placeholder="Seach Here your video">
                                     </div>
                                     <div class="search-btn float-right text-right">
-                                        <button class="button" name="search" type="submit">search now</button>
+                                        <button class="button" name="search" type="submit">Search now</button>
                                     </div>
                                 </form>
                             </div>
