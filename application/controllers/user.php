@@ -88,21 +88,13 @@ class User extends CI_Controller {
 		$this->load->view('public/page',$data);
 	}
      
-	 function addcomment()
-	 {
-		 $data=$this->input->post();
-		 
-		$com=$this->session->userdata('user');
-		
-		$data=$this->Artist_Model->addcomment($data);
-		
-		//$data['pro'] = $this->Artist_Model->get_profile_detail($com['txt_email']);
-		//print_r($data['pro'][0]['int_artist_id']);exit;
-		//$user_id=$data['id'];
-		$data['page']='profile';
-		$data['page_title']='profile';
-		$this->load->view('public/page',$data);
-	 }
+	 public function add_comment()
+	{
+		$abc=$this->input->post('comment');
+		//print_r($data);exit;
+		$data['details']=$this->Artist_Model->add_comment($abc);
+		echo json_encode($data['details']);		
+	}
     
 }
 ?>

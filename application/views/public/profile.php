@@ -1,7 +1,4 @@
-<?php
 
-
-?>
  <section id="breadcrumb">
                 <div class="row">
                     <div class="large-12 columns">
@@ -663,6 +660,7 @@
                                     <h4 class="pull-left"><i class="fa fa-users"></i>Followers</h4>
                                 </div>
                                 <div class="row collapse">
+								
                                     <div class="large-2 small-6 medium-3 columns">
                                         <div class="follower">
                                             <div class="follower-img">
@@ -745,11 +743,11 @@
                                             <h6><a href="#"><?php echo $pro[0]['txt_fname']; ?></a></h6>
                                         </div>
                                         <div class="media-object-section comment-textarea">
-                                            <form method="post" action="<?php echo site_url(); ?>/User/addcomment" >
-                                                <textarea name="commentText" placeholder="Add a comment here.."></textarea>
+                                            <form method="post" action="" >
+                                                <textarea name="commentText" id="commentText" placeholder="Add a comment here.."></textarea>
 												<input type='hidden' name='parent_id' value="0" id='parent_id' />
 												
-                                                <input type="submit" name="submit" value="send">
+                                                <input type="button" name="submit" id="submit" onclick="addcomment()" value="send"/>
                                             </form>
                                         </div>
                                     </div>
@@ -940,7 +938,7 @@
                                             <li class="clearfix"><a href="profile-about-me.html"><i class="fa fa-user"></i>about me</a></li>
                                             <li class="clearfix"><a href="profile-video.html"><i class="fa fa-video-camera"></i>Videos <span class="float-right">36</span></a></li>
                                             <li class="clearfix"><a href="profile-favorite.html"><i class="fa fa-heart"></i>Favorite Videos<span class="float-right">50</span></a></li>
-                                            <li class="clearfix"><a href="profile-followers.html"><i class="fa fa-users"></i>Followers<span class="float-right">6</span></a></li>
+                                            <li class="clearfix"><a href="<?php echo site_url();?>/user/"><i class="fa fa-users"></i>Followers<span class="float-right">6</span></a></li>
                                             <li class="clearfix"><a href="profile-comments.html"><i class="fa fa-comments-o"></i>comments<span class="float-right">26</span></a></li>
                                             <li class="clearfix"><a href="profile-settings.html"><i class="fa fa-gears"></i>Profile Settings</a></li>
                                             <li class="clearfix"><a href="home-v1.html"><i class="fa fa-sign-out"></i>Logout</a></li>
@@ -1222,3 +1220,37 @@
                 </div><!-- end sidebar -->
             </div>
 
+<script type="text/javascript">
+function addcomment(){
+  
+
+  var subject=$('#commentText').val().trim();
+			
+			jQuery.ajax({
+				type:'POST',
+				url:"<?php echo site_url().'/user/add_comment/'?>",
+				data:
+				{  
+				    'comment':subject
+				},
+				success:function(data)
+			{
+				if(data)
+				{
+				var obj=JSON.parse(data);
+				//alert(obj);
+				$("#commentText").val(obj.txt_comment);
+				
+				}
+				else
+				{
+					alert("Data not Recieved");
+				}
+			},
+			error:function(response)
+			{
+				alert("failure");
+			},
+		});
+}
+</script>

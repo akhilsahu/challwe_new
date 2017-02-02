@@ -7,7 +7,8 @@
   	$data = array('txt_email' => $this->input->post('txt_email'),
                    'txt_password' => md5($this->input->post('txt_password')),
                    'txt_fname' => $this->input->post('txt_fname'),
-                   'txt_lname' => $this->input->post('txt_lname')
+                   'txt_lname' => $this->input->post('txt_lname'),
+				   'int_phone_no' =>$this->input->post('int_number')
                    );
   $this->db->insert('tab_artists',$data);         
   }
@@ -49,18 +50,18 @@
 	 //print_r($q);exit;
       }
  
-      function addcomment($data)
-    {
-		$com=$this->session->userdata('user');
-		$comment=$data['commentText'];
-		$sql="insert into tab_pcomm values(Default,'$comment','".$com['int_artist_id']."','')";
-		
-		$result=$this->db->query($sql);
-	 
-	  
-	  
-  
+       public function add_comment($abc)
+ {
+	 $data=$this->session->userdata('user');
+	 $pqr=$data['int_artist_id'];
+	
+     $sql="insert into tab_pcomm values(Default,'$abc','$pqr','')";
+	 $result=$this->db->query($sql);
+	 return $result;
+
       }
+	  
+	  
 	  function get_all()
     {
         $query = $this->db->get('tab_pcomm');
