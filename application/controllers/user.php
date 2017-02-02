@@ -7,13 +7,16 @@ class User extends CI_Controller {
 	public function __construct()
     {
         parent::__construct();
+		//echo "hii"; exit;
         $this->load->model('Artist_Model');
+		
 
     }
 
 
 	public function index()
 	{
+		
 		$data['page']='home';
 		$data['page_title']='Home';
         $this->load->view('public/page',$data);
@@ -54,6 +57,8 @@ class User extends CI_Controller {
 	}
 
 	public function login(){
+		
+		 //echo "hii";exit;
 		$valid_login =  $this->Artist_Model->login($this->input->post('txt_email'),$this->input->post('txt_password'));
 		//echo"<pre>"; print_r($valid_login); die();
 		if($valid_login){
@@ -73,6 +78,31 @@ class User extends CI_Controller {
  redirect('User','refresh');
 }
 
-
-
+   function profile()
+	{
+		$data=$this->session->userdata('user');
+		$data['pro'] = $this->Artist_Model->get_profile_detail($data['txt_email']);
+		//print_r($data['pro']);exit;
+		$data['page']='profile';
+		$data['page_title']='profile';
+		$this->load->view('public/page',$data);
+	}
+     
+	 function addcomment()
+	 {
+		 $data=$this->input->post();
+		 
+		$com=$this->session->userdata('user');
+		
+		$data=$this->Artist_Model->addcomment($data);
+		
+		//$data['pro'] = $this->Artist_Model->get_profile_detail($com['txt_email']);
+		//print_r($data['pro'][0]['int_artist_id']);exit;
+		//$user_id=$data['id'];
+		$data['page']='profile';
+		$data['page_title']='profile';
+		$this->load->view('public/page',$data);
+	 }
+    
 }
+?>
