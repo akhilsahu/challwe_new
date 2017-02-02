@@ -32,14 +32,14 @@
                     </div>
                 </div>
                 <div id="owl-demo" class="owl-carousel carousel" data-car-length="4" data-items="4" data-loop="true" data-nav="false" data-autoplay="true" data-autoplay-timeout="3000" data-dots="false" data-auto-width="false" data-responsive-small="1" data-responsive-medium="2" data-responsive-xlarge="5">
-                   <?php foreach($category as $cate){ ?>
+                   <?php foreach($cat['category'] as $cate){ if($cate['is_premium']==1) { ?>
                     <div class="item">
                       
                         <figure class="premium-img">
-                            <img src="<?php echo base_url($cate['txt_logo']) ;?>" alt="carousel">
+                            <img src="<?php echo base_url($cate['txt_logo'])  ;?>" alt="">
                             <figcaption>
-                                <h5>ICE Age 5 upcoming Movie</h5>
-                                <p>Movies Trailer</p>
+                                <h5><?php echo $cate['txt_title'];?></h5>
+                                <p><?php echo $cate['txt_description'];?></p>
                             </figcaption>
                         </figure>
                        
@@ -47,7 +47,7 @@
                            <span><i class="fa fa-play"></i>Watch Video</span>
                         </a>
                     </div>
-                     <?php } ?>
+                   <?php }} ?>
                     
                 </div>
             </section><!-- End Premium Videos -->
@@ -932,37 +932,22 @@
                                         <div class="widgetContent">
                                             <ul class="accordion" data-accordion>
                                                
-                                            <?php    foreach($category as $val) {
+                                            <?php    foreach($cat['category'] as $val) {
                                                         
                                                 ?>
                                                 <li class="accordion-item" data-accordion-item>
-                                                    <a href="<?php echo site_url();?>/user/sub_category/<?php echo $val['int_catagory_id'];?>" class="accordion-title"><?php echo $val['txt_title'] ;?></a>
+                                                    <a href="#" class="accordion-title"><?php echo $val['txt_title'] ;?></a>
                                                     <div class="accordion-content" data-tab-content>
                                                        <ul>
+                                                           <?php foreach($cat['sub_category']as $sub_cat)   { 
+                                                               if($val['int_catagory_id']==$sub_cat['int_sub_catagory'])
+                                                               { ?>
                                                            <li class="clearfix">
                                                                <i class="fa fa-play-circle-o"></i>
-                                                               <a href="#">Movies <span>(10)</span></a>
+                                                               <a href="#"><?php echo $sub_cat['txt_title']; ?> <span>(10)</span></a>
                                                            </li>
-                                                           <li>
-                                                               <i class="fa fa-play-circle-o"></i>
-                                                               <a href="#">Trailers <span>(3)</span></a>
-                                                           </li>
-                                                           <li>
-                                                               <i class="fa fa-play-circle-o"></i>
-                                                               <a href="#">Comedy <span>(6)</span></a>
-                                                           </li>
-                                                           <li>
-                                                               <i class="fa fa-play-circle-o"></i>
-                                                               <a href="#">Musics <span>(8)</span></a>
-                                                           </li>
-                                                           <li>
-                                                               <i class="fa fa-play-circle-o"></i>
-                                                               <a href="#">Animations <span>(10)</span></a>
-                                                           </li>
-                                                           <li>
-                                                               <i class="fa fa-play-circle-o"></i>
-                                                               <a href="#">Dramas <span>(5)</span></a>
-                                                           </li>
+                                                           <?php }} ?>
+                                                           
                                                        </ul>
                                                     </div>
                                                 </li>
