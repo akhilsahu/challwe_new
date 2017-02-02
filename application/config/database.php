@@ -100,7 +100,7 @@ $db['default'] = array(
 $db['default']['hostname'] = 'localhost';
 $db['default']['username'] = 'root';
 $db['default']['password'] = '';
-$db['default']['database'] = 'db_challwe';
+$db['default']['database'] = 'db_artistweb';
 $db['default']['dbdriver'] = 'mysql';
 
 
@@ -113,7 +113,7 @@ $db['default']['dbdriver'] = 'mysql';
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
-	'db_debug' => (ENVIRONMENT !== 'production'),
+	'db_debug' => (ENVIRONMENT !== 'developement'),
 	'cache_on' => FALSE,
 	'cachedir' => '',
 	'char_set' => 'utf8',

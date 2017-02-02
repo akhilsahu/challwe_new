@@ -7,6 +7,7 @@ class User extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Artist_Model');
+        $this->load->model('user_model');
     }
 
 
@@ -28,7 +29,7 @@ class User extends CI_Controller
 	{
 		$data['page']='category';
 		$data['page_title']='Category';
-                $data['category']= $this->user_model->category();
+                $data['cat']= $this->user_model->category();
                 $this->load->view('public/page',$data);
                //print_r($data['category']);exit;
 	}
@@ -47,7 +48,7 @@ class User extends CI_Controller
 	{
             
 		$data=$this->session->userdata('user');
-                die;
+                //print_r($data);die;
 		$data['pro']=$this->Artist_Model->get_profile_detail($data['txt_email']);
                 
 		$data['follow']=$this->Artist_Model->get_all_followers($data['pro'][0]['int_artist_id']);
@@ -83,8 +84,10 @@ class User extends CI_Controller
 
 	public function login()
 	{
+            
 		$valid_login =  $this->Artist_Model->login($this->input->post('txt_email'),$this->input->post('txt_password'));
 		//echo"<pre>"; print_r($valid_login); die();
+                //echo "login";die;
 		if($valid_login)
 		{
 	   	   $this->session->set_userdata('user',$valid_login);
@@ -105,6 +108,17 @@ class User extends CI_Controller
  {
  $this->session->sess_destroy();
  redirect('User','refresh');
+ }
+ function  view_profile($id)
+ {  
+     $user=$this->session->userdata('user');
+     //echo $user['int_artist_id'];die;
+     //echo $this->session['int_artist_id'];die;
+     $data['page']='view_profile';
+     $data['pro']=$this->Artist_Model->profile_view($id);
+    $this->load->view('public/page',$data);
+   //print_r($data);
+     
  }
 
 
