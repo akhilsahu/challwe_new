@@ -14,7 +14,7 @@
 
   public function login($email,$password)
   {
-      $this->db->select('txt_email,txt_password');
+      $this->db->select('int_artist_id,txt_email,txt_password');
       $q=$this->db->where(['txt_email'=>$email,'txt_password'=>md5($password)])
                   ->get('tab_artists');
       if($q->num_rows())

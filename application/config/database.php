@@ -100,7 +100,7 @@ $db['default'] = array(
 $db['default']['hostname'] = 'localhost';
 $db['default']['username'] = 'root';
 $db['default']['password'] = '';
-$db['default']['database'] = 'db_artistweb';
+$db['default']['database'] = 'db_challwe';
 $db['default']['dbdriver'] = 'mysql';
 
 
