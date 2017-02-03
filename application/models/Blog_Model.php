@@ -18,8 +18,9 @@
 					return $this->db->update("tab_blogs",$data);   
   }
  public function comments($id){
-	   $q=$this->db->query("select * from tab_comments where int_blog_id=$id");
-	return $q = $q->result_array();
+	$q=$this->db->query("select * from tab_comments where int_blog_id=$id");
+	return $q=$q->result_array();
+        
   }
    }
 ?>
