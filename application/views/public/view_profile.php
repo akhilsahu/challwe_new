@@ -248,7 +248,7 @@
                                                         <video src="<?php echo base_url().$video['txt_filepath'];?>" alt="new video" ></video>
                                                         <a href="#" class="hover-posts">
                                                             <span><i class="fa fa-play"></i>Watch Video</span>
-                                                        </a>
+                                                        </a> 
                                                         <div class="video-stats clearfix">
                                                             <div class="thumb-stats pull-left">
                                                                 <h6>HD</h6>
