@@ -55,8 +55,8 @@ class User extends CI_Controller {
 	    $this->form_validation->set_rules('txt_lname', 'Last Name', 'required');
 		if ($this->form_validation->run() == TRUE){
 			$this->Artist_Model->register();
-			$data['page']='home';
-			$data['page_title']='Home';
+			$data['page']='registration_success';
+			$data['page_title']='Success';
 			$this->load->view('public/page',$data);
 		}else{
 			$data['page']='login-register';
