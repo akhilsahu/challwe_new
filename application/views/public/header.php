@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="<?php echo base_url();?>assets/css/owl.carousel.min.css">
     <link rel="stylesheet" href="<?php echo base_url();?>assets/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="<?php echo base_url();?>assets/css/responsive.css">
+	<script src="<?php echo base_url();?>assets/bower_components/jquery/dist/jquery.js"></script>
+	<script src="<?php echo base_url(); ?>js/jquery-2.2.4.min.js"></script>
 </head>
 <body>
 <div class="off-canvas-wrapper">
@@ -33,9 +35,9 @@
                 </li>
                 <li><a href="<?php echo site_url('user/category');?>"><i class="fa fa-th"></i>Category</a></li>
                 <li>
-                    <a href="<?php echo site_url('Blog/get_blog');?>"><i class="fa fa-edit"></i>Blog</a>
+                    <a href="#"><i class="fa fa-edit"></i>Blog</a>
                 </li>
-                <li><a href="#"><i class="fa fa-th"></i>Profile</a></li>
+                <li><a href="<?php echo site_url();?>/user/profile"><i class="fa fa-th"></i>Profile</a></li>
                 <li><a href="<?php echo site_url();?>/user/aboutUs"><i class="fa fa-user"></i>About Us</a></li>
                 <li><a href="#"><i class="fa fa-envelope"></i>Contact</a></li>
             </ul>
@@ -165,9 +167,9 @@
                                             </li>
                                             <li><a href="<?php echo site_url('user/category');?>"><i class="fa fa-th"></i>Category</a></li>
                                             <li>
-                                                <a href="<?php echo site_url('Blog/get_blog');?>"><i class="fa fa-edit"></i>Blog</a>
+                                                <a href="#"><i class="fa fa-edit"></i>Blog</a>
                                             </li>
-                                            <li><a href="#"><i class="fa fa-th"></i>Profile</a></li>
+                                            <li><a href="<?php echo site_url();?>/user/profile"><i class="fa fa-th"></i>Profile</a></li>
                                             <li><a href="<?php echo site_url();?>/user/aboutUs"><i class="fa fa-user"></i>About Us</a></li>
                                             <li><a href="#"><i class="fa fa-envelope"></i>Contact</a></li>
                                         </ul>
@@ -181,7 +183,7 @@
                                         <input type="search" name="search" placeholder="Seach Here your video">
                                     </div>
                                     <div class="search-btn float-right text-right">
-                                        <button class="button" name="search" type="submit">search now</button>
+                                        <button class="button" name="search" type="submit">Search now</button>
                                     </div>
                                 </form>
                             </div>
