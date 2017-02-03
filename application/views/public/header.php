@@ -37,7 +37,9 @@
                 <li>
                     <a href="<?php echo site_url('Blog/get_blog');?>"><i class="fa fa-edit"></i>Blog</a>
                 </li>
+                <?php if($user['txt_email'] != ''){?>
                 <li><a href="<?php echo site_url();?>/user/profile"><i class="fa fa-th"></i>Profile</a></li>
+                <?php } ?>
                 <li><a href="<?php echo site_url();?>/user/aboutUs"><i class="fa fa-user"></i>About Us</a></li>
                 <li><a href="#"><i class="fa fa-envelope"></i>Contact</a></li>
             </ul>
@@ -169,7 +171,9 @@
                                             <li>
                                                 <a href="<?php echo site_url('Blog/get_blog');?>"><i class="fa fa-edit"></i>Blog</a>
                                             </li>
+                                            <?php if($user['txt_email'] != ''){?>
                                             <li><a href="<?php echo site_url();?>/user/profile"><i class="fa fa-th"></i>Profile</a></li>
+                                            <?php }?>
                                             <li><a href="<?php echo site_url();?>/user/aboutUs"><i class="fa fa-user"></i>About Us</a></li>
                                             <li><a href="#"><i class="fa fa-envelope"></i>Contact</a></li>
                                         </ul>

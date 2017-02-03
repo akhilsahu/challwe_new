@@ -21,7 +21,7 @@
                 <div class="row">
                     <div class="heading clearfix">
                         <div class="large-11 columns">
-                            <h4><i class="fa fa-play-circle-o"></i>Premium Videos</h4>
+                            <h4><i class="fa fa-play-circle-o"></i>Premium Categories</h4>
                         </div>
                         <div class="large-1 columns">
                             <div class="navText show-for-large">
@@ -32,7 +32,7 @@
                     </div>
                 </div>
                 <div id="owl-demo" class="owl-carousel carousel" data-car-length="4" data-items="4" data-loop="true" data-nav="false" data-autoplay="true" data-autoplay-timeout="3000" data-dots="false" data-auto-width="false" data-responsive-small="1" data-responsive-medium="2" data-responsive-xlarge="5">
-                   <?php foreach($cat['category'] as $cate){ if($cate['is_premium']==1) { ?>
+                   <?php foreach($cat['category'] as $cate){ if($cate['int_is_premium']==1) { ?>
                     <div class="item">
                       
                         <figure class="premium-img">
@@ -939,12 +939,12 @@
                                                     <a href="#" class="accordion-title"><?php echo $val['txt_title'] ;?></a>
                                                     <div class="accordion-content" data-tab-content>
                                                        <ul>
-                                                           <?php foreach($cat['sub_category']as $sub_cat)   { 
+                                                           <?php foreach($cat['sub_category'] as $sub_cat)   { 
                                                                if($val['int_catagory_id']==$sub_cat['int_sub_catagory'])
                                                                { ?>
                                                            <li class="clearfix">
                                                                <i class="fa fa-play-circle-o"></i>
-                                                               <a href="#"><?php echo $sub_cat['txt_title']; ?> <span>(10)</span></a>
+                                                               <a href="#"><?php echo $sub_cat['txt_title']; ?> <!--span>(10)</span--></a>
                                                            </li>
                                                            <?php }} ?>
                                                            
@@ -963,44 +963,6 @@
                                 </div>
 
 
-
-                                <!-- social Fans Widget -->
-                                <div class="large-12 medium-7 medium-centered columns">
-                                    <div class="widgetBox">
-                                        <div class="widgetTitle">
-                                            <h5>social fans</h5>
-                                        </div>
-                                        <div class="widgetContent">
-                                            <div class="social-links">
-                                                <a class="socialButton" href="#">
-                                                    <i class="fa fa-facebook"></i>
-                                                    <span>698K</span>
-                                                    <span>fans</span>
-                                                </a>
-                                                <a class="socialButton" href="#">
-                                                    <i class="fa fa-twitter"></i>
-                                                    <span>598</span>
-                                                    <span>followers</span>
-                                                </a>
-                                                <a class="socialButton" href="#">
-                                                    <i class="fa fa-google-plus"></i>
-                                                    <span>98k</span>
-                                                    <span>followers</span>
-                                                </a>
-                                                <a class="socialButton" href="#">
-                                                    <i class="fa fa-youtube"></i>
-                                                    <span>168k</span>
-                                                    <span>followers</span>
-                                                </a>
-                                                <a class="socialButton" href="#">
-                                                    <i class="fa fa-vimeo"></i>
-                                                    <span>498</span>
-                                                    <span>followers</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div><!-- End social Fans Widget -->
 
                                 <!-- slide video -->
                                 <div class="large-12 medium-7 medium-centered columns">
