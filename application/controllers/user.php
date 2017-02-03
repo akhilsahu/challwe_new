@@ -119,7 +119,18 @@ class User extends CI_Controller
     $this->load->view('public/page',$data);
    //print_r($data);
      
+
+	  function add_comment()
+	{
+		$abc=$this->input->post('comment');
+		//print_r($data);exit;
+		$data['details']=$this->Artist_Model->add_comment($abc);
+		echo json_encode($data['details']);		
+	}
+    
+
  }
+
 
 
 

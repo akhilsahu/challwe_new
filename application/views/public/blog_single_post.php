@@ -141,13 +141,14 @@
                                                     <img src= "images/post-author-post.png" alt="comment">
                                                 </div>
                                             </div>
+                                            <?php foreach($comments as $comment){ ?>
                                             <div class="media-object-section comment-desc">
                                                 <div class="comment-title">
                                                     <span class="name"><a href="#"><?php //echo $ ?></a> Said:</span>
                                                     <span class="time float-right"><i class="fa fa-clock-o"></i>1 minute ago</span>
                                                 </div>
                                                 <div class="comment-text">
-                                                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventoresunt explicabo.</p>
+                                                    <p><?php echo $comment['txt_comment']; ?></p>
                                                 </div>
                                                 <div class="comment-btns">
                                                     <span><a href="#"><i class="fa fa-thumbs-o-up"></i></a> | <a href="#"><i class="fa fa-thumbs-o-down"></i></a></span>
@@ -203,6 +204,7 @@
                                                 </div><!-- end sub comment -->
 
                                             </div>
+                                            <?php }?>
                                         </div>
 
                                         <div class="media-object stack-for-small">

@@ -73,6 +73,10 @@
                                                 <span class="input-group-label"><i class="fa fa-envelope"></i></span>
                                                 <input class="input-group-field" name="txt_email" type="email" placeholder="Enter your email" required>
                                             </div>
+											<div class="input-group">
+                                                <span class="input-group-label"><i class="fa fa-mobile"></i></span>
+                                                <input class="input-group-field" name="int_number" type="number" placeholder="Enter your phone number" required>
+                                            </div>
 
                                             <div class="input-group">
                                                 <span class="input-group-label"><i class="fa fa-lock"></i></span>
