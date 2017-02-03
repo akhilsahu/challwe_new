@@ -76,7 +76,7 @@
                                                 <i class="fa fa-video-camera"></i>
                                             </div>
                                             <div class="li-text float-left">
-                                                <p class="number-text">36</p>
+                                                <p class="number-text"><?php echo count($pro['video']); ?></p>
                                                 <span>Videos</span>
                                             </div>
                                         </li>
@@ -103,7 +103,7 @@
                                                 <i class="fa fa-comments-o"></i>
                                             </div>
                                             <div class="li-text float-left">
-                                                <p class="number-text">26</p>
+                                                <p class="number-text"><?php echo count($pro['comment']); ?></p>
                                                 <span>comments</span>
                                             </div>
                                         </li>
@@ -169,12 +169,12 @@
                                 <div class="tabs-content" data-tabs-content="newVideos">
                                     <div class="tabs-panel is-active" id="new-all">
                                         <div class="row list-group">
-
+                                                <?php foreach($pro['video'] as $video) { ?>
                                             <div class="item large-4 medium-6 columns group-item-grid-default">
                                                 <div class="post thumb-border">
                                                     <div class="post-thumb">
-                                                        <img src="<?php echo base_url(); ?>assets/images/video-thumbnail/3.jpg" alt="new video">
-                                                        <a href="#" class="hover-posts">
+                                                        <video src="<?php echo base_url().$video['txt_filepath'];?>" alt="new video" controls></video>
+                                                       <a href="#" class="hover-posts">
                                                             <span><i class="fa fa-play"></i>Watch Video</span>
                                                         </a>
                                                         <div class="video-stats clearfix">
@@ -191,15 +191,15 @@
                                                         </div>
                                                     </div>
                                                     <div class="post-des">
-                                                        <h6><a href="#">There are many variations of passage.</a></h6>
+                                                        <h6><a href="#"><?php echo $video['txt_title']; ?></a></h6>
                                                         <div class="post-stats clearfix">
                                                             <p class="pull-left">
                                                                 <i class="fa fa-user"></i>
-                                                                <span><a href="#">admin</a></span>
+                                                                <span><a href="#"><?php echo $video['txt_fname']; ?></a></span>
                                                             </p>
                                                             <p class="pull-left">
                                                                 <i class="fa fa-clock-o"></i>
-                                                                <span>5 January 16</span>
+                                                                <span><?php echo $video['dt_created_on']; ?></span>
                                                             </p>
                                                             <p class="pull-left">
                                                                 <i class="fa fa-eye"></i>
@@ -207,7 +207,7 @@
                                                             </p>
                                                         </div>
                                                         <div class="post-summary">
-                                                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+                                                            <p><?php echo $video['txt_description']; ?></p>
                                                         </div>
                                                         <div class="post-button">
                                                             <a href="#" class="secondary-button"><i class="fa fa-play-circle"></i>watch video</a>
@@ -215,231 +215,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="item large-4 medium-6 columns group-item-grid-default">
-                                                <div class="post thumb-border">
-                                                    <div class="post-thumb">
-                                                        <img src="<?php echo base_url(); ?>assets/images/video-thumbnail/4.jpg" alt="new video">
-                                                        <a href="#" class="hover-posts">
-                                                            <span><i class="fa fa-play"></i>Watch Video</span>
-                                                        </a>
-                                                        <div class="video-stats clearfix">
-                                                            <div class="thumb-stats pull-left">
-                                                                <h6>HD</h6>
-                                                            </div>
-                                                            <div class="thumb-stats pull-left">
-                                                                <i class="fa fa-heart"></i>
-                                                                <span>506</span>
-                                                            </div>
-                                                            <div class="thumb-stats pull-right">
-                                                                <span>05:56</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="post-des">
-                                                        <h6><a href="#">There are many variations of passage.</a></h6>
-                                                        <div class="post-stats clearfix">
-                                                            <p class="pull-left">
-                                                                <i class="fa fa-user"></i>
-                                                                <span><a href="#">admin</a></span>
-                                                            </p>
-                                                            <p class="pull-left">
-                                                                <i class="fa fa-clock-o"></i>
-                                                                <span>5 January 16</span>
-                                                            </p>
-                                                            <p class="pull-left">
-                                                                <i class="fa fa-eye"></i>
-                                                                <span>1,862K</span>
-                                                            </p>
-                                                        </div>
-                                                        <div class="post-summary">
-                                                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-                                                        </div>
-                                                        <div class="post-button">
-                                                            <a href="#" class="secondary-button"><i class="fa fa-play-circle"></i>watch video</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item large-4 medium-6 columns group-item-grid-default">
-                                                <div class="post thumb-border">
-                                                    <div class="post-thumb">
-                                                        <img src="<?php echo base_url(); ?>assets/images/video-thumbnail/5.jpg" alt="new video">
-                                                        <a href="#" class="hover-posts">
-                                                            <span><i class="fa fa-play"></i>Watch Video</span>
-                                                        </a>
-                                                        <div class="video-stats clearfix">
-                                                            <div class="thumb-stats pull-left">
-                                                                <h6>HD</h6>
-                                                            </div>
-                                                            <div class="thumb-stats pull-left">
-                                                                <i class="fa fa-heart"></i>
-                                                                <span>506</span>
-                                                            </div>
-                                                            <div class="thumb-stats pull-right">
-                                                                <span>05:56</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="post-des">
-                                                        <h6><a href="#">There are many variations of passage.</a></h6>
-                                                        <div class="post-stats clearfix">
-                                                            <p class="pull-left">
-                                                                <i class="fa fa-user"></i>
-                                                                <span><a href="#">admin</a></span>
-                                                            </p>
-                                                            <p class="pull-left">
-                                                                <i class="fa fa-clock-o"></i>
-                                                                <span>5 January 16</span>
-                                                            </p>
-                                                            <p class="pull-left">
-                                                                <i class="fa fa-eye"></i>
-                                                                <span>1,862K</span>
-                                                            </p>
-                                                        </div>
-                                                        <div class="post-summary">
-                                                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-                                                        </div>
-                                                        <div class="post-button">
-                                                            <a href="#" class="secondary-button"><i class="fa fa-play-circle"></i>watch video</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item large-4 medium-6 columns group-item-grid-default">
-                                                <div class="post thumb-border">
-                                                    <div class="post-thumb">
-                                                        <img src="<?php echo base_url(); ?>assets/images/video-thumbnail/6.jpg" alt="new video">
-                                                        <a href="#" class="hover-posts">
-                                                            <span><i class="fa fa-play"></i>Watch Video</span>
-                                                        </a>
-                                                        <div class="video-stats clearfix">
-                                                            <div class="thumb-stats pull-left">
-                                                                <h6>HD</h6>
-                                                            </div>
-                                                            <div class="thumb-stats pull-left">
-                                                                <i class="fa fa-heart"></i>
-                                                                <span>506</span>
-                                                            </div>
-                                                            <div class="thumb-stats pull-right">
-                                                                <span>05:56</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="post-des">
-                                                        <h6><a href="#">There are many variations of passage.</a></h6>
-                                                        <div class="post-stats clearfix">
-                                                            <p class="pull-left">
-                                                                <i class="fa fa-user"></i>
-                                                                <span><a href="#">admin</a></span>
-                                                            </p>
-                                                            <p class="pull-left">
-                                                                <i class="fa fa-clock-o"></i>
-                                                                <span>5 January 16</span>
-                                                            </p>
-                                                            <p class="pull-left">
-                                                                <i class="fa fa-eye"></i>
-                                                                <span>1,862K</span>
-                                                            </p>
-                                                        </div>
-                                                        <div class="post-summary">
-                                                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-                                                        </div>
-                                                        <div class="post-button">
-                                                            <a href="#" class="secondary-button"><i class="fa fa-play-circle"></i>watch video</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item large-4 medium-6 columns group-item-grid-default">
-                                                <div class="post thumb-border">
-                                                    <div class="post-thumb">
-                                                        <img src="<?php echo base_url(); ?>assets/images/video-thumbnail/7.jpg" alt="new video">
-                                                        <a href="#" class="hover-posts">
-                                                            <span><i class="fa fa-play"></i>Watch Video</span>
-                                                        </a>
-                                                        <div class="video-stats clearfix">
-                                                            <div class="thumb-stats pull-left">
-                                                                <h6>HD</h6>
-                                                            </div>
-                                                            <div class="thumb-stats pull-left">
-                                                                <i class="fa fa-heart"></i>
-                                                                <span>506</span>
-                                                            </div>
-                                                            <div class="thumb-stats pull-right">
-                                                                <span>05:56</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="post-des">
-                                                        <h6><a href="#">There are many variations of passage.</a></h6>
-                                                        <div class="post-stats clearfix">
-                                                            <p class="pull-left">
-                                                                <i class="fa fa-user"></i>
-                                                                <span><a href="#">admin</a></span>
-                                                            </p>
-                                                            <p class="pull-left">
-                                                                <i class="fa fa-clock-o"></i>
-                                                                <span>5 January 16</span>
-                                                            </p>
-                                                            <p class="pull-left">
-                                                                <i class="fa fa-eye"></i>
-                                                                <span>1,862K</span>
-                                                            </p>
-                                                        </div>
-                                                        <div class="post-summary">
-                                                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-                                                        </div>
-                                                        <div class="post-button">
-                                                            <a href="#" class="secondary-button"><i class="fa fa-play-circle"></i>watch video</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item large-4 medium-6 columns group-item-grid-default end">
-                                                <div class="post thumb-border">
-                                                    <div class="post-thumb">
-                                                        <img src="<?php echo base_url(); ?>assets/images/video-thumbnail/8.jpg" alt="new video">
-                                                        <a href="#" class="hover-posts">
-                                                            <span><i class="fa fa-play"></i>Watch Video</span>
-                                                        </a>
-                                                        <div class="video-stats clearfix">
-                                                            <div class="thumb-stats pull-left">
-                                                                <h6>HD</h6>
-                                                            </div>
-                                                            <div class="thumb-stats pull-left">
-                                                                <i class="fa fa-heart"></i>
-                                                                <span>506</span>
-                                                            </div>
-                                                            <div class="thumb-stats pull-right">
-                                                                <span>05:56</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="post-des">
-                                                        <h6><a href="#">There are many variations of passage.</a></h6>
-                                                        <div class="post-stats clearfix">
-                                                            <p class="pull-left">
-                                                                <i class="fa fa-user"></i>
-                                                                <span><a href="#">admin</a></span>
-                                                            </p>
-                                                            <p class="pull-left">
-                                                                <i class="fa fa-clock-o"></i>
-                                                                <span>5 January 16</span>
-                                                            </p>
-                                                            <p class="pull-left">
-                                                                <i class="fa fa-eye"></i>
-                                                                <span>1,862K</span>
-                                                            </p>
-                                                        </div>
-                                                        <div class="post-summary">
-                                                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-                                                        </div>
-                                                        <div class="post-button">
-                                                            <a href="#" class="secondary-button"><i class="fa fa-play-circle"></i>watch video</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                                <?php } ?>
                                         </div>
                                     </div>
                                 </div>
@@ -465,11 +241,11 @@
                                 <div class="tabs-content" data-tabs-content="newVideos">
                                     <div class="tabs-panel is-active" id="favorite">
                                         <div class="row list-group">
-
+                                                    <?php foreach($pro['video'] as $video) { ?>
                                             <div class="item large-4 medium-6 columns list">
                                                 <div class="post thumb-border">
                                                     <div class="post-thumb">
-                                                        <img src="<?php echo base_url(); ?>assets/images/video-thumbnail/5.jpg" alt="new video">
+                                                        <video src="<?php echo base_url().$video['txt_filepath'];?>" alt="new video" ></video>
                                                         <a href="#" class="hover-posts">
                                                             <span><i class="fa fa-play"></i>Watch Video</span>
                                                         </a>
@@ -487,15 +263,15 @@
                                                         </div>
                                                     </div>
                                                     <div class="post-des">
-                                                        <h6><a href="#">There are many variations of passage.</a></h6>
+                                                        <h6><a href="#"><?php echo $video['txt_title'];?></a></h6>
                                                         <div class="post-stats clearfix">
                                                             <p class="pull-left">
                                                                 <i class="fa fa-user"></i>
-                                                                <span><a href="#">admin</a></span>
+                                                                <span><a href="#"><?php echo $video['txt_fname'];?></a></span>
                                                             </p>
                                                             <p class="pull-left">
                                                                 <i class="fa fa-clock-o"></i>
-                                                                <span>5 January 16</span>
+                                                                <span><?php echo $video['dt_created_on'];?></span>
                                                             </p>
                                                             <p class="pull-left">
                                                                 <i class="fa fa-eye"></i>
@@ -503,7 +279,7 @@
                                                             </p>
                                                         </div>
                                                         <div class="post-summary">
-                                                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+                                                            <p><?php echo $video['txt_description'];?></p>
                                                         </div>
                                                         <div class="post-button">
                                                             <a href="#" class="secondary-button"><i class="fa fa-play-circle"></i>watch video</a>
@@ -511,141 +287,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="item large-4 medium-6 columns list">
-                                                <div class="post thumb-border">
-                                                    <div class="post-thumb">
-                                                        <img src="<?php echo base_url(); ?>assets/images/video-thumbnail/6.jpg" alt="new video">
-                                                        <a href="#" class="hover-posts">
-                                                            <span><i class="fa fa-play"></i>Watch Video</span>
-                                                        </a>
-                                                        <div class="video-stats clearfix">
-                                                            <div class="thumb-stats pull-left">
-                                                                <h6>HD</h6>
-                                                            </div>
-                                                            <div class="thumb-stats pull-left">
-                                                                <i class="fa fa-heart"></i>
-                                                                <span>506</span>
-                                                            </div>
-                                                            <div class="thumb-stats pull-right">
-                                                                <span>05:56</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="post-des">
-                                                        <h6><a href="#">There are many variations of passage.</a></h6>
-                                                        <div class="post-stats clearfix">
-                                                            <p class="pull-left">
-                                                                <i class="fa fa-user"></i>
-                                                                <span><a href="#">admin</a></span>
-                                                            </p>
-                                                            <p class="pull-left">
-                                                                <i class="fa fa-clock-o"></i>
-                                                                <span>5 January 16</span>
-                                                            </p>
-                                                            <p class="pull-left">
-                                                                <i class="fa fa-eye"></i>
-                                                                <span>1,862K</span>
-                                                            </p>
-                                                        </div>
-                                                        <div class="post-summary">
-                                                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-                                                        </div>
-                                                        <div class="post-button">
-                                                            <a href="#" class="secondary-button"><i class="fa fa-play-circle"></i>watch video</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item large-4 medium-6 columns list">
-                                                <div class="post thumb-border">
-                                                    <div class="post-thumb">
-                                                        <img src="<?php echo base_url(); ?>assets/images/video-thumbnail/7.jpg" alt="new video">
-                                                        <a href="#" class="hover-posts">
-                                                            <span><i class="fa fa-play"></i>Watch Video</span>
-                                                        </a>
-                                                        <div class="video-stats clearfix">
-                                                            <div class="thumb-stats pull-left">
-                                                                <h6>HD</h6>
-                                                            </div>
-                                                            <div class="thumb-stats pull-left">
-                                                                <i class="fa fa-heart"></i>
-                                                                <span>506</span>
-                                                            </div>
-                                                            <div class="thumb-stats pull-right">
-                                                                <span>05:56</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="post-des">
-                                                        <h6><a href="#">There are many variations of passage.</a></h6>
-                                                        <div class="post-stats clearfix">
-                                                            <p class="pull-left">
-                                                                <i class="fa fa-user"></i>
-                                                                <span><a href="#">admin</a></span>
-                                                            </p>
-                                                            <p class="pull-left">
-                                                                <i class="fa fa-clock-o"></i>
-                                                                <span>5 January 16</span>
-                                                            </p>
-                                                            <p class="pull-left">
-                                                                <i class="fa fa-eye"></i>
-                                                                <span>1,862K</span>
-                                                            </p>
-                                                        </div>
-                                                        <div class="post-summary">
-                                                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-                                                        </div>
-                                                        <div class="post-button">
-                                                            <a href="#" class="secondary-button"><i class="fa fa-play-circle"></i>watch video</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item large-4 medium-6 columns list end">
-                                                <div class="post thumb-border">
-                                                    <div class="post-thumb">
-                                                        <img src="<?php echo base_url(); ?>assets/images/video-thumbnail/8.jpg" alt="new video">
-                                                        <a href="#" class="hover-posts">
-                                                            <span><i class="fa fa-play"></i>Watch Video</span>
-                                                        </a>
-                                                        <div class="video-stats clearfix">
-                                                            <div class="thumb-stats pull-left">
-                                                                <h6>HD</h6>
-                                                            </div>
-                                                            <div class="thumb-stats pull-left">
-                                                                <i class="fa fa-heart"></i>
-                                                                <span>506</span>
-                                                            </div>
-                                                            <div class="thumb-stats pull-right">
-                                                                <span>05:56</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="post-des">
-                                                        <h6><a href="#">There are many variations of passage.</a></h6>
-                                                        <div class="post-stats clearfix">
-                                                            <p class="pull-left">
-                                                                <i class="fa fa-user"></i>
-                                                                <span><a href="#">admin</a></span>
-                                                            </p>
-                                                            <p class="pull-left">
-                                                                <i class="fa fa-clock-o"></i>
-                                                                <span>5 January 16</span>
-                                                            </p>
-                                                            <p class="pull-left">
-                                                                <i class="fa fa-eye"></i>
-                                                                <span>1,862K</span>
-                                                            </p>
-                                                        </div>
-                                                        <div class="post-summary">
-                                                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-                                                        </div>
-                                                        <div class="post-button">
-                                                            <a href="#" class="secondary-button"><i class="fa fa-play-circle"></i>watch video</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <?php } ?>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -661,63 +304,21 @@
                         <div class="row secBg">
                             <div class="large-12 columns">
                                 <div class="row column head-text clearfix">
-                                    <h4 class="pull-left"><i class="fa fa-users"></i>Followers</h4>
+                                    <h4 class="pull-left"><i class="fa fa-users"></i>Followers<span>(<?php echo $pro['follow']['followers']?>)</span></h4>
                                 </div>
                                 <div class="row collapse">
+                                    <?php foreach($pro['follower'] as $follower) { ?>
                                     <div class="large-2 small-6 medium-3 columns">
                                         <div class="follower">
                                             <div class="follower-img">
                                                 <img src="<?php echo base_url(); ?>assets/images/follower-img.png" alt="followers">
                                             </div>
-                                            <span>Frank Wright</span>
+                                            <span><?php echo $follower['txt_fname']." ".$follower['txt_lname'];?></span>
                                             <button type="submit" name="follow">Subscribe</button>
                                         </div>
                                     </div>
-                                    <div class="large-2 small-6 medium-3 columns">
-                                        <div class="follower">
-                                            <div class="follower-img">
-                                                <img src="<?php echo base_url(); ?>assets/images/follower2.png" alt="followers">
-                                            </div>
-                                            <span>John Doe</span>
-                                            <button type="submit" name="follow">Subscribe</button>
-                                        </div>
-                                    </div>
-                                    <div class="large-2 small-6 medium-3 columns">
-                                        <div class="follower">
-                                            <div class="follower-img">
-                                                <img src="<?php echo base_url(); ?>assets/images/follower3.png" alt="followers">
-                                            </div>
-                                            <span>Nancy john</span>
-                                            <button type="submit" name="follow">Subscribe</button>
-                                        </div>
-                                    </div>
-                                    <div class="large-2 small-6 medium-3 columns">
-                                        <div class="follower">
-                                            <div class="follower-img">
-                                                <img src="<?php echo base_url(); ?>assets/images/follower4.png" alt="followers">
-                                            </div>
-                                            <span>Frank</span>
-                                            <button type="submit" name="follow">Subscribe</button>
-                                        </div>
-                                    </div>
-                                    <div class="large-2 small-6 medium-3 columns">
-                                        <div class="follower">
-                                            <div class="follower-img">
-                                                <img src="<?php echo base_url(); ?>assets/images/follower5.png" alt="followers">
-                                            </div>
-                                            <span>lucy</span>
-                                            <button type="submit" name="follow">Subscribe</button>
-                                        </div>
-                                    </div>
-                                    <div class="large-2 small-6 medium-3 columns end">
-                                        <div class="follower">
-                                            <div class="follower-img">
-                                                <img src="<?php echo base_url(); ?>assets/images/follower66.png" alt="followers">
-                                            </div>
-                                            <span>daisy</span>
-                                            <button type="submit" name="follow">Subscribe</button>
-                                        </div>
-                                    </div>
+                                    <?php } ?>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -731,7 +332,7 @@
                                         <div class="medium-12 small-12 columns">
                                             <div class="head-title">
                                                 <i class="fa fa-comments"></i>
-                                                <h4>Comments <span>(4)</span></h4>
+                                                <h4>Comments <span>(<?php echo count($pro['comment']); ?>)</span></h4>
                                             </div>
                                         </div>
                                     </div>
@@ -741,9 +342,9 @@
                                     <div class="media-object stack-for-small">
                                         <div class="media-object-section comment-img text-center">
                                             <div class="comment-box-img">
-                                                <img src= "<?php echo base_url().$pro[0]['txt_profile_image']; ?>" alt="">
+                                                <img src= "<?php echo base_url().$pro['artist']['txt_profile_image']; ?>" alt="">
                                             </div>
-                                            <h6><a href="#"><?php echo $pro[0]['txt_fname']; ?></a></h6>
+                                            <h6><a href="#"><?php echo $pro['artist']['txt_fname']; ?></a></h6>
                                         </div>
                                         <div class="media-object-section comment-textarea">
                                             <form method="post" action="<?php echo site_url(); ?>/User/addcomment" >
@@ -939,10 +540,10 @@
                                     <div class="widgetContent">
                                         <ul class="profile-overview">
                                             <li class="clearfix"><a href="profile-about-me.html"><i class="fa fa-user"></i>about me</a></li>
-                                            <li class="clearfix"><a href="profile-video.html"><i class="fa fa-video-camera"></i>Videos <span class="float-right">36</span></a></li>
+                                            <li class="clearfix"><a href="profile-video.html"><i class="fa fa-video-camera"></i>Videos <span class="float-right"><?php echo count($pro['video']); ?></span></a></li>
                                             <li class="clearfix"><a href="profile-favorite.html"><i class="fa fa-heart"></i>Favorite Videos<span class="float-right">50</span></a></li>
                                             <li class="clearfix"><a href="#"><i class="fa fa-users"></i>Followers<span class="float-right"><?php echo $pro['follow']['followers']?></span></a></li>
-                                            <li class="clearfix"><a href="profile-comments.html"><i class="fa fa-comments-o"></i>comments<span class="float-right">26</span></a></li>
+                                            <li class="clearfix"><a href="profile-comments.html"><i class="fa fa-comments-o"></i>comments<span class="float-right"><?php echo count($pro['comment']); ?></span></a></li>
                                             <li class="clearfix"><a href="profile-settings.html"><i class="fa fa-gears"></i>Profile Settings</a></li>
                                             <li class="clearfix"><a href="home-v1.html"><i class="fa fa-sign-out"></i>Logout</a></li>
                                         </ul>

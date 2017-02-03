@@ -116,9 +116,11 @@ class User extends CI_Controller
      //echo $this->session['int_artist_id'];die;
      $data['page']='view_profile';
      $data['pro']=$this->Artist_Model->profile_view($id);
-    $this->load->view('public/page',$data);
+   $this->load->view('public/page',$data);
    //print_r($data);
-     
+    //print_r($data['pro']);die;
+    
+ } 
 
 	  function add_comment()
 	{
@@ -134,4 +136,4 @@ class User extends CI_Controller
 
 
 
-}
+
