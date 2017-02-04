@@ -13,9 +13,9 @@ class User extends CI_Controller
 
 	public function index()
 	{
-            $data['page']='home';
-            $data['page_title']='Home';
-            $this->load->view('public/page',$data);
+		$data['page']='home';
+		$data['page_title']='Home';
+        $this->load->view('public/page',$data);
 	}
 
 	public function aboutUs()
@@ -29,15 +29,15 @@ class User extends CI_Controller
 	{
 		$data['page']='category';
 		$data['page_title']='Category';
-                $this->load->model('Category_Model');
-                $data['cat']= $this->Category_Model->category();
+                $data['cat']= $this->user_model->category();
                 $this->load->view('public/page',$data);
                //print_r($data['category']);exit;
 	}
         public function sub_category($id)
                 
 	{
-            	$data['page']='category';
+            echo $id;die;
+		$data['page']='category';
 		$data['page_title']='Category';
                 $data['sub_cat']= $this->user_model->sub_category($id);
                // $this->load->view('public/page',$data);
@@ -47,14 +47,15 @@ class User extends CI_Controller
 	public function profile()
 	{
             
-            $data=$this->session->userdata('user');
-            //print_r($data);die;
-            $data['pro']=$this->Artist_Model->get_profile_detail($data['txt_email']);
-            $data['follow']=$this->Artist_Model->get_all_followers($data['pro'][0]['int_artist_id']);
-            //print_r($data['follow']);exit;
-            $data['page']='profile-followers';
-            $data['page_title']='Profile';
-            $this->load->view('public/page',$data);
+		$data=$this->session->userdata('user');
+                //print_r($data);die;
+		$data['pro']=$this->Artist_Model->get_profile_detail($data['txt_email']);
+                
+		$data['follow']=$this->Artist_Model->get_all_followers($data['pro'][0]['int_artist_id']);
+		//print_r($data['follow']);exit;
+		$data['page']='profile-followers';
+		$data['page_title']='Profile';
+        $this->load->view('public/page',$data);
 	}
 	
 	
