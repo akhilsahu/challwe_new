@@ -49,7 +49,7 @@ class Artist extends CI_Controller {
 				$filename=$postId;
 				$imgtype=$_FILES["post_file"]["type"];
 				$file_name=$filename.".".$ext[count($ext)-1];
-				$filepath="post_media/".$file_name;
+				$filepath="blog_media/".$file_name;
 				move_uploaded_file($_FILES['post_file']['tmp_name'],$filepath);
 				$data['filepath']=$filepath;
 			}
