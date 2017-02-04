@@ -88,7 +88,7 @@
                                             </div>
                                             <span class="form-error">your email is invalid</span>
                                             <button class="button expanded" type="submit" name="submit">register Now</button>
-                                            <p class="loginclick"> <a href="login.html">Login here</a><a href="login.html">Already have acoount?</a></p>
+                                            <p class="loginclick"> <a href="<?php echo site_url();?>/User/login">Login here</a><a href="login.html">Already have acoount?</a></p>
                                         </form>
                                     </div>
                                 </div>

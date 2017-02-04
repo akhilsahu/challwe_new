@@ -1649,9 +1649,10 @@ footer {
             color: #aaaaaa; }
             .sidebar .widgetBox .widgetContent .video-box .video-box-content p span a:hover {
               color: #222222; }
-      .sidebar .widgetBox .widgetContent .video-box:hover a.hover-posts {
+      .sidebar .widgetBox .widgetContent .video-box:hover video ~ a.hover-posts {
         visibility: visible;
-        transform: scale(1); }
+        transform: scale(1);
+		}
     .sidebar .widgetBox .widgetContent .social-links .socialButton {
       width: 58px;
       background: #395996;
