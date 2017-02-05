@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 31, 2017 at 05:44 PM
+-- Generation Time: Feb 05, 2017 at 02:09 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.5.37
 
@@ -52867,8 +52867,9 @@ CREATE TABLE `tab_artists` (
 INSERT INTO `tab_artists` (`int_artist_id`, `txt_fname`, `txt_lname`, `int_gender`, `txt_email`, `txt_password`, `int_country_id`, `int_state_id`, `int_city_id`, `txt_experience`, `txt_description`, `txt_tagline`, `txt_profile_image`, `txt_cover_image`, `dt_dob`, `txt_place_of_birth`, `txt_hourly_charge`, `txt_fashion_community_roles`, `txt_biographic_info`, `txt_office_address`, `txt_office_no`, `txt_cell_no`, `dt_added`, `int_added_by`, `int_is_active`, `int_is_blocked`, `int_challwe_coins`, `int_skill1`, `int_skill2`, `int_skill3`, `int_skill4`, `int_skill5`) VALUES
 (2, 'Thethirdthought', '', 1, 'thethirdthought1990@gmail.com', '96e79218965eb72c92a549dd5a330112', 101, NULL, NULL, NULL, NULL, NULL, 'artist_media/profile/2.jpg', 'artist_media/cover_image/2.jpg', '2012-09-08', 'Lko', NULL, NULL, 'aaaaaaaaaaaaaaaaaa', NULL, NULL, '6567856', '2016-07-23', NULL, 1, 0, 0, 3, 4, 0, 0, 0),
 (3, 'SB', '34', 0, 'admin', '96e79218965eb72c92a549dd5a330112', 1, 0, 0, '', '', '', 'artist_media/profile/3.jpg', 'artist_media/cover_image/3.jpg', '1988-08-16', '', '', '', '', '', '', 'wfdsf', '2016-08-16', NULL, 1, 0, 0, 0, 0, 0, 0, 0),
-(4, 'Shivam', '', 0, 'vsec.shivam@gmail.com', '96e79218965eb72c92a549dd5a330112', 101, NULL, NULL, NULL, NULL, NULL, 'artist_media/profile/4.png', 'artist_media/cover_image/4.jpg', '1995-01-17', 'LKO', '', NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\r\n\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\r\n\r\n\r\n\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\r\n', '', NULL, '', '2016-08-16', NULL, 1, 0, 0, 1, 2, 4, 0, 0),
-(5, 'T', NULL, 0, 'sa@tt.com', '9990775155c3518a0d7917f7780b24aa', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, '2016-08-17', NULL, 1, 0, 0, 0, 0, 0, 0, 0);
+(4, 'Shivam', '', 0, 'vsec.shivam@gmail.com', '96e79218965eb72c92a549dd5a330112', 101, NULL, NULL, NULL, NULL, NULL, 'artist_media/profile/4.jpg', 'artist_media/cover_image/4.jpg', '1995-01-17', 'LKO', '', NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\r\n\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\r\n\r\n\r\n\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\r\n', '', NULL, '', '2016-08-16', NULL, 1, 0, 0, 1, 2, 4, 0, 0),
+(5, 'T', NULL, 0, 'sa@tt.com', '9990775155c3518a0d7917f7780b24aa', NULL, NULL, NULL, NULL, NULL, NULL, 'artist_media/profile/6.jpg', NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, '2016-08-17', NULL, 1, 0, 0, 0, 0, 0, 0, 0),
+(6, 'vikrant', 'rajput', 0, 'vik@gmail.com', '202cb962ac59075b964b07152d234b70', NULL, NULL, NULL, NULL, NULL, NULL, 'artist_media/profile/5.jpg', NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -52978,33 +52979,6 @@ CREATE TABLE `tab_blogs` (
 INSERT INTO `tab_blogs` (`int_blog_id`, `int_media_type`, `txt_media_url`, `txt_title`, `txt_description`, `txt_link`, `int_artist_id`, `int_source`, `int_is_active`, `dt_created_on`, `int_is_publish`) VALUES
 (1, 1, 'blog_media/1.png', 'This is Dummy Blog', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lacus dolor, tristique vitae libero sit amet, posuere luctus diam. Ut nec mi sit amet arcu feugiat dapibus. Aliquam in orci id lacus congue viverra. Cras et viverra quam, sed auctor nibh. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque sed posuere nulla, nec scelerisque odio. Aenean ut laoreet nisl. Suspendisse et sapien fringilla, laoreet enim et, laoreet diam. Curabitur faucibus commodo ipsum, egestas lacinia dolor eleifend eget. Vivamus laoreet tristique velit interdum mattis. Fusce vulputate non lectus id facilisis.</p>\n\n<p>Proin gravida placerat metus, sit amet congue risus egestas id. Phasellus sapien ex, egestas eget dictum nec, rutrum ut turpis. In venenatis, leo vitae bibendum elementum, ante lectus lacinia magna, et condimentum orci nunc ut justo. Pellentesque efficitur mi dolor, id rhoncus diam rutrum a. Donec enim tellus, dictum a tincidunt et, auctor et lectus. Mauris blandit luctus rutrum. In at fringilla tellus. Suspendisse quis massa nibh. In purus magna, vehicula quis viverra quis, ultricies eu ipsum. Vivamus non est aliquam, lacinia metus quis, finibus justo. In pretium tortor vitae interdum finibus. Vestibulum rhoncus ligula eget massa placerat, vel semper justo viverra. Donec ut sapien tortor. Integer nec cursus mauris.</p>\n\n<p>Aliquam lacinia magna nec ipsum feugiat, nec luctus magna placerat. Quisque condimentum risus bibendum mauris tempus, sit amet sagittis nunc tristique. Aenean ut lacus sed libero gravida scelerisque. Vivamus at augue sit amet massa hendrerit elementum ac ut urna. Morbi mollis tempor quam a fermentum. Quisque consequat accumsan pretium. Cras consequat viverra quam, sed imperdiet augue pretium at. In quis gravida nunc. Nulla tincidunt efficitur dolor et semper. Integer volutpat faucibus enim, sed viverra ligula molestie sit amet.</p>\n\n<p>Vestibulum vitae posuere nisl, at interdum nibh. Donec sed iaculis dui. Donec tristique pulvinar vulputate. Fusce posuere vulputate neque, sit amet suscipit tellus eleifend eget. Sed tristique, augue suscipit pretium vulputate, nulla dui mattis eros, nec tincidunt massa purus eu tortor. Nam et aliquet lacus. Vestibulum ornare nibh nec nisi imperdiet, vel accumsan orci dictum. Sed vehicula, lorem ac porta efficitur, ex est feugiat odio, in molestie dui sapien id ligula. Suspendisse vulputate libero id facilisis tristique. In faucibus turpis ligula, sed imperdiet ante faucibus ut. Donec lectus mi, rhoncus in blandit ac, rhoncus ut nisl. Aliquam suscipit tincidunt ante at scelerisque. Aliquam erat volutpat.</p>\n\n<p>Pellentesque nec tortor id tellus dapibus egestas. Nullam pretium lorem vitae nisi sodales volutpat. Mauris bibendum diam eu dolor dictum semper a quis augue. Pellentesque sed tincidunt tortor, et lacinia nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum lobortis ac sapien eget semper. Pellentesque ullamcorper massa quam, in ultrices augue ultricies aliquam.</p>\n', NULL, 1, NULL, 0, '2016-08-05', 1),
 (2, 1, 'blog_media/2.jpg', 'Test Blog', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lacus dolor, tristique vitae libero sit amet, posuere luctus diam. Ut nec mi sit amet arcu feugiat dapibus. Aliquam in orci id lacus congue viverra. Cras et viverra quam, sed auctor nibh. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque sed posuere nulla, nec scelerisque odio. Aenean ut laoreet nisl. Suspendisse et sapien fringilla, laoreet enim et, laoreet diam. Curabitur faucibus commodo ipsum, egestas lacinia dolor eleifend eget. Vivamus laoreet tristique velit interdum mattis. Fusce vulputate non lectus id facilisis.</p>\n\n<p>Proin gravida placerat metus, sit amet congue risus egestas id. Phasellus sapien ex, egestas eget dictum nec, rutrum ut turpis. In venenatis, leo vitae bibendum elementum, ante lectus lacinia magna, et condimentum orci nunc ut justo. Pellentesque efficitur mi dolor, id rhoncus diam rutrum a. Donec enim tellus, dictum a tincidunt et, auctor et lectus. Mauris blandit luctus rutrum. In at fringilla tellus. Suspendisse quis massa nibh. In purus magna, vehicula quis viverra quis, ultricies eu ipsum. Vivamus non est aliquam, lacinia metus quis, finibus justo. In pretium tortor vitae interdum finibus. Vestibulum rhoncus ligula eget massa placerat, vel semper justo viverra. Donec ut sapien tortor. Integer nec cursus mauris.</p>\n', NULL, 1, NULL, 0, '2016-08-05', 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tab_catagories`
---
-
-CREATE TABLE `tab_catagories` (
-  `int_catagory_id` bigint(20) NOT NULL,
-  `txt_title` varchar(100) DEFAULT NULL,
-  `txt_description` varchar(225) DEFAULT NULL,
-  `txt_logo` varchar(225) DEFAULT NULL,
-  `int_sub_catagory` bigint(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tab_catagories`
---
-
-INSERT INTO `tab_catagories` (`int_catagory_id`, `txt_title`, `txt_description`, `txt_logo`, `int_sub_catagory`) VALUES
-(1, 'Entertainment', 'Entertainment is essential for entertainment.', 'assets\\images\\category\\category1.png', 0),
-(4, 'Technology', 'Techincal data', 'assets\\images\\category\\category2.png', 0),
-(5, 'Fashion & Beauty', 'Latest Fashion And Beauty Tips', 'assets\\images\\category\\category4.png', 0),
-(6, 'Sports & Recreation', 'Football-Volleyball-Cricket', 'assets\\images\\category\\category5.png', 0),
-(7, 'Drama', 'Drama is fun', 'assets\\images\\category\\category3.png', 1),
-(9, 'movie', 'movie movie', 'assets\\images\\category\\category6.png', 1),
-(10, 'Adventure', 'assets\\ima', 'assets\\images\\category\\category6.png', 0);
 
 -- --------------------------------------------------------
 
@@ -53225,7 +53199,13 @@ CREATE TABLE `tab_follow` (
 INSERT INTO `tab_follow` (`int_unique_id`, `int_follower_id`, `int_following_id`) VALUES
 (1, 2, 4),
 (2, 3, 2),
-(7, 4, 2);
+(7, 4, 2),
+(8, 2, 4),
+(12, 4, 6),
+(16, 5, 6),
+(17, 2, 6),
+(18, 3, 6),
+(33, 4, 3);
 
 -- --------------------------------------------------------
 
@@ -53512,12 +53492,6 @@ ALTER TABLE `tab_blogs`
   ADD PRIMARY KEY (`int_blog_id`);
 
 --
--- Indexes for table `tab_catagories`
---
-ALTER TABLE `tab_catagories`
-  ADD PRIMARY KEY (`int_catagory_id`);
-
---
 -- Indexes for table `tab_comments`
 --
 ALTER TABLE `tab_comments`
@@ -53646,7 +53620,7 @@ ALTER TABLE `tab_album`
 -- AUTO_INCREMENT for table `tab_artists`
 --
 ALTER TABLE `tab_artists`
-  MODIFY `int_artist_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `int_artist_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `tab_artist_business`
 --
@@ -53672,11 +53646,6 @@ ALTER TABLE `tab_artist_views`
 --
 ALTER TABLE `tab_blogs`
   MODIFY `int_blog_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `tab_catagories`
---
-ALTER TABLE `tab_catagories`
-  MODIFY `int_catagory_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `tab_comments`
 --
@@ -53711,7 +53680,7 @@ ALTER TABLE `tab_fields`
 -- AUTO_INCREMENT for table `tab_follow`
 --
 ALTER TABLE `tab_follow`
-  MODIFY `int_unique_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `int_unique_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 --
 -- AUTO_INCREMENT for table `tab_invites`
 --
