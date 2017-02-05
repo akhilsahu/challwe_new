@@ -94,8 +94,24 @@
         $sql2="select A.txt_fname,A.txt_lname,(select count(int_follower_id) from tab_follow as C"
                 . " where C.int_follower_id=B.int_follower_id)as followers from tab_follow as B inner JOIN"
                 . " tab_artists as A on B.int_follower_id=A.int_artist_id WHERE int_following_id=$id";
-         $query2=$this->db->query($sql2);
+        $query2=$this->db->query($sql2);
          $result['follow']=$query2->row_array();
+         
+         $sql5="select A.txt_fname,A.txt_lname,(select count(int_follower_id) from tab_follow as C"
+                . " where C.int_follower_id=B.int_follower_id)as followers from tab_follow as B inner JOIN"
+                . " tab_artists as A on B.int_follower_id=A.int_artist_id WHERE int_following_id=$id";
+        $query5=$this->db->query($sql5);
+         $result['follower']=$query2->result_array();
+         
+        $sql3="SELECT A.*,B.txt_fname from tab_post as A inner JOIN tab_artists as B on A.int_artist_id=B.int_artist_id "
+                . "WHERE A.int_artist_id=$id AND A.txt_filepath LIKE '%.mp4'";
+         $query3=$this->db->query($sql3);
+         $result['video']=$query3->result_array();
+        $sql4=" select A.* from tab_comments as A inner join tab_artists as B on A.int_user_id=B.int_artist_id where A.int_user_id=$id";
+        $query4=$this->db->query($sql4);
+         $result['comment']=$query4->result_array();
+        //print_r($result['video']);die;
+         //echo count($result['video']);die;
         return $result;
         
     }
