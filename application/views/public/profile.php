@@ -1,4 +1,4 @@
-
+<?php //print_r($details); ?>
  <section id="breadcrumb">
                 <div class="row">
                     <div class="large-12 columns">
@@ -31,35 +31,10 @@
                                 <img src="<?php echo base_url().$pro[0]['txt_profile_image'];?>" alt="">
                             </div>
                             <div class="profile-subscribe">
-                                <span><i class="fa fa-users"></i>6</span>
+                                <span><i class="fa fa-users"></i><?php echo $follow['pqr']; ?></span>
                                 <button type="submit" name="subscribe">Followers</button>
                             </div>
-                            <div class="profile-share">
-                                <div class="easy-share" data-easyshare data-easyshare-http data-easyshare-url="http://joinwebs.com">
-                                    <!-- Facebook -->
-                                    <button data-easyshare-button="facebook">
-                                        <span class="fa fa-facebook"></span>
-                                        <span>Share</span>
-                                    </button>
-                                    <span data-easyshare-button-count="facebook">0</span>
-
-                                    <!-- Twitter -->
-                                    <button data-easyshare-button="twitter" data-easyshare-tweet-text="">
-                                        <span class="fa fa-twitter"></span>
-                                        <span>Tweet</span>
-                                    </button>
-                                    <span data-easyshare-button-count="twitter">0</span>
-
-                                    <!-- Google+ -->
-                                    <button data-easyshare-button="google">
-                                        <span class="fa fa-google-plus"></span>
-                                        <span>+1</span>
-                                    </button>
-                                    <span data-easyshare-button-count="google">0</span>
-
-                                    <div data-easyshare-loader>Loading...</div>
-                                </div>
-                            </div>
+                           
                             <div class="clearfix">
                                 <div class="profile-author-name float-left">
                                     <h4><?php echo $pro[0]['txt_fname'].' '.$pro[0]['txt_lname'];?></h4>
@@ -89,9 +64,9 @@
                                             <div class="icon float-left">
                                                 <i class="fa fa-users"></i>
                                             </div>
-                                            <div class="li-text float-left">
-                                                <p class="number-text">6</p>
-                                                <span>followers</span>
+                                            <div class="li-text float-left" href="<?php echo site_url(); ?>/user/profile">
+                                                <p class="number-text"><?php echo $follow['pqr']; ?></p>
+                                                <span>Followers</span>
                                             </div>
                                         </li>
                                         <li>
@@ -735,7 +710,7 @@
                                 </div>
 
                                 <div class="comment-box thumb-border">
-                                    <div class="media-object stack-for-small">
+                                    <div class="media-object stack-for-small" id="like">
                                         <div class="media-object-section comment-img text-center">
                                             <div class="comment-box-img">
                                                 <img src= "<?php echo base_url().$pro[0]['txt_profile_image']; ?>" alt="">
@@ -743,11 +718,11 @@
                                             <h6><a href="#"><?php echo $pro[0]['txt_fname']; ?></a></h6>
                                         </div>
                                         <div class="media-object-section comment-textarea">
-                                            <form method="post" action="" >
+                                           <form method="post" action="">
                                                 <textarea name="commentText" id="commentText" placeholder="Add a comment here.."></textarea>
 												<input type='hidden' name='parent_id' value="0" id='parent_id' />
 												
-                                                <input type="button" name="submit" id="submit" onclick="addcomment()" value="send"/>
+                                                <input type="button" name="submit" id="submit" onclick="addcomment();" value="send"/>
                                             </form>
                                         </div>
                                     </div>
@@ -756,22 +731,24 @@
                                 <div class="comment-sort text-right">
                                     <span>Sort By : <a href="#">newest</a> | <a href="#">oldest</a></span>
                                 </div>
-
-                                <!-- main comment -->
+								<div class="main-comment showmore_one" id="id_comments">
+                                </div>
+								<!-- main comment -->
+								<?php /*foreach($details as $detail) { ?>
                                 <div class="main-comment showmore_one">
                                     <div class="media-object stack-for-small">
                                         <div class="media-object-section comment-img text-center">
                                             <div class="comment-box-img">
-                                                <img src= "<?php echo base_url(); ?>assets/images/fav-guit.png" alt="comment">
+                                                <img src= "<?php echo base_url(); ?><?php echo $detail['txt_profile_image']?>" alt="comment">
                                             </div>
                                         </div>
                                         <div class="media-object-section comment-desc">
                                             <div class="comment-title">
-                                                <span class="name"><a href="#"></a> Said:</span>
+                                                <span class="name"><a href="#"></a> Said: <?php echo $detail['txt_fname'].' '.$detail['txt_lname']?></span>
                                                 <span class="time float-right"><i class="fa fa-clock-o"></i>1 minute ago</span>
                                             </div>
                                             <div class="comment-text">
-                                                <p><?php echo $comment[0]['txt_comments'] ?></p>
+                                                <p><?php echo $detail['txt_comments'] ?></p>
                                             </div>
                                             <div class="comment-btns">
                                                 <span><a href="#"><i class="fa fa-thumbs-o-up"></i></a> | <a href="#"><i class="fa fa-thumbs-o-down"></i></a></span>
@@ -779,145 +756,10 @@
                                                 <span class='reply float-right hide-reply'></span>
                                             </div>
 
-                                            <!--sub comment-->
-                                            <div class="media-object stack-for-small reply-comment">
-                                                <div class="media-object-section comment-img text-center">
-                                                    <div class="comment-box-img">
-                                                        <img src= "images/blog-post-author-img.png" alt="comment">
-                                                    </div>
-                                                </div>
-                                                <div class="media-object-section comment-desc">
-                                                    <div class="comment-title">
-                                                        <span class="name"><a href="#">Nancy John</a> Said:</span>
-                                                        <span class="time float-right"><i class="fa fa-clock-o"></i>1 minute ago</span>
-                                                    </div>
-                                                    <div class="comment-text">
-                                                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventoresunt explicabo.</p>
-                                                    </div>
-                                                    <div class="comment-btns">
-                                                        <span><a href="#"><i class="fa fa-thumbs-o-up"></i></a> | <a href="#"><i class="fa fa-thumbs-o-down"></i></a></span>
-                                                        <span><a href="#"><i class="fa fa-share"></i>Reply</a></span>
-                                                        <span class='reply float-right hide-reply'></span>
-                                                    </div>
-                                                </div>
-                                            </div><!-- end sub comment -->
-
-                                            <!--sub comment-->
-                                            <div class="media-object stack-for-small reply-comment">
-                                                <div class="media-object-section comment-img text-center">
-                                                    <div class="comment-box-img">
-                                                        <img src= "images/follower4.png" alt="comment">
-                                                    </div>
-                                                </div>
-                                                <div class="media-object-section comment-desc">
-                                                    <div class="comment-title">
-                                                        <span class="name"><a href="#">frank</a> Said:</span>
-                                                        <span class="time float-right"><i class="fa fa-clock-o"></i>1 minute ago</span>
-                                                    </div>
-                                                    <div class="comment-text">
-                                                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventoresunt explicabo.</p>
-                                                    </div>
-                                                    <div class="comment-btns">
-                                                        <span><a href="#"><i class="fa fa-thumbs-o-up"></i></a> | <a href="#"><i class="fa fa-thumbs-o-down"></i></a></span>
-                                                        <span><a href="#"><i class="fa fa-share"></i>Reply</a></span>
-                                                        <span class='reply float-right hide-reply'></span>
-                                                    </div>
-
-                                                </div>
-                                            </div><!-- end sub comment -->
-
+                                            <!-- end sub comment -->
                                         </div>
                                     </div>
-
-                                    <div class="media-object stack-for-small">
-                                        <div class="media-object-section comment-img text-center">
-                                            <div class="comment-box-img">
-                                                <img src= "images/author1.png" alt="comment">
-                                            </div>
-                                        </div>
-                                        <div class="media-object-section comment-desc">
-                                            <div class="comment-title">
-                                                <span class="name"><a href="#">Joseph John</a> Said:</span>
-                                                <span class="time float-right"><i class="fa fa-clock-o"></i>1 minute ago</span>
-                                            </div>
-                                            <div class="comment-text">
-                                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventoresunt explicabo.</p>
-                                            </div>
-                                            <div class="comment-btns">
-                                                <span><a href="#"><i class="fa fa-thumbs-o-up"></i></a> | <a href="#"><i class="fa fa-thumbs-o-down"></i></a></span>
-                                                <span><a href="#"><i class="fa fa-share"></i>Reply</a></span>
-                                                <span class='reply float-right hide-reply'></span>
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                    <div class="media-object stack-for-small">
-                                        <div class="media-object-section comment-img text-center">
-                                            <div class="comment-box-img">
-                                                <img src= "images/follower5.png" alt="comment">
-                                            </div>
-                                        </div>
-                                        <div class="media-object-section comment-desc">
-                                            <div class="comment-title">
-                                                <span class="name"><a href="#">Nancy John</a> Said:</span>
-                                                <span class="time float-right"><i class="fa fa-clock-o"></i>1 minute ago</span>
-                                            </div>
-                                            <div class="comment-text">
-                                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventoresunt explicabo.</p>
-                                            </div>
-                                            <div class="comment-btns">
-                                                <span><a href="#"><i class="fa fa-thumbs-o-up"></i></a> | <a href="#"><i class="fa fa-thumbs-o-down"></i></a></span>
-                                                <span><a href="#"><i class="fa fa-share"></i>Reply</a></span>
-                                                <span class='reply float-right hide-reply'></span>
-                                            </div>
-                                            <!--sub comment-->
-                                            <div class="media-object stack-for-small reply-comment">
-                                                <div class="media-object-section comment-img text-center">
-                                                    <div class="comment-box-img">
-                                                        <img src= "images/post-author-post.png" alt="comment">
-                                                    </div>
-                                                </div>
-                                                <div class="media-object-section comment-desc">
-                                                    <div class="comment-title">
-                                                        <span class="name"><a href="#">Joseph John</a> Said:</span>
-                                                        <span class="time float-right"><i class="fa fa-clock-o"></i>1 minute ago</span>
-                                                    </div>
-                                                    <div class="comment-text">
-                                                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventoresunt explicabo.</p>
-                                                    </div>
-                                                    <div class="comment-btns">
-                                                        <span><a href="#"><i class="fa fa-thumbs-o-up"></i></a> | <a href="#"><i class="fa fa-thumbs-o-down"></i></a></span>
-                                                        <span><a href="#"><i class="fa fa-share"></i>Reply</a></span>
-                                                        <span class='reply float-right hide-reply'></span>
-                                                    </div>
-                                                    <!--sub comment-->
-                                                    <div class="media-object stack-for-small reply-comment">
-                                                        <div class="media-object-section comment-img text-center">
-                                                            <div class="comment-box-img">
-                                                                <img src= "images/post-author-post.png" alt="comment">
-                                                            </div>
-                                                        </div>
-                                                        <div class="media-object-section comment-desc">
-                                                            <div class="comment-title">
-                                                                <span class="name"><a href="#">Joseph John</a> Said:</span>
-                                                                <span class="time float-right"><i class="fa fa-clock-o"></i>1 minute ago</span>
-                                                            </div>
-                                                            <div class="comment-text">
-                                                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventoresunt explicabo.</p>
-                                                            </div>
-                                                            <div class="comment-btns">
-                                                                <span><a href="#"><i class="fa fa-thumbs-o-up"></i></a> | <a href="#"><i class="fa fa-thumbs-o-down"></i></a></span>
-                                                                <span><a href="#"><i class="fa fa-share"></i>Reply</a></span>
-                                                                <span class='reply float-right hide-reply'></span>
-                                                            </div>
-                                                        </div>
-                                                    </div><!-- end sub comment -->
-                                                </div>
-                                            </div><!-- end sub comment -->
-                                        </div>
-                                    </div>
-                                </div><!-- End main comment -->
+                                </div> <?php }*/ ?><!-- End main comment -->
 
                             </div>
                         </div>
@@ -938,7 +780,8 @@
                                             <li class="clearfix"><a href="profile-about-me.html"><i class="fa fa-user"></i>about me</a></li>
                                             <li class="clearfix"><a href="profile-video.html"><i class="fa fa-video-camera"></i>Videos <span class="float-right">36</span></a></li>
                                             <li class="clearfix"><a href="profile-favorite.html"><i class="fa fa-heart"></i>Favorite Videos<span class="float-right">50</span></a></li>
-                                            <li class="clearfix"><a href="<?php echo site_url();?>/user/"><i class="fa fa-users"></i>Followers<span class="float-right">6</span></a></li>
+                                            <li class="clearfix"><a href="<?php echo site_url();?>/user/profile"><i class="fa fa-users"></i>Followers<span class="float-right"><?php echo $follow['pqr']; ?></span></a></li>
+											<li class="clearfix"><a href="<?php echo site_url();?>/user/profile"><i class="fa fa-users"></i>Following<span class="float-right"><?php echo $following['pqr']; ?></span></a></li>
                                             <li class="clearfix"><a href="profile-comments.html"><i class="fa fa-comments-o"></i>comments<span class="float-right">26</span></a></li>
                                             <li class="clearfix"><a href="profile-settings.html"><i class="fa fa-gears"></i>Profile Settings</a></li>
                                             <li class="clearfix"><a href="home-v1.html"><i class="fa fa-sign-out"></i>Logout</a></li>
@@ -1222,25 +1065,48 @@
 
 <script type="text/javascript">
 function addcomment(){
-  
-
+  if($("#commentText").val()!=''){
+  //$("#commentText").val('');	
   var subject=$('#commentText').val().trim();
-			
-			jQuery.ajax({
+  //alert(subject);
+		//alert(subject);	
+			$.ajax({
 				type:'POST',
 				url:"<?php echo site_url().'/user/add_comment/'?>",
 				data:
 				{  
 				    'comment':subject
+					
 				},
-				success:function(data)
+				dataType: 'json',
+				success:function(response)
 			{
-				if(data)
-				{
-				var obj=JSON.parse(data);
-				//alert(obj);
-				$("#commentText").val(obj.txt_comment);
 				
+				if(response)
+				{
+				html='';
+				$.each(response, function(key, value) { 
+				  //alert(value.txt_comments); 				 
+				html+= '<div class="media-object stack-for-small">';
+				html+='<div class="media-object-section comment-img text-center">';
+				html+='<div class="comment-box-img">';
+				if(value.txt_profile_image!='') html+='<img src= "<?php echo base_url(); ?>'+value.txt_profile_image+'" alt="comment">';
+				else html+='<img src= "<?php echo base_url(); ?>'+value.txt_no_image+'" alt="comment">';
+				html+='</div>';
+				html+='</div>';
+				html+='<div class="media-object-section comment-desc">';
+				 html+='<div class="comment-title">';
+				html+='<span class="name"><a href="#"></a> Said:'+value.txt_fname+'</span>';
+			    html+='<span class="time float-right"><i class="fa fa-clock-o"></i>'+value.dt_timestamp+'</span></div>';
+				html+='<div class="comment-text">';
+				html+='<p>'+value.txt_comments+'</p></div>';
+				html+='<div class="comment-btns">';
+				html+='<span><a href="#"><i class="fa fa-thumbs-o-up"></i></a> | <a href="#">';
+				html+='<i class="fa fa-thumbs-o-down"></i></a></span>';
+				html+='<span><a href="#"><i class="fa fa-share"></i>Reply</a></span>';
+				html+='<span class="reply float-right hide-reply"></span></div></div></div>';				
+				});
+				$("#id_comments").append(html);
 				}
 				else
 				{
@@ -1252,5 +1118,8 @@ function addcomment(){
 				alert("failure");
 			},
 		});
+  }else{
+	  alert();
+  }
 }
 </script>
