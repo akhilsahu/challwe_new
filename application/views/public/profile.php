@@ -506,7 +506,7 @@
                                 </div>
 
                                 <div class="comment-box thumb-border">
-                                    <div class="media-object stack-for-small">
+                                    <div class="media-object stack-for-small" id="like">
                                         <div class="media-object-section comment-img text-center">
                                             <div class="comment-box-img">
                                                 <img src= "<?php echo base_url().$pro[0]['txt_profile_image']; ?>" alt="">
@@ -860,8 +860,8 @@
 
 <script type="text/javascript">
 function addcomment(){
-  
-
+  if($("#commentText").val()!=''){
+  //$("#commentText").val('');	
   var subject=$('#commentText').val().trim();
 		//alert(subject);	
 			$.ajax({
@@ -897,5 +897,8 @@ function addcomment(){
 				alert("failure");
 			},
 		});
+  }else{
+	  alert();
+  }
 }
 </script>

@@ -6,8 +6,6 @@ class User extends CI_Controller
     public function User()
     {
         parent::__construct();
-		//$data=$this->session->userdata('user');
-	//	print_r($data);exit;
         $this->load->model('Artist_Model');
         $this->load->model('user_model');
     }
@@ -15,7 +13,7 @@ class User extends CI_Controller
 
 	public function index()
 	{
-		
+
 		$data['page']='home';
 		$data['page_title']='Home';
         $this->load->view('public/page',$data);
@@ -25,26 +23,25 @@ class User extends CI_Controller
 	{
 		$data['page']='aboutUs';
 		$data['page_title']='About Us';
-                $this->load->view('public/page',$data);
+        $this->load->view('public/page',$data);
 	}
 
 	public function category()
 	{
 		$data['page']='category';
 		$data['page_title']='Category';
-                $data['cat']= $this->user_model->category();
-                $this->load->view('public/page',$data);
-               //print_r($data['category']);exit;
+        $data['cat']= $this->user_model->category();
+        $this->load->view('public/page',$data);
+               
 	}
         public function sub_category($id)
                 
 	{
-            //echo $id;die;
+
 		$data['page']='category';
 		$data['page_title']='Category';
-                $data['sub_cat']= $this->user_model->sub_category($id);
-               // $this->load->view('public/page',$data);
-               print_r($data['sub_cat']);exit;
+        $data['sub_cat']= $this->user_model->sub_category($id);
+        print_r($data['sub_cat']);exit;
 	}
 	
 	
@@ -52,12 +49,9 @@ class User extends CI_Controller
 	{
             
 		$data=$this->session->userdata('user');
-                //print_r($data);die;
-		$data['pro']=$this->Artist_Model->get_profile_detail($data['txt_email']);
-                
-		$data['follow']=$this->Artist_Model->get_all_followers($data['pro'][0]['int_artist_id']);
+        $data['pro']=$this->Artist_Model->get_profile_detail($data['txt_email']);
+        $data['follow']=$this->Artist_Model->get_all_followers($data['pro'][0]['int_artist_id']);
 		$data['following']=$this->Artist_Model->get_all_following($data['pro'][0]['int_artist_id']);
-		//print_r($data['follow']);exit;
 		$data['page']='profile-followers';
 		$data['page_title']='Profile';
         $this->load->view('public/page',$data);
@@ -66,12 +60,14 @@ class User extends CI_Controller
 	{
             
 		$data=$this->session->userdata('user');
-         //   print_r($data); 
+         
 		$data['pro']=$this->Artist_Model->get_profile_detail($data['txt_email']);
-            //    print_r($data['pro']);exit;
+           
 		$data['follow']=$this->Artist_Model->get_all_followers($data['pro'][0]['int_artist_id']);
 		$data['following']=$this->Artist_Model->get_all_following($data['pro'][0]['int_artist_id']);
-		//print_r($data['follow']);exit;
+		$data['page']='profile-followers';
+
+		
 		$data['page']='profile';
 		$data['page_title']='Profile';
         $this->load->view('public/page',$data);
@@ -81,20 +77,19 @@ class User extends CI_Controller
             
 		
 		$data['pro']=$this->Artist_Model->get_profile_detail_follower($id);
-          // print_r($data['pro']);exit;     
-		$data['follow']=$this->Artist_Model->get_all_followers($data['pro'][0]['int_artist_id']);
-		//print_r($data['follow']);exit;
+        $data['follow']=$this->Artist_Model->get_all_followers($data['pro'][0]['int_artist_id']);
 		$data['following']=$this->Artist_Model->get_all_following($data['pro'][0]['int_artist_id']);
-	    //print_r($data['follow']);exit;
-		$data['page']='profile-followers';
+	    $data['page']='profile-followers';
+
 		$data['page_title']='Profile';
         $this->load->view('public/page',$data);
 	}
 	
+	
 	public function profile_following()
 	{
 		$data=$this->session->userdata('user');
-		
+
 		$data['pro']=$this->Artist_Model->get_profile_detail($data['txt_email']);
 		
 		$data['follow']=$this->Artist_Model->get_all_followers($data['pro'][0]['int_artist_id']);
@@ -102,6 +97,11 @@ class User extends CI_Controller
 		$data['following']=$this->Artist_Model->get_all_following($data['pro'][0]['int_artist_id']);
 		//print_r($data['following']);exit;
 	    //print_r($data['following']['abc'][0]['int_artist_id']);exit;
+
+		$data['pro']=$this->Artist_Model->get_profile_detail($data['txt_email']);
+		$data['follow']=$this->Artist_Model->get_all_followers($data['pro'][0]['int_artist_id']);
+		$data['following']=$this->Artist_Model->get_all_following($data['pro'][0]['int_artist_id']);
+
 		$data['page']='profile_following';
 		$data['page_title']='Profile-following';
         $this->load->view('public/page',$data);
@@ -111,9 +111,14 @@ class User extends CI_Controller
 			
 			$data=$this->session->userdata('user');
 			$data['pro']=$this->Artist_Model->get_profile_detail($data['txt_email']);
+
 			//print_r($data['pro'][0]['int_artist_id']);exit;
 			$executed=$this->Artist_Model->delete_following($id,$data['pro'][0]['int_artist_id']);
 			//print_r($executed);exit;
+
+			$executed=$this->Artist_Model->delete_following($id,$data['pro'][0]['int_artist_id']);
+			
+
 			if($executed)
 			{
 				echo 'success';
@@ -151,18 +156,16 @@ class User extends CI_Controller
 	{
             
 		$valid_login =  $this->Artist_Model->login($this->input->post('txt_email'),$this->input->post('txt_password'));
-		//echo"<pre>"; print_r($valid_login); die();
-                //echo "login";die;
 		if($valid_login)
 		{
 			
 	   	   $this->session->set_userdata('user',$valid_login);
 		  redirect('User','refresh');
-		  //$this->load->view('User/profile');
+		 
 	   }
 	   else
 	   {
-	   	//echo "usernmae & password wrong ";
+	   	
         $data['page']='home';
 		$data['page_title']='Home';
         $this->load->view('public/page',$data);
@@ -178,22 +181,34 @@ class User extends CI_Controller
  function  view_profile($id)
  {  
      $user=$this->session->userdata('user');
-     //echo $user['int_artist_id'];die;
-     //echo $this->session['int_artist_id'];die;
+     
+     
      $data['page']='view_profile';
      $data['pro']=$this->Artist_Model->profile_view($id);
+
     $this->load->view('public/page',$data);
    //print_r($data);
+
+     $this->load->view('public/page',$data);
+   
+
  
  }    
 
 	 public function add_comment()
 	{
 		$abc=$this->input->post('comment');
+
 		//print_r($data);
 		$data['details']=$this->Artist_Model->add_comment($abc);
 		echo json_encode($data['details']);	
 		//print_r($data['details']);exit;
+
+		//print_r($abc);exit;
+		$data['details']=$this->Artist_Model->add_comment($abc);
+		echo json_encode($data['details']);	
+		
+
 
 		/*$html .= ""
 		

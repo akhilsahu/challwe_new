@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class blog extends CI_Controller {
+class Blog extends CI_Controller {
  
 	public function __construct()
     {
@@ -25,23 +25,19 @@ class blog extends CI_Controller {
 	$data['page_title']='Home';
 	$data['blog_single']=$this->Blog_Model->blog_single($id);
 	$data['update']=$this->Blog_Model->update_views($id,$data['blog_single'][0]['int_views']);
-	$data['comments']=$this->Blog_Model->comments($id);
-	//print_r($data['comments']);exit;
-    $this->load->view('public/page',$data);
-     
-		
+	$data['comments']=$this->Blog_Model->comments($id);	
+        $this->load->view('public/page',$data);		
 	}
 
-	/*public function login(){
-		$valid_login =  $this->Artist_Model->login($this->input->post('txt_email'),$this->input->post('txt_password'));
-		//echo"<pre>"; print_r($valid_login); die();
-		if($valid_login){
-	   	   $this->session->set_userdata('user',$valid_login);
-		  redirect('User','refresh');
-	   }else{
-	   	//echo "usernmae & password wrong ";
+	/*public function comments(){
+	$data['comments'] =  $this->Blog_Model->get_comments();
+	if($valid_login){
+	$this->session->set_userdata('user',$valid_login);
+	redirect('User','refresh');
+	}else{
+	//echo "usernmae & password wrong ";
         $data['page']='home';
-		$data['page_title']='Home';
+	$data['page_title']='Home';
         $this->load->view('public/page',$data);
    }
 
