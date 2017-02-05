@@ -6,7 +6,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $page_title;?></title>
-    <link rel="stylesheet" href="<?php //echo base_url();?>assets/css/app.css">
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/css/app.css">
     <link rel="stylesheet" href="<?php echo base_url();?>assets/css/theme.css">
     <link rel="stylesheet" href="<?php echo base_url();?>assets/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800' rel='stylesheet' type='text/css'>
