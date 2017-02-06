@@ -84,11 +84,26 @@
 	 $this->db->query($sql);
 	 //return $result;
 	 
-	 $q=$this->db->query("select a.*, b.txt_fname, b.txt_lname,b.txt_profile_image from tab_pcomm as a Left JOIN tab_artists as b ON a.int_artist_id=b.int_artist_id limit 5");
-      return $q->result_array();
+	 /*$q=$this->db->query("select a.*, b.txt_fname, b.txt_lname,b.txt_profile_image from tab_pcomm as a Left JOIN tab_artists as b ON a.int_artist_id=b.int_artist_id ORDER BY int_pcid DESC limit 1 offset 0");
+      return $q->result_array();*/
       }
 	  
+	  function show_comments($id)
+	  {
+		  //$data=$this->session->userdata('user');
+	      //$pqr=$data['int_artist_id'];
+		  $q=$this->db->query("select  txt_comments,dt_timestamp from tab_pcomm where int_artist_id='$id' ORDER BY int_pcid DESC limit 3 ");
+	      return $q->result_array();
+		  //echo $sql="select txt_comments from tab_pcomm where int_artist_id='$id'";
+	       //$this->db->query($sql);
+		  
+	  }
 	  
+	  function getAllUsercomments($id){
+		  $sql="select a.*, b.txt_fname, b.txt_lname,b.txt_profile_image from tab_pcomm as a Left JOIN tab_artists as b ON a.int_artist_id=b.int_artist_id where a.int_artist_id='$id' ORDER BY int_pcid DESC ";
+		  $q=$this->db->query($sql);
+	      return $q->result_array();
+	  }
 	 
     function profile_view($id)
     {
