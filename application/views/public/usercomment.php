@@ -1,5 +1,5 @@
-<?php //print_r($following);  ?>
-<!--breadcrumbs-->
+<?php //print_r($com['xyz']); ?>
+            <!--breadcrumbs-->
             <section id="breadcrumb">
                 <div class="row">
                     <div class="large-12 columns">
@@ -8,16 +8,15 @@
                                 <li><i class="fa fa-home"></i><a href="home-v1.html">Home</a></li>
                                 <li><a href="profile-page-v2.html">profile</a></li>
                                 <li>
-                                    <span class="show-for-sr">Current: </span> followers
+                                    <span class="show-for-sr">Current: </span> comments
                                 </li>
                             </ul>
                         </nav>
                     </div>
                 </div>
             </section><!--end breadcrumbs-->
-			
-			
-			 <!-- profile top section -->
+
+            <!-- profile top section -->
             <section class="topProfile">
                 <div class="main-text text-center">
                     <div class="row">
@@ -34,7 +33,7 @@
                                 <img src="<?php echo base_url().$pro[0]['txt_profile_image'];?>" alt="profile author img">
                             </div>
                             <div class="profile-subscribe">
-                                <span><i class="fa fa-users"></i><?php echo $follow['pqr'];?></span>
+                                <span><i class="fa fa-users"></i><?php echo $follow['pqr']; ?></span>
                                 <button type="submit" name="subscribe">Followers</button>
                             </div>
                             
@@ -67,12 +66,12 @@
                                             <div class="icon float-left">
                                                 <i class="fa fa-users"></i>
                                             </div>
-                                            <div class="li-text float-left"><a href="<?php echo site_url();?>/user/get_followers">
-                                                <p class="number-text"><?php echo $follow['pqr'];?></p>
-                                                <span>followers</span></a>
+                                            <div class="li-text float-left">
+                                                <p class="number-text"><?php echo $follow['pqr']; ?></p>
+                                                <span>followers</span>
                                             </div>
                                         </li>
-                                        <li>
+										<li>
                                             <div class="icon float-left">
                                                 <i class="fa fa-comments-o"></i>
                                             </div>
@@ -88,12 +87,7 @@
                     </div>
                 </div>
             </section><!-- End profile top section -->
-
-
-           
             <div class="row">
-			
-			
                 <!-- left sidebar -->
                 <div class="large-4 columns">
                     <aside class="secBg sidebar">
@@ -122,75 +116,60 @@
                         </div>
                     </aside>
                 </div><!-- end sidebar -->
-			 
                 <!-- right side content area -->
                 <div class="large-8 columns profile-inner">
-                    <!-- followers -->
-                    <section class="content content-with-sidebar followers margin-bottom-10">
+                    <!-- Comments -->
+                    <section class="content comments">
                         <div class="row secBg">
                             <div class="large-12 columns">
-                                <div class="row column head-text clearfix">
-                                    <h4 class="pull-left"><i class="fa fa-users"></i>Following</h4>
-                                </div>
-								
-                                <div class="row collapse">
-								<?php foreach($following['abc'] as $fol){?>
-      <div class="large-2 small-6 medium-3 columns" id="deldiv<?php echo $fol['int_artist_id']; ?>">
-                                        <div class="follower">
-                                            <div class="follower-img" >
-                                                <img src="<?php echo base_url().$fol['txt_profile_image']; ?>" alt="followers">
+                                <div class="main-heading borderBottom">
+                                    <div class="row padding-14">
+                                        <div class="medium-12 small-12 columns">
+                                            <div class="head-title">
+                                                <i class="fa fa-comments"></i>
+                                                <h4>Comments</h4>
                                             </div>
-                                            <span>
-											<?php echo $fol['txt_fname'].' '.$fol['txt_lname']; ?>
-											</span>
-											
-											<button onclick="delete_following(<?php echo $fol['int_artist_id'] ?>);" name="unfollow">Unfollow
-											</button>
-											
-                                            
                                         </div>
                                     </div>
-                                    <?php } ?>
                                 </div>
+                                 <div class="comment-sort text-right">
+                                    <span>Sort By : <a href="#">newest</a> | <a href="#">oldest</a></span>
+                                </div>
+
+                                <!-- main comment -->
+                                  <div class="main-comment showmore_one">
+								  <?php foreach($com['xyz'] as $comm) { ?>								
+								   <div class="media-object stack-for-small">
 								
-                            </div>
-                            <div class="show-more-inner text-center">
-                                <a href="#" class="show-more-btn">show more</a>
+                                        <div class="media-object-section comment-img text-center">
+                                            <div class="comment-box-img">
+                                                <img src= "<?php echo base_url().$pro[0]['txt_profile_image']; ?>" alt="comment">
+                                            </div>
+                                        </div>
+										<div class="media-object-section comment-desc">
+                                            <div class="comment-title">
+                                                <span class="name"><a href="#"></a> Said: <?php echo $pro[0]['txt_fname'].' '.$pro[0]['txt_lname']; ?></span>
+                                                <span class="time float-right"><i class="fa fa-clock-o"></i><?php echo $comm['dt_timestamp']; ?></span>
+                                            </div>
+                                            <div class="comment-text">
+                                                <p><?php echo $comm['txt_comments']; ?></p>
+                                            </div>
+                                            <div class="comment-btns">
+                                                <span><a href="#"><i class="fa fa-thumbs-o-up"></i></a> | <a href="#"><i class="fa fa-thumbs-o-down"></i></a></span>
+                                                <span><a href="#"><i class="fa fa-share"></i>Reply</a></span>
+                                                <span class='reply float-right hide-reply'></span>
+                                            </div>
+                                           </div>
+								     
+                                    </div>
+									<?php } ?>
+                                </div>
+
                             </div>
                         </div>
-                    </section>
+                    </section><!-- End Comments -->
                 </div><!-- end left side content area -->
             </div>
-			
 
-<script type="text/javascript">
-
-function delete_following(id)
-    {   
-	//alert(id);
-	var r = confirm("Are you sure you want to Unfollow!");
-	
-	if (r == true) 
-	{
-
-		$.ajax({
-			url:"<?php echo site_url().'/user/delete_following/';?>"+id,
-			
-            success:function(data)
-            {        
-//alert(data);			
-				if(data.trim()=='success')
-				{
-					$('#deldiv'+id).remove();
-				}
-				else
-				{
-					alert('Not Able to Unfollow');
-				}
-           
-            }
-			});
-        }
-	}
-</script> 
-           
+            
+            
