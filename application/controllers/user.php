@@ -11,6 +11,7 @@ class User extends CI_Controller
 	
         $this->load->model('Artist_Model');
         $this->load->model('user_model');
+        
     }
 
 
@@ -55,6 +56,7 @@ class User extends CI_Controller
         $data['pro']=$this->Artist_Model->get_profile_detail($data['txt_email']);
         $data['follow']=$this->Artist_Model->get_all_followers($data['pro'][0]['int_artist_id']);
 		$data['following']=$this->Artist_Model->get_all_following($data['pro'][0]['int_artist_id']);
+		$data['com']=$this->Artist_Model->getcomments($data['int_artist_id']);
 		$data['page']='profile-followers';
 		$data['page_title']='Profile';
         $this->load->view('public/page',$data);
@@ -63,6 +65,7 @@ class User extends CI_Controller
 	{
             
 		$data=$this->session->userdata('user');
+		$data['com']=$this->Artist_Model->getcomments($data['int_artist_id']);
          
 		$data['pro']=$this->Artist_Model->get_profile_detail($data['txt_email']);
            
@@ -81,6 +84,7 @@ class User extends CI_Controller
 		$data['pro']=$this->Artist_Model->get_profile_detail_follower($id);
         $data['follow']=$this->Artist_Model->get_all_followers($data['pro'][0]['int_artist_id']);
 		$data['following']=$this->Artist_Model->get_all_following($data['pro'][0]['int_artist_id']);
+		$data['com']=$this->Artist_Model->getcomments($data['int_artist_id']);
 	    $data['page']='profile-followers';
 		$data['page_title']='Profile';
         $this->load->view('public/page',$data);
@@ -92,6 +96,7 @@ class User extends CI_Controller
 		$data['pro']=$this->Artist_Model->get_profile_detail($data['txt_email']);
 		$data['follow']=$this->Artist_Model->get_all_followers($data['pro'][0]['int_artist_id']);
 		$data['following']=$this->Artist_Model->get_all_following($data['pro'][0]['int_artist_id']);
+		$data['com']=$this->Artist_Model->getcomments($data['int_artist_id']);
 		$data['page']='profile_following';
 		$data['page_title']='Profile-following';
         $this->load->view('public/page',$data);
@@ -161,15 +166,14 @@ class User extends CI_Controller
  $this->session->sess_destroy();
  redirect('User','refresh');
  }
+ 
  function  view_profile($id)
  {  
      $user=$this->session->userdata('user');
-     
-     
      $data['page']='view_profile';
      $data['pro']=$this->Artist_Model->profile_view($id);
+	 $data['com']=$this->Artist_Model->getcomments($data['int_artist_id']);
      $this->load->view('public/page',$data);
-   
  
  }    
 
@@ -185,14 +189,27 @@ class User extends CI_Controller
 	
 	 public function get_comment()
 	{
+		
 		$abc=$this->input->post('comment');
 		$data=$this->session->userdata('user');
 		//$data['pro']=$this->Artist_Model->get_profile_detail($data['txt_email']);
 		if($data['txt_email']=='') die();
 		$data['details']=$this->Artist_Model->getAllUsercomments($data['int_artist_id']);
+		$data['com']=$this->Artist_Model->getcomments($data['int_artist_id']);
 		//print_r($data['details']);
 		echo json_encode($data['details']);	
 		
+	}
+	public function userComments()
+	{
+		$data=$this->session->userdata('user');
+		$data['com']=$this->Artist_Model->getcomments($data['int_artist_id']);
+		$data['pro']=$this->Artist_Model->get_profile_detail($data['txt_email']);
+		$data['follow']=$this->Artist_Model->get_all_followers($data['pro'][0]['int_artist_id']);
+		$data['following']=$this->Artist_Model->get_all_following($data['pro'][0]['int_artist_id']);
+		$data['page']='usercomment';
+		$data['page_title']='comments';
+        $this->load->view('public/page',$data);
 	}
     
     /*public function show_comments() 
