@@ -7,7 +7,7 @@
   }
   
  public function blog_single($id){
-   $q=$this->db->query("select B.*,A.txt_fname,A.txt_lname,(select count(int_comment_id) from tab_comments c where c.int_blog_id=b.int_blog_id) as t_comments from tab_artists as A inner join tab_blogs as B on A.int_artist_id=B.int_artist_id where int_blog_id=$id");
+   $q=$this->db->query("select B.*,A.txt_fname,A.txt_lname,A.txt_profile_image,A.txt_description as txt_user_description,C.txt_title as category_name,(select count(int_comment_id) from tab_comments c where c.int_blog_id=b.int_blog_id) as t_comments from tab_artists as A inner join tab_blogs as B on A.int_artist_id=B.int_artist_id left join tab_catagories C on B.int_category_id=C.int_category_id where int_blog_id=$id");
 	return $q = $q->result_array();         
   }
   public function update_views($id,$counter){

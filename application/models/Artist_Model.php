@@ -38,47 +38,52 @@
 		$abc="select tab1.int_artist_id,tab1.txt_profile_image,tab1.txt_fname,tab1.txt_lname from tab_artists as tab1 left join tab_follow as tab2 on tab2.int_follower_id=tab1.int_artist_id where tab2.int_following_id=$user_id"; 
 		$query=$this->db->query($abc);
 		$result['abc']=$query->result_array();
+		//print_r($result['abc']);exit;
 		$result['pqr']=count($query->result_array());
 		return $result;
 		
 	}
-	public function get_profile_detail_follower($id)
- {
 	
+	   public function get_profile_detail_follower($id)
+     {
+	//print_r($email);exit;
     $q=$this->db->query("select * from tab_artists where int_artist_id='$id'");
      return $q->result_array();
       }
+	  
 	  function get_all_following($user_id)
 	{
 		$abc="select tab1.int_artist_id,tab1.txt_profile_image,tab1.txt_fname,tab1.txt_lname from tab_artists as tab1 left join tab_follow as tab2 on tab2.int_following_id=tab1.int_artist_id where tab2.int_follower_id=$user_id"; 
 		$query=$this->db->query($abc);
 		$result['abc']=$query->result_array();
-		
+		//print_r($result['abc']);exit;
 		$result['pqr']=count($query->result_array());
 		return $result;
 	}
 	 
 	  function delete_following($id,$idd)
 	{
-		
+		//print_r($id);exit;
 	$abc="Delete from tab_follow where int_following_id=$id and int_follower_id=$idd"; 
 	return $query=$this->db->query($abc);
 	}
   
    function get_profile_detail($email)
     {
-      //echo "hii";exit;
-     $q=$this->db->query("select * from tab_artists where txt_email='$email'");
+       $q=$this->db->query("select * from tab_artists where txt_email='$email'");
 	 return $q->result_array();
 	 
       }
  
      function add_comment($abc)
-    {
+ {
 	 $data=$this->session->userdata('user');
-	 $pqr=$data['int_artist_id'];
-	 $sql="insert into tab_pcomm values(Default,'$abc','$pqr','','','','".date('Y-m-d H:i:s')."')";
+	$pqr=$data['int_artist_id'];
+	
+     $sql="insert into tab_pcomm values(Default,'$abc','$pqr','','','','".date('Y-m-d H-i-s')."')";
 	 $this->db->query($sql);
+	 //return $result;
+	 
 	 $q=$this->db->query("select a.*, b.txt_fname, b.txt_lname,b.txt_profile_image from tab_pcomm as a Left JOIN tab_artists as b ON a.int_artist_id=b.int_artist_id limit 5");
       return $q->result_array();
       }
@@ -116,6 +121,4 @@
         
     }
  }
-
-
 ?>

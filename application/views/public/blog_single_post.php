@@ -25,7 +25,7 @@
                                         <p>
                                             <span><i class="fa fa-user"></i><a href="#"><?php echo $blog_single[0]['txt_fname'].' '.$blog_single[0]['txt_lname'] ; ?></a></span>
                                             <span><i class="fa fa-clock-o"></i><?php echo $blog_single[0]['dt_created_on']; ?></span>
-                                            <span><i class="fa fa-eye"></i><?php echo $blog_single[0]['int_views']; ?>K</span>
+                                            <span><i class="fa fa-eye"></i><?php echo $blog_single[0]['int_views']; ?></span>
                                             <span><i class="fa fa-commenting"></i><?php echo $blog_single[0]['t_comments']; ?></span>
                                         </p>
                                     </div>
@@ -34,25 +34,10 @@
                                             <img src="<?php echo base_url().$blog_single[0]['txt_media_url'];?>" alt="blog image">
                                         </div>
                                         <p><?php echo $blog_single[0]['txt_description'];?></p>
-                                        <!--<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur</p>
-                                        <ul>
-                                            <li><h6>Bullets List :</h6></li>
-                                            <li><i class="fa fa-caret-right"></i>Sed ut perspiciatis unde omnis</li>
-                                            <li><i class="fa fa-caret-right"></i>But I must explain to you how</li>
-                                            <li><i class="fa fa-caret-right"></i>At vero eos et accusamus et iusto</li>
-                                            <li><i class="fa fa-caret-right"></i>On the other hand, we denounce</li>
-                                            <li><i class="fa fa-caret-right"></i>There are many variations of passages</li>
-
-                                        </ul>
-                                        <blockquote>
-                                            Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam,
-                                        </blockquote>
-                                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. </p>
-                                        <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur</p>-->
-                                        <div class="blog-post-extras">
+                                       <div class="blog-post-extras">
                                             <div class="categories extras">
                                                 <button><i class="fa fa-folder-open"></i>categories</button>
-                                                <a href="#">entertainment</a>
+                                                <a href="#"><?php echo $blog_single[0]['category_name'];?></a>
                                             </div>
                                             <div class="tags extras">
                                                 <button><i class="fa fa-tags"></i>tags</button>
@@ -61,22 +46,19 @@
                                                 <a href="#">HD</a>
                                                 <a href="#">Movies</a>
                                             </div>
-                                            <div class="social-share extras">
+                                            <!--div class="social-share extras">
                                                 <div class="post-like-btn clearfix">
                                                     <div class="easy-share" data-easyshare data-easyshare-http data-easyshare-url="http://joinwebs.com">
 
                                                         <button class="float-left"><i class="fa fa-share-alt"></i>share</button>
-                                                        <!-- Facebook -->
                                                         <button class="removeBorder" data-easyshare-button="facebook">
                                                             <span class="fa fa-facebook"></span>
                                                         </button>
 
-                                                        <!-- Twitter -->
                                                         <button class="removeBorder" data-easyshare-button="twitter" data-easyshare-tweet-text="">
                                                             <span class="fa fa-twitter"></span>
                                                         </button>
 
-                                                        <!-- Google+ -->
                                                         <button class="removeBorder" data-easyshare-button="google">
                                                             <span class="fa fa-google-plus"></span>
                                                         </button>
@@ -84,7 +66,7 @@
                                                         <div data-easyshare-loader>Loading...</div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div-->
                                         </div>
                                         <div class="blog-pagination text-center">
                                             <a href="#"><i class="fa fa-long-arrow-left left-arrow"></i>previous post</a>
@@ -101,13 +83,13 @@
                                     <div class="media-object">
                                         <div class="media-object-section">
                                             <div class="blog-post-author-img">
-                                                <img src="images/blog-post-author-img.png" alt="blog post author">
+                                                <img src="<?php echo base_url().$blog_single[0]['txt_profile_image'];?>" alt="blog post author">
                                             </div>
                                         </div>
                                         <div class="media-object-section">
                                             <div class="blog-post-author-des">
-                                                <h5>Written by Admin</h5>
-                                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventoresunt explicabo. Iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventoresunt explicabo.</p>
+                                                <h5>Written by <?php echo $blog_single[0]['txt_fname']." ".$blog_single[0]['txt_lname'];?></h5>
+                                                <p><?php echo $blog_single[0]['txt_user_description'];?></p>
                                             </div>
                                         </div>
                                     </div>
@@ -123,13 +105,30 @@
                                             <div class="medium-12 small-12 columns">
                                                 <div class="head-title">
                                                     <i class="fa fa-comments"></i>
-                                                    <h4>Comments <span><?php echo $blog_single[0]['t_comments']; ?></span></h4>
+                                                    <h4>Comments <span>(4)</span></h4>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
 
-                                        <div class="comment-sort text-right">
+                                    <div class="comment-box thumb-border">
+                                        <div class="media-object stack-for-small">
+                                            <div class="media-object-section comment-img text-center">
+                                                <div class="comment-box-img">
+                                                    <img src= "images/post-author-post.png" alt="comment">
+                                                </div>
+                                                <h6><a href="#">Joseph John</a></h6>
+                                            </div>
+                                            <div class="media-object-section comment-textarea">
+                                                <form method="post">
+                                                    <textarea name="commentText" placeholder="Add a comment here.."></textarea>
+                                                    <input type="submit" name="submit" value="send">
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="comment-sort text-right">
                                         <span>Sort By : <a href="#">newest</a> | <a href="#">oldest</a></span>
                                     </div>
 
@@ -141,14 +140,13 @@
                                                     <img src= "images/post-author-post.png" alt="comment">
                                                 </div>
                                             </div>
-                                            <?php foreach($comments as $comment){ ?>
                                             <div class="media-object-section comment-desc">
                                                 <div class="comment-title">
-                                                    <span class="name"><a href="#"><?php //echo $ ?></a> Said:</span>
+                                                    <span class="name"><a href="#">Joseph John</a> Said:</span>
                                                     <span class="time float-right"><i class="fa fa-clock-o"></i>1 minute ago</span>
                                                 </div>
                                                 <div class="comment-text">
-                                                    <p><?php echo $comment['txt_comment']; ?></p>
+                                                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventoresunt explicabo.</p>
                                                 </div>
                                                 <div class="comment-btns">
                                                     <span><a href="#"><i class="fa fa-thumbs-o-up"></i></a> | <a href="#"><i class="fa fa-thumbs-o-down"></i></a></span>
@@ -204,7 +202,6 @@
                                                 </div><!-- end sub comment -->
 
                                             </div>
-                                            <?php }?>
                                         </div>
 
                                         <div class="media-object stack-for-small">
@@ -300,10 +297,6 @@
                                 </div>
                             </div>
                         </section><!-- End Comments -->
-                        <!-- ad Section -->
-                        <div class="googleAdv">
-                            <a href="#"><img src="images/goodleadv.png" alt="googel ads"></a>
-                        </div><!-- End ad Section -->
                     </div><!-- end left side content area -->
                     <!-- sidebar -->
                     <div class="large-4 columns">
