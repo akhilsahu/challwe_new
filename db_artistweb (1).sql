@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 04, 2017 at 02:08 PM
+-- Generation Time: Feb 06, 2017 at 06:33 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.5.37
 
@@ -52873,7 +52873,8 @@ INSERT INTO `tab_artists` (`int_artist_id`, `txt_fname`, `txt_lname`, `int_gende
 (7, 'ritu', 'dixit', 0, 'ritu@gmail.com', 9867543290, '81dc9bdb52d04dc20036dbd8313ed055', NULL, NULL, NULL, NULL, NULL, NULL, 'artist_media\\profile\\images (19).jpg', NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0),
 (8, 'kapil', 'dev', 0, 'kapil.d687@gmail.com', 0, '202cb962ac59075b964b07152d234b70', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0),
 (9, 'izhar', 'ahmad', 0, 'ias@gmail.com', 9876543212, 'd81f9c1be2e08964bf9f24b15f0e4900', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0),
-(10, 'Saumya', 'Mishra', 0, 'saumya@gmail.com', 1234567890, '827ccb0eea8a706c4c34a16891f84e7b', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0);
+(10, 'Saumya', 'Mishra', 0, 'saumya@gmail.com', 1234567890, '827ccb0eea8a706c4c34a16891f84e7b', NULL, NULL, NULL, NULL, NULL, NULL, 'artist_media/profile/2.jpg', NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0),
+(11, 'Shreya', 'Mishra', 0, 'shreya@gmail.com', 9999999999, '22c4b69193b1673a7988f7542e561ed5', NULL, NULL, NULL, NULL, NULL, NULL, 'artist_media/profile/hs.jpg', 'artist_media/cover_image/hs.jpg', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -52974,19 +52975,20 @@ CREATE TABLE `tab_blogs` (
   `int_is_active` tinyint(4) NOT NULL,
   `dt_created_on` date NOT NULL,
   `int_is_publish` tinyint(4) NOT NULL,
-  `int_views` bigint(20) NOT NULL
+  `int_views` bigint(20) NOT NULL,
+  `int_category_id` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tab_blogs`
 --
 
-INSERT INTO `tab_blogs` (`int_blog_id`, `int_media_type`, `txt_media_url`, `txt_title`, `txt_description`, `txt_link`, `int_artist_id`, `int_source`, `int_is_active`, `dt_created_on`, `int_is_publish`, `int_views`) VALUES
-(1, 1, 'blog_media/1.jpg', 'This is Dummy Blog', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lacus dolor, tristique vitae libero sit amet, posuere luctus diam. Ut nec mi sit amet arcu feugiat dapibus. Aliquam in orci id lacus congue viverra. Cras et viverra quam, sed auctor nibh. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque sed posuere nulla, nec scelerisque odio. Aenean ut laoreet nisl. Suspendisse et sapien fringilla, laoreet enim et, laoreet diam. Curabitur faucibus commodo ipsum, egestas lacinia dolor eleifend eget. Vivamus laoreet tristique velit interdum mattis. Fusce vulputate non lectus id facilisis.</p>\n\n<p>Proin gravida placerat metus, sit amet congue risus egestas id. Phasellus sapien ex, egestas eget dictum nec, rutrum ut turpis. In venenatis, leo vitae bibendum elementum, ante lectus lacinia magna, et condimentum orci nunc ut justo. Pellentesque efficitur mi dolor, id rhoncus diam rutrum a. Donec enim tellus, dictum a tincidunt et, auctor et lectus. Mauris blandit luctus rutrum. In at fringilla tellus. Suspendisse quis massa nibh. In purus magna, vehicula quis viverra quis, ultricies eu ipsum. Vivamus non est aliquam, lacinia metus quis, finibus justo. In pretium tortor vitae interdum finibus. Vestibulum rhoncus ligula eget massa placerat, vel semper justo viverra. Donec ut sapien tortor. Integer nec cursus mauris.</p>\n\n<p>Aliquam lacinia magna nec ipsum feugiat, nec luctus magna placerat. Quisque condimentum risus bibendum mauris tempus, sit amet sagittis nunc tristique. Aenean ut lacus sed libero gravida scelerisque. Vivamus at augue sit amet massa hendrerit elementum ac ut urna. Morbi mollis tempor quam a fermentum. Quisque consequat accumsan pretium. Cras consequat viverra quam, sed imperdiet augue pretium at. In quis gravida nunc. Nulla tincidunt efficitur dolor et semper. Integer volutpat faucibus enim, sed viverra ligula molestie sit amet.</p>\n\n<p>Vestibulum vitae posuere nisl, at interdum nibh. Donec sed iaculis dui. Donec tristique pulvinar vulputate. Fusce posuere vulputate neque, sit amet suscipit tellus eleifend eget. Sed tristique, augue suscipit pretium vulputate, nulla dui mattis eros, nec tincidunt massa purus eu tortor. Nam et aliquet lacus. Vestibulum ornare nibh nec nisi imperdiet, vel accumsan orci dictum. Sed vehicula, lorem ac porta efficitur, ex est feugiat odio, in molestie dui sapien id ligula. Suspendisse vulputate libero id facilisis tristique. In faucibus turpis ligula, sed imperdiet ante faucibus ut. Donec lectus mi, rhoncus in blandit ac, rhoncus ut nisl. Aliquam suscipit tincidunt ante at scelerisque. Aliquam erat volutpat.</p>\n\n<p>Pellentesque nec tortor id tellus dapibus egestas. Nullam pretium lorem vitae nisi sodales volutpat. Mauris bibendum diam eu dolor dictum semper a quis augue. Pellentesque sed tincidunt tortor, et lacinia nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum lobortis ac sapien eget semper. Pellentesque ullamcorper massa quam, in ultrices augue ultricies aliquam.</p>\n', NULL, 2, NULL, 0, '2016-08-05', 1, 63),
-(2, 1, 'blog_media/2.jpg', 'Test Blog', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lacus dolor, tristique vitae libero sit amet, posuere luctus diam. Ut nec mi sit amet arcu feugiat dapibus. Aliquam in orci id lacus congue viverra. Cras et viverra quam, sed auctor nibh. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque sed posuere nulla, nec scelerisque odio. Aenean ut laoreet nisl. Suspendisse et sapien fringilla, laoreet enim et, laoreet diam. Curabitur faucibus commodo ipsum, egestas lacinia dolor eleifend eget. Vivamus laoreet tristique velit interdum mattis. Fusce vulputate non lectus id facilisis.</p>\n\n<p>Proin gravida placerat metus, sit amet congue risus egestas id. Phasellus sapien ex, egestas eget dictum nec, rutrum ut turpis. In venenatis, leo vitae bibendum elementum, ante lectus lacinia magna, et condimentum orci nunc ut justo. Pellentesque efficitur mi dolor, id rhoncus diam rutrum a. Donec enim tellus, dictum a tincidunt et, auctor et lectus. Mauris blandit luctus rutrum. In at fringilla tellus. Suspendisse quis massa nibh. In purus magna, vehicula quis viverra quis, ultricies eu ipsum. Vivamus non est aliquam, lacinia metus quis, finibus justo. In pretium tortor vitae interdum finibus. Vestibulum rhoncus ligula eget massa placerat, vel semper justo viverra. Donec ut sapien tortor. Integer nec cursus mauris.</p>\n', NULL, 4, NULL, 0, '2016-08-05', 1, 28),
-(3, 1, 'blog_media/3.png', 'this is new blog title', 'this is new description this is new descriptionthis is new descriptionthis is new descriptionthis is new descriptionthis is new descriptionthis is new descriptionthis is new descriptionthis is new descriptionthis is new descriptionthis is new descriptionthis is new description', NULL, 5, NULL, 0, '0000-00-00', 1, 16),
-(4, 1, 'blog_media/3.png', 'this is new blog title', 'this is new description this is new descriptionthis is new descriptionthis is new descriptionthis is new descriptionthis is new descriptionthis is new descriptionthis is new descriptionthis is new descriptionthis is new descriptionthis is new descriptionthis is new description', NULL, 6, NULL, 0, '0000-00-00', 1, 11),
-(5, 2, 'blog_media/ci.mp4', 'title hjsdf', 'this is good', 'http://localhost:8080/phpmyadmin/tbl_change.php?db=db_artistweb&table=tab_blogs&token=c1c6706063a5651be217af057b5964b6', 3, 8, 0, '2017-02-25', 1, 118);
+INSERT INTO `tab_blogs` (`int_blog_id`, `int_media_type`, `txt_media_url`, `txt_title`, `txt_description`, `txt_link`, `int_artist_id`, `int_source`, `int_is_active`, `dt_created_on`, `int_is_publish`, `int_views`, `int_category_id`) VALUES
+(1, 1, 'blog_media/1.jpg', 'This is Dummy Blog', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lacus dolor, tristique vitae libero sit amet, posuere luctus diam. Ut nec mi sit amet arcu feugiat dapibus. Aliquam in orci id lacus congue viverra. Cras et viverra quam, sed auctor nibh. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque sed posuere nulla, nec scelerisque odio. Aenean ut laoreet nisl. Suspendisse et sapien fringilla, laoreet enim et, laoreet diam. Curabitur faucibus commodo ipsum, egestas lacinia dolor eleifend eget. Vivamus laoreet tristique velit interdum mattis. Fusce vulputate non lectus id facilisis.</p>\n\n<p>Proin gravida placerat metus, sit amet congue risus egestas id. Phasellus sapien ex, egestas eget dictum nec, rutrum ut turpis. In venenatis, leo vitae bibendum elementum, ante lectus lacinia magna, et condimentum orci nunc ut justo. Pellentesque efficitur mi dolor, id rhoncus diam rutrum a. Donec enim tellus, dictum a tincidunt et, auctor et lectus. Mauris blandit luctus rutrum. In at fringilla tellus. Suspendisse quis massa nibh. In purus magna, vehicula quis viverra quis, ultricies eu ipsum. Vivamus non est aliquam, lacinia metus quis, finibus justo. In pretium tortor vitae interdum finibus. Vestibulum rhoncus ligula eget massa placerat, vel semper justo viverra. Donec ut sapien tortor. Integer nec cursus mauris.</p>\n\n<p>Aliquam lacinia magna nec ipsum feugiat, nec luctus magna placerat. Quisque condimentum risus bibendum mauris tempus, sit amet sagittis nunc tristique. Aenean ut lacus sed libero gravida scelerisque. Vivamus at augue sit amet massa hendrerit elementum ac ut urna. Morbi mollis tempor quam a fermentum. Quisque consequat accumsan pretium. Cras consequat viverra quam, sed imperdiet augue pretium at. In quis gravida nunc. Nulla tincidunt efficitur dolor et semper. Integer volutpat faucibus enim, sed viverra ligula molestie sit amet.</p>\n\n<p>Vestibulum vitae posuere nisl, at interdum nibh. Donec sed iaculis dui. Donec tristique pulvinar vulputate. Fusce posuere vulputate neque, sit amet suscipit tellus eleifend eget. Sed tristique, augue suscipit pretium vulputate, nulla dui mattis eros, nec tincidunt massa purus eu tortor. Nam et aliquet lacus. Vestibulum ornare nibh nec nisi imperdiet, vel accumsan orci dictum. Sed vehicula, lorem ac porta efficitur, ex est feugiat odio, in molestie dui sapien id ligula. Suspendisse vulputate libero id facilisis tristique. In faucibus turpis ligula, sed imperdiet ante faucibus ut. Donec lectus mi, rhoncus in blandit ac, rhoncus ut nisl. Aliquam suscipit tincidunt ante at scelerisque. Aliquam erat volutpat.</p>\n\n<p>Pellentesque nec tortor id tellus dapibus egestas. Nullam pretium lorem vitae nisi sodales volutpat. Mauris bibendum diam eu dolor dictum semper a quis augue. Pellentesque sed tincidunt tortor, et lacinia nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum lobortis ac sapien eget semper. Pellentesque ullamcorper massa quam, in ultrices augue ultricies aliquam.</p>\n', NULL, 2, NULL, 0, '2016-08-05', 1, 116, 7),
+(2, 1, 'blog_media/2.jpg', 'Test Blog', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lacus dolor, tristique vitae libero sit amet, posuere luctus diam. Ut nec mi sit amet arcu feugiat dapibus. Aliquam in orci id lacus congue viverra. Cras et viverra quam, sed auctor nibh. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque sed posuere nulla, nec scelerisque odio. Aenean ut laoreet nisl. Suspendisse et sapien fringilla, laoreet enim et, laoreet diam. Curabitur faucibus commodo ipsum, egestas lacinia dolor eleifend eget. Vivamus laoreet tristique velit interdum mattis. Fusce vulputate non lectus id facilisis.</p>\n\n<p>Proin gravida placerat metus, sit amet congue risus egestas id. Phasellus sapien ex, egestas eget dictum nec, rutrum ut turpis. In venenatis, leo vitae bibendum elementum, ante lectus lacinia magna, et condimentum orci nunc ut justo. Pellentesque efficitur mi dolor, id rhoncus diam rutrum a. Donec enim tellus, dictum a tincidunt et, auctor et lectus. Mauris blandit luctus rutrum. In at fringilla tellus. Suspendisse quis massa nibh. In purus magna, vehicula quis viverra quis, ultricies eu ipsum. Vivamus non est aliquam, lacinia metus quis, finibus justo. In pretium tortor vitae interdum finibus. Vestibulum rhoncus ligula eget massa placerat, vel semper justo viverra. Donec ut sapien tortor. Integer nec cursus mauris.</p>\n', NULL, 4, NULL, 0, '2016-08-05', 1, 202, 0),
+(3, 1, 'blog_media/3.png', 'this is new blog title', 'this is new description this is new descriptionthis is new descriptionthis is new descriptionthis is new descriptionthis is new descriptionthis is new descriptionthis is new descriptionthis is new descriptionthis is new descriptionthis is new descriptionthis is new description', NULL, 5, NULL, 0, '0000-00-00', 1, 16, 0),
+(4, 1, 'blog_media/3.png', 'this is new blog title', 'this is new description this is new descriptionthis is new descriptionthis is new descriptionthis is new descriptionthis is new descriptionthis is new descriptionthis is new descriptionthis is new descriptionthis is new descriptionthis is new descriptionthis is new description', NULL, 6, NULL, 0, '0000-00-00', 1, 30, 0),
+(5, 2, 'blog_media/ci.mp4', 'title hjsdf', 'this is good', 'http://localhost:8080/phpmyadmin/tbl_change.php?db=db_artistweb&table=tab_blogs&token=c1c6706063a5651be217af057b5964b6', 3, 8, 0, '2017-02-25', 1, 147, 0);
 
 -- --------------------------------------------------------
 
@@ -53029,6 +53031,8 @@ CREATE TABLE `tab_comments` (
   `txt_comment` text,
   `int_blog_id` int(11) DEFAULT NULL,
   `int_user_id` int(11) DEFAULT NULL,
+  `txt_sub_comment` text,
+  `int_parent_id` bigint(20) NOT NULL,
   `int_source` int(11) DEFAULT NULL,
   `dt_created_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -53037,14 +53041,23 @@ CREATE TABLE `tab_comments` (
 -- Dumping data for table `tab_comments`
 --
 
-INSERT INTO `tab_comments` (`int_comment_id`, `txt_comment`, `int_blog_id`, `int_user_id`, `int_source`, `dt_created_on`) VALUES
-(1, 'hii', 2, 0, NULL, '2017-01-31 11:57:40'),
-(2, 'Hello', 1, 2, NULL, '2017-01-31 12:06:53'),
-(3, 'Test Comment', 1, 2, NULL, '2016-08-05 22:21:53'),
-(4, 'heyy', 1, 0, NULL, '2016-08-05 22:25:15'),
-(5, 'the comment is empty ', 5, 0, NULL, '2017-02-04 10:46:49'),
-(6, 'not that much', 5, NULL, NULL, '2017-02-04 10:48:21'),
-(7, 'yes', 5, 10, NULL, '2017-02-04 10:49:35');
+INSERT INTO `tab_comments` (`int_comment_id`, `txt_comment`, `int_blog_id`, `int_user_id`, `txt_sub_comment`, `int_parent_id`, `int_source`, `dt_created_on`) VALUES
+(1, 'May god bless', 2, 8, NULL, 0, NULL, '2017-02-06 13:27:00'),
+(2, 'Hi', 2, 8, NULL, 0, NULL, '2017-02-06 13:27:18'),
+(3, 'heloo', 2, 8, NULL, 0, NULL, '2017-02-06 13:27:26'),
+(4, 'hey', 2, 8, NULL, 0, NULL, '2017-02-06 13:27:56'),
+(5, 'ritu commented here', 1, 7, NULL, 0, NULL, '2017-02-06 13:31:51'),
+(6, 'hi ritu', 1, 2, NULL, 0, NULL, '2017-02-06 13:33:18'),
+(7, 'ajax', 1, 2, NULL, 0, NULL, '2017-02-06 13:52:30'),
+(8, 'qwerty', 1, 2, NULL, 0, NULL, '2017-02-06 13:53:41'),
+(9, 'eve', 1, 2, NULL, 0, NULL, '2017-02-06 13:55:06'),
+(10, 'Shreya Commented on this', 5, 11, NULL, 0, NULL, '2017-02-06 16:02:09'),
+(11, 'Shreya again commented on this', 5, 11, NULL, 0, NULL, '2017-02-06 16:04:45'),
+(12, 'saumya commented here', 1, 10, NULL, 0, NULL, '2017-02-06 16:07:52'),
+(13, 'saumya commented on this', 1, 10, NULL, 0, NULL, '2017-02-06 16:09:36'),
+(14, 'hey', 5, 10, NULL, 0, NULL, '2017-02-06 16:10:52'),
+(15, 'blog created', 5, 10, NULL, 0, NULL, '2017-02-06 16:11:48'),
+(16, 'hi', 1, 10, NULL, 0, NULL, '2017-02-06 17:31:40');
 
 -- --------------------------------------------------------
 
@@ -53661,7 +53674,7 @@ ALTER TABLE `tab_album`
 -- AUTO_INCREMENT for table `tab_artists`
 --
 ALTER TABLE `tab_artists`
-  MODIFY `int_artist_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `int_artist_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `tab_artist_business`
 --
@@ -53696,7 +53709,7 @@ ALTER TABLE `tab_catagories`
 -- AUTO_INCREMENT for table `tab_comments`
 --
 ALTER TABLE `tab_comments`
-  MODIFY `int_comment_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `int_comment_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `tab_contest`
 --

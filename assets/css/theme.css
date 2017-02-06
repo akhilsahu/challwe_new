@@ -3513,7 +3513,7 @@ article.page-content {
   .blog-post .blog-post-content {
     padding-bottom: 30px; }
     .blog-post .blog-post-content .blog-post-img {
-      height: 370px;
+      height: 100%;
       margin-bottom: 20px; }
       .blog-post .blog-post-content .blog-post-img img {
         width: 100%;

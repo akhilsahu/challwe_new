@@ -35,6 +35,9 @@ class Blog extends CI_Controller {
 	$data['comments']=$this->Blog_Model->comments($id);	
 	$data['update']=$this->Blog_Model->update_views($id,$data['blog_single'][0]['int_views']);
 	$data['most_viewed']=$this->Blog_Model->most_viewed($abc);
+	$data['recent_viewed']=$this->Blog_Model->recent_viewed($abc);
+	$data['get_cat']=$this->Blog_Model->get_category($id);
+	$data['get_all_categories']=$this->Blog_Model->get_all_category();
 	$sess=$this->session->userdata('user');
 	$data['get']=$this->Blog_Model->get_login_user_detail($sess['int_artist_id']);
 	if($this->session->userdata('user'))
@@ -43,11 +46,23 @@ class Blog extends CI_Controller {
 		}
 		else{$this->load->view('public/page',$data);		}
 	}
-	public function add_comment(){
-		$data=$this->Blog_Model->add_comment($this->session->userdata('user'));
+	public function add_comment($id){
+		$abc=$this->input->post('comment');
+		$data=$this->Blog_Model->add_comment($id,$this->session->userdata('user'),$abc);
 		if($data)
 		{
-			redirect('Blog/get_blog','refresh');
+			echo 'success';
+		}
+		else
+		{
+			echo 'failed';
+		}
+	}
+	public function get_comment($id){
+		$data=$this->Blog_Model->get_comment($id);
+		if($data)
+		{
+		   echo	json_encode($data);
 		}
 		else
 		{
