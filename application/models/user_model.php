@@ -14,10 +14,10 @@ Class User_model extends CI_Model{
         $query1=$this->db->query($sql1);
         $result['category']=$query->result_array();  
         $result['sub_category']=$query1->result_array();
-        
+         return $result;
          
         //print_r($result);die;
-        return $result;
+       
     }
     public function sub_category($id)
     {

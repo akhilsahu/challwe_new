@@ -36,34 +36,9 @@
                             </div>
                             <div class="profile-subscribe">
                                 <span><i class="fa fa-users"></i><?php echo $pro['follow']['followers'];?></span>
-                                <button type="submit" name="subscribe">Followers</button>
+                                <button type="submit" class="btn btn-primary" name="subscribe">Follow</button>
                             </div>
-                            <div class="profile-share">
-                                <div class="easy-share" data-easyshare data-easyshare-http data-easyshare-url="http://joinwebs.com">
-                                    <!-- Facebook -->
-                                    <button data-easyshare-button="facebook">
-                                        <span class="fa fa-facebook"></span>
-                                        <span>Share</span>
-                                    </button>
-                                    <span data-easyshare-button-count="facebook">0</span>
-
-                                    <!-- Twitter -->
-                                    <button data-easyshare-button="twitter" data-easyshare-tweet-text="">
-                                        <span class="fa fa-twitter"></span>
-                                        <span>Tweet</span>
-                                    </button>
-                                    <span data-easyshare-button-count="twitter">0</span>
-
-                                    <!-- Google+ -->
-                                    <button data-easyshare-button="google">
-                                        <span class="fa fa-google-plus"></span>
-                                        <span>+1</span>
-                                    </button>
-                                    <span data-easyshare-button-count="google">0</span>
-
-                                    <div data-easyshare-loader>Loading...</div>
-                                </div>
-                            </div>
+                           
                             <div class="clearfix">
                                 <div class="profile-author-name float-left">
                                     <h4><?php echo $pro[0]['txt_fname'].' '.$pro[0]['txt_lname'];?></h4>
@@ -314,7 +289,7 @@
                                                 <img src="<?php echo base_url(); ?>assets/images/follower-img.png" alt="followers">
                                             </div>
                                             <span><?php echo $follower['txt_fname']." ".$follower['txt_lname'];?></span>
-                                            <button type="submit" name="follow">Subscribe</button>
+                                            
                                         </div>
                                     </div>
                                     <?php } ?>
@@ -539,13 +514,13 @@
                                     </div>
                                     <div class="widgetContent">
                                         <ul class="profile-overview">
-                                            <li class="clearfix"><a href="profile-about-me.html"><i class="fa fa-user"></i>about me</a></li>
+                                            <!--<li class="clearfix"><a href="profile-about-me.html"><i class="fa fa-user"></i>about me</a></li>-->
                                             <li class="clearfix"><a href="profile-video.html"><i class="fa fa-video-camera"></i>Videos <span class="float-right"><?php echo count($pro['video']); ?></span></a></li>
                                             <li class="clearfix"><a href="profile-favorite.html"><i class="fa fa-heart"></i>Favorite Videos<span class="float-right">50</span></a></li>
                                             <li class="clearfix"><a href="#"><i class="fa fa-users"></i>Followers<span class="float-right"><?php echo $pro['follow']['followers']?></span></a></li>
                                             <li class="clearfix"><a href="profile-comments.html"><i class="fa fa-comments-o"></i>comments<span class="float-right"><?php echo count($pro['comment']); ?></span></a></li>
-                                            <li class="clearfix"><a href="profile-settings.html"><i class="fa fa-gears"></i>Profile Settings</a></li>
-                                            <li class="clearfix"><a href="home-v1.html"><i class="fa fa-sign-out"></i>Logout</a></li>
+                                            
+                                            
                                         </ul>
                                         <a href="submit-post.html" class="button"><i class="fa fa-plus-circle"></i>Submit Video</a>
                                     </div>
@@ -651,28 +626,16 @@
                                     </div>
                                     <div class="widgetContent">
                                         <ul>
-                                            <li class="cat-item"><a href="#">Entertainment &nbsp; (6)</a></li>
-                                            <li class="cat-item"><a href="#">Historical &amp; Archival &nbsp;(8)</a></li>
-                                            <li class="cat-item"><a href="#">Technology&nbsp;(4)</a></li>
-                                            <li class="cat-item"><a href="#">People&nbsp;(3)</a></li>
-                                            <li class="cat-item"><a href="#">Fashion &amp; Beauty&nbsp;(2)</a></li>
-                                            <li class="cat-item"><a href="#">Nature&nbsp;(1)</a></li>
-                                            <li class="cat-item"><a href="#">Automotive&nbsp;(5)</a></li>
-                                            <li class="cat-item"><a href="">Foods &amp; Drinks&nbsp;(5)</a></li>
-                                            <li class="cat-item"><a href="#">Foods &amp; Drinks&nbsp;(10)</a></li>
-                                            <li class="cat-item"><a href="#">Animals&nbsp;(12)</a></li>
-                                            <li class="cat-item"><a href="#">Sports &amp; Recreation&nbsp;(14)</a></li>
-                                            <li class="cat-item"><a href="">Places &amp; Landmarks&nbsp;(16)</a></li>
-                                            <li class="cat-item"><a href="">Places &amp; Landmarks&nbsp;(1)</a></li>
-                                            <li class="cat-item"><a href="#">Travel&nbsp;(2)</a></li>
-                                            <li class="cat-item"><a href="#">Transportation&nbsp;(3)</a></li>
+                                            <?php foreach($pro['category'] as $category ) { ?>
+                                            <li class="cat-item"><a href="#"><?php echo $category['txt_title'];?></a></li>
+                                            <?php  } ?>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- social Fans Widget -->
-                            <div class="large-12 medium-7 medium-centered columns">
+                     <!--       <div class="large-12 medium-7 medium-centered columns">
                                 <div class="widgetBox">
                                     <div class="widgetTitle">
                                         <h5>social fans</h5>
@@ -707,7 +670,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div><!-- End social Fans Widget -->
+                            </div>--><!-- End social Fans Widget -->
 
                             <!-- ad banner widget -->
                             <div class="large-12 medium-7 medium-centered columns">

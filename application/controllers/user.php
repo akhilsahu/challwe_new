@@ -117,7 +117,7 @@ class User extends CI_Controller
      $data['page']='view_profile';
      $data['pro']=$this->Artist_Model->profile_view($id);
     $this->load->view('public/page',$data);
-   //print_r($data);
+   //print_r($data['pro']['category']);
      
 
 	  function add_comment()
