@@ -35,7 +35,7 @@
                 <li>
                     <a href="#"><i class="fa fa-edit"></i>Blog</a>
                 </li>
-                <li><a href="#"><i class="fa fa-th"></i>Profile</a></li>
+                <li><a href="<?php echo site_url();?>/user/user_profile">"><i class="fa fa-th"></i>Profile</a></li>
                 <li><a href="<?php echo site_url();?>/user/aboutUs"><i class="fa fa-user"></i>About Us</a></li>
                 <li><a href="#"><i class="fa fa-envelope"></i>Contact</a></li>
             </ul>
@@ -167,7 +167,7 @@
                                             <li>
                                                 <a href="#"><i class="fa fa-edit"></i>Blog</a>
                                             </li>
-                                            <li><a href="#"><i class="fa fa-th"></i>Profile</a></li>
+                                            <li><a href="<?php echo site_url();?>/user/user_profile"><i class="fa fa-th"></i>Profile</a></li>
                                             <li><a href="<?php echo site_url();?>/user/aboutUs"><i class="fa fa-user"></i>About Us</a></li>
                                             <li><a href="#"><i class="fa fa-envelope"></i>Contact</a></li>
                                         </ul>

@@ -732,6 +732,29 @@
                                     <span>Sort By : <a href="#">newest</a> | <a href="#">oldest</a></span>
                                 </div>
 								<div class="main-comment showmore_one" id="id_comments">
+								<div class="media-object stack-for-small">
+                                        <div class="media-object-section comment-img text-center">
+                                            <div class="comment-box-img">
+                                                <img src= "<?php echo base_url(); ?><?php echo $pro[0]['txt_profile_image']?>" alt="comment">
+                                            </div>
+                                        </div>
+                                        <div class="media-object-section comment-desc">
+                                            <div class="comment-title">
+                                                <span class="name"><a href="#"></a> Said: <?php echo $detail['txt_fname'].' '.$detail['txt_lname']?></span>
+                                                <span class="time float-right"><i class="fa fa-clock-o"></i>1 minute ago</span>
+                                            </div>
+                                            <div class="comment-text">
+                                                <p><?php echo $detail['txt_comments'] ?></p>
+                                            </div>
+                                            <div class="comment-btns">
+                                                <span><a href="#"><i class="fa fa-thumbs-o-up"></i></a> | <a href="#"><i class="fa fa-thumbs-o-down"></i></a></span>
+                                                <span><a href="#"><i class="fa fa-share"></i>Reply</a></span>
+                                                <span class='reply float-right hide-reply'></span>
+                                            </div>
+
+                                            <!-- end sub comment -->
+                                        </div>
+                                    </div>
                                 </div>
 								<!-- main comment -->
 								<?php /*foreach($details as $detail) { ?>
@@ -759,7 +782,7 @@
                                             <!-- end sub comment -->
                                         </div>
                                     </div>
-                                </div> <?php }*/ ?><!-- End main comment -->
+                                </div> <?php } */?><!-- End main comment -->
 
                             </div>
                         </div>
@@ -1101,7 +1124,7 @@ function addcomment(){
 				html+='<div class="comment-text">';
 				html+='<p>'+value.txt_comments+'</p></div>';
 				html+='<div class="comment-btns">';
-				html+='<span><a href="#"><i class="fa fa-thumbs-o-up"></i></a> | <a href="#">';
+				html+='<span><a href="<?php echo site_url().'/user/increment' ?>"><i class="fa fa-thumbs-o-up"></i></a> | <a href="#">';
 				html+='<i class="fa fa-thumbs-o-down"></i></a></span>';
 				html+='<span><a href="#"><i class="fa fa-share"></i>Reply</a></span>';
 				html+='<span class="reply float-right hide-reply"></span></div></div></div>';				

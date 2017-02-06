@@ -178,24 +178,8 @@ class User extends CI_Controller
 		$data['details']=$this->Artist_Model->add_comment($abc);
 		echo json_encode($data['details']);	
 		
-
-		/*$html .= ""
-		
-		$html .=  $in_parent == 0 ? "<ul class='tree'>" : "<ul>";
-        
-        $html .= " <li class='comment_box'>
-            <div class='aut'>".$re['comment_name']."</div>
-            <div class='aut'>".$re['comment_email']."</div>
-            <div class='comment-body'>".$re['comment_body']."</div>
-            <div class='timestamp'>".date("F j, Y", $re['comment_created'])."</div>
-            <a  href='#comment_form' class='reply' id='" . $re['comment_id'] . "'>Replay </a>";
-                $html .=$this->in_parent($re['comment_id'],$ne_id, $store_all_id);
-                $html .= "</li>";
-        
-            $html .=  "</ul>";*/
-		//echo json_encode($data['details']);		
 	}
     
-
+    //public function show_comments() 
 
 }

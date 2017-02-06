@@ -67,7 +67,7 @@
   
    function get_profile_detail($email)
     {
-      
+      //echo "hii";exit;
      $q=$this->db->query("select * from tab_artists where txt_email='$email'");
 	 return $q->result_array();
 	 
