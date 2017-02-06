@@ -69,12 +69,11 @@
                                                 <span>Followers</span></a>
                                             </div>
                                         </li>
-                                        <li>
+										<li>
                                             <div class="icon float-left">
                                                 <i class="fa fa-comments-o"></i>
                                             </div>
-                                            <div class="li-text float-left">
-											<a href="<?php echo site_url(); ?>/user/userComments">
+                                            <div class="li-text float-left"><a href="<?php echo site_url(); ?>/user/userComments">
                                                 <p class="number-text"><?php echo $com['abc']; ?></p>
                                                 <span>comments</span></a>
                                             </div>
@@ -949,7 +948,7 @@ function addcomment(){
 				dataType: 'json',
 				success:function(response)
 			{
-				
+				//alert(response);
 				getUserComments();
 			},
 			error:function(response)

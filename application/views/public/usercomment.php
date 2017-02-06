@@ -67,20 +67,17 @@
                                                 <i class="fa fa-users"></i>
                                             </div>
                                             <div class="li-text float-left">
-											<a href="<?php echo site_url(); ?>/user/get_followers">
                                                 <p class="number-text"><?php echo $follow['pqr']; ?></p>
-                                                <span>followers</span></a>
+                                                <span>followers</span>
                                             </div>
                                         </li>
-										
-                                        <li>
+										<li>
                                             <div class="icon float-left">
                                                 <i class="fa fa-comments-o"></i>
                                             </div>
                                             <div class="li-text float-left">
-											<a href="<?php echo site_url(); ?>/user/userComments">
                                                 <p class="number-text"><?php echo $com['abc']; ?></p>
-                                                <span>comments</span></a>
+                                                <span>comments</span>
                                             </div>
                                         </li>
                                     </ul>

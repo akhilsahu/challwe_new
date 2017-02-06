@@ -53,6 +53,7 @@ class User extends CI_Controller
 	{
             
 		$data=$this->session->userdata('user');
+		$data['com']=$this->Artist_Model->getcomments($data['int_artist_id']);
         $data['pro']=$this->Artist_Model->get_profile_detail($data['txt_email']);
         $data['follow']=$this->Artist_Model->get_all_followers($data['pro'][0]['int_artist_id']);
 		$data['following']=$this->Artist_Model->get_all_following($data['pro'][0]['int_artist_id']);
@@ -68,7 +69,7 @@ class User extends CI_Controller
 		$data['com']=$this->Artist_Model->getcomments($data['int_artist_id']);
          
 		$data['pro']=$this->Artist_Model->get_profile_detail($data['txt_email']);
-           
+        $data['com']=$this->Artist_Model->getcomments($data['int_artist_id']);   
 		$data['follow']=$this->Artist_Model->get_all_followers($data['pro'][0]['int_artist_id']);
 		$data['following']=$this->Artist_Model->get_all_following($data['pro'][0]['int_artist_id']);
 		$data['comment']=$this->Artist_Model->show_comments($data['pro'][0]['int_artist_id']);
@@ -80,7 +81,7 @@ class User extends CI_Controller
 	public function profile_follower($id)
 	{
             
-		
+		$data['com']=$this->Artist_Model->getcomments($data['int_artist_id']);
 		$data['pro']=$this->Artist_Model->get_profile_detail_follower($id);
         $data['follow']=$this->Artist_Model->get_all_followers($data['pro'][0]['int_artist_id']);
 		$data['following']=$this->Artist_Model->get_all_following($data['pro'][0]['int_artist_id']);
@@ -93,6 +94,7 @@ class User extends CI_Controller
 	public function profile_following()
 	{
 		$data=$this->session->userdata('user');
+		$data['com']=$this->Artist_Model->getcomments($data['int_artist_id']);
 		$data['pro']=$this->Artist_Model->get_profile_detail($data['txt_email']);
 		$data['follow']=$this->Artist_Model->get_all_followers($data['pro'][0]['int_artist_id']);
 		$data['following']=$this->Artist_Model->get_all_following($data['pro'][0]['int_artist_id']);
@@ -212,6 +214,17 @@ class User extends CI_Controller
         $this->load->view('public/page',$data);
 	}
     
+	public function userComments()
+	{
+		$data=$this->session->userdata('user');
+		$data['com']=$this->Artist_Model->getcomments($data['int_artist_id']);
+		$data['pro']=$this->Artist_Model->get_profile_detail($data['txt_email']);
+		$data['follow']=$this->Artist_Model->get_all_followers($data['pro'][0]['int_artist_id']);
+		$data['following']=$this->Artist_Model->get_all_following($data['pro'][0]['int_artist_id']);
+		$data['page']='usercomment';
+		$data['page_title']='comments';
+        $this->load->view('public/page',$data);
+	}
     /*public function show_comments() 
 	{
 		echo "hii";exit;

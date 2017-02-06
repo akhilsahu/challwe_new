@@ -104,9 +104,7 @@
 		  $q=$this->db->query($sql);
 	      return $q->result_array();
 	  }
-	  
-	  function getcomments($id)
-	  {
+	  function getcomments($id){
 		  $sql="select a.*, b.txt_fname, b.txt_lname,b.txt_profile_image from tab_pcomm as a Left JOIN tab_artists as b ON a.int_artist_id=b.int_artist_id where a.int_artist_id='$id' ORDER BY int_pcid DESC ";
 		  $q=$this->db->query($sql);
 		  $result['xyz']=$q->result_array();
