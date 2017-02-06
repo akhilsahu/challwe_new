@@ -29,7 +29,7 @@ class Blog extends CI_Controller {
 
 	public function single_blog_post($id){
 	$data['page']='blog_single_post';
-	$data['page_title']='Home';
+	$data['page_title']='Blog';
 	$data['blog_single']=$this->Blog_Model->blog_single($id);
 	$data['update']=$this->Blog_Model->update_views($id,$data['blog_single'][0]['int_views']);
 	$data['comments']=$this->Blog_Model->comments($id);	

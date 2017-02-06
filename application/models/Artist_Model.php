@@ -14,23 +14,19 @@
   }
 
   public function login($email,$password){
-      //echo "logoing";die;
-      //$sql="select int_artist_id,txt_email,txt_password from tab_artists where txt_email='$email'";
+      
+      
       $this->db->select('int_artist_id,txt_email,txt_password');
       $q=$this->db->where(['txt_email'=>$email,'txt_password'=>md5($password)])
                 ->get('tab_artists');
-      //  $q=$this->db->query($sql);
-        //echo 'log';die;
-      //echo $q?1:23;die;
-      //echo $q->num_rows();die;
+      
       if($q->num_rows())
 	  {
-          //echo 'log';die;
+          
         return $q->row_array();
       }
 	  else
 	  {
-            // echo 'log_else';die;
         return FALSE;
       }
     }
@@ -39,43 +35,83 @@
 	  
 	  function get_all_followers($user_id)
 	{
-		$abc="select tab1.txt_profile_image,tab1.txt_fname,tab1.txt_lname from tab_artists as tab1 left join tab_follow as tab2 on tab2.int_follower_id=tab1.int_artist_id where tab2.int_following_id=$user_id"; 
+		$abc="select tab1.int_artist_id,tab1.txt_profile_image,tab1.txt_fname,tab1.txt_lname from tab_artists as tab1 left join tab_follow as tab2 on tab2.int_follower_id=tab1.int_artist_id where tab2.int_following_id=$user_id"; 
 		$query=$this->db->query($abc);
-		$result=$query->result_array();
-		//print_r($result);die;
+		$result['abc']=$query->result_array();
+		//print_r($result['abc']);exit;
+		$result['pqr']=count($query->result_array());
+		return $result;
+		
+	}
+	
+	   public function get_profile_detail_follower($id)
+     {
+	//print_r($email);exit;
+    $q=$this->db->query("select * from tab_artists where int_artist_id='$id'");
+     return $q->result_array();
+      }
+	  
+	  function get_all_following($user_id)
+	{
+		$abc="select tab1.int_artist_id,tab1.txt_profile_image,tab1.txt_fname,tab1.txt_lname from tab_artists as tab1 left join tab_follow as tab2 on tab2.int_following_id=tab1.int_artist_id where tab2.int_follower_id=$user_id"; 
+		$query=$this->db->query($abc);
+		$result['abc']=$query->result_array();
+		//print_r($result['abc']);exit;
+		$result['pqr']=count($query->result_array());
 		return $result;
 	}
-	  
 	 
-	  
+	  function delete_following($id,$idd)
+	{
+		//print_r($id);exit;
+	$abc="Delete from tab_follow where int_following_id=$id and int_follower_id=$idd"; 
+	return $query=$this->db->query($abc);
+	}
   
    function get_profile_detail($email)
     {
-      // echo 'get_profile';die;
-	
-     $q=$this->db->query("select * from tab_artists where txt_email='$email'");
-	// print_r($q);exit;
-     return $q->result_array();
-	 //print_r($q);exit;
+       $q=$this->db->query("select * from tab_artists where txt_email='$email'");
+	 return $q->result_array();
+	 
       }
  
-       public function add_comment($abc)
+     function add_comment($abc)
  {
 	 $data=$this->session->userdata('user');
-	 $pqr=$data['int_artist_id'];
+	$pqr=$data['int_artist_id'];
 	
-     $sql="insert into tab_pcomm values(Default,'$abc','$pqr','')";
-	 $result=$this->db->query($sql);
-	 return $result;
-
+     $sql="insert into tab_pcomm values(Default,'$abc','$pqr','','','','".date('Y-m-d H-i-s')."')";
+	 $this->db->query($sql);
+	 //return $result;
+	 
+	 /*$q=$this->db->query("select a.*, b.txt_fname, b.txt_lname,b.txt_profile_image from tab_pcomm as a Left JOIN tab_artists as b ON a.int_artist_id=b.int_artist_id ORDER BY int_pcid DESC limit 1 offset 0");
+      return $q->result_array();*/
       }
 	  
+	  function show_comments($id)
+	  {
+		  //$data=$this->session->userdata('user');
+	      //$pqr=$data['int_artist_id'];
+		  $q=$this->db->query("select  txt_comments,dt_timestamp from tab_pcomm where int_artist_id='$id' ORDER BY int_pcid DESC limit 3 ");
+	      return $q->result_array();
+		  //echo $sql="select txt_comments from tab_pcomm where int_artist_id='$id'";
+	       //$this->db->query($sql);
+		  
+	  }
 	  
-	  function get_all()
-    {
-        $query = $this->db->get('tab_pcomm');
-        return $query->result_array();
-    }
+	  function getAllUsercomments($id){
+		  $sql="select a.*, b.txt_fname, b.txt_lname,b.txt_profile_image from tab_pcomm as a Left JOIN tab_artists as b ON a.int_artist_id=b.int_artist_id where a.int_artist_id='$id' ORDER BY int_pcid DESC ";
+		  $q=$this->db->query($sql);
+	      return $q->result_array();
+	  }
+	  function getcomments($id){
+		  $sql="select a.*, b.txt_fname, b.txt_lname,b.txt_profile_image from tab_pcomm as a Left JOIN tab_artists as b ON a.int_artist_id=b.int_artist_id where a.int_artist_id='$id' ORDER BY int_pcid DESC ";
+		  $q=$this->db->query($sql);
+		  $result['xyz']=$q->result_array();
+		  $result['abc']=count($q->result_array());
+		  return $result;
+	  }
+	 
     function profile_view($id)
     {
         
@@ -104,9 +140,7 @@
         //print_r($result['video']);die;
          //echo count($result['video']);die;
         return $result;
-        //print_r($result);die;
+        
     }
  }
-
-
 ?>
