@@ -109,9 +109,9 @@
                                                     </a>
                                                 </div><?php } ?>
                                                 <div class="video-box-content">
-                                                    <h6><a href="#"><?php echo $view['txt_title']?> </a></h6>
+                                                    <h6><a href="<?php echo site_url()?>/Blog/single_blog_post/<?php echo $view['int_blog_id']?>"><?php echo $view['txt_title']?> </a></h6>
                                                     <p>
-                                                        <span><i class="fa fa-user"></i><?php echo $view['txt_fname'].' '.$view['txt_lname'] ?><a href="#">admin</a></span>
+                                                        <span><i class="fa fa-user"></i><?php echo $view['txt_fname'].' '.$view['txt_lname'] ?><a href="#"></a></span>
                                                         <span><i class="fa fa-clock-o"></i><?php echo $view['dt_created_on'] ?></span>
                                                         <span><i class="fa fa-eye"></i><?php echo $view['int_views'] ?></span>
                                                     </p>
@@ -214,7 +214,7 @@
                                                 </div>
                                                 <div class="media-object-section">
                                                     <div class="media-content">
-                                                        <h6><a href="#"><?php echo $recent['txt_title'] ?></a></h6>
+                                                        <h6><a href="<?php echo site_url()?>/Blog/single_blog_post/<?php echo $recent['int_blog_id']?>"><?php echo $recent['txt_title'] ?></a></h6>
                                                         <p><i class="fa fa-user"></i><span><?php echo $recent['txt_fname'].' '.$recent['txt_lname'] ?></span><i class="fa fa-clock-o"></i><span><?php echo $recent['dt_created_on']; ?></span></p>
                                                     </div>
                                                 </div>

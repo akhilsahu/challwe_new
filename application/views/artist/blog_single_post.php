@@ -21,7 +21,7 @@
                             <div class="row secBg">
                                 <div class="large-12 columns">
                                     <div class="blog-post-heading">
-                                        <h3><a href="#"><?php echo $blog_single[0]['txt_title']; ?></a></h3>
+                                        <h3><a href="<?php echo site_url()?>/Blog/single_blog_post/<?php echo $this->uri->segment(3);?>"><?php echo $blog_single[0]['txt_title']; ?></a></h3>
                                         <p>
                                             <span><i class="fa fa-user"></i><a href="#"><?php echo $blog_single[0]['txt_fname'].' '.$blog_single[0]['txt_lname'] ; ?></a></span>
                                             <span><i class="fa fa-clock-o"></i><?php echo $blog_single[0]['dt_created_on']; ?></span>
@@ -307,9 +307,9 @@
                                                     </a>
                                                 </div><?php } ?>
                                                 <div class="video-box-content">
-                                                    <h6><a href="#"><?php echo $view['txt_title']?> </a></h6>
+                                                    <h6><a href="<?php echo site_url()?>/Blog/single_blog_post/<?php echo $view['int_blog_id'];?>"><?php echo $view['txt_title']?> </a></h6>
                                                     <p>
-                                                        <span><i class="fa fa-user"></i><?php echo $view['txt_fname'].' '.$view['txt_lname'] ?><a href="#">admin</a></span>
+                                                        <span><i class="fa fa-user"></i><a href="<?php echo site_url()?>/Blog/single_blog_post/<?php echo $view['int_blog_id'];?>"><?php echo $view['txt_fname'].' '.$view['txt_lname'] ?></a></span>
                                                         <span><i class="fa fa-clock-o"></i><?php echo $view['dt_created_on'] ?></span>
                                                         <span><i class="fa fa-eye"></i><?php echo $view['int_views'] ?></span>
                                                     </p>
@@ -413,7 +413,7 @@
                                                 <div class="media-object-section">
                                                     <div class="media-content">
                                                         <h6><a href="#"><?php echo $recent['txt_title'] ?></a></h6>
-                                                        <p><i class="fa fa-user"></i><span><?php echo $recent['txt_fname'].' '.$recent['txt_lname'] ?></span><i class="fa fa-clock-o"></i><span><?php echo $recent['dt_created_on']; ?></span></p>
+                                                        <p><i class="fa fa-user"></i><span><a href="<?php echo site_url()?>/User/view_profile/<?php echo $view['int_blog_id'];?>"><?php echo $recent['txt_fname'].' '.$recent['txt_lname'] ?></span><i class="fa fa-clock-o"></a></i><span><?php echo $recent['dt_created_on']; ?></span></p>
                                                     </div>
                                                 </div>
                                             </div>
