@@ -26,8 +26,11 @@ class Artist extends CI_Controller {
 
 	public function create_post()
 	{
+		$data=$this->session->userdata('user');
 		$data['page']='create_post';
 		$data['page_title']='Create Post';
+		$data['pro']=$this->Artist_Model->get_profile_detail($data['txt_email']);
+		//print_r($data['pro']);exit;
         $this->load->view('artist/page',$data);
 	}
 	

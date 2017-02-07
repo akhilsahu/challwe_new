@@ -38,7 +38,7 @@
                             <div class="profile-subscribe">
                                 
                                 <span  class="no_follower fa fa-users"  style="padding:13px 15px;"><?php echo $pro['followers']['followers'];?></span>
-                                <button type="button" id="btn_follow" class="btn btn-primary follow" name="subscribe" onclick="follow(<?php echo $this->uri->segment(3)?>)">Follow</button>
+                                <button type="button" id="btn_follow" class="btn btn-primary follow" name="subscribe" onclick="follow(<?php echo $this->uri->segment(3)?>);">Follow</button>
                                 <button type="button" id="btn_unfollow" class="btn btn-primary follow" name="subscribe" onclick="unfollow(<?php echo $this->uri->segment(3)?>);">UnFollow</button>
                             </div></form>
                             <script type="text/javascript">

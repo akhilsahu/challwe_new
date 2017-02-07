@@ -1,4 +1,4 @@
-<?php //print_r($details); ?>
+<?php //print_r($data['comment']); ?>
  <section id="breadcrumb">
                 <div class="row">
                     <div class="large-12 columns">
@@ -64,18 +64,18 @@
                                             <div class="icon float-left">
                                                 <i class="fa fa-users"></i>
                                             </div>
-                                            <div class="li-text float-left" href="<?php echo site_url(); ?>/user/profile">
+                                            <div class="li-text float-left"> <a href="<?php echo site_url(); ?>/user/get_followers">
                                                 <p class="number-text"><?php echo $follow['pqr']; ?></p>
-                                                <span>Followers</span>
+                                                <span>Followers</span></a>
                                             </div>
                                         </li>
-                                        <li>
+										<li>
                                             <div class="icon float-left">
                                                 <i class="fa fa-comments-o"></i>
                                             </div>
-                                            <div class="li-text float-left">
-                                                <p class="number-text">26</p>
-                                                <span>comments</span>
+                                            <div class="li-text float-left"><a href="<?php echo site_url(); ?>/user/userComments">
+                                                <p class="number-text"><?php echo $com['abc']; ?></p>
+                                                <span>comments</span></a>
                                             </div>
                                         </li>
                                     </ul>
@@ -527,9 +527,36 @@
                                 <div class="comment-sort text-right">
                                     <span>Sort By : <a href="#">newest</a> | <a href="#">oldest</a></span>
                                 </div>
-
-                                <!-- main comment -->
-								<?php foreach($details as $detail) { ?>
+								<div class="main-comment showmore_one" id="id_comments">
+								</div>
+								<div class="main-comment showmore_one" id="id_comments">
+								<?php /*foreach($comment as $com) { ?>								
+								<div class="media-object stack-for-small">
+                                        <div class="media-object-section comment-img text-center">
+                                            <div class="comment-box-img">
+                                                <img src= "<?php echo base_url().$pro[0]['txt_profile_image']; ?>" alt="comment">
+                                            </div>
+                                        </div>
+										<div class="media-object-section comment-desc">
+                                            <div class="comment-title">
+                                                <span class="name"><a href="#"></a> Said: <?php echo $pro[0]['txt_fname'].' '.$pro[0]['txt_lname']; ?></span>
+                                                <span class="time float-right"><i class="fa fa-clock-o"></i><?php echo $com['dt_timestamp']; ?></span>
+                                            </div>
+                                            <div class="comment-text">
+                                                <p><?php echo $com['txt_comments']; ?></p>
+                                            </div>
+                                            <div class="comment-btns">
+                                                <span><a href="#"><i class="fa fa-thumbs-o-up"></i></a> | <a href="#"><i class="fa fa-thumbs-o-down"></i></a></span>
+                                                <span><a href="#"><i class="fa fa-share"></i>Reply</a></span>
+                                                <span class='reply float-right hide-reply'></span>
+                                            </div>
+                                           </div>
+										
+                                    </div>
+									<?php } */?>
+                                </div>
+								<!-- main comment -->
+								<?php /*foreach($details as $detail) { ?>
                                 <div class="main-comment showmore_one">
                                     <div class="media-object stack-for-small">
                                         <div class="media-object-section comment-img text-center">
@@ -554,7 +581,7 @@
                                             <!-- end sub comment -->
                                         </div>
                                     </div>
-                                </div> <?php } ?><!-- End main comment -->
+                                </div> <?php } */?><!-- End main comment -->
 
                             </div>
                         </div>
@@ -573,13 +600,13 @@
                                     <div class="widgetContent">
                                         <ul class="profile-overview">
                                             <li class="clearfix"><a href="<?php echo site_url();?>/user/user_profile"><i class="fa fa-user"></i>about me</a></li>
-                                            <li class="clearfix"><a href="profile-video.html"><i class="fa fa-video-camera"></i>Videos <span class="float-right">36</span></a></li>
-                                            <li class="clearfix"><a href="profile-favorite.html"><i class="fa fa-heart"></i>Favorite Videos<span class="float-right">50</span></a></li>
-                                            <li class="clearfix"><a href="<?php echo site_url();?>/user/profile"><i class="fa fa-users"></i>Followers<span class="float-right"><?php echo $follow['pqr']; ?></span></a></li>
-											<li class="clearfix"><a href="<?php echo site_url();?>/user/profile"><i class="fa fa-users"></i>Following<span class="float-right"><?php echo $following['pqr']; ?></span></a></li>
-                                            <li class="clearfix"><a href="profile-comments.html"><i class="fa fa-comments-o"></i>comments<span class="float-right">26</span></a></li>
+                                            <li class="clearfix"><a href="#"><i class="fa fa-video-camera"></i>Videos <span class="float-right">36</span></a></li>
+                                            <li class="clearfix"><a href="#"><i class="fa fa-heart"></i>Favorite Videos<span class="float-right">50</span></a></li>
+                                            <li class="clearfix"><a href="<?php echo site_url();?>/user/get_followers"><i class="fa fa-users"></i>Followers<span class="float-right"><?php echo $follow['pqr']; ?></span></a></li>
+											<li class="clearfix"><a href="<?php echo site_url();?>/user/profile_following"><i class="fa fa-users"></i>Following<span class="float-right"><?php echo $following['pqr']; ?></span></a></li>
+                                            <li class="clearfix"><a href="<?php echo site_url();?>/user/userComments"><i class="fa fa-comments-o"></i>comments<span class="float-right"><?php echo $com['abc']; ?></span></a></li>
                                             <li class="clearfix"><a href="profile-settings.html"><i class="fa fa-gears"></i>Profile Settings</a></li>
-                                            <li class="clearfix"><a href="home-v1.html"><i class="fa fa-sign-out"></i>Logout</a></li>
+                                            <li class="clearfix"><a href="<?php echo site_url();?>/user/logout"><i class="fa fa-sign-out"></i>Logout</a></li>
                                         </ul>
                                         <a href="submit-post.html" class="button"><i class="fa fa-plus-circle"></i>Submit Video</a>
                                     </div>
@@ -859,10 +886,56 @@
             </div>
 
 <script type="text/javascript">
+function getUserComments(){
+	$.ajax({
+				type:'POST',
+				url:"<?php echo site_url().'/user/get_comment/'?>",
+				dataType: 'json',
+				success:function(response)
+			{
+				$("#id_comments").html('');
+				if(response)
+				{
+				html='';
+				$.each(response, function(key, value) { 
+				  //alert(value.txt_comments); 				 
+				html+= '<div class="media-object stack-for-small">';
+				html+='<div class="media-object-section comment-img text-center">';
+				html+='<div class="comment-box-img">';
+				if(value.txt_profile_image!='') html+='<img src= "<?php echo base_url(); ?>'+value.txt_profile_image+'" alt="comment">';
+				else html+='<img src= "<?php echo base_url(); ?>'+value.txt_no_image+'" alt="comment">';
+				html+='</div>';
+				html+='</div>';
+				html+='<div class="media-object-section comment-desc">';
+				 html+='<div class="comment-title">';
+				html+='<span class="name"><a href="#"></a> Said:'+value.txt_fname+'</span>';
+			    html+='<span class="time float-right"><i class="fa fa-clock-o"></i>'+value.dt_timestamp+'</span></div>';
+				html+='<div class="comment-text">';
+				html+='<p>'+value.txt_comments+'</p></div>';
+				html+='<div class="comment-btns">';
+				html+='<span><a href="#"><i class="fa fa-thumbs-o-up"></i></a> | <a href="#">';
+				html+='<i class="fa fa-thumbs-o-down"></i></a></span>';
+				html+='<span><a href="#"><i class="fa fa-share"></i>Reply</a></span>';
+				html+='<span class="reply float-right hide-reply"></span></div></div></div>';				
+				});
+				$("#id_comments").append(html);
+				}
+				else
+				{
+					alert("Data not Recieved");
+				}
+			},
+			error:function(response)
+			{
+				alert("failure");
+			},
+		});
+}
 function addcomment(){
   if($("#commentText").val()!=''){
   //$("#commentText").val('');	
   var subject=$('#commentText').val().trim();
+  $("#commentText").val('');	
 		//alert(subject);	
 			$.ajax({
 				type:'POST',
@@ -875,22 +948,8 @@ function addcomment(){
 				dataType: 'json',
 				success:function(response)
 			{
-				
-				if(response)
-				{
-				//var obj=JSON.parse(response);
-				//console.log(obj);
-				$.each(response, function(key, value) { 
-				  alert(value.txt_comments); 
-				});
-				//var a=$("#commentText").val(obj.txt_comments);
-				//alert(a);
-				//$("#commentText").html(obj.txt_comment);
-				}
-				else
-				{
-					alert("Data not Recieved");
-				}
+				//alert(response);
+				getUserComments();
 			},
 			error:function(response)
 			{
@@ -901,4 +960,7 @@ function addcomment(){
 	  alert();
   }
 }
+$(document).ready(function(){
+	getUserComments();
+});
 </script>
