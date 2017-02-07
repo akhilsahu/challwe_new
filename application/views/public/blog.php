@@ -31,9 +31,19 @@
                                         </p>
                                     </div>
                                     <div class="blog-post-content">
+									<?php //$arr=explode(".",$blog['txt_media_url']);
+											      if($blog['int_media_type']=='2'){
+													  ?>
                                         <div class="blog-post-img">
+                                            <video width="320" height="240" controls>
+													<source src="<?php echo base_url().$blog['txt_media_url']; ?>" type="video/mp4">
+												</video>
+												  </div><?php } else{ ?>
+												  <div class="blog-post-img">
                                             <img src="<?php echo base_url().$blog['txt_media_url'];?>" alt="blog image">
-                                        </div><?php $abc=explode(' ',$blog['txt_description']); ?>
+												  </div>
+												  <?php } ?>
+										<?php $abc=explode(' ',$blog['txt_description']); ?>
                                         <p><?php for($i=0;$i<90;$i++){echo $abc[$i].' ';} ?></p>
                                         <a class="blog-post-btn" href="<?php echo site_url()?>/Blog/single_blog_post/<?php echo $blog['int_blog_id']; ?>">read me</a>
                                     </div>
@@ -69,76 +79,45 @@
                                 </div><!-- End search Widget -->
 
                                 <!-- most view Widget -->
-                                <div class="large-12 medium-7 medium-centered columns">
+                             <div class="large-12 medium-7 medium-centered columns">
                                     <div class="widgetBox">
                                         <div class="widgetTitle">
-                                            <h5>Most View Videos</h5>
+                                            <h5>Most Viewed Videos</h5>
                                         </div>
                                         <div class="widgetContent">
+										<?php foreach($most_viewed as $view){?>
                                             <div class="video-box thumb-border">
-                                                <div class="video-img-thumb">
-                                                    <img src="images/video-thumbnail/7.jpg" alt="most viewed videos">
-                                                    <a href="#" class="hover-posts">
+											<?php //$arr=explode(".",$view['txt_media_url']);
+											      if($view['int_media_type']=='2'){
+													  ?>
+											
+												<div class="video-img-thumb">
+												<video width="100%" height="100%" controls>
+													<source src="<?php echo base_url().$view['txt_media_url']; ?>" type="video/mp4">
+												</video>
+                                                   <!-- <img src= alt="most viewed videos">-->
+                                                    <a href="<?php echo base_url().$view['txt_media_url']; ?>" class="hover-posts">
                                                         <span><i class="fa fa-play"></i>Watch Video</span>
                                                     </a>
                                                 </div>
-                                                <div class="video-box-content">
-                                                    <h6><a href="#">There are many variations of passage. </a></h6>
-                                                    <p>
-                                                        <span><i class="fa fa-user"></i><a href="#">admin</a></span>
-                                                        <span><i class="fa fa-clock-o"></i>5 January 16</span>
-                                                        <span><i class="fa fa-eye"></i>1,862K</span>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="video-box thumb-border">
-                                                <div class="video-img-thumb">
-                                                    <img src="images/widget-most1.png" alt="most viewed videos">
+											<?php } 
+                                                else
+												{?><div class="video-img-thumb">
+                                                    <img src="<?php echo base_url().$view['txt_media_url']?>" alt="most viewed videos">
                                                     <a href="#" class="hover-posts">
                                                         <span><i class="fa fa-play"></i>Watch Video</span>
                                                     </a>
-                                                </div>
+                                                </div><?php } ?>
                                                 <div class="video-box-content">
-                                                    <h6><a href="#">There are many variations of passage. </a></h6>
+                                                    <h6><a href="#"><?php echo $view['txt_title']?></a></h6>
                                                     <p>
-                                                        <span><i class="fa fa-user"></i><a href="#">admin</a></span>
-                                                        <span><i class="fa fa-clock-o"></i>5 January 16</span>
-                                                        <span><i class="fa fa-eye"></i>1,862K</span>
+                                                        <span><i class="fa fa-user"></i><?php echo $view['txt_fname'].' '.$view['txt_lname'] ?><a href="#">admin</a></span>
+                                                        <span><i class="fa fa-clock-o"></i><?php echo $view['dt_created_on'] ?></span>
+                                                        <span><i class="fa fa-eye"></i><?php echo $view['int_views'] ?></span>
                                                     </p>
                                                 </div>
                                             </div>
-                                            <div class="video-box thumb-border">
-                                                <div class="video-img-thumb">
-                                                    <img src="images/widget-most2.png" alt="most viewed videos">
-                                                    <a href="#" class="hover-posts">
-                                                        <span><i class="fa fa-play"></i>Watch Video</span>
-                                                    </a>
-                                                </div>
-                                                <div class="video-box-content">
-                                                    <h6><a href="#">There are many variations of passage. </a></h6>
-                                                    <p>
-                                                        <span><i class="fa fa-user"></i><a href="#">admin</a></span>
-                                                        <span><i class="fa fa-clock-o"></i>5 January 16</span>
-                                                        <span><i class="fa fa-eye"></i>1,862K</span>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="video-box thumb-border">
-                                                <div class="video-img-thumb">
-                                                    <img src="images/widget-most3.png" alt="most viewed videos">
-                                                    <a href="#" class="hover-posts">
-                                                        <span><i class="fa fa-play"></i>Watch Video</span>
-                                                    </a>
-                                                </div>
-                                                <div class="video-box-content">
-                                                    <h6><a href="#">There are many variations of passage. </a></h6>
-                                                    <p>
-                                                        <span><i class="fa fa-user"></i><a href="#">admin</a></span>
-                                                        <span><i class="fa fa-clock-o"></i>5 January 16</span>
-                                                        <span><i class="fa fa-eye"></i>1,862K</span>
-                                                    </p>
-                                                </div>
-                                            </div>
+										<?php } ?>
                                         </div>
                                     </div>
                                 </div><!-- end most view Widget -->
