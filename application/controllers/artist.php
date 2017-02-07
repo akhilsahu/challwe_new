@@ -58,4 +58,6 @@ class Artist extends CI_Controller {
 		$abc=$this->Post_Model->addPost($data);
 		redirect('artist/create_post','refresh');
     }
+    
+    
 }
