@@ -1,4 +1,4 @@
-<section id="breadcrumb" class="breadMargin">
+<?php //print_r($bloglist);exit;?><section id="breadcrumb" class="breadMargin">
                 <div class="row">
                     <div class="large-12 columns">
                         <nav aria-label="You are here:" role="navigation">
@@ -17,7 +17,7 @@
                 <div class="row">
                     <!-- left side content area -->
                     <div class="large-8 columns">
-					<?php foreach($blogs as $blog){?>
+					<?php foreach($bloglist as $blog){?>
                         <div class="blog-post">
                             <div class="row secBg">
                                 <div class="large-12 columns">

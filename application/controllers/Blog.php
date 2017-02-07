@@ -72,21 +72,17 @@ class Blog extends CI_Controller {
 		}
 	}
 	
-	/*public function comments(){
-	$data['comments'] =  $this->Blog_Model->get_comments();
-	if($valid_login){
-	$this->session->set_userdata('user',$valid_login);
-	redirect('User','refresh');
-	}else{
-	//echo "usernmae & password wrong ";
-        $data['page']='home';
-	$data['page_title']='Home';
-        $this->load->view('public/page',$data);
-   }
+	public function search_blog(){
+	$data['bloglist'] =  $this->Blog_Model->search_blog();
+	if($data['bloglist'])
+	{
+		$data['page']='search_blog';
+		$this->load->view('artist/page',$data);
+	}
+	else{echo 'no';}
+	 }
 
- }
-
- function logout(){
+ /*function logout(){
  $this->session->sess_destroy();
  redirect('User','refresh');
 }

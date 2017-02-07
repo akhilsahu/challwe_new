@@ -58,6 +58,10 @@
                    'txt_comment' => $abc);
 		   return $this->db->insert("tab_comments",$data);
   }
-
+public function search_blog(){
+	$title=$this->input->post('search');
+	  $q=$this->db->query("select * from tab_blogs where txt_title like '%$title%'");
+		return $q->result_array();      
+  }
 }
 ?>
