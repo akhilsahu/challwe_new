@@ -18,6 +18,8 @@ class Blog extends CI_Controller {
 		$data['page_title']='Home';
 		$data['blogs']=$this->Blog_Model->blog();
 		$data['most_viewed']=$this->Blog_Model->most_viewed($abc);
+		$data['recent_viewed']=$this->Blog_Model->recent_viewed($abc);
+		$data['get_all_categories']=$this->Blog_Model->get_all_category();
 		if($this->session->userdata('user'))
 		{
 			$this->load->view('artist/page',$data);

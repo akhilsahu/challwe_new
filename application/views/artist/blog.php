@@ -54,12 +54,12 @@
 					<?php }$blog=' ';?>
                     
                         <!-- ad Section -->
-                        <div class="googleAdv">
+                        <!--  <div class="googleAdv">
                             <a href="#"><img src="images/goodleadv.png" alt="googel ads"></a>
                         </div><!-- End ad Section -->
                     </div><!-- end left side content area -->
                     <!-- sidebar -->
-                    <div class="large-4 columns">
+            <div class="large-4 columns">
                         <aside class="secBg sidebar">
                             <div class="row">
                                 <!-- search Widget -->
@@ -80,7 +80,7 @@
                                 </div><!-- End search Widget -->
 
                                 <!-- most view Widget -->
-                                <div class="large-12 medium-7 medium-centered columns">
+                                 <div class="large-12 medium-7 medium-centered columns">
                                     <div class="widgetBox">
                                         <div class="widgetTitle">
                                             <h5>Most Viewed Videos</h5>
@@ -110,7 +110,7 @@
                                                     </a>
                                                 </div><?php } ?>
                                                 <div class="video-box-content">
-                                                    <h6><a href="#"><?php echo $view['txt_title']?></a></h6>
+                                                    <h6><a href="#"><?php echo $view['txt_title']?> </a></h6>
                                                     <p>
                                                         <span><i class="fa fa-user"></i><?php echo $view['txt_fname'].' '.$view['txt_lname'] ?><a href="#">admin</a></span>
                                                         <span><i class="fa fa-clock-o"></i><?php echo $view['dt_created_on'] ?></span>
@@ -123,6 +123,7 @@
                                     </div>
                                 </div><!-- end most view Widget -->
 
+
                                 <!-- categories -->
                                 <div class="large-12 medium-7 medium-centered columns">
                                     <div class="widgetBox clearfix">
@@ -131,28 +132,15 @@
                                         </div>
                                         <div class="widgetContent clearfix">
                                             <ul>
-                                                <li class="cat-item"><a href="#">Entertainment &nbsp; (6)</a></li>
-                                                <li class="cat-item"><a href="#">Historical &amp; Archival &nbsp;(8)</a></li>
-                                                <li class="cat-item"><a href="#">Technology&nbsp;(4)</a></li>
-                                                <li class="cat-item"><a href="#">People&nbsp;(3)</a></li>
-                                                <li class="cat-item"><a href="#">Fashion &amp; Beauty&nbsp;(2)</a></li>
-                                                <li class="cat-item"><a href="#">Nature&nbsp;(1)</a></li>
-                                                <li class="cat-item"><a href="#">Automotive&nbsp;(5)</a></li>
-                                                <li class="cat-item"><a href="">Foods &amp; Drinks&nbsp;(5)</a></li>
-                                                <li class="cat-item"><a href="#">Foods &amp; Drinks&nbsp;(10)</a></li>
-                                                <li class="cat-item"><a href="#">Animals&nbsp;(12)</a></li>
-                                                <li class="cat-item"><a href="#">Sports &amp; Recreation&nbsp;(14)</a></li>
-                                                <li class="cat-item"><a href="">Places &amp; Landmarks&nbsp;(16)</a></li>
-                                                <li class="cat-item"><a href="">Places &amp; Landmarks&nbsp;(1)</a></li>
-                                                <li class="cat-item"><a href="#">Travel&nbsp;(2)</a></li>
-                                                <li class="cat-item"><a href="#">Transportation&nbsp;(3)</a></li>
+                                                <?php foreach($get_all_categories as $get_all){?>
+                                                <li class="cat-item"><!--<a href="#">--><?php echo $get_all['txt_title']?><!--&nbsp;(3)</a>--></li><?php }?>
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
 
                                 <!-- social Fans Widget -->
-                                <div class="large-12 medium-7 medium-centered columns">
+                                 <!--<div class="large-12 medium-7 medium-centered columns">
                                     <div class="widgetBox">
                                         <div class="widgetTitle">
                                             <h5>social fans</h5>
@@ -190,7 +178,7 @@
                                 </div><!-- End social Fans Widget -->
 
                                 <!-- ad banner widget -->
-                                <div class="large-12 medium-7 medium-centered columns">
+                                <!-- <div class="large-12 medium-7 medium-centered columns">
                                     <div class="widgetBox">
                                         <div class="widgetTitle">
                                             <h5>Recent post videos</h5>
@@ -207,79 +195,38 @@
                                 <div class="large-12 medium-7 medium-centered columns">
                                     <div class="widgetBox">
                                         <div class="widgetTitle">
-                                            <h5>Recent post videos</h5>
+                                            <h5>Recent posts</h5>
                                         </div>
                                         <div class="widgetContent">
+										<?php foreach($recent_viewed as $recent){?>
                                             <div class="media-object stack-for-small">
                                                 <div class="media-object-section">
+												<?php if($recent['int_media_type']==1) {?>
                                                     <div class="recent-img">
-                                                        <img src= "images/category/category4.png" alt="recent">
-                                                        <a href="#" class="hover-posts">
-                                                            <span><i class="fa fa-play"></i></span>
-                                                        </a>
+                                                        <img src= "<?php echo base_url().$recent['txt_media_url']; ?>" alt="recent">
                                                     </div>
+													<?php } else {  ?>
+													<div class="recent-img">
+															<a href="#" class="hover-posts"><span><i class="fa fa-play"></i></span></a>
+													<video width="100%" height="100%" controls>
+														<source src="<?php echo base_url().$recent['txt_media_url']; ?>" type="video/mp4">
+													</video>
+                                                    </div><?php }  ?>
                                                 </div>
                                                 <div class="media-object-section">
                                                     <div class="media-content">
-                                                        <h6><a href="#">The lorem Ipsumbeen the industry's standard.</a></h6>
-                                                        <p><i class="fa fa-user"></i><span>admin</span><i class="fa fa-clock-o"></i><span>5 january 16</span></p>
+                                                        <h6><a href="#"><?php echo $recent['txt_title'] ?></a></h6>
+                                                        <p><i class="fa fa-user"></i><span><?php echo $recent['txt_fname'].' '.$recent['txt_lname'] ?></span><i class="fa fa-clock-o"></i><span><?php echo $recent['dt_created_on']; ?></span></p>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="media-object stack-for-small">
-                                                <div class="media-object-section">
-                                                    <div class="recent-img">
-                                                        <img src= "images/category/category2.png" alt="recent">
-                                                        <a href="#" class="hover-posts">
-                                                            <span><i class="fa fa-play"></i></span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="media-object-section">
-                                                    <div class="media-content">
-                                                        <h6><a href="#">The lorem Ipsumbeen the industry's standard.</a></h6>
-                                                        <p><i class="fa fa-user"></i><span>admin</span><i class="fa fa-clock-o"></i><span>5 january 16</span></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="media-object stack-for-small">
-                                                <div class="media-object-section">
-                                                    <div class="recent-img">
-                                                        <img src= "images/sidebar-recent1.png" alt="recent">
-                                                        <a href="#" class="hover-posts">
-                                                            <span><i class="fa fa-play"></i></span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="media-object-section">
-                                                    <div class="media-content">
-                                                        <h6><a href="#">The lorem Ipsumbeen the industry's standard.</a></h6>
-                                                        <p><i class="fa fa-user"></i><span>admin</span><i class="fa fa-clock-o"></i><span>5 january 16</span></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="media-object stack-for-small">
-                                                <div class="media-object-section">
-                                                    <div class="recent-img">
-                                                        <img src= "images/sidebar-recent2.png" alt="recent">
-                                                        <a href="#" class="hover-posts">
-                                                            <span><i class="fa fa-play"></i></span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="media-object-section">
-                                                    <div class="media-content">
-                                                        <h6><a href="#">The lorem Ipsumbeen the industry's standard.</a></h6>
-                                                        <p><i class="fa fa-user"></i><span>admin</span><i class="fa fa-clock-o"></i><span>5 january 16</span></p>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <?php } ?>
                                         </div>
                                     </div>
                                 </div><!-- End Recent post videos -->
 
                                 <!-- tags -->
-                                <div class="large-12 medium-7 medium-centered columns">
+                               <!-- <div class="large-12 medium-7 medium-centered columns">
                                     <div class="widgetBox">
                                         <div class="widgetTitle">
                                             <h5>Tags</h5>
