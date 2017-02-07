@@ -202,7 +202,7 @@ class User extends CI_Controller
 		echo json_encode($data['details']);	
 		
 	}
-	public function userComments()
+	/*public function userComments()
 	{
 		$data=$this->session->userdata('user');
 		$data['com']=$this->Artist_Model->getcomments($data['int_artist_id']);
@@ -212,7 +212,7 @@ class User extends CI_Controller
 		$data['page']='usercomment';
 		$data['page_title']='comments';
         $this->load->view('public/page',$data);
-	}
+	}*/
     
 	public function userComments()
 	{
