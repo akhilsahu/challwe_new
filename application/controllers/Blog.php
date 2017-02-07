@@ -74,13 +74,9 @@ class Blog extends CI_Controller {
 	
 	public function search_blog(){
 	$data['bloglist'] =  $this->Blog_Model->search_blog();
-	if($data['bloglist'])
-	{
-		$data['page']='search_blog';
-		$this->load->view('artist/page',$data);
+	$data['page']='search_blog';
+	$this->load->view('artist/page',$data);
 	}
-	else{echo 'no';}
-	 }
 
  /*function logout(){
  $this->session->sess_destroy();
