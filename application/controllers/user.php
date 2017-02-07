@@ -214,7 +214,7 @@ class User extends CI_Controller
         $this->load->view('public/page',$data);
 	}*/
     
-	public function userComments()
+	/*public function userComments()
 	{
 		$data=$this->session->userdata('user');
 		$data['com']=$this->Artist_Model->getcomments($data['int_artist_id']);
