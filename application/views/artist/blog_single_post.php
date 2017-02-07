@@ -171,9 +171,13 @@
 									<?php foreach($comments as $comment){ ?>
                                         <div class="media-object stack-for-small">
                                             <div class="media-object-section comment-img text-center">
+											<?php if($comment['txt_user_pro_image']==''){?>
                                                 <div class="comment-box-img">
+                                                    <img src= "<?php echo base_url()?>artist_media/profile/blank-profile.jpg" alt="comment">
+											</div><?php } else {?>
+											<div class="comment-box-img">
                                                     <img src= "<?php echo base_url().$comment['txt_user_pro_image'];?>" alt="comment">
-                                                </div>
+											</div><?php }?>
                                             </div>
                                             
                                             <div class="media-object-section comment-desc">
