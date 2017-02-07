@@ -109,7 +109,7 @@
         $result['video']=$query3->result_array();
         $sql4=" select A.* from tab_comments as A inner join tab_artists as B on A.int_user_id=B.int_artist_id where A.int_user_id=$id";
         $query4=$this->db->query($sql4);
-        $sql5="select A.txt_fname,A.txt_lname,(select count(int_follower_id) from tab_follow as C"
+        $sql5="select A.int_artist_id,A.txt_fname,A.txt_lname,A.txt_profile_image,(select count(int_follower_id) from tab_follow as C"
                 . " where C.int_following_id=B.int_following_id)as followers from tab_follow as B inner JOIN"
                 . " tab_artists as A on B.int_follower_id=A.int_artist_id WHERE int_following_id=$id";
         $query5=$this->db->query($sql5);
@@ -119,7 +119,7 @@
          $sql6="select * from tab_catagories where int_sub_catagory=0";
         $query6=$this->db->query($sql6);
         $result['category']=$query6->result_array();
-         $sql_select="select * from tab_follow where int_follower_id=$visitor";
+         $sql_select="select * from tab_follow where int_follower_id=$visitor and int_following_id=$id  ";
          $query7=$this->db->query($sql_select);
          $result['flag1']=$query7->row_array();
          $sql8="SELECT A.*,B.txt_fname,B.txt_lname FROM tab_post  as A inner join tab_artists as B on A.int_artist_id=B.int_artist_id order by int_post_id desc limit 5";
@@ -159,7 +159,7 @@
     function Un_follow($id,$following_id)
     {
       
-            $sql="delete from tab_follow where int_follower_id=$following_id";
+            $sql="delete from tab_follow where int_follower_id=$following_id And int_following_id=$id";
             $query=$this->db->query($sql);
             $res= $query?"success":"failure";
             return $res;

@@ -37,7 +37,7 @@
                             <form action="<?php echo site_url();?>/user/follow/<?php echo $this->uri->segment(3);?>">
                             <div class="profile-subscribe">
                                 
-                                <span  class="no_follower fa fa-users"  style="padding:13px 15px;"><?php echo $pro['followers']['followers']?></span>
+                                <span  class="no_follower fa fa-users"  style="padding:13px 15px;"><?php echo $pro['followers']['followers'];?></span>
                                 <button type="button" id="btn_follow" class="btn btn-primary follow" name="subscribe" onclick="follow(<?php echo $this->uri->segment(3)?>)">Follow</button>
                                 <button type="button" id="btn_unfollow" class="btn btn-primary follow" name="subscribe" onclick="unfollow(<?php echo $this->uri->segment(3)?>);">UnFollow</button>
                             </div></form>
@@ -239,7 +239,7 @@
                                     <div class="large-2 small-6 medium-3 columns">
                                         <div class="follower">
                                             <div class="follower-img">
-                                                <img src="<?php echo base_url(); ?>assets/images/follower-img.png" alt="followers">
+                                                <a href="<?php echo site_url();?>/user/view_profile/<?php echo $follower['int_artist_id'];?>">    <img src="<?php echo base_url().$follower['txt_profile_image']; ?>" alt="followers"></a>
                                             </div>
                                             <span><?php echo $follower['txt_fname']." ".$follower['txt_lname'];?></span>
                                             
