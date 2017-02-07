@@ -36,8 +36,8 @@ class Blog extends CI_Controller {
 	$data['update']=$this->Blog_Model->update_views($id,$data['blog_single'][0]['int_views']);
 	$data['comments']=$this->Blog_Model->comments($id);	
 	$data['update']=$this->Blog_Model->update_views($id,$data['blog_single'][0]['int_views']);
-	$data['most_viewed']=$this->Blog_Model->most_viewed($abc);
-	$data['recent_viewed']=$this->Blog_Model->recent_viewed($abc);
+	$data['most_viewed']=$this->Blog_Model->most_viewed();
+	$data['recent_viewed']=$this->Blog_Model->recent_viewed();
 	$data['get_cat']=$this->Blog_Model->get_category($id);
 	$data['get_all_categories']=$this->Blog_Model->get_all_category();
 	$sess=$this->session->userdata('user');
