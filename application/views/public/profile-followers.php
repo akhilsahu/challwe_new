@@ -1,4 +1,5 @@
-<?php //print_r($follow);exit; ?>
+<?php
+ //print_r($follow);exit; ?>
 <!--breadcrumbs-->
             <section id="breadcrumb">
                 <div class="row">

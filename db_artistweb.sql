@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 05, 2017 at 02:09 PM
+-- Generation Time: Feb 07, 2017 at 06:52 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.5.37
 
@@ -52831,6 +52831,7 @@ CREATE TABLE `tab_artists` (
   `txt_lname` varchar(50) DEFAULT NULL,
   `int_gender` tinyint(4) NOT NULL,
   `txt_email` varchar(255) DEFAULT NULL,
+  `int_phone_no` bigint(10) NOT NULL,
   `txt_password` varchar(50) DEFAULT NULL,
   `int_country_id` int(11) DEFAULT NULL,
   `int_state_id` int(11) DEFAULT NULL,
@@ -52864,12 +52865,14 @@ CREATE TABLE `tab_artists` (
 -- Dumping data for table `tab_artists`
 --
 
-INSERT INTO `tab_artists` (`int_artist_id`, `txt_fname`, `txt_lname`, `int_gender`, `txt_email`, `txt_password`, `int_country_id`, `int_state_id`, `int_city_id`, `txt_experience`, `txt_description`, `txt_tagline`, `txt_profile_image`, `txt_cover_image`, `dt_dob`, `txt_place_of_birth`, `txt_hourly_charge`, `txt_fashion_community_roles`, `txt_biographic_info`, `txt_office_address`, `txt_office_no`, `txt_cell_no`, `dt_added`, `int_added_by`, `int_is_active`, `int_is_blocked`, `int_challwe_coins`, `int_skill1`, `int_skill2`, `int_skill3`, `int_skill4`, `int_skill5`) VALUES
-(2, 'Thethirdthought', '', 1, 'thethirdthought1990@gmail.com', '96e79218965eb72c92a549dd5a330112', 101, NULL, NULL, NULL, NULL, NULL, 'artist_media/profile/2.jpg', 'artist_media/cover_image/2.jpg', '2012-09-08', 'Lko', NULL, NULL, 'aaaaaaaaaaaaaaaaaa', NULL, NULL, '6567856', '2016-07-23', NULL, 1, 0, 0, 3, 4, 0, 0, 0),
-(3, 'SB', '34', 0, 'admin', '96e79218965eb72c92a549dd5a330112', 1, 0, 0, '', '', '', 'artist_media/profile/3.jpg', 'artist_media/cover_image/3.jpg', '1988-08-16', '', '', '', '', '', '', 'wfdsf', '2016-08-16', NULL, 1, 0, 0, 0, 0, 0, 0, 0),
-(4, 'Shivam', '', 0, 'vsec.shivam@gmail.com', '96e79218965eb72c92a549dd5a330112', 101, NULL, NULL, NULL, NULL, NULL, 'artist_media/profile/4.jpg', 'artist_media/cover_image/4.jpg', '1995-01-17', 'LKO', '', NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\r\n\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\r\n\r\n\r\n\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\r\n', '', NULL, '', '2016-08-16', NULL, 1, 0, 0, 1, 2, 4, 0, 0),
-(5, 'T', NULL, 0, 'sa@tt.com', '9990775155c3518a0d7917f7780b24aa', NULL, NULL, NULL, NULL, NULL, NULL, 'artist_media/profile/6.jpg', NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, '2016-08-17', NULL, 1, 0, 0, 0, 0, 0, 0, 0),
-(6, 'vikrant', 'rajput', 0, 'vik@gmail.com', '202cb962ac59075b964b07152d234b70', NULL, NULL, NULL, NULL, NULL, NULL, 'artist_media/profile/5.jpg', NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `tab_artists` (`int_artist_id`, `txt_fname`, `txt_lname`, `int_gender`, `txt_email`, `int_phone_no`, `txt_password`, `int_country_id`, `int_state_id`, `int_city_id`, `txt_experience`, `txt_description`, `txt_tagline`, `txt_profile_image`, `txt_cover_image`, `dt_dob`, `txt_place_of_birth`, `txt_hourly_charge`, `txt_fashion_community_roles`, `txt_biographic_info`, `txt_office_address`, `txt_office_no`, `txt_cell_no`, `dt_added`, `int_added_by`, `int_is_active`, `int_is_blocked`, `int_challwe_coins`, `int_skill1`, `int_skill2`, `int_skill3`, `int_skill4`, `int_skill5`) VALUES
+(2, 'Thethirdthought', '1990@gmail.com', 1, 'thethirdthought1990@gmail.com', 0, '96e79218965eb72c92a549dd5a330112', 101, NULL, NULL, NULL, NULL, NULL, 'artist_media/profile/2.jpg', 'artist_media/cover_image/2.jpg', '2012-09-08', 'Lko', NULL, NULL, 'aaaaaaaaaaaaaaaaaa', NULL, NULL, '6567856', '2016-07-23', NULL, 1, 0, 0, 3, 4, 0, 0, 0),
+(3, 'SB', '34', 0, 'admin', 0, '96e79218965eb72c92a549dd5a330112', 1, 0, 0, '', '', '', 'artist_media/profile/3.jpg', 'artist_media/cover_image/3.jpg', '1988-08-16', '', '', '', '', '', '', 'wfdsf', '2016-08-16', NULL, 1, 0, 0, 0, 0, 0, 0, 0),
+(4, 'Shivam', 'Tripathi', 0, 'vsec.shivam@gmail.com', 0, '96e79218965eb72c92a549dd5a330112', 101, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim ', NULL, 'artist_media/profile/4.png', 'artist_media/cover_image/4.jpg', '1995-01-17', 'LKO', '', NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n\n\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\n', '', NULL, '8090332476', '2016-08-16', NULL, 1, 0, 0, 1, 2, 4, 0, 0),
+(6, 'Aditi', 'pal', 0, 'adi2@gmail.com', 0, '81dc9bdb52d04dc20036dbd8313ed055', NULL, NULL, NULL, NULL, NULL, NULL, 'artist_media/profile/images (19).jpg', NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0),
+(7, 'ritu', 'dixit', 0, 'ritu@gmail.com', 9867543290, '81dc9bdb52d04dc20036dbd8313ed055', NULL, NULL, NULL, NULL, NULL, NULL, 'artist_media\\profile\\images (19).jpg', NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0),
+(8, 'kapil', 'dev', 0, 'kapil.d687@gmail.com', 0, '202cb962ac59075b964b07152d234b70', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0),
+(9, 'izhar', 'ahmad', 0, 'ias@gmail.com', 9876543212, 'd81f9c1be2e08964bf9f24b15f0e4900', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -52905,9 +52908,23 @@ INSERT INTO `tab_artist_business` (`int_business_id`, `txt_name`, `txt_descripti
 CREATE TABLE `tab_artist_links` (
   `int_unique_id` int(11) NOT NULL,
   `int_artist_id` int(11) NOT NULL,
-  `txt_title` varchar(100) NOT NULL,
-  `txt_url` varchar(255) NOT NULL
+  `txt_website_url` varchar(200) NOT NULL,
+  `txt_facebook` varchar(100) NOT NULL,
+  `txt_twitter` varchar(100) NOT NULL,
+  `txt_google_plus` varchar(100) NOT NULL,
+  `txt_youtube` varchar(100) NOT NULL,
+  `txt_vimeo` varchar(100) NOT NULL,
+  `txt_pinterest` varchar(100) NOT NULL,
+  `txt_instagram` varchar(100) NOT NULL,
+  `txt_linkedin` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tab_artist_links`
+--
+
+INSERT INTO `tab_artist_links` (`int_unique_id`, `int_artist_id`, `txt_website_url`, `txt_facebook`, `txt_twitter`, `txt_google_plus`, `txt_youtube`, `txt_vimeo`, `txt_pinterest`, `txt_instagram`, `txt_linkedin`) VALUES
+(2, 4, 'https://thethirdthought1990@gmail.com', 'https://www.vimeo.com', 'https://www.twitter.com', 'https://www.googleplus.com', 'https://www.youtube.com', 'https://www.vimeo.com', 'https://www.pinterest.com', 'https://www.instagram.com', 'https://www.linkedin.com');
 
 -- --------------------------------------------------------
 
@@ -53200,12 +53217,8 @@ INSERT INTO `tab_follow` (`int_unique_id`, `int_follower_id`, `int_following_id`
 (1, 2, 4),
 (2, 3, 2),
 (7, 4, 2),
-(8, 2, 4),
-(12, 4, 6),
-(16, 5, 6),
-(17, 2, 6),
-(18, 3, 6),
-(33, 4, 3);
+(8, 4, 7),
+(9, 3, 7);
 
 -- --------------------------------------------------------
 
@@ -53256,6 +53269,76 @@ INSERT INTO `tab_media_comments` (`int_comment_id`, `int_artist_id`, `int_media_
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tab_pcomm`
+--
+
+CREATE TABLE `tab_pcomm` (
+  `int_pcid` bigint(20) NOT NULL,
+  `txt_comments` varchar(255) DEFAULT NULL,
+  `int_artist_id` bigint(20) DEFAULT NULL,
+  `int_parent_id` bigint(20) NOT NULL,
+  `int_like_count` int(11) NOT NULL,
+  `int_dislike_count` int(11) NOT NULL,
+  `dt_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tab_pcomm`
+--
+
+INSERT INTO `tab_pcomm` (`int_pcid`, `txt_comments`, `int_artist_id`, `int_parent_id`, `int_like_count`, `int_dislike_count`, `dt_timestamp`) VALUES
+(1, 'jfjfd', 7, 0, 0, 0, '2017-02-04 08:30:57'),
+(2, 'kdm', 7, 0, 0, 0, '2017-02-04 08:32:09'),
+(3, 'hdjfksjdf', 7, 0, 0, 0, '2017-02-04 08:35:13'),
+(4, 'kjfklfjd', 7, 0, 0, 0, '2017-02-04 08:41:42'),
+(6, 'welcome', 7, 0, 0, 0, '2017-02-04 08:45:47'),
+(7, 'jhjhjg', 7, 0, 0, 0, '2017-02-04 08:47:15'),
+(8, 'hiiji', 7, 0, 0, 0, '2017-02-04 08:49:51'),
+(9, 'njhj', 7, 0, 0, 0, '2017-02-04 08:51:36'),
+(10, 'kdjgkl', 7, 0, 0, 0, '2017-02-05 08:01:16'),
+(11, 'nice pic', 7, 0, 0, 0, '2017-02-05 08:31:30'),
+(12, 'nice pic', 7, 0, 0, 0, '2017-02-05 08:31:47'),
+(13, 'hiii', 7, 0, 0, 0, '2017-02-05 09:07:45'),
+(14, 'jii', 7, 0, 0, 0, '2017-02-05 09:11:16'),
+(15, 'hhiii', 7, 0, 0, 0, '2017-02-05 09:30:13'),
+(16, 'hiiii', 7, 0, 0, 0, '2017-02-05 09:37:16'),
+(17, 'hiijgf', 7, 0, 0, 0, '2017-02-05 09:58:38'),
+(18, 'hfidhsfi', 7, 0, 0, 0, '2017-02-06 02:19:13'),
+(19, 'hfidhsfi', 7, 0, 0, 0, '2017-02-06 02:19:15'),
+(20, 'vikrant', 7, 0, 0, 0, '2017-02-06 02:19:57'),
+(21, 'kjdkfsd', 7, 0, 0, 0, '2017-02-06 02:20:35'),
+(22, 'hiiii', 7, 0, 0, 0, '2017-02-06 02:22:30'),
+(23, 'hijiijosljdlasikfhiujsadbbfk;hlb,', 7, 0, 0, 0, '2017-02-06 02:23:51'),
+(24, 'hfiidsfl', 7, 0, 0, 0, '2017-02-06 02:25:25'),
+(25, 'hfiidsfl', 7, 0, 0, 0, '2017-02-06 02:25:51'),
+(26, 'hiosghks', 7, 0, 0, 0, '2017-02-06 02:27:34'),
+(27, 'hfkdhif', 7, 0, 0, 0, '2017-02-06 02:30:03'),
+(28, 'what a nic pic', 7, 0, 0, 0, '2017-02-06 02:34:39'),
+(29, 'uhjk', 7, 0, 0, 0, '2017-02-06 02:48:58'),
+(30, 'saumya what a pic', 7, 0, 0, 0, '2017-02-06 02:50:29'),
+(31, 'hii', 7, 0, 0, 0, '2017-02-06 02:56:14'),
+(32, 'hii there', 7, 0, 0, 0, '2017-02-06 02:58:07'),
+(33, 'jifjodsf', 7, 0, 0, 0, '2017-02-06 03:36:51'),
+(34, 'jifjodsf', 7, 0, 0, 0, '2017-02-06 03:36:53'),
+(35, 'aditi', 7, 0, 0, 0, '2017-02-06 03:55:24'),
+(36, 'saumya', 7, 0, 0, 0, '2017-02-06 03:56:32'),
+(37, 'izhar', 7, 0, 0, 0, '2017-02-06 03:56:53'),
+(38, 'hii there', 7, 0, 0, 0, '2017-02-06 03:58:10'),
+(39, 'jdjf', 7, 0, 0, 0, '2017-02-06 03:59:30'),
+(40, 'hii', 7, 0, 0, 0, '2017-02-06 03:59:36'),
+(41, 'izhar', 7, 0, 0, 0, '2017-02-06 04:00:05'),
+(42, '123', 7, 0, 0, 0, '2017-02-06 04:19:01'),
+(43, '234', 7, 0, 0, 0, '2017-02-06 04:22:03'),
+(44, 'hid', 7, 0, 0, 0, '2017-02-06 04:27:46'),
+(45, 'jdds', 7, 0, 0, 0, '2017-02-06 04:36:04'),
+(46, 'VIKRANT', 7, 0, 0, 0, '2017-02-06 04:38:51'),
+(47, '345', 7, 0, 0, 0, '2017-02-06 05:09:23'),
+(48, 'hello!!', 7, 0, 0, 0, '2017-02-06 06:35:07'),
+(49, 'izhar', 7, 0, 0, 0, '2017-02-06 08:04:15');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tab_post`
 --
 
@@ -53264,22 +53347,30 @@ CREATE TABLE `tab_post` (
   `txt_title` varchar(255) NOT NULL,
   `txt_description` text NOT NULL,
   `txt_filepath` varchar(255) NOT NULL,
+  `txt_vedio_url` varchar(500) NOT NULL,
   `int_artist_id` int(11) NOT NULL,
   `dt_created_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `int_privacy` tinyint(4) NOT NULL,
   `int_status` tinyint(4) NOT NULL,
-  `int_post_type` tinyint(4) NOT NULL
+  `int_post_type` tinyint(4) NOT NULL,
+  `txt_meta_title` varchar(200) NOT NULL,
+  `int_category` varchar(100) NOT NULL,
+  `int_views` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tab_post`
 --
 
-INSERT INTO `tab_post` (`int_post_id`, `txt_title`, `txt_description`, `txt_filepath`, `int_artist_id`, `dt_created_on`, `int_privacy`, `int_status`, `int_post_type`) VALUES
-(1, '', 'Test', 'post_media/1.jpg', 2, '2016-09-19 11:06:19', 0, 0, 1),
-(2, '', 'This is test POST', 'post_media/2.jpg', 2, '2016-09-19 11:07:11', 0, 0, 1),
-(3, '', 'This is test POST', 'post_media/3.jpg', 2, '2016-09-19 11:07:19', 0, 0, 1),
-(4, '', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\r\n\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\r\n', '', 2, '2016-09-19 11:01:06', 0, 0, 0);
+INSERT INTO `tab_post` (`int_post_id`, `txt_title`, `txt_description`, `txt_filepath`, `txt_vedio_url`, `int_artist_id`, `dt_created_on`, `int_privacy`, `int_status`, `int_post_type`, `txt_meta_title`, `int_category`, `int_views`) VALUES
+(1, '', 'Test', 'post_media/1.jpg', '', 2, '2016-09-19 11:06:19', 0, 0, 1, '', '0', 0),
+(2, '', 'This is test POST', 'post_media/2.jpg', '', 2, '2016-09-19 11:07:11', 0, 0, 1, '', '0', 0),
+(3, '', 'This is test POST', 'post_media/3.jpg', '', 2, '2016-09-19 11:07:19', 0, 0, 1, '', '0', 0),
+(4, '', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\r\n\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\r\n', '', '', 2, '2016-09-19 11:01:06', 0, 0, 0, '', '0', 0),
+(82, '', '', '', '', 2, '2017-02-06 02:18:37', 0, 0, 0, '', '', 0),
+(84, 'lkjlkjkl`', 'jhjkhkh', 'post_media/20170206075806.mp4', '', 2, '2017-02-06 02:28:06', 0, 0, 2, 'klkjhjklhj', 'two', 0),
+(85, 'izhar', 'ahmaf', 'post_media/20170206173216.mp4', '', 3, '2017-02-06 00:02:16', 0, 0, 2, 'kjhjkhjkh', 'one', 0),
+(86, 'izhar', 'ahmaf', 'post_media/20170206173225.mp4', '', 3, '2017-02-06 00:02:25', 0, 0, 2, 'kjhjkhjkh', 'one', 0);
 
 -- --------------------------------------------------------
 
@@ -53546,6 +53637,12 @@ ALTER TABLE `tab_media_comments`
   ADD PRIMARY KEY (`int_comment_id`);
 
 --
+-- Indexes for table `tab_pcomm`
+--
+ALTER TABLE `tab_pcomm`
+  ADD PRIMARY KEY (`int_pcid`);
+
+--
 -- Indexes for table `tab_post`
 --
 ALTER TABLE `tab_post`
@@ -53620,7 +53717,7 @@ ALTER TABLE `tab_album`
 -- AUTO_INCREMENT for table `tab_artists`
 --
 ALTER TABLE `tab_artists`
-  MODIFY `int_artist_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `int_artist_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `tab_artist_business`
 --
@@ -53630,7 +53727,7 @@ ALTER TABLE `tab_artist_business`
 -- AUTO_INCREMENT for table `tab_artist_links`
 --
 ALTER TABLE `tab_artist_links`
-  MODIFY `int_unique_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `int_unique_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `tab_artist_media`
 --
@@ -53680,7 +53777,7 @@ ALTER TABLE `tab_fields`
 -- AUTO_INCREMENT for table `tab_follow`
 --
 ALTER TABLE `tab_follow`
-  MODIFY `int_unique_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `int_unique_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `tab_invites`
 --
@@ -53692,10 +53789,15 @@ ALTER TABLE `tab_invites`
 ALTER TABLE `tab_media_comments`
   MODIFY `int_comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
+-- AUTO_INCREMENT for table `tab_pcomm`
+--
+ALTER TABLE `tab_pcomm`
+  MODIFY `int_pcid` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+--
 -- AUTO_INCREMENT for table `tab_post`
 --
 ALTER TABLE `tab_post`
-  MODIFY `int_post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `int_post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
 --
 -- AUTO_INCREMENT for table `tab_post_comments`
 --

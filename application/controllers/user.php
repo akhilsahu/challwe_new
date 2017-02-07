@@ -53,9 +53,12 @@ class User extends CI_Controller
 	{
             
 		$data=$this->session->userdata('user');
+		//print_r($data);exit;
 		$data['com']=$this->Artist_Model->getcomments($data['int_artist_id']);
         $data['pro']=$this->Artist_Model->get_profile_detail($data['txt_email']);
+	//	print_r($data['pro']);exit;
         $data['follow']=$this->Artist_Model->get_all_followers($data['pro'][0]['int_artist_id']);
+		//print_r($data['follow']);exit;
 		$data['following']=$this->Artist_Model->get_all_following($data['pro'][0]['int_artist_id']);
 		$data['com']=$this->Artist_Model->getcomments($data['int_artist_id']);
 		$data['page']='profile-followers';
@@ -214,17 +217,28 @@ class User extends CI_Controller
         $this->load->view('public/page',$data);
 	}
     
-	public function userComments()
+	 public function profile_settings()
 	{
 		$data=$this->session->userdata('user');
-		$data['com']=$this->Artist_Model->getcomments($data['int_artist_id']);
-		$data['pro']=$this->Artist_Model->get_profile_detail($data['txt_email']);
-		$data['follow']=$this->Artist_Model->get_all_followers($data['pro'][0]['int_artist_id']);
-		$data['following']=$this->Artist_Model->get_all_following($data['pro'][0]['int_artist_id']);
-		$data['page']='usercomment';
-		$data['page_title']='comments';
+               //print_r($data);exit;
+		$data['result']=$this->user_model->get_profile_settings($data['int_artist_id']);
+		//print_r($data['result']);exit;
+		$data['get_data']=$this->user_model->insert_update($data['int_artist_id']);
+		//print_r($data['get_data']);exit;
+		$data['page']='profile-settings';
+		$data['page_title']='Profile-Settings';
         $this->load->view('public/page',$data);
 	}
+	
+	/*public function update_profile()
+	{
+		$data=$this->session->userdata('user');
+		$data['result']=$this->user_model->insert_update($data['int_artist_id']);
+		//print_r($data['result']);exit;		
+		//$data=$this->user_model->update_profile($data);
+		echo "Data successfully Updated";
+	}*/
+	
     /*public function show_comments() 
 	{
 		echo "hii";exit;

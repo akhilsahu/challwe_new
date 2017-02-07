@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="<?php echo base_url();?>assets/css/owl.carousel.min.css">
     <link rel="stylesheet" href="<?php echo base_url();?>assets/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="<?php echo base_url();?>assets/css/responsive.css">
+     <script src="<?php echo base_url();?>js/jquery-2.2.4.min.js"></script>
 </head>
 <body>
 <div class="off-canvas-wrapper">
