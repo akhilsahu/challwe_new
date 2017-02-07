@@ -40,7 +40,22 @@
                                             <img src="<?php echo base_url().$blog_single[0]['txt_media_url'];?>" alt="blog image">
 									</div><?php }?>
                                         <p><?php echo $blog_single[0]['txt_description'];?></p>
-                                       <div class="blog-post-extras">
+                                        <!--<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur</p>
+                                        <ul>
+                                            <li><h6>Bullets List :</h6></li>
+                                            <li><i class="fa fa-caret-right"></i>Sed ut perspiciatis unde omnis</li>
+                                            <li><i class="fa fa-caret-right"></i>But I must explain to you how</li>
+                                            <li><i class="fa fa-caret-right"></i>At vero eos et accusamus et iusto</li>
+                                            <li><i class="fa fa-caret-right"></i>On the other hand, we denounce</li>
+                                            <li><i class="fa fa-caret-right"></i>There are many variations of passages</li>
+
+                                        </ul>
+                                        <blockquote>
+                                            Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam,
+                                        </blockquote>
+                                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. </p>
+                                        <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur</p>-->
+                                        <div class="blog-post-extras">
                                             <div class="categories extras">
                                                 <button><i class="fa fa-folder-open"></i>categories</button>
                                                 <a href="#"><?php echo $get_cat[0]['txt_title'];?></a>
@@ -57,14 +72,17 @@
                                                     <div class="easy-share" data-easyshare data-easyshare-http data-easyshare-url="http://joinwebs.com">
 
                                                         <button class="float-left"><i class="fa fa-share-alt"></i>share</button>
+                                                        <!-- Facebook -->
                                                         <button class="removeBorder" data-easyshare-button="facebook">
                                                             <span class="fa fa-facebook"></span>
                                                         </button>
 
+                                                        <!-- Twitter -->
                                                         <button class="removeBorder" data-easyshare-button="twitter" data-easyshare-tweet-text="">
                                                             <span class="fa fa-twitter"></span>
                                                         </button>
 
+                                                        <!-- Google+ -->
                                                         <button class="removeBorder" data-easyshare-button="google">
                                                             <span class="fa fa-google-plus"></span>
                                                         </button>
@@ -72,7 +90,7 @@
                                                         <div data-easyshare-loader>Loading...</div>
                                                     </div>
                                                 </div>
-                                            </div-->
+                                            </div>
                                         </div>
                                         <div class="blog-pagination text-center">
                                             <a href="#"><i class="fa fa-long-arrow-left left-arrow"></i>previous post</a>
@@ -90,6 +108,7 @@
                                         <div class="media-object-section">
 										<?php if($blog_single[0]['txt_user_pro_image']==''){ ?>
                                             <div class="blog-post-author-img">
+                                                <img src="<?php echo base_url()?>artist_media/profile/blank-profile.jpg" alt="blog post author">
                                             </div>
 										<?php }else{?>
 										<div class="blog-post-author-img">
@@ -98,7 +117,8 @@
                                         </div>
                                         <div class="media-object-section">
                                             <div class="blog-post-author-des">
-                                                <img src="<?php echo base_url()?>artist_media/profile/blank-profile.jpg" alt="blog post author">
+                                                <h5>Written by <?php echo $blog_single[0]['txt_fname'].' '.$blog_single[0]['txt_lname']; ?></h5>
+                                                <p> <?php echo $blog_single[0]['txt_user_description']; ?></p>
                                             </div>
                                         </div>
                                     </div>
@@ -114,30 +134,13 @@
                                             <div class="medium-12 small-12 columns">
                                                 <div class="head-title">
                                                     <i class="fa fa-comments"></i>
-                                                    <h4>Comments <span>(4)</span></h4>
+                                                    <h4>Comments <span><?php echo $blog_single[0]['t_comments']; ?></span></h4>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
-                                    <div class="comment-box thumb-border">
-                                        <div class="media-object stack-for-small">
-                                            <div class="media-object-section comment-img text-center">
-                                                <div class="comment-box-img">
-                                                    <img src= "images/post-author-post.png" alt="comment">
-                                                </div>
-                                                <h6><a href="#">Joseph John</a></h6>
-                                            </div>
-                                            <div class="media-object-section comment-textarea">
-                                                <form method="post">
-                                                    <textarea name="commentText" placeholder="Add a comment here.."></textarea>
-                                                    <input type="submit" name="submit" value="send">
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                                <h5>Written by <?php echo $blog_single[0]['txt_fname'].' '.$blog_single[0]['txt_lname']; ?></h5>
-                                                <p> <?php echo $blog_single[0]['txt_user_description']; ?></p>
+									
+                                        <div class="comment-sort text-right">
                                         <span>Sort By : <a href="#">newest</a> | <a href="#">oldest</a></span>
                                     </div>
 
@@ -147,21 +150,21 @@
 									<?php foreach($comments as $comment){ ?>
                                         <div class="media-object stack-for-small">
                                             <div class="media-object-section comment-img text-center">
-											<?php if($comment['txt_user_pro_image']!=''){ ?>
+											<?php if($comment['txt_user_pro_image']==''){?>
                                                 <div class="comment-box-img">
+                                                    <img src= "<?php echo base_url()?>artist_media/profile/blank-profile.jpg" alt="comment">
+                                                </div><?php } else {?><div class="comment-box-img">
                                                     <img src= "<?php echo base_url().$comment['txt_user_pro_image'];?>" alt="comment">
-												</div> 
-											<?php } else {?>
-											<div class="comment-box-img">
-                                                    <img src= "<?php echo base_url();?>artist_media/profile/blank-profile.jpg" alt="comment">
-												</div> <?php } ?>
+                                                </div><?php } ?>
                                             </div>
-									
-                                        <div class="comment-sort text-right">
+                                            
+                                            <div class="media-object-section comment-desc">
+                                                <div class="comment-title">
+                                                    <span class="name"><a href="#"><?php echo $comment['txt_fname'].' '.$comment['txt_lname']; ?></a> Said:</span>
                                                     <span class="time float-right"><i class="fa fa-clock-o"></i>1 minute ago</span>
                                                 </div>
                                                 <div class="comment-text">
-                                                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventoresunt explicabo.</p>
+                                                    <p><?php echo $comment['txt_comment']; ?></p>
                                                 </div>
                                                 <div class="comment-btns">
                                                     <span><a href="#"><i class="fa fa-thumbs-o-up"></i></a> | <a href="#"><i class="fa fa-thumbs-o-down"></i></a></span>
@@ -217,10 +220,6 @@
                                                 </div><!-- end sub comment -->
 
                                             </div>
-                                            
-                                            <div class="media-object-section comment-desc">
-                                                <div class="comment-title">
-                                                    <span class="name"><a href="#"><?php echo $comment['txt_fname'].' '.$comment['txt_lname']; ?></a> Said:</span>
                                         </div>
 									<?php } ?>
                                     </div><!-- End main comment -->
@@ -229,6 +228,10 @@
                                 </div>
                             </div>
                         </section><!-- End Comments -->
+                        <!-- ad Section -->
+                        <div class="googleAdv">
+                            <a href="#"><img src="images/goodleadv.png" alt="googel ads"></a>
+                        </div><!-- End ad Section -->
                     </div><!-- end left side content area -->
                     <!-- sidebar -->
                     <div class="large-4 columns">
@@ -238,11 +241,11 @@
                                 <div class="large-12 medium-7 medium-centered columns">
                                     <div class="widgetBox">
                                         <div class="widgetTitle">
-                                            <h5>Search Blog</h5>
+                                            <h5>Search Videos</h5>
                                         </div>
-                                        <form id="searchform" method="post" role="search">
+                                        <form id="searchform" method="get" role="search">
                                             <div class="input-group">
-                                                <input class="input-group-field" type="text" name="search" placeholder="Enter your keyword">
+                                                <input class="input-group-field" type="text" placeholder="Enter your keyword">
                                                 <div class="input-group-button">
                                                     <input type="submit" class="button" value="Submit">
                                                 </div>
@@ -423,6 +426,4 @@
                     </div><!-- end sidebar -->
                 </div>
             </section><!-- End Category Content-->
-				<script src="<?php echo base_url();?>js/jquery-2.2.4.min.js"></script>
-	
-
+				

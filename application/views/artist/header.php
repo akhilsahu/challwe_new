@@ -34,9 +34,9 @@
                 </li>
                 <li><a href="<?php echo site_url('user/category');?>"><i class="fa fa-th"></i>Category</a></li>
                 <li>
-                    <a href="#"><i class="fa fa-edit"></i>Blog</a>
+                    <a href="<?php echo site_url('Blog/get_blog');?>"><i class="fa fa-edit"></i>Blog</a>
                 </li>
-                <li><a href="<?php echo site_url();?>/user/user_profile">"><i class="fa fa-th"></i>Profile</a></li>
+                <li><a href="<?php echo site_url();?>/user/profile"><i class="fa fa-th"></i>Profile</a></li>
                 <li><a href="<?php echo site_url();?>/user/aboutUs"><i class="fa fa-user"></i>About Us</a></li>
                 <li><a href="#"><i class="fa fa-envelope"></i>Contact</a></li>
             </ul>
@@ -90,7 +90,7 @@
                                 <ul class="menu float-right">
                                 	 <?php if($user['txt_email'] != ''){?>
                                     <li>
-                                        <a href="<?php echo site_url('artist/create_post');?>">Upload Video</a>
+                                         <a href="<?php echo site_url('artist/create_post');?>">Upload Video</a>
                                     </li>
                                      <?php }else if($user['txt_email'] == ''){?>
                                     <li class="dropdown-login">
@@ -166,9 +166,9 @@
                                             </li>
                                             <li><a href="<?php echo site_url('user/category');?>"><i class="fa fa-th"></i>Category</a></li>
                                             <li>
-                                                <a href="#"><i class="fa fa-edit"></i>Blog</a>
+                                                <a href="<?php echo site_url();?>/Blog/get_blog"><i class="fa fa-edit"></i>Blog</a>
                                             </li>
-                                            <li><a href="<?php echo site_url();?>/user/user_profile"><i class="fa fa-th"></i>Profile</a></li>
+                                            <li><a href="<?php echo site_url();?>/user/profile"><i class="fa fa-th"></i>Profile</a></li>
                                             <li><a href="<?php echo site_url();?>/user/aboutUs"><i class="fa fa-user"></i>About Us</a></li>
                                             <li><a href="#"><i class="fa fa-envelope"></i>Contact</a></li>
                                         </ul>
@@ -182,7 +182,7 @@
                                         <input type="search" name="search" placeholder="Seach Here your video">
                                     </div>
                                     <div class="search-btn float-right text-right">
-                                        <button class="button" name="search" type="submit">search now</button>
+                                        <button class="button" name="search" type="submit">Search now</button>
                                     </div>
                                 </form>
                             </div>
