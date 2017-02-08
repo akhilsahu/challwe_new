@@ -21,7 +21,7 @@
                             <div class="row secBg">
                                 <div class="large-12 columns">
                                     <div class="blog-post-heading">
-                                        <h3><a href="#"><?php echo $blog_single[0]['txt_title']; ?></a></h3>
+                                        <h3><a href="<?php echo site_url()?>/Blog/single_blog_post/<?php echo $blog_single['int_blog_id']?>"><?php echo $blog_single[0]['txt_title']; ?></a></h3>
                                         <p>
                                             <span><i class="fa fa-user"></i><a href="#"><?php echo $blog_single[0]['txt_fname'].' '.$blog_single[0]['txt_lname'] ; ?></a></span>
                                             <span><i class="fa fa-clock-o"></i><?php echo $blog_single[0]['dt_created_on']; ?></span>
@@ -243,9 +243,9 @@
                                         <div class="widgetTitle">
                                             <h5>Search Videos</h5>
                                         </div>
-                                        <form id="searchform" method="get" role="search">
+                                       <form id="searchform" action="<?php echo site_url('Blog/search_blog');?>" method="post" role="search">
                                             <div class="input-group">
-                                                <input class="input-group-field" type="text" placeholder="Enter your keyword">
+                                                <input class="input-group-field" type="text" name="search" placeholder="Enter your keyword">
                                                 <div class="input-group-button">
                                                     <input type="submit" class="button" value="Submit">
                                                 </div>
@@ -287,7 +287,7 @@
                                                 <div class="video-box-content">
                                                     <h6><a href="#"><?php echo $view['txt_title']?> </a></h6>
                                                     <p>
-                                                        <span><i class="fa fa-user"></i><?php echo $view['txt_fname'].' '.$view['txt_lname'] ?><a href="#">admin</a></span>
+                                                        <span><i class="fa fa-user"></i><?php echo $view['txt_fname'].' '.$view['txt_lname'] ?><a href="#"></a></span>
                                                         <span><i class="fa fa-clock-o"></i><?php echo $view['dt_created_on'] ?></span>
                                                         <span><i class="fa fa-eye"></i><?php echo $view['int_views'] ?></span>
                                                     </p>

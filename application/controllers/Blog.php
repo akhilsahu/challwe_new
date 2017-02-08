@@ -41,8 +41,8 @@ class Blog extends CI_Controller
 	$data['update']=$this->Blog_Model->update_views($id,$data['blog_single'][0]['int_views']);
 	$data['comments']=$this->Blog_Model->comments($id);	
 	$data['update']=$this->Blog_Model->update_views($id,$data['blog_single'][0]['int_views']);
-	$data['most_viewed']=$this->Blog_Model->most_viewed($abc);
-	$data['recent_viewed']=$this->Blog_Model->recent_viewed($abc);
+	$data['most_viewed']=$this->Blog_Model->most_viewed();
+	$data['recent_viewed']=$this->Blog_Model->recent_viewed();
 	$data['get_cat']=$this->Blog_Model->get_category($id);
 	$data['get_all_categories']=$this->Blog_Model->get_all_category();
 	$sess=$this->session->userdata('user');
@@ -87,21 +87,13 @@ class Blog extends CI_Controller
 		}
 	}
 	
-	/*public function comments(){
-	$data['comments'] =  $this->Blog_Model->get_comments();
-	if($valid_login){
-	$this->session->set_userdata('user',$valid_login);
-	redirect('User','refresh');
-	}else{
-	//echo "usernmae & password wrong ";
-        $data['page']='home';
-	$data['page_title']='Home';
-        $this->load->view('public/page',$data);
-   }
+	public function search_blog(){
+	$data['bloglist'] =  $this->Blog_Model->search_blog();
+	$data['page']='search_blog';
+	$this->load->view('artist/page',$data);
+	}
 
- }
-
- function logout(){
+ /*function logout(){
  $this->session->sess_destroy();
  redirect('User','refresh');
 }

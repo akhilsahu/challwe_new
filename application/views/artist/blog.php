@@ -23,9 +23,9 @@
                             <div class="row secBg">
                                 <div class="large-12 columns">
                                     <div class="blog-post-heading">
-                                        <h3><a href="blog-single-post.html"><?php echo $blog['txt_title']; ?></a></h3>
+                                        <h3><a href="<?php echo site_url()?>/Blog/single_blog_post/<?php echo $blog['int_blog_id']?>"><?php echo $blog['txt_title']; ?></a></h3>
                                         <p>
-                                            <span><i class="fa fa-user"></i><a href="#"><?php echo $blog['txt_fname']; ?></a></span>
+                                            <span><i class="fa fa-user"></i><a href="<?php echo site_url()?>/user/view_profile/<?php echo $blog['int_artist_id']?>"><?php echo $blog['txt_fname'].' '.$blog['txt_lname']; ?></a></span>
                                             <span><i class="fa fa-clock-o"></i><?php echo $blog['dt_created_on']; ?></span>
                                             <span><i class="fa fa-eye"></i><?php echo $blog['int_views']; ?></span>
                                             <span><i class="fa fa-commenting"></i><?php echo $blog['t_comments']; ?></span>
@@ -68,9 +68,9 @@
                                         <div class="widgetTitle">
                                             <h5>Search Videos</h5>
                                         </div>
-                                        <form id="searchform" method="get" role="search">
+                                        <form id="searchform" action="<?php echo site_url('Blog/search_blog');?>" method="post" role="search">
                                             <div class="input-group">
-                                                <input class="input-group-field" type="text" placeholder="Enter your keyword">
+                                                <input class="input-group-field" type="text" name="search" placeholder="Enter your keyword">
                                                 <div class="input-group-button">
                                                     <input type="submit" class="button" value="Submit">
                                                 </div>
@@ -101,7 +101,7 @@
                                                         <span><i class="fa fa-play"></i>Watch Video</span>
                                                     </a>
                                                 </div>
-											<?php } 
+											<?php } 	
                                                 else
 												{?><div class="video-img-thumb">
                                                     <img src="<?php echo base_url().$view['txt_media_url']?>" alt="most viewed videos">
@@ -110,7 +110,7 @@
                                                     </a>
                                                 </div><?php } ?>
                                                 <div class="video-box-content">
-                                                    <h6><a href="#"><?php echo $view['txt_title']?> </a></h6>
+                                                    <h6><a href="<?php echo site_url()?>/Blog/single_blog_post/<?php echo $view['int_blog_id'];?>"><?php echo $view['txt_title']?> </a></h6>
                                                     <p>
                                                         <span><i class="fa fa-user"></i><?php echo $view['txt_fname'].' '.$view['txt_lname'] ?><a href="#"></a></span>
                                                         <span><i class="fa fa-clock-o"></i><?php echo $view['dt_created_on'] ?></span>
@@ -215,8 +215,8 @@
                                                 </div>
                                                 <div class="media-object-section">
                                                     <div class="media-content">
-                                                        <h6><a href="#"><?php echo $recent['txt_title'] ?></a></h6>
-                                                        <p><i class="fa fa-user"></i><span><?php echo $recent['txt_fname'].' '.$recent['txt_lname'] ?></span><i class="fa fa-clock-o"></i><span><?php echo $recent['dt_created_on']; ?></span></p>
+                                                        <h6><a href="<?php echo site_url()?>/Blog/single_blog_post/<?php echo $recent['int_blog_id'];?>"><?php echo $recent['txt_title'] ?></a></h6>
+                                                        <p><i class="fa fa-user"></i><a href="<?php echo site_url()?>/user/view_profile/<?php echo $recent['int_artist_id']?>"><span><?php echo $recent['txt_fname'].' '.$recent['txt_lname'] ?></span></a><?php ?><i class="fa fa-clock-o"></i><span><?php echo $recent['dt_created_on']; ?></span></p>
                                                     </div>
                                                 </div>
                                             </div>

@@ -1,4 +1,4 @@
-<section id="breadcrumb" class="breadMargin">
+<?php //print_r($bloglist);exit;?><section id="breadcrumb" class="breadMargin">
                 <div class="row">
                     <div class="large-12 columns">
                         <nav aria-label="You are here:" role="navigation">
@@ -15,9 +15,9 @@
 
             <section class="category-content">
                 <div class="row">
-                    <!-- left side content area -->
+                    <!-- left side content area --><?php if($bloglist) {?>
                     <div class="large-8 columns">
-					<?php foreach($blogs as $blog){?>
+					<?php foreach($bloglist as $blog){?>
                         <div class="blog-post">
                             <div class="row secBg">
                                 <div class="large-12 columns">
@@ -56,7 +56,7 @@
                         <div class="googleAdv">
                             <a href="#"><img src="images/goodleadv.png" alt="googel ads"></a>
                         </div><!-- End ad Section -->
-                    </div><!-- end left side content area -->
+                    </div><?php } else { ?><div class="columns"><b>No records found</b></div><?php } ?><!-- end left side content area -->
                     <!-- sidebar -->
 					<div class="large-4 columns">
                         <aside class="secBg sidebar">
