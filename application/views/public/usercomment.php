@@ -6,7 +6,7 @@
                         <nav aria-label="You are here:" role="navigation">
                             <ul class="breadcrumbs">
                                 <li><i class="fa fa-home"></i><a href="home-v1.html">Home</a></li>
-                                <li><a href="profile-page-v2.html">profile</a></li>
+                                <li><a href="<?php echo base_url().$pro[0]['txt_profile_image']?>">profile</a></li>
                                 <li>
                                     <span class="show-for-sr">Current: </span> comments
                                 </li>
@@ -103,12 +103,12 @@
                                     <div class="widgetContent">
                                         <ul class="profile-overview">
                                             <li class="clearfix"><a href="<?php echo site_url();?>/user/user_profile"><i class="fa fa-user"></i>about me</a></li>
-                                            <li class="clearfix"><a href="#"><i class="fa fa-video-camera"></i>Videos <span class="float-right">36</span></a></li>
+                                            <li class="clearfix"><a href="<?php echo site_url();?>/post/video"><i class="fa fa-video-camera"></i>Videos <span class="float-right">36</span></a></li>
                                             <li class="clearfix"><a href="#"><i class="fa fa-heart"></i>Favorite Videos<span class="float-right">50</span></a></li>
                                             <li class="clearfix"><a href="<?php echo site_url();?>/user/get_followers"><i class="fa fa-users"></i>Followers<span class="float-right"><?php echo $follow['pqr']; ?></span></a></li>
 											<li class="clearfix"><a href="<?php echo site_url();?>/user/profile_following"><i class="fa fa-users"></i>Following<span class="float-right"><?php echo $following['pqr']; ?></span></a></li>
                                             <li class="clearfix"><a href="<?php echo site_url();?>/user/userComments"><i class="fa fa-comments-o"></i>comments<span class="float-right"><?php echo $com['abc']; ?></span></a></li>
-                                            <li class="clearfix"><a href="#"><i class="fa fa-gears"></i>Profile Settings</a></li>
+                                            <li class="clearfix"><a href="<?php echo site_url();?>/user/profile_settings"><i class="fa fa-gears"></i>Profile Settings</a></li>
                                             <li class="clearfix"><a href="<?php echo site_url();?>/user/logout"><i class="fa fa-sign-out"></i>Logout</a></li>
                                         </ul>
                                         <a href="submit-post.html" class="button"><i class="fa fa-plus-circle"></i>Submit Video</a>
@@ -157,7 +157,7 @@
                                                 <p><?php echo $comm['txt_comments']; ?></p>
                                             </div>
                                             <div class="comment-btns">
-                                                <span><a href="#"><i class="fa fa-thumbs-o-up"></i></a> | <a href="#"><i class="fa fa-thumbs-o-down"></i></a></span>
+                                                <span><a><i class="fa fa-thumbs-o-up"></i></a><span class="dislike">&nbsp;<?php echo $comm['int_like_count'] ?></span> | <a><i class="fa fa-thumbs-o-down"></i></a><span class="dislike">&nbsp;<?php echo $comm['int_dislike_count'] ?></span></span>
                                                 <span><a href="#"><i class="fa fa-share"></i>Reply</a></span>
                                                 <span class='reply float-right hide-reply'></span>
                                             </div>

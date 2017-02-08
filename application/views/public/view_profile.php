@@ -544,8 +544,8 @@
                                             <li class="clearfix"><a href="profile-favorite.html"><i class="fa fa-heart"></i>Favorite Videos<span class="float-right">50</span></a></li>
                                             <li class="clearfix"><a href="#"><i class="fa fa-users"></i>Followers<span class="float-right"><?php echo $pro['follow']['followers']?></span></a></li>
                                             <li class="clearfix"><a href="profile-comments.html"><i class="fa fa-comments-o"></i>comments<span class="float-right"><?php echo count($pro['comment']); ?></span></a></li>
-                                            <li class="clearfix"><a href="profile-settings.html"><i class="fa fa-gears"></i>Profile Settings</a></li>
-                                            <li class="clearfix"><a href="home-v1.html"><i class="fa fa-sign-out"></i>Logout</a></li>
+                                            <li class="clearfix"><a href="<?php echo site_url();?>/user/profile_settings"><i class="fa fa-gears"></i>Profile Settings</a></li>
+                                            <li class="clearfix"><a href="<?php echo site_url();?>/user/logout""><i class="fa fa-sign-out"></i>Logout</a></li>
                                         </ul>
                                         <a href="submit-post.html" class="button"><i class="fa fa-plus-circle"></i>Submit Video</a>
                                     </div>

@@ -112,7 +112,7 @@
                                                 <div class="video-box-content">
                                                     <h6><a href="#"><?php echo $view['txt_title']?> </a></h6>
                                                     <p>
-                                                        <span><i class="fa fa-user"></i><?php echo $view['txt_fname'].' '.$view['txt_lname'] ?><a href="#">admin</a></span>
+                                                        <span><i class="fa fa-user"></i><?php echo $view['txt_fname'].' '.$view['txt_lname'] ?><a href="#"></a></span>
                                                         <span><i class="fa fa-clock-o"></i><?php echo $view['dt_created_on'] ?></span>
                                                         <span><i class="fa fa-eye"></i><?php echo $view['int_views'] ?></span>
                                                     </p>

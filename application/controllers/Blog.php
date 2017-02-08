@@ -2,7 +2,8 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Blog extends CI_Controller {
+class Blog extends CI_Controller
+ {
  
 	public function __construct()
     {
@@ -20,16 +21,20 @@ class Blog extends CI_Controller {
 		$data['most_viewed']=$this->Blog_Model->most_viewed($abc);
 		$data['recent_viewed']=$this->Blog_Model->recent_viewed($abc);
 		$data['get_all_categories']=$this->Blog_Model->get_all_category();
+		
 		if($this->session->userdata('user'))
 		{
 			$this->load->view('artist/page',$data);
 		}
-		else{
+		else
+		{
 			$this->load->view('public/page',$data);
 		}
 	}
 
-	public function single_blog_post($id){
+	public function single_blog_post($id)
+	{
+		
 	$data['page']='blog_single_post';
 	$data['page_title']='Blog';
 	$data['blog_single']=$this->Blog_Model->blog_single($id);
@@ -42,13 +47,21 @@ class Blog extends CI_Controller {
 	$data['get_all_categories']=$this->Blog_Model->get_all_category();
 	$sess=$this->session->userdata('user');
 	$data['get']=$this->Blog_Model->get_login_user_detail($sess['int_artist_id']);
+	
 	if($this->session->userdata('user'))
 		{
         $this->load->view('artist/page',$data);		
 		}
-		else{$this->load->view('public/page',$data);		}
+		
+		else
+		{
+		 $this->load->view('public/page',$data);	
+		}
 	}
-	public function add_comment($id){
+	
+	
+	public function add_comment($id)
+	{
 		$abc=$this->input->post('comment');
 		$data=$this->Blog_Model->add_comment($id,$this->session->userdata('user'),$abc);
 		if($data)
@@ -60,7 +73,9 @@ class Blog extends CI_Controller {
 			echo 'failed';
 		}
 	}
-	public function get_comment($id){
+	
+	public function get_comment($id)
+	{
 		$data=$this->Blog_Model->get_comment($id);
 		if($data)
 		{
