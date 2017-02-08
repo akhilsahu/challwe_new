@@ -32,8 +32,8 @@
                                 <img src="<?php echo base_url().$pro[0]['txt_profile_image']; ?>" alt="profile author img">
                             </div>
                             <div class="profile-subscribe">
-                                <span><i class="fa fa-users"></i>6</span>
-                                <button type="submit" name="subscribe">subscribe</button>
+                                <span><i class="fa fa-users"></i><?php echo $follow['pqr']; ?></span>
+                                <button type="submit" name="subscribe">Followers</button>
                             </div>
                             
                             <div class="clearfix">
@@ -66,8 +66,9 @@
                                                 <i class="fa fa-users"></i>
                                             </div>
                                             <div class="li-text float-left">
-                                                <p class="number-text">6</p>
-                                                <span>followers</span>
+                                                <a href="<?php echo site_url(); ?>/user/get_followers">
+                                                <p class="number-text"><?php echo $follow['pqr']; ?></p>
+                                                <span>followers</span></a>
                                             </div>
                                         </li>
                                         <li>
@@ -75,8 +76,9 @@
                                                 <i class="fa fa-comments-o"></i>
                                             </div>
                                             <div class="li-text float-left">
-                                                <p class="number-text">26</p>
-                                                <span>comments</span>
+                                                <a href="<?php echo site_url(); ?>/user/userComments">
+                                                <p class="number-text"><?php echo $com['abc']; ?></p>
+                                                <span>comments</span></a>
                                             </div>
                                         </li>
                                     </ul>
@@ -102,9 +104,9 @@
                                             <li class="clearfix"><a href="<?php echo site_url();?>/user/user_profile"><i class="fa fa-user"></i>about me</a></li>
                                             <li class="clearfix"><a href="<?php echo site_url();?>/post/video"><i class="fa fa-video-camera"></i>Videos <span class="float-right">36</span></a></li>
                                             <li class="clearfix"><a href="#"><i class="fa fa-heart"></i>Favorite Videos<span class="float-right">50</span></a></li>
-                                            <li class="clearfix"><a class="" href="<?php echo site_url();?>/user/get_followers"><i class="fa fa-users"></i>Followers<span class="float-right"><?php echo $follow['pqr'];?></span></a></li>
-											<li class="clearfix"><a class="" href="<?php echo site_url();?>/user/profile_following"><i class="fa fa-users"></i>Following<span class="float-right"><?php echo $following['pqr'];?></span></a></li>
-                                            <li class="clearfix"><a href="profile-comments.html"><i class="fa fa-comments-o"></i>comments<span class="float-right">26</span></a></li>
+                                            <li class="clearfix"><a href="<?php echo site_url();?>/user/get_followers"><i class="fa fa-users"></i>Followers<span class="float-right"><?php echo $follow['pqr']; ?></span></a></li>
+											<li class="clearfix"><a href="<?php echo site_url();?>/user/profile_following"><i class="fa fa-users"></i>Following<span class="float-right"><?php echo $following['pqr']; ?></span></a></li>
+                                            <li class="clearfix"><a href="<?php echo site_url();?>/user/userComments"><i class="fa fa-comments-o"></i>comments<span class="float-right"><?php echo $com['abc']; ?></span></a></li>
                                             <li class="clearfix"><a href="<?php echo site_url();?>/user/profile_settings"><i class="fa fa-gears"></i>Profile Settings</a></li>
                                             <li class="clearfix"><a href="<?php echo site_url();?>/user/logout"><i class="fa fa-sign-out"></i>Logout</a></li>
                                         </ul>
