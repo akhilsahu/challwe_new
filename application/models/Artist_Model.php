@@ -111,7 +111,24 @@
 		  $result['abc']=count($q->result_array());
 		  return $result;
 	  }
-	 
+	 function countlikes($abc,$xyz)
+	 {
+		 $sql="update tab_pcomm set int_like_count=int_like_count+1 where int_artist_id='$abc' AND int_pcid='$xyz'";
+		 $response=$this->db->query($sql);
+		 $query="select int_like_count from tab_pcomm where int_artist_id='$abc' AND int_pcid='$xyz'";
+		 $q=$this->db->query($query);
+		 return $q->result_array();
+		 
+	 }
+	 function countdislikes($abc,$xyz)
+	 {
+		 $sql="update tab_pcomm set int_dislike_count=int_dislike_count+1 where int_artist_id='$abc' AND int_pcid='$xyz'";
+		 $response=$this->db->query($sql);
+		 $query="select int_dislike_count from tab_pcomm where int_artist_id='$abc' AND int_pcid='$xyz'";
+		 $q=$this->db->query($query);
+		 return $q->result_array();
+		 
+	 }
     function profile_view($id)
     {
         
