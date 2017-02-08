@@ -251,7 +251,7 @@
                             </div>
                         </section><!-- End Comments -->
                         <!-- ad Section -->
-                        <div class="googleAdv">
+                        <!--<div class="googleAdv">
                             <a href="#"><img src="images/goodleadv.png" alt="googel ads"></a>
                         </div><!-- End ad Section -->
                     </div><!-- end left side content area -->
@@ -263,7 +263,7 @@
                                 <div class="large-12 medium-7 medium-centered columns">
                                     <div class="widgetBox">
                                         <div class="widgetTitle">
-                                            <h5>Search Videos</h5>
+                                            <h5>Search Blogs</h5>
                                         </div>
                                         <form id="searchform" action="<?php echo site_url('Blog/search_blog');?>" method="post" role="search">
                                             <div class="input-group">
@@ -330,7 +330,7 @@
                                         <div class="widgetContent clearfix">
                                             <ul>
                                                 <?php foreach($get_all_categories as $get_all){?>
-                                                <li class="cat-item"><!--<a href="#">--><?php echo $get_all['txt_title']?><!--&nbsp;(3)</a>--></li><?php }?>
+                                                <li class="cat-item"><a href="<?php echo site_url();?>/Blog/get_blog_categories/<?php echo $get_all['int_catagory_id']?>"><?php echo $get_all['txt_title']?>&nbsp;(3)</a></li><?php }?>
                                             </ul>
                                         </div>
                                     </div>

@@ -63,5 +63,9 @@ public function search_blog(){
 	  $q=$this->db->query("select * from tab_blogs where txt_title like '%$title%'");
 		return $q->result_array();      
   }
+  public function get_blog_categories($id){
+	  $q=$this->db->query("select * from tab_blogs where int_category_id=$id");
+		return $q->result_array();      
+  }
 }
 ?>

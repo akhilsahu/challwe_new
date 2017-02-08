@@ -1,4 +1,4 @@
-
+<?php //print_r($get_all_blog);exit;?>
 <section id="breadcrumb" class="breadMargin">
                 <div class="row">
                     <div class="large-12 columns">
@@ -18,7 +18,7 @@
                 <div class="row">
                     <!-- left side content area -->
                     <div class="large-8 columns">
-					<?php foreach($blogs as $blog){?>
+					<?php foreach($get_all_blog as $blog){?>
                         <div class="blog-post">
                             <div class="row secBg">
                                 <div class="large-12 columns">
