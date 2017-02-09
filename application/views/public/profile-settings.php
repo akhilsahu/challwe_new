@@ -1,7 +1,8 @@
 <?php
-$user=$result[0];
+$user=$result['abc'][0];
+$user1=$result['pqr'][0];
 //$fetch_data=$get_data[0];
-//print_r($user);
+//print_r($user1);
 ?>
 <div id="profile">
  <form method="post" enctype="multipart/form-data" action="<?php echo site_url()?>/user/profile_settings">
@@ -27,9 +28,9 @@ $user=$result[0];
                 <div class="row">
                     <div class="large-12 columns">
                         <div class="upload-bg">
-                            
+                           
                                 <label for="topfileupload" class="btn-upload"><i class="fa fa-camera"></i><span>update cover image</span></label>
-                                <input type="file" id="topfileupload" name="topfileupload" class="show-for-sr">
+                                <input type="file" id="topfileupload" name="topfileupload" onchange="readURL(this);" class="show-for-sr">
                         
                         </div>
                     </div>
@@ -46,10 +47,10 @@ $user=$result[0];
                     <div class="row secBg">
                         <div class="large-12 columns">
                             <div class="profile-author-img">
-                                <img src="<?php echo base_url($user['txt_profile_image']);?>" alt="profile author img">
+                                <img src="<?php echo base_url($user['txt_profile_image']);?>" id="imgfileupload1" name="imgfileupload1" alt="profile author img">
                                
-                                    <label for="imgfileupload" class="btn-upload"><i class="fa fa-camera"></i><span>update Avatar</span></label>
-                                    <input type="file" id="imgfileupload" name="imgfileupload" onclick="to_upload_img(<?php  echo $user['int_artist_id']?>);" class="show-for-sr">
+                                    <label for="imgfileupload" onchange="readURL(this);" class="btn-upload"><i class="fa fa-camera" ></i><span>update Avatar</span></label>
+                                    <input type="file" id="imgfileupload" name="imgfileupload" onchange="readURL(this);" class="show-for-sr">
                         
                             </div>
                             <div class="profile-subscribe">
@@ -202,7 +203,7 @@ $user=$result[0];
                                                         </div>
                                                         <div class="medium-6 columns">
                                                             <label>Website URL:
-                                                                <input type="url" id="website_url" name="website_url" value="<?php echo $get_data[0]['txt_website_url'];?>">
+                                                                <input type="url" id="website_url" name="website_url" value="<?php echo $user1['txt_website_url'];?>">
                                                             </label>
                                                         </div>
                                                         <div class="medium-6 columns end">
@@ -224,42 +225,42 @@ $user=$result[0];
                                                         </div>
                                                         <div class="medium-6 columns">
                                                             <label>facebook:
-                                                                <input type="url"  id="facebook" name="facebook" value="<?php echo $get_data[0]['txt_facebook'];?>">
+                                                                <input type="url"  id="facebook" name="facebook" value="<?php echo $user1['txt_facebook'];?>">
                                                             </label>
                                                         </div>
                                                         <div class="medium-6 columns">
                                                             <label>twitter:
-                                                                <input type="url" value="<?php echo $get_data[0]['txt_twitter'];?>"id="twitter" name="twitter">
+                                                                <input type="url" value="<?php echo $user1['txt_twitter'];?>"id="twitter" name="twitter">
                                                             </label>
                                                         </div>
                                                         <div class="medium-6 columns end">
                                                             <label>Google Plus:
-                                                                <input type="url" value="<?php echo $get_data[0]['txt_google_plus'];?>" id="google_plus" name="google_plus">
+                                                                <input type="url" value="<?php echo $user1['txt_google_plus'];?>" id="google_plus" name="google_plus">
                                                             </label>
                                                         </div>
                                                         <div class="medium-6 columns">
                                                             <label>Youtube:
-                                                                <input type="url"value="<?php echo $get_data[0]['txt_youtube'];?>"  id="youtube" name="youtube">
+                                                                <input type="url"value="<?php echo $user1['txt_youtube'];?>"  id="youtube" name="youtube">
                                                             </label>
                                                         </div>
                                                         <div class="medium-6 columns">
                                                             <label>vimeo:
-                                                                <input type="url" value="<?php echo $get_data[0]['txt_vimeo'];?>" id="vimeo" name="vimeo">
+                                                                <input type="url" value="<?php echo $user1['txt_vimeo'];?>" id="vimeo" name="vimeo">
                                                             </label>
                                                         </div>
                                                         <div class="medium-6 columns end">
                                                             <label>Pinterest:
-                                                                <input type="url"  value="<?php echo $get_data[0]['txt_pinterest'];?>" id="pinterest" name="pinterest">
+                                                                <input type="url"  value="<?php echo $user1['txt_pinterest'];?>" id="pinterest" name="pinterest">
                                                             </label>
                                                         </div>
                                                         <div class="medium-6 columns">
                                                             <label>Instagram:
-                                                                <input type="url" value="<?php echo $get_data[0]['txt_instagram'];?>" id="instagram" name="instagram">
+                                                                <input type="url" value="<?php echo $user1['txt_instagram'];?>" id="instagram" name="instagram">
                                                             </label>
                                                         </div>
                                                         <div class="medium-6 columns end">
                                                             <label>Linkedin:
-                                                                <input type="url" value="<?php echo $get_data[0]['txt_linkedin'];?>" id="linkedin" name="linkedin">
+                                                                <input type="url" value="<?php echo $user1['txt_linkedin'];?>" id="linkedin" name="linkedin">
                                                             </label>
                                                         </div>
                                                     </div>
@@ -278,25 +279,20 @@ $user=$result[0];
             </div>
 			  </form>
 			</div>
-			<script type="text/javascript">
-			function to_upload_img(id)
-			{
-				//alert("hi");
-				var id=id;
-				//alert(id);
-				$.ajax({
-					type:'POST',
-					url:"<?php echo site_url().'/user/profile_update/'?>",
-					data:
-					{
-						'id':id
-					},
-					success:function(response)
-					{
-						alert("");
-					}
-					
-				});
-			}
-			</script>
-          
+<script>
+function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#imgfileupload1')
+                    .attr('src', e.target.result)
+                    .width(100)
+                    .height(100);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+	</script>
+	

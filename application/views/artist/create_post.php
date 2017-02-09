@@ -1,4 +1,6 @@
-           <!--breadcrumbs-->
+       
+
+		  <!--breadcrumbs-->
             <section id="breadcrumb">
                 <div class="row">
                     <div class="large-12 columns">
@@ -16,7 +18,7 @@
             </section><!--end breadcrumbs-->
 
             <!-- profile top section -->
-            <section class="topProfile topProfile-inner" style="background: url('images/profile-bg1.png') no-repeat;">
+            <section class="topProfile topProfile-inner" style="background: url('<?php echo base_url($user['txt_cover_image']);?>') no-repeat;">
                 <div class="main-text">
                     <div class="row">
                         <div class="large-12 columns">

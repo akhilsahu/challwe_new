@@ -7,11 +7,11 @@ class User extends CI_Controller
     public function User()
     {
         parent::__construct();
-		
-	
+		$this->load->database();
         $this->load->model('Artist_Model');
         $this->load->model('user_model');
         $this->load->model('Post_Model');
+		error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
     }
 
 
@@ -220,39 +220,52 @@ class User extends CI_Controller
 	 public function profile_settings()
 	{
 		$data=$this->session->userdata('user');
-		//print_r($_FILES);exit;
-		$data['cover_img']='';
-		if($_FILES['topfileupload']['name']!='')
-		{
-			if (($_FILES["topfileupload"]["type"] == "image/gif") || ($_FILES["topfileupload"]["type"] == "image/jpeg")|| ($_FILES["topfileupload"]["type"] == "image/jpg")|| ($_FILES["topfileupload"]["type"] == "image/pjpeg")|| ($_FILES["topfileupload"]["type"] == "image/x-png")|| ($_FILES["topfileupload"]["type"] == "image/png")){
-				$ext=explode(".",$_FILES["topfileupload"]["name"]);		
-				$file_name="artist_media/cover_image/".date("YmdHis").".".$ext[count($ext)-1];
-				move_uploaded_file($_FILES['topfileupload'][tmp_name],$file_name);
-				$data['cover_img']=$file_name;
-				// print_r($data['file_name']);exit;
-			}
-		}
 		
-		//print_r($_FILES);exit;
-		$data['file_name']='';
-		if($_FILES['imgfileupload']['name']!='')
+		//print_r($data['int_artist_id']);
+		$this->load->library('form_validation');	
+		$this->form_validation->set_rules('fname', 'First Name', 'required');
+		$this->form_validation->set_rules('email', 'Email', 'required');					
+		if($this->form_validation->run())
 		{
-			if (($_FILES["imgfileupload"]["type"] == "image/gif") || ($_FILES["imgfileupload"]["type"] == "image/jpeg")|| ($_FILES["imgfileupload"]["type"] == "image/jpg")|| ($_FILES["imgfileupload"]["type"] == "image/pjpeg")|| ($_FILES["imgfileupload"]["type"] == "image/x-png")|| ($_FILES["imgfileupload"]["type"] == "image/png")){
-				$ext=explode(".",$_FILES["imgfileupload"]["name"]);		
-				$file_name="artist_media/profile/".date("YmdHis").".".$ext[count($ext)-1];
-				move_uploaded_file($_FILES['imgfileupload'][tmp_name],$file_name);
-				$data['file_name']=$file_name;
-				// print_r($data['file_name']);exit;
-			}
+				
+			//	print_r($_FILES);exit;
+				$cover_img='';
+				if($_FILES['topfileupload']['name']!='')
+				{
+					if (($_FILES["topfileupload"]["type"] == "image/gif") || ($_FILES["topfileupload"]["type"] == "image/jpeg")|| ($_FILES["topfileupload"]["type"] == "image/jpg")|| ($_FILES["topfileupload"]["type"] == "image/pjpeg")|| ($_FILES["topfileupload"]["type"] == "image/x-png")|| ($_FILES["topfileupload"]["type"] == "image/png")){
+						$ext=explode(".",$_FILES["topfileupload"]["name"]);		
+						$file_name="artist_media/cover_image/".date("YmdHis").".".$ext[count($ext)-1];
+						move_uploaded_file($_FILES['topfileupload'][tmp_name],$file_name);
+						$cover_img=$file_name;
+						// print_r($data['file_name']);exit;
+					}
+				}
+								
+				//print_r($_FILES);exit;
+				$image_name='';
+				if($_FILES['imgfileupload']['name']!='')
+				{
+					if (($_FILES["imgfileupload"]["type"] == "image/gif") || ($_FILES["imgfileupload"]["type"] == "image/jpeg")|| ($_FILES["imgfileupload"]["type"] == "image/jpg")|| ($_FILES["imgfileupload"]["type"] == "image/pjpeg")|| ($_FILES["imgfileupload"]["type"] == "image/x-png")|| ($_FILES["imgfileupload"]["type"] == "image/png")){
+						$ext=explode(".",$_FILES["imgfileupload"]["name"]);		
+						$file_name="artist_media/profile/".date("YmdHis").".".$ext[count($ext)-1];
+						move_uploaded_file($_FILES['imgfileupload'][tmp_name],$file_name);
+						$image_name=$file_name;
+						// print_r($data['file_name']);exit;
+					}
+				}
+				$data['get_data']=$this->user_model->insert_update($data['int_artist_id'],$image_name,$cover_img);
+				//print_r($data['get_data']);
+			redirect('user/profile_settings','refresh');
 		}
-   //  print_r($data['file_name']);exit;
-		$data['result']=$this->user_model->get_profile_settings($data['int_artist_id']);
-		//print_r($data['result']);exit;
-		$data['get_data']=$this->user_model->insert_update($data['int_artist_id'],$data['file_name'],$data['cover_img']);
-		//print_r($data['get_data']);exit;
-		$data['page']='profile-settings';
-		$data['page_title']='Profile-Settings';
-        $this->load->view('public/page',$data);
+		else
+		{
+			$data=$this->session->userdata('user');
+			$data['result']=$this->user_model->get_profile_settings($data['int_artist_id']);
+			//print_r($data['result']);exit;
+			$data['page']='profile-settings';
+			$data['page_title']='Profile-Settings';
+			$this->load->view('public/page',$data);
+		}
 	}
 	
 }
