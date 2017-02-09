@@ -69,7 +69,7 @@
                                         </div>
                                         <form id="searchform" action="<?php echo site_url('Blog/search_blog');?>" method="post" role="search">
                                             <div class="input-group">
-                                                <input class="input-group-field" type="text" name="search" placeholder="Enter your keyword">
+                                                <input class="input-group-field" type="text" name="search" placeholder="Enter your keyword" required>
                                                 <div class="input-group-button">
                                                     <input type="submit" class="button" value="Submit">
                                                 </div>
@@ -82,7 +82,7 @@
                                  <div class="large-12 medium-7 medium-centered columns">
                                     <div class="widgetBox">
                                         <div class="widgetTitle">
-                                            <h5>Most Viewed Videos</h5>
+                                            <h5>Most Viewed Blogs</h5>
                                         </div>
                                         <div class="widgetContent">
 										<?php foreach($most_viewed as $view){?>
