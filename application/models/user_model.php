@@ -1,10 +1,12 @@
 <?php
 
-Class User_model extends CI_Model{
+Class User_model extends CI_Model
+{
     public function User_model()
     {
       parent::__construct();
     }
+	
     public function category()
     {
         $sql="select * from tab_catagories where int_sub_catagory=0";

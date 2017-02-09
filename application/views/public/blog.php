@@ -35,12 +35,13 @@
 											      if($blog['int_media_type']=='2'){
 													  ?>
                                         <div class="blog-post-img">
-                                            <video width="320" height="240" controls>
+                                            <video width="100%" height="100%" controls>
 													<source src="<?php echo base_url().$blog['txt_media_url']; ?>" type="video/mp4">
 												</video>
 												  </div><?php } else{ ?>
 												  <div class="blog-post-img">
-                                            <img src="<?php echo base_url().$blog['txt_media_url'];?>" alt="blog image">
+                                            <a class="fancybox" href="<?php echo base_url().$blog['txt_media_url'];?>" data-fancybox-group="gallery"><img src="<?php echo base_url().$blog['txt_media_url'];?>" alt="blog image"></a>
+											<a title="Close" class="fancybox-item fancybox-close" href="javascript:;"></a>
 												  </div>
 												  <?php } ?>
 										<?php $abc=explode(' ',$blog['txt_description']); ?>
@@ -53,7 +54,7 @@
 					<?php }$blog=' ';?>
                     
                         <!-- ad Section -->
-                        <div class="googleAdv">
+                        <!--<div class="googleAdv">
                             <a href="#"><img src="images/goodleadv.png" alt="googel ads"></a>
                         </div><!-- End ad Section -->
                     </div><!-- end left side content area -->
@@ -65,11 +66,11 @@
                                 <div class="large-12 medium-7 medium-centered columns">
                                     <div class="widgetBox">
                                         <div class="widgetTitle">
-                                            <h5>Search Videos</h5>
+                                            <h5>Search Blogs</h5>
                                         </div>
-                                        <form id="searchform" method="get" role="search">
+                                        <form id="searchform" action="<?php echo site_url('Blog/search_blog');?>" method="post" role="search">
                                             <div class="input-group">
-                                                <input class="input-group-field" type="text" placeholder="Enter your keyword">
+                                                <input class="input-group-field" type="text" name="search" placeholder="Enter your keyword">
                                                 <div class="input-group-button">
                                                     <input type="submit" class="button" value="Submit">
                                                 </div>
@@ -82,7 +83,7 @@
                                  <div class="large-12 medium-7 medium-centered columns">
                                     <div class="widgetBox">
                                         <div class="widgetTitle">
-                                            <h5>Most Viewed Videos</h5>
+                                            <h5>Most Viewed Blogs</h5>
                                         </div>
                                         <div class="widgetContent">
 										<?php foreach($most_viewed as $view){?>
@@ -109,9 +110,9 @@
                                                     </a>
                                                 </div><?php } ?>
                                                 <div class="video-box-content">
-                                                    <h6><a href="#"><?php echo $view['txt_title']?> </a></h6>
+                                                    <h6><a href="<?php echo site_url()?>/Blog/single_blog_post/<?php echo $view['int_blog_id']?>"><?php echo $view['txt_title']?> </a></h6>
                                                     <p>
-                                                        <span><i class="fa fa-user"></i><?php echo $view['txt_fname'].' '.$view['txt_lname'] ?><a href="#">admin</a></span>
+                                                        <span><i class="fa fa-user"></i><?php echo $view['txt_fname'].' '.$view['txt_lname'] ?><a href="#"></a></span>
                                                         <span><i class="fa fa-clock-o"></i><?php echo $view['dt_created_on'] ?></span>
                                                         <span><i class="fa fa-eye"></i><?php echo $view['int_views'] ?></span>
                                                     </p>
@@ -132,7 +133,7 @@
                                         <div class="widgetContent clearfix">
                                             <ul>
                                                 <?php foreach($get_all_categories as $get_all){?>
-                                                <li class="cat-item"><!--<a href="#">--><?php echo $get_all['txt_title']?><!--&nbsp;(3)</a>--></li><?php }?>
+                                                <li class="cat-item"><a href="<?php echo site_url();?>/Blog/get_blog_categories/<?php echo $get_all['int_catagory_id']?>"><?php echo $get_all['txt_title']?>&nbsp;(3)</a></li><?php }?>
                                             </ul>
                                         </div>
                                     </div>
@@ -214,7 +215,7 @@
                                                 </div>
                                                 <div class="media-object-section">
                                                     <div class="media-content">
-                                                        <h6><a href="#"><?php echo $recent['txt_title'] ?></a></h6>
+                                                        <h6><a href="<?php echo site_url()?>/Blog/single_blog_post/<?php echo $recent['int_blog_id']?>"><?php echo $recent['txt_title'] ?></a></h6>
                                                         <p><i class="fa fa-user"></i><span><?php echo $recent['txt_fname'].' '.$recent['txt_lname'] ?></span><i class="fa fa-clock-o"></i><span><?php echo $recent['dt_created_on']; ?></span></p>
                                                     </div>
                                                 </div>
@@ -250,3 +251,4 @@
                     </div><!-- end sidebar -->
                 </div>
             </section><!-- End Category Content-->
+			

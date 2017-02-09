@@ -695,9 +695,13 @@ function getUserComments(){
 				html+='<div class="comment-text">';
 				html+='<p>'+value.txt_comments+'</p></div>';
 				html+='<div class="comment-btns">';
-				html+='<span><a href="#"><i class="fa fa-thumbs-o-up"></i></a> | <a href="#">';
-				html+='<i class="fa fa-thumbs-o-down"></i></a></span>';
-				html+='<span><a href="#"><i class="fa fa-share"></i>Reply</a></span>';
+				html+='<span><a><i class="fa fa-thumbs-o-up" oNclick="like('+value.int_artist_id+','+value.int_pcid+');"';
+                html+='></i></a>';
+				html+='<span class="likes">&nbsp;'+value.int_like_count+'</span>|<a>';
+				html+='<i class="fa fa-thumbs-o-down" oNclick="dislike('+value.int_artist_id+','+value.int_pcid+');"';
+				html+='></i></a>';
+				html+='<span class="dislike">&nbsp;'+value.int_dislike_count+'</span></span>';
+				html+='<span><a><i class="fa fa-share"></i>Reply</a></span>';
 				html+='<span class="reply float-right hide-reply"></span></div></div></div>';				
 				});
 				$("#id_comments").append(html);
@@ -713,6 +717,8 @@ function getUserComments(){
 			},
 		});
 }
+
+         
 function addcomment(){
   if($("#commentText").val()!=''){
   //$("#commentText").val('');	
@@ -745,4 +751,63 @@ function addcomment(){
 $(document).ready(function(){
 	getUserComments();
 });
+
+function like(id,pid){
+	
+	var id=id;
+	//alert(id);
+	var pid=pid;
+	//alert(pid);
+	$.ajax({
+        type:'POST',
+        url:"<?php echo site_url().'/user/count_like/'?>",
+        data:
+		{
+			'id': id,
+			'pid': pid
+		},
+		dataType: 'json',
+        success:function(data)
+		{
+			//alert(data);
+            if(data)
+			{
+             $.each(data, function(key, value) { 
+			    //alert(value.int_like_count);
+				getUserComments();
+			 });
+				
+			}
+        }
+    });
+}	
+function dislike(id,pid){
+	
+	var id=id;
+	var pid=pid;
+	
+	$.ajax({
+        type:'POST',
+        url:"<?php echo site_url().'/user/count_dislike/'?>",
+        data:
+		{
+			'id': id,
+			'pid': pid
+		},
+		dataType: 'json',
+        success:function(data)
+		{
+			
+            if(data)
+			{
+             $.each(data, function(key, value) { 
+			    
+				getUserComments();
+			 });
+				
+			}
+        }
+    });	 
+	
+} 
 </script>

@@ -2,7 +2,8 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Blog extends CI_Controller {
+class Blog extends CI_Controller
+ {
  
 	public function __construct()
     {
@@ -20,35 +21,47 @@ class Blog extends CI_Controller {
 		$data['most_viewed']=$this->Blog_Model->most_viewed($abc);
 		$data['recent_viewed']=$this->Blog_Model->recent_viewed($abc);
 		$data['get_all_categories']=$this->Blog_Model->get_all_category();
+		
 		if($this->session->userdata('user'))
 		{
 			$this->load->view('artist/page',$data);
 		}
-		else{
+		else
+		{
 			$this->load->view('public/page',$data);
 		}
 	}
 
-	public function single_blog_post($id){
+	public function single_blog_post($id)
+	{
+		
 	$data['page']='blog_single_post';
 	$data['page_title']='Blog';
 	$data['blog_single']=$this->Blog_Model->blog_single($id);
 	$data['update']=$this->Blog_Model->update_views($id,$data['blog_single'][0]['int_views']);
 	$data['comments']=$this->Blog_Model->comments($id);	
 	$data['update']=$this->Blog_Model->update_views($id,$data['blog_single'][0]['int_views']);
-	$data['most_viewed']=$this->Blog_Model->most_viewed($abc);
-	$data['recent_viewed']=$this->Blog_Model->recent_viewed($abc);
+	$data['most_viewed']=$this->Blog_Model->most_viewed();
+	$data['recent_viewed']=$this->Blog_Model->recent_viewed();
 	$data['get_cat']=$this->Blog_Model->get_category($id);
 	$data['get_all_categories']=$this->Blog_Model->get_all_category();
 	$sess=$this->session->userdata('user');
 	$data['get']=$this->Blog_Model->get_login_user_detail($sess['int_artist_id']);
+	
 	if($this->session->userdata('user'))
 		{
         $this->load->view('artist/page',$data);		
 		}
-		else{$this->load->view('public/page',$data);		}
+		
+		else
+		{
+		 $this->load->view('public/page',$data);	
+		}
 	}
-	public function add_comment($id){
+	
+	
+	public function add_comment($id)
+	{
 		$abc=$this->input->post('comment');
 		$data=$this->Blog_Model->add_comment($id,$this->session->userdata('user'),$abc);
 		if($data)
@@ -60,7 +73,9 @@ class Blog extends CI_Controller {
 			echo 'failed';
 		}
 	}
-	public function get_comment($id){
+	
+	public function get_comment($id)
+	{
 		$data=$this->Blog_Model->get_comment($id);
 		if($data)
 		{
@@ -72,25 +87,26 @@ class Blog extends CI_Controller {
 		}
 	}
 	
-	/*public function comments(){
-	$data['comments'] =  $this->Blog_Model->get_comments();
-	if($valid_login){
-	$this->session->set_userdata('user',$valid_login);
-	redirect('User','refresh');
-	}else{
-	//echo "usernmae & password wrong ";
-        $data['page']='home';
-	$data['page_title']='Home';
-        $this->load->view('public/page',$data);
-   }
+	public function search_blog(){
+	$data['bloglist'] =  $this->Blog_Model->search_blog();
+	$data['update']=$this->Blog_Model->update_views($id,$data['blog_single'][0]['int_views']);
+	$data['most_viewed']=$this->Blog_Model->most_viewed();
+	$data['recent_viewed']=$this->Blog_Model->recent_viewed();
+	$data['get_all_categories']=$this->Blog_Model->get_all_category();
+	$data['page']='search_blog';
+	$this->load->view('artist/page',$data);
+	}
 
- }
-
- function logout(){
- $this->session->sess_destroy();
- redirect('User','refresh');
+ function get_blog_categories($id){
+ $data['get_all_blog']=$this->Blog_Model->get_blog_categories($id);
+ $data['update']=$this->Blog_Model->update_views($id,$data['blog_single'][0]['int_views']);
+	$data['most_viewed']=$this->Blog_Model->most_viewed();
+	$data['recent_viewed']=$this->Blog_Model->recent_viewed();
+	$data['get_all_categories']=$this->Blog_Model->get_all_category();
+ $data['page']='get_blog_categories';
+	$this->load->view('public/page',$data);
 }
-*/
+
 
 
 }
