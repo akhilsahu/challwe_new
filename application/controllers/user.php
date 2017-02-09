@@ -11,7 +11,7 @@ class User extends CI_Controller
 	
         $this->load->model('Artist_Model');
         $this->load->model('user_model');
-        
+        $this->load->model('Post_Model');
     }
 
 
@@ -76,7 +76,7 @@ class User extends CI_Controller
 		$data['follow']=$this->Artist_Model->get_all_followers($data['pro'][0]['int_artist_id']);
 		$data['following']=$this->Artist_Model->get_all_following($data['pro'][0]['int_artist_id']);
 		$data['comment']=$this->Artist_Model->show_comments($data['pro'][0]['int_artist_id']);
-		//print_r($data['comment']);exit;
+		$data['vedio']=$this->Post_Model->video_data();
 		$data['page']='profile';
 		$data['page_title']='Profile';
         $this->load->view('public/page',$data);
@@ -220,40 +220,40 @@ class User extends CI_Controller
 	 public function profile_settings()
 	{
 		$data=$this->session->userdata('user');
-               //print_r($data);exit;
+		//print_r($_FILES);exit;
+		$data['cover_img']='';
+		if($_FILES['topfileupload']['name']!='')
+		{
+			if (($_FILES["topfileupload"]["type"] == "image/gif") || ($_FILES["topfileupload"]["type"] == "image/jpeg")|| ($_FILES["topfileupload"]["type"] == "image/jpg")|| ($_FILES["topfileupload"]["type"] == "image/pjpeg")|| ($_FILES["topfileupload"]["type"] == "image/x-png")|| ($_FILES["topfileupload"]["type"] == "image/png")){
+				$ext=explode(".",$_FILES["topfileupload"]["name"]);		
+				$file_name="artist_media/cover_image/".date("YmdHis").".".$ext[count($ext)-1];
+				move_uploaded_file($_FILES['topfileupload'][tmp_name],$file_name);
+				$data['cover_img']=$file_name;
+				// print_r($data['file_name']);exit;
+			}
+		}
+		
+		//print_r($_FILES);exit;
+		$data['file_name']='';
+		if($_FILES['imgfileupload']['name']!='')
+		{
+			if (($_FILES["imgfileupload"]["type"] == "image/gif") || ($_FILES["imgfileupload"]["type"] == "image/jpeg")|| ($_FILES["imgfileupload"]["type"] == "image/jpg")|| ($_FILES["imgfileupload"]["type"] == "image/pjpeg")|| ($_FILES["imgfileupload"]["type"] == "image/x-png")|| ($_FILES["imgfileupload"]["type"] == "image/png")){
+				$ext=explode(".",$_FILES["imgfileupload"]["name"]);		
+				$file_name="artist_media/profile/".date("YmdHis").".".$ext[count($ext)-1];
+				move_uploaded_file($_FILES['imgfileupload'][tmp_name],$file_name);
+				$data['file_name']=$file_name;
+				// print_r($data['file_name']);exit;
+			}
+		}
+   //  print_r($data['file_name']);exit;
 		$data['result']=$this->user_model->get_profile_settings($data['int_artist_id']);
 		//print_r($data['result']);exit;
-		$data['get_data']=$this->user_model->insert_update($data['int_artist_id']);
+		$data['get_data']=$this->user_model->insert_update($data['int_artist_id'],$data['file_name'],$data['cover_img']);
 		//print_r($data['get_data']);exit;
 		$data['page']='profile-settings';
 		$data['page_title']='Profile-Settings';
         $this->load->view('public/page',$data);
 	}
 	
-	/*public function update_profile()
-	{
-		$data=$this->session->userdata('user');
-		$data['result']=$this->user_model->insert_update($data['int_artist_id']);
-		//print_r($data['result']);exit;		
-		//$data=$this->user_model->update_profile($data);
-		echo "Data successfully Updated";
-	}*/
-	
-    /*public function show_comments() 
-	{
-		echo "hii";exit;
-		//$data=$this->session->userdata('user');
-         
-		//$data['pro']=$this->Artist_Model->get_profile_detail($data['txt_email']);
-           
-		//$data['follow']=$this->Artist_Model->get_all_followers($data['pro'][0]['int_artist_id']);
-		//$data['following']=$this->Artist_Model->get_all_following($data['pro'][0]['int_artist_id']); 
-		$data['details']=$this->Artist_Model->show_comments($abc);
-		print_r($data['details']);
-		$data['page']='profile';
-		$data['page_title']='Profile';
-        $this->load->view('public/page',$data);
-	}*/
-
 }
 ?>

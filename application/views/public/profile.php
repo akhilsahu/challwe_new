@@ -140,13 +140,17 @@
                                 <div class="tabs-content" data-tabs-content="newVideos">
                                     <div class="tabs-panel is-active" id="new-all">
                                         <div class="row list-group">
-
+<?php foreach($vedio as $player){?>
                                             <div class="item large-4 medium-6 columns group-item-grid-default">
-											<?php foreach($vedio as $player){?>
+											
                                                 <div class="post thumb-border">
                                                     <div class="post-thumb">
-                                                        <img src="<?php echo base_url(); ?>assets/images/video-thumbnail/3.jpg" alt="new video">
-                                                        <a href="#" class="hover-posts">
+													
+													<video controls="controls">
+											  <source src="<?php echo base_url().$player['txt_filepath']; ?>" type="video/mp4">
+											</video>
+											 
+                                                        <a href="<?php echo site_url()?>/Post/play_vedio/<?php echo $player['int_post_id']; ?>" class="hover-posts">
                                                             <span><i class="fa fa-play"></i>Watch Video</span>
                                                         </a>
                                                         <div class="video-stats clearfix">
@@ -163,32 +167,32 @@
                                                         </div>
                                                     </div>
                                                     <div class="post-des">
-                                                        <h6><a href="#">There are many variations of passage.</a></h6>
+                                                        <h6><a href="#"><?php echo $player['txt_title'] ?></a></h6>
                                                         <div class="post-stats clearfix">
                                                             <p class="pull-left">
                                                                 <i class="fa fa-user"></i>
-                                                                <span><a href="#">admin</a></span>
+                                                                <span><a href="#"><?php echo $player['txt_title'] ?></a></span>
                                                             </p>
                                                             <p class="pull-left">
                                                                 <i class="fa fa-clock-o"></i>
-                                                                <span>5 January 16</span>
+                                                                <span><?php echo $player['dt_created_on'] ?></span>
                                                             </p>
                                                             <p class="pull-left">
                                                                 <i class="fa fa-eye"></i>
-                                                                <span>1,862K</span>
+                                                                <span><?php echo $player['int_views'] ?></span>
                                                             </p>
                                                         </div>
                                                         <div class="post-summary">
-                                                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+                                                            <p><?php echo $player['txt_description'] ?></p>
                                                         </div>
                                                         <div class="post-button">
                                                             <a href="#" class="secondary-button"><i class="fa fa-play-circle"></i>watch video</a>
                                                         </div>
                                                     </div>
                                                 </div>
-											<?php } ?>
+											
                                             </div>
-                                       
+                                       <?php } ?>
                                         </div>
                                     </div>
                                 </div>

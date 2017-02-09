@@ -53,8 +53,7 @@ class Post_model extends CI_Model{
 	
 	function video_data()
 	{
-		$sql1="select * from tab_post where txt_filepath like '%.mp4' ORDER BY int_post_id DESC
-		LIMIT 10";
+		$sql1="select B.*,A.txt_fname,A.txt_lname from tab_artists as A inner join tab_post as B on A.int_artist_id=B.int_artist_id order by int_post_id desc limit 6";
 		
 		$query1=$this->db->query($sql1);
 		$result=$query1->result_array();

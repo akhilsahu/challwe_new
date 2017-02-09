@@ -1,10 +1,10 @@
 <?php
 $user=$result[0];
 //$fetch_data=$get_data[0];
-//print_r($get_data[0]);exit;
+//print_r($user);
 ?>
-
-
+<div id="profile">
+ <form method="post" enctype="multipart/form-data" action="<?php echo site_url()?>/user/profile_settings">
             <!--breadcrumbs-->
             <section id="breadcrumb">
                 <div class="row">
@@ -27,10 +27,10 @@ $user=$result[0];
                 <div class="row">
                     <div class="large-12 columns">
                         <div class="upload-bg">
-                            <form method="post">
+                            
                                 <label for="topfileupload" class="btn-upload"><i class="fa fa-camera"></i><span>update cover image</span></label>
-                                <input type="file" id="topfileupload" class="show-for-sr">
-                            </form>
+                                <input type="file" id="topfileupload" name="topfileupload" class="show-for-sr">
+                        
                         </div>
                     </div>
                 </div>
@@ -47,41 +47,16 @@ $user=$result[0];
                         <div class="large-12 columns">
                             <div class="profile-author-img">
                                 <img src="<?php echo base_url($user['txt_profile_image']);?>" alt="profile author img">
-                                <form method="post">
+                               
                                     <label for="imgfileupload" class="btn-upload"><i class="fa fa-camera"></i><span>update Avatar</span></label>
-                                    <input type="file" id="imgfileupload" class="show-for-sr">
-                                </form>
+                                    <input type="file" id="imgfileupload" name="imgfileupload" onclick="to_upload_img(<?php  echo $user['int_artist_id']?>);" class="show-for-sr">
+                        
                             </div>
                             <div class="profile-subscribe">
                                 <span><i class="fa fa-users"></i>6</span>
                                 <button type="submit" name="subscribe">subscribe</button>
                             </div>
-                            <div class="profile-share">
-                                <div class="easy-share" data-easyshare data-easyshare-http data-easyshare-url="http://joinwebs.com">
-                                    <!-- Facebook -->
-                                    <button data-easyshare-button="facebook">
-                                        <span class="fa fa-facebook"></span>
-                                        <span>Share</span>
-                                    </button>
-                                    <span data-easyshare-button-count="facebook">0</span>
-
-                                    <!-- Twitter -->
-                                    <button data-easyshare-button="twitter" data-easyshare-tweet-text="">
-                                        <span class="fa fa-twitter"></span>
-                                        <span>Tweet</span>
-                                    </button>
-                                    <span data-easyshare-button-count="twitter">0</span>
-
-                                    <!-- Google+ -->
-                                    <button data-easyshare-button="google">
-                                        <span class="fa fa-google-plus"></span>
-                                        <span>+1</span>
-                                    </button>
-                                    <span data-easyshare-button-count="google">0</span>
-
-                                    <div data-easyshare-loader>Loading...</div>
-                                </div>
-                            </div>
+                            
                             <div class="clearfix">
                                 <div class="profile-author-name float-left">
                                     <h4>Joseph John</h4>
@@ -173,7 +148,7 @@ $user=$result[0];
                                 <div class="row">
                                     <div class="large-12 columns">
                                         <div class="setting-form">
-                                      <form method="post" enctype="multipart/form-data" action="<?php echo site_url()?>/user/profile_settings">
+                                <!--      <form method="post" enctype="multipart/form-data" action="<?php echo site_url()?>/user/profile_settings">-->
                                                 <div class="setting-form-inner">
                                                     <div class="row">
                                                         <div class="large-12 columns">
@@ -288,7 +263,7 @@ $user=$result[0];
                                                 <div class="setting-form-inner">
                                                     <button class="button expanded" type="submit" name="setting">update now</button>
                                                 </div>
-                                            </form>
+                                          
                                         </div>
                                     </div>
                                 </div>
@@ -297,5 +272,27 @@ $user=$result[0];
                     </section><!-- End profile settings -->
                 </div><!-- end left side content area -->
             </div>
-
+			  </form>
+			</div>
+			<script type="text/javascript">
+			function to_upload_img(id)
+			{
+				//alert("hi");
+				var id=id;
+				//alert(id);
+				$.ajax({
+					type:'POST',
+					url:"<?php echo site_url().'/user/profile_update/'?>",
+					data:
+					{
+						'id':id
+					},
+					success:function(response)
+					{
+						alert("");
+					}
+					
+				});
+			}
+			</script>
           

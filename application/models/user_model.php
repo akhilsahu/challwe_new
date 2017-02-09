@@ -27,7 +27,9 @@ Class User_model extends CI_Model{
         //print_r($result);
     }
     
-    public function get_profile_settings($id)
+    
+	
+	 public function get_profile_settings($id)
 	{
 		$sql="select * from tab_artists where int_artist_id='$id'";
 		//print_r($sql);exit;
@@ -38,17 +40,19 @@ Class User_model extends CI_Model{
 		
 	}
 	
-	public function insert_update($id)
+	public function insert_update($id,$file,$cover_img)
 	{
 		$data=$this->input->post();
 		//print_r($data);exit;
+		
+		//print_r($file);exit;
 		 $sql="select int_artist_id from tab_artist_links where int_artist_id=$id";
 		//print_r($sql);exit;
 		$query=$this->db->query($sql);
 	//print_r($query);exit;
 		$result=$query->result_array();
 		//print_r($result);exit;
-		$sql="update tab_artists set txt_fname='".$data['fname']."',txt_lname='".$data['lname']."',txt_password='$password',txt_email='".$data['email']."',txt_cell_no='".$data['phone_no']."',txt_description='".$data['description']."'".$extra_query." where int_artist_id=".$data['id']."";
+		$sql="update tab_artists set txt_profile_image='$file',txt_cover_image='$cover_img',txt_fname='".$data['fname']."',txt_lname='".$data['lname']."',txt_password='$password',txt_email='".$data['email']."',txt_cell_no='".$data['phone_no']."',txt_description='".$data['description']."'".$extra_query." where int_artist_id=".$data['id']."";
 			$query=$this->db->query($sql);
 		
 		//$result=$sql->result_array();

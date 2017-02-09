@@ -29,41 +29,16 @@
                     <div class="row secBg">
                         <div class="large-12 columns">
                             <div class="profile-author-img">
-                                <img src="images/profile-auth-img.png" alt="profile author img">
+                                <img src="<?php echo base_url().$pro[0]['txt_profile_image']; ?>" alt="profile author img">
                             </div>
                             <div class="profile-subscribe">
                                 <span><i class="fa fa-users"></i>6</span>
                                 <button type="submit" name="subscribe">subscribe</button>
                             </div>
-                            <div class="profile-share">
-                                <div class="easy-share" data-easyshare data-easyshare-http data-easyshare-url="http://joinwebs.com">
-                                    <!-- Facebook -->
-                                    <button data-easyshare-button="facebook">
-                                        <span class="fa fa-facebook"></span>
-                                        <span>Share</span>
-                                    </button>
-                                    <span data-easyshare-button-count="facebook">0</span>
-
-                                    <!-- Twitter -->
-                                    <button data-easyshare-button="twitter" data-easyshare-tweet-text="">
-                                        <span class="fa fa-twitter"></span>
-                                        <span>Tweet</span>
-                                    </button>
-                                    <span data-easyshare-button-count="twitter">0</span>
-
-                                    <!-- Google+ -->
-                                    <button data-easyshare-button="google">
-                                        <span class="fa fa-google-plus"></span>
-                                        <span>+1</span>
-                                    </button>
-                                    <span data-easyshare-button-count="google">0</span>
-
-                                    <div data-easyshare-loader>Loading...</div>
-                                </div>
-                            </div>
+                           
                             <div class="clearfix">
                                 <div class="profile-author-name float-left">
-                                    <h4>Joseph John</h4>
+                                    <h4><?php echo $pro[0]['txt_fname'].' '.$pro[0]['txt_lname']; ?></h4>
                                     <p>Join Date : <span>5 January 16</span></p>
                                 </div>
                                 <div class="profile-author-stats float-right">

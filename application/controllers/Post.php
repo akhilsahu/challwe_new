@@ -65,6 +65,13 @@ class Post extends CI_Controller {
 	
 	public function video()
 	{
+		$data=$this->session->userdata('user');
+		$data['com']=$this->Artist_Model->getcomments($data['int_artist_id']);
+         
+		$data['pro']=$this->Artist_Model->get_profile_detail($data['txt_email']);
+        $data['com']=$this->Artist_Model->getcomments($data['int_artist_id']);   
+		$data['follow']=$this->Artist_Model->get_all_followers($data['pro'][0]['int_artist_id']);
+		$data['following']=$this->Artist_Model->get_all_following($data['pro'][0]['int_artist_id']);
 		$data['vedio']=$this->Post_Model->video_data();
 		//print_r($data['vedio']);exit;
 		$data['page']='profile-video';
