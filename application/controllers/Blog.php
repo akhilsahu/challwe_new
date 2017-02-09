@@ -94,7 +94,7 @@ class Blog extends CI_Controller
 	$data['recent_viewed']=$this->Blog_Model->recent_viewed();
 	$data['get_all_categories']=$this->Blog_Model->get_all_category();
 	$data['page']='search_blog';
-	$this->load->view('artist/page',$data);
+	$this->load->view('public/page',$data);
 	}
 
  function get_blog_categories($id){
