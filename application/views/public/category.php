@@ -898,18 +898,7 @@
                                 </div><!-- End slide video -->
 
                                 <!-- ad banner widget -->
-                                <div class="large-12 medium-7 medium-centered columns">
-                                    <div class="widgetBox">
-                                        <div class="widgetTitle">
-                                            <h5>Recent post videos</h5>
-                                        </div>
-                                        <div class="widgetContent">
-                                            <div class="advBanner text-center">
-                                                <a href="#"><img src="images/sideradv.png" alt="sidebar adv"></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div><!-- end ad banner widget -->
+                               <!-- end ad banner widget -->
 
                                 <!-- Recent post videos -->
                                 <div class="large-12 medium-7 medium-centered columns">
