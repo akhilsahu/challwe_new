@@ -92,9 +92,9 @@
 													  ?>
 											
 												<div class="video-img-thumb">
-												<video width="100%" height="100%" controls>
+												<a href="<?php echo site_url()?>/Blog/single_blog_post/<?php echo $view['int_blog_id'];?>"><video width="100%" height="100%" controls>
 													<source src="<?php echo base_url().$view['txt_media_url']; ?>" type="video/mp4">
-												</video>
+												</video></a>
                                                    <!-- <img src= alt="most viewed videos">-->
                                                     <a href="<?php echo base_url().$view['txt_media_url']; ?>" class="hover-posts">
                                                         <span><i class="fa fa-play"></i>Watch Video</span>
@@ -103,7 +103,7 @@
 											<?php } 
                                                 else
 												{?><div class="video-img-thumb">
-                                                    <img src="<?php echo base_url().$view['txt_media_url']?>" alt="most viewed videos">
+                                                   <a href="<?php echo site_url()?>/Blog/single_blog_post/<?php echo $view['int_blog_id'];?>"><img src="<?php echo base_url().$view['txt_media_url']?>" alt="most viewed videos"><?a>
                                                     <a href="#" class="hover-posts">
                                                         <span><i class="fa fa-play"></i>Watch Video</span>
                                                     </a>
