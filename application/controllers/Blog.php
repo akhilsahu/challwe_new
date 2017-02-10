@@ -16,7 +16,7 @@ class Blog extends CI_Controller
 	public function get_blog()
 	{
 		$data['page']='blog';
-		$data['page_title']='Home';
+		$data['page_title']='Blog';
 		$data['blogs']=$this->Blog_Model->blog();
 		$data['most_viewed']=$this->Blog_Model->most_viewed($abc);
 		$data['recent_viewed']=$this->Blog_Model->recent_viewed($abc);
@@ -87,10 +87,11 @@ class Blog extends CI_Controller
 		}
 	}
 	
-	public function search_blog(){
-	$data['bloglist'] =  $this->Blog_Model->search_blog();
+	public function search_blog()
+	{
+	$data['bloglist'] =$this->Blog_Model->search_blog();
 	$data['page']='search_blog';
-	$this->load->view('artist/page',$data);
+	$this->load->view('public/page',$data);
 	}
 
  /*function logout(){

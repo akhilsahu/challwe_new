@@ -69,7 +69,7 @@
                                         </div>
                                         <form id="searchform" action="<?php echo site_url('Blog/search_blog');?>" method="post" role="search">
                                             <div class="input-group">
-                                                <input class="input-group-field" type="text" name="search" placeholder="Enter your keyword">
+                                                <input class="input-group-field" type="text" name="search" placeholder="Enter your keyword" required>
                                                 <div class="input-group-button">
                                                     <input type="submit" class="button" value="Submit">
                                                 </div>
@@ -82,7 +82,7 @@
                                  <div class="large-12 medium-7 medium-centered columns">
                                     <div class="widgetBox">
                                         <div class="widgetTitle">
-                                            <h5>Most Viewed Videos</h5>
+                                            <h5>Most Viewed Blogs</h5>
                                         </div>
                                         <div class="widgetContent">
 										<?php foreach($most_viewed as $view){?>
@@ -92,9 +92,9 @@
 													  ?>
 											
 												<div class="video-img-thumb">
-												<video width="100%" height="100%" controls>
+												<a href="<?php echo site_url()?>/Blog/single_blog_post/<?php echo $view['int_blog_id'];?>"><video width="100%" height="100%" controls>
 													<source src="<?php echo base_url().$view['txt_media_url']; ?>" type="video/mp4">
-												</video>
+												</video></a>
                                                    <!-- <img src= alt="most viewed videos">-->
                                                     <a href="<?php echo base_url().$view['txt_media_url']; ?>" class="hover-posts">
                                                         <span><i class="fa fa-play"></i>Watch Video</span>
@@ -103,7 +103,7 @@
 											<?php } 
                                                 else
 												{?><div class="video-img-thumb">
-                                                    <img src="<?php echo base_url().$view['txt_media_url']?>" alt="most viewed videos">
+                                                   <a href="<?php echo site_url()?>/Blog/single_blog_post/<?php echo $view['int_blog_id'];?>"><img src="<?php echo base_url().$view['txt_media_url']?>" alt="most viewed videos"><?a>
                                                     <a href="#" class="hover-posts">
                                                         <span><i class="fa fa-play"></i>Watch Video</span>
                                                     </a>

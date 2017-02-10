@@ -66,9 +66,11 @@ class User extends CI_Controller
 	{
             
 		$data=$this->session->userdata('user');
+		//print_r($data);
 		$data['com']=$this->Artist_Model->getcomments($data['int_artist_id']);
          
 		$data['pro']=$this->Artist_Model->get_profile_detail($data['txt_email']);
+		//print_r($data['pro']);
         $data['com']=$this->Artist_Model->getcomments($data['int_artist_id']);   
 		$data['follow']=$this->Artist_Model->get_all_followers($data['pro'][0]['int_artist_id']);
 		$data['following']=$this->Artist_Model->get_all_following($data['pro'][0]['int_artist_id']);
