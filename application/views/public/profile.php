@@ -15,6 +15,7 @@
             </section><!--end breadcrumbs-->
 
             <!-- profile top section -->
+			<?php if($pro[0]['txt_cover_image']==''){ ?>
             <section class="topProfile">
                 <div class="main-text text-center">
                     <div class="row">
@@ -23,7 +24,8 @@
                             <h1>Powerfull Video Theme</h1>
                         </div>
                     </div>
-                </div>
+	</div><?php } else{ ?><section class="topProfile" style="background:url('<?php echo base_url().$pro[0]['txt_cover_image']?>');position: relative;height: 350px;background-size:cover;width: 100%;margin-bottom:90px;">
+                <?php } ?>
                 <div class="profile-stats">
                     <div class="row secBg">
                         <div class="large-12 columns">
@@ -214,60 +216,19 @@
                                 </div>
                                 <div class="row collapse">
 								
+                                    <?php foreach($follow['abc'] as $fol){ ?>
                                     <div class="large-2 small-6 medium-3 columns">
                                         <div class="follower">
-                                            <div class="follower-img">
-                                                <img src="<?php echo base_url(); ?>assets/images/follower-img.png" alt="followers">
+                                            <div class="follower-img" >
+											<a href="<?php echo site_url() ;?>/user/profile_follower/<?php echo $fol['int_artist_id']?>">
+                                                <img src="<?php echo base_url().$fol['txt_profile_image']; ?>" alt="followers">
+											</a>	
                                             </div>
-                                            <span>Frank Wright</span>
-                                            <button type="submit" name="follow">Subscribe</button>
+                                            <span><?php echo $fol['txt_fname'].' '.$fol['txt_lname']; ?></span>
+                                            
                                         </div>
                                     </div>
-                                    <div class="large-2 small-6 medium-3 columns">
-                                        <div class="follower">
-                                            <div class="follower-img">
-                                                <img src="<?php echo base_url(); ?>assets/images/follower2.png" alt="followers">
-                                            </div>
-                                            <span>John Doe</span>
-                                            <button type="submit" name="follow">Subscribe</button>
-                                        </div>
-                                    </div>
-                                    <div class="large-2 small-6 medium-3 columns">
-                                        <div class="follower">
-                                            <div class="follower-img">
-                                                <img src="<?php echo base_url(); ?>assets/images/follower3.png" alt="followers">
-                                            </div>
-                                            <span>Nancy john</span>
-                                            <button type="submit" name="follow">Subscribe</button>
-                                        </div>
-                                    </div>
-                                    <div class="large-2 small-6 medium-3 columns">
-                                        <div class="follower">
-                                            <div class="follower-img">
-                                                <img src="<?php echo base_url(); ?>assets/images/follower4.png" alt="followers">
-                                            </div>
-                                            <span>Frank</span>
-                                            <button type="submit" name="follow">Subscribe</button>
-                                        </div>
-                                    </div>
-                                    <div class="large-2 small-6 medium-3 columns">
-                                        <div class="follower">
-                                            <div class="follower-img">
-                                                <img src="<?php echo base_url(); ?>assets/images/follower5.png" alt="followers">
-                                            </div>
-                                            <span>lucy</span>
-                                            <button type="submit" name="follow">Subscribe</button>
-                                        </div>
-                                    </div>
-                                    <div class="large-2 small-6 medium-3 columns end">
-                                        <div class="follower">
-                                            <div class="follower-img">
-                                                <img src="<?php echo base_url(); ?>assets/images/follower66.png" alt="followers">
-                                            </div>
-                                            <span>daisy</span>
-                                            <button type="submit" name="follow">Subscribe</button>
-                                        </div>
-                                    </div>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>
@@ -383,7 +344,7 @@
                                         <ul class="profile-overview">
                                             <li class="clearfix"><a href="<?php echo site_url();?>/user/user_profile"><i class="fa fa-user"></i>about me</a></li>
                                             <li class="clearfix"><a href="<?php echo site_url();?>/post/video"><i class="fa fa-video-camera"></i>Videos <span class="float-right">36</span></a></li>
-                                            <li class="clearfix"><a href="#"><i class="fa fa-heart"></i>Favorite Videos<span class="float-right">50</span></a></li>
+                                            
                                             <li class="clearfix"><a href="<?php echo site_url();?>/user/get_followers"><i class="fa fa-users"></i>Followers<span class="float-right"><?php echo $follow['pqr']; ?></span></a></li>
 											<li class="clearfix"><a href="<?php echo site_url();?>/user/profile_following"><i class="fa fa-users"></i>Following<span class="float-right"><?php echo $following['pqr']; ?></span></a></li>
                                             <li class="clearfix"><a href="<?php echo site_url();?>/user/userComments"><i class="fa fa-comments-o"></i>comments<span class="float-right"><?php echo $com['abc']; ?></span></a></li>

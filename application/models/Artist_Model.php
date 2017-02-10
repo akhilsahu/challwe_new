@@ -16,7 +16,7 @@
   public function login($email,$password){
       
       
-      $this->db->select('int_artist_id,txt_email,txt_password');
+      $this->db->select('int_artist_id,txt_email,txt_password,txt_cover_image');
       $q=$this->db->where(['txt_email'=>$email,'txt_password'=>md5($password)])
                 ->get('tab_artists');
       
@@ -129,35 +129,86 @@
 		 return $q->result_array();
 		 
 	 }
-    function profile_view($id)
+    function profile_view($id,$visitor)
     {
-        
-        $sql1="select * from tab_artists where int_artist_id =$id";
+        //echo $visitor;die;
+         $sql1="select * from tab_artists where int_artist_id ='$id'";
         $query1=$this->db->query($sql1);
         $result['artist']=$query1->row_array();
-        $sql2="select A.txt_fname,A.txt_lname,(select count(int_follower_id) from tab_follow as C"
+		
+         $sql2="select A.txt_fname,A.txt_lname,(select count(int_follower_id) from tab_follow as C"
                 . " where C.int_follower_id=B.int_follower_id)as followers from tab_follow as B inner JOIN"
-                . " tab_artists as A on B.int_follower_id=A.int_artist_id WHERE int_following_id=$id";
+                . " tab_artists as A on B.int_follower_id=A.int_artist_id WHERE int_following_id='$id'";
         $query2=$this->db->query($sql2);
-         $result['follow']=$query2->row_array();
-         
-         $sql5="select A.txt_fname,A.txt_lname,(select count(int_follower_id) from tab_follow as C"
-                . " where C.int_follower_id=B.int_follower_id)as followers from tab_follow as B inner JOIN"
-                . " tab_artists as A on B.int_follower_id=A.int_artist_id WHERE int_following_id=$id";
-        $query5=$this->db->query($sql5);
-         $result['follower']=$query2->result_array();
-         
+        $result['follow']=$query2->row_array();
+		
         $sql3="SELECT A.*,B.txt_fname from tab_post as A inner JOIN tab_artists as B on A.int_artist_id=B.int_artist_id "
                 . "WHERE A.int_artist_id=$id AND A.txt_filepath LIKE '%.mp4'";
-         $query3=$this->db->query($sql3);
-         $result['video']=$query3->result_array();
+        $query3=$this->db->query($sql3);
+        $result['video']=$query3->result_array();
+		
         $sql4=" select A.* from tab_comments as A inner join tab_artists as B on A.int_user_id=B.int_artist_id where A.int_user_id=$id";
         $query4=$this->db->query($sql4);
-         $result['comment']=$query4->result_array();
+        $sql5="select A.int_artist_id,A.txt_fname,A.txt_lname,A.txt_profile_image,(select count(int_follower_id) from tab_follow as C"
+                . " where C.int_following_id=B.int_following_id)as followers from tab_follow as B inner JOIN"
+                . " tab_artists as A on B.int_follower_id=A.int_artist_id WHERE int_following_id='$id'";
+        $query5=$this->db->query($sql5);
+        $result['follower']=$query5->result_array();
+        $result['followers']=$query5->row_array();
+        $result['comment']=$query4->result_array();
+		
+         $sql6="select * from tab_catagories where int_sub_catagory=0";
+        $query6=$this->db->query($sql6);
+        $result['category']=$query6->result_array();
+		
+        $sql_select="select * from tab_follow where int_follower_id='$visitor' and int_following_id='$id'";
+         $query7=$this->db->query($sql_select);
+         $result['flag1']=$query7->row_array();
+		 //print_r($result['flag1']);
+         $sql8="SELECT A.*,B.txt_fname,B.txt_lname FROM tab_post  as A inner join tab_artists as B on A.int_artist_id=B.int_artist_id order by int_post_id desc limit 5";
+         $query8=$this->db->query($sql8);
+         $result['rec_video']=$query8->result_array();
+		 
+         /*$sql9="select A.*,B.txt_fname,B.txt_lname from tab_post as A inner JOIN tab_artists as B on A.int_artist_id=B.int_artist_id order by int_views desc limit 5";
+         $query9=$this->db->query($sql9);
+         $result['most_view_video']=$query9->result_array();*/
+		
+		// print_r($result['flag1']);
+         if($result['flag1']>0)
+            {
+             $result['flag']=1;
+             }
+         else
+           {
+             $result['flag']=0;
+           }
+         //print_r($result['flag']);die;
+         
         //print_r($result['video']);die;
          //echo count($result['video']);die;
-        return $result;
+        // print_r($result);die;
+       return $result;
         
+    }
+    
+    
+    function follow($id,$following_id)
+    {
+      
+            $sql="insert into tab_follow values(DEFAULT,$following_id,$id)";
+            $query=$this->db->query($sql);
+            $res= $query?"success":"failure";
+            return $res;
+    }
+    
+     
+    function Un_follow($id,$following_id)
+    {
+      
+            $sql="delete from tab_follow where int_follower_id=$following_id And int_following_id=$id";
+            $query=$this->db->query($sql);
+            $res= $query?"success":"failure";
+            return $res;
     }
  }
 ?>
