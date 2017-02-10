@@ -138,7 +138,7 @@
     </div><!--end off canvas wrapper inner-->
 </div><!--end off canvas wrapper-->
 <!-- script files -->
-<script src="<?php echo base_url();?>assets/bower_components/jquery/dist/jquery.js"></script>
+<!--<script src="<?php //echo base_url();?>assets/bower_components/jquery/dist/jquery.js"></script>-->
 <script src="<?php echo base_url();?>assets/bower_components/what-input/what-input.js"></script>
 <script src="<?php echo base_url();?>assets/bower_components/foundation-sites/dist/foundation.js"></script>
 <script src="<?php echo base_url();?>assets/js/jquery.showmore.src.js" type="text/javascript"></script>

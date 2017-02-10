@@ -18,8 +18,7 @@ class Post extends CI_Controller {
 
     }
 	
-	public function index()
-	{
+	public function index(){
 /*		$data['page']='home';
 		$data['page_title']='Home';
     	$this->load->view('public/page',$data);*/
@@ -68,16 +67,17 @@ class Post extends CI_Controller {
 	{
 		$data=$this->session->userdata('user');
 		$data['com']=$this->Artist_Model->getcomments($data['int_artist_id']);
-        $data['pro']=$this->Artist_Model->get_profile_detail($data['txt_email']);
-        $data['follow']=$this->Artist_Model->get_all_followers($data['pro'][0]['int_artist_id']);
+         
+		$data['pro']=$this->Artist_Model->get_profile_detail($data['txt_email']);
+        $data['com']=$this->Artist_Model->getcomments($data['int_artist_id']);   
+		$data['follow']=$this->Artist_Model->get_all_followers($data['pro'][0]['int_artist_id']);
 		$data['following']=$this->Artist_Model->get_all_following($data['pro'][0]['int_artist_id']);
 		$data['vedio']=$this->Post_Model->video_data();
 		//print_r($data['vedio']);exit;
 		$data['page']='profile-video';
 		$data['page_title']='Profile-Video';
-        $this->load->view('public/page',$data);
+                $this->load->view('public/page',$data);
 	}
-	
 	public function vedio_del($id)
 	{
 		
@@ -94,11 +94,12 @@ class Post extends CI_Controller {
 	}
 	
 	public function play_vedio($id)
-	
 	{
 		$data['get']=$this->Post_Model->get_views($id);
 		$counter=$data['get'][0]['int_views'];
 		$counter1=$counter+1;
 	   $data['update']=$this->Post_Model->update_views($id,$counter1);
+	   
+		
 	}
 }
