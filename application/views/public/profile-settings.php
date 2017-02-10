@@ -1,8 +1,6 @@
 <?php
 $user=$result['abc'][0];
 $user1=$result['pqr'][0];
-//$fetch_data=$get_data[0];
-//print_r($user1);
 ?>
 <div id="profile">
  <form method="post" enctype="multipart/form-data" action="<?php echo site_url()?>/user/profile_settings">
@@ -24,12 +22,12 @@ $user1=$result['pqr'][0];
             </section><!--end breadcrumbs-->
 
             <!-- profile top section -->
-            <section class="topProfile topProfile-inner" style="background: url('<?php echo base_url($user['txt_cover_image']);?>') no-repeat;">
+            <section class="topProfile topProfile-inner" id="topfileupload1" style="background: url('<?php echo base_url($user['txt_cover_image']);?>') no-repeat;">
                 <div class="row">
                     <div class="large-12 columns">
                         <div class="upload-bg">
-                           
-                                <label for="topfileupload" class="btn-upload"><i class="fa fa-camera"></i><span>update cover image</span></label>
+				
+							<label for="topfileupload" onchange="readURL(this);" class="btn-upload"><i class="fa fa-camera"></i><span>update cover image</span></label>
                                 <input type="file" id="topfileupload" name="topfileupload" onchange="readURL(this);" class="show-for-sr">
                         
                         </div>
@@ -295,4 +293,3 @@ function readURL(input) {
         }
     }
 	</script>
-	
