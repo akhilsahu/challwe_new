@@ -289,9 +289,9 @@
 													  ?>
 											
 												<div class="video-img-thumb">
-												<video width="100%" height="100%" controls>
+												<a href="<?php echo site_url()?>/Blog/single_blog_post/<?php echo $view['int_blog_id'];?>"><video width="100%" height="100%" controls>
 													<source src="<?php echo base_url().$view['txt_media_url']; ?>" type="video/mp4">
-												</video>
+												</video></a>
                                                    <!-- <img src= alt="most viewed videos">-->
                                                     <a href="<?php echo base_url().$view['txt_media_url']; ?>" class="hover-posts">
                                                         <span><i class="fa fa-play"></i>Watch Video</span>
@@ -300,7 +300,7 @@
 											<?php } 
                                                 else
 												{?><div class="video-img-thumb">
-                                                    <img src="<?php echo base_url().$view['txt_media_url']?>" alt="most viewed videos">
+                                                    <a href="<?php echo site_url()?>/Blog/single_blog_post/<?php echo $view['int_blog_id'];?>"><img src="<?php echo base_url().$view['txt_media_url']?>" alt="most viewed videos"></a>
                                                     <a href="#" class="hover-posts">
                                                         <span><i class="fa fa-play"></i>Watch Video</span>
                                                     </a>
@@ -399,20 +399,20 @@
                                                 <div class="media-object-section">
 												<?php if($recent['int_media_type']==1) {?>
                                                     <div class="recent-img">
-                                                        <img src= "<?php echo base_url().$recent['txt_media_url']; ?>" alt="recent">
+                                                        <a href="<?php echo site_url()?>/Blog/single_blog_post/<?php echo $recent['int_blog_id'];?>"><img src= "<?php echo base_url().$recent['txt_media_url']; ?>" alt="recent"></a>
                                                     </div>
 													<?php } else {  ?>
 													<div class="recent-img">
 															<a href="#" class="hover-posts"><span><i class="fa fa-play"></i></span></a>
-													<video width="100%" height="100%" controls>
+													<a href="<?php echo site_url()?>/Blog/single_blog_post/<?php echo $recent['int_blog_id'];?>"><video width="100%" height="100%" controls>
 														<source src="<?php echo base_url().$recent['txt_media_url']; ?>" type="video/mp4">
-													</video>
+													</video></a>
                                                     </div><?php }  ?>
                                                 </div>
                                                 <div class="media-object-section">
                                                     <div class="media-content">
-                                                        <h6><a href="#"><?php echo $recent['txt_title'] ?></a></h6>
-                                                        <p><i class="fa fa-user"></i><span><a href="<?php echo site_url()?>/User/view_profile/<?php echo $view['int_blog_id'];?>"><?php echo $recent['txt_fname'].' '.$recent['txt_lname'] ?></span><i class="fa fa-clock-o"></a></i><span><?php echo $recent['dt_created_on']; ?></span></p>
+                                                        <h6><a href="<?php echo site_url()?>/Blog/single_blog_post/<?php echo $recent['int_blog_id'];?>"><?php echo $recent['txt_title'] ?></a></h6>
+                                                        <p><i class="fa fa-user"></i><span><a href="<?php echo site_url()?>/User/view_profile/<?php echo $recent['int_blog_id'];?>"><?php echo $recent['txt_fname'].' '.$recent['txt_lname'] ?></span><i class="fa fa-clock-o"></a></i><span><?php echo $recent['dt_created_on']; ?></span></p>
                                                     </div>
                                                 </div>
                                             </div>
