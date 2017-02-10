@@ -167,7 +167,7 @@
 
                                     <!-- main comment -->
 									
-                                    <div class="main-comment showmore_one">
+                                    <div class="main-comment showmore_one" id="id_comments">
 									<?php foreach($comments as $comment){ ?>
                                         <div class="media-object stack-for-small">
                                             <div class="media-object-section comment-img text-center">
@@ -245,8 +245,7 @@
                                         </div>
 									<?php } ?>
                                     </div><!-- End main comment -->
-									<div class="main-comment showmore_one" id="id_comments">
-									</div>
+								
                                 </div>
                             </div>
                         </section><!-- End Comments -->
@@ -497,12 +496,12 @@
 				html+='<div class="media-object-section comment-img text-center">';
 				html+='<div class="comment-box-img">';
 				if(value.txt_user_pro_image!='') html+='<img src= "<?php echo base_url(); ?>'+value.txt_user_pro_image+'" alt="comment">';
-				else html+='<img src= "<?php echo base_url(); ?>artist_media/profile/blank-profile.jpg" alt="comment">';
+				else html+='<img src= "<?php echo base_url(); ?>artist_media/profile/blank-profile.jpg	" alt="comment">';
 				html+='</div>';
 				html+='</div>';
 				html+='<div class="media-object-section comment-desc">';
 				 html+='<div class="comment-title">';
-				html+='<span class="name"><a href="#"></a> Said:'+value.txt_fname+'</span>';
+				html+='<span class="name"><a href="<?php echo site_url()?>/user/view_profile/'+value.int_user_id+'">'+value.txt_fname+' '+value.txt_lname+'</a> Said:</span>';
 			    html+='<span class="time float-right"><i class="fa fa-clock-o"></i>'+value.dt_created_on+'</span></div>';
 				html+='<div class="comment-text">';
 				html+='<p>'+value.txt_comment+'</p></div>';
@@ -526,7 +525,4 @@
 		alert("failure");
    },  });
 }	
-$(document).ready(function(){
-	getUserComments(id);
-});
 </script>

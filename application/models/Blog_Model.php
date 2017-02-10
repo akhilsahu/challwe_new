@@ -85,5 +85,6 @@ public function search_blog(){
 	  $q=$this->db->query("select * from tab_blogs where int_category_id=$id");
 		return $q->result_array();      
   }
+  
 }
 ?>
