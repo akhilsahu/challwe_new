@@ -111,51 +111,77 @@
 		  $result['abc']=count($q->result_array());
 		  return $result;
 	  }
-	 
+	 function countlikes($abc,$xyz)
+	 {
+		 $sql="update tab_pcomm set int_like_count=int_like_count+1 where int_artist_id='$abc' AND int_pcid='$xyz'";
+		 $response=$this->db->query($sql);
+		 $query="select int_like_count from tab_pcomm where int_artist_id='$abc' AND int_pcid='$xyz'";
+		 $q=$this->db->query($query);
+		 return $q->result_array();
+		 
+	 }
+	 function countdislikes($abc,$xyz)
+	 {
+		 $sql="update tab_pcomm set int_dislike_count=int_dislike_count+1 where int_artist_id='$abc' AND int_pcid='$xyz'";
+		 $response=$this->db->query($sql);
+		 $query="select int_dislike_count from tab_pcomm where int_artist_id='$abc' AND int_pcid='$xyz'";
+		 $q=$this->db->query($query);
+		 return $q->result_array();
+		 
+	 }
     function profile_view($id,$visitor)
     {
         //echo $visitor;die;
-        $sql1="select * from tab_artists where int_artist_id =$id";
+         $sql1="select * from tab_artists where int_artist_id ='$id'";
         $query1=$this->db->query($sql1);
         $result['artist']=$query1->row_array();
-        $sql2="select A.txt_fname,A.txt_lname,(select count(int_follower_id) from tab_follow as C"
+		
+         $sql2="select A.txt_fname,A.txt_lname,(select count(int_follower_id) from tab_follow as C"
                 . " where C.int_follower_id=B.int_follower_id)as followers from tab_follow as B inner JOIN"
-                . " tab_artists as A on B.int_follower_id=A.int_artist_id WHERE int_following_id=$id";
+                . " tab_artists as A on B.int_follower_id=A.int_artist_id WHERE int_following_id='$id'";
         $query2=$this->db->query($sql2);
         $result['follow']=$query2->row_array();
+		
         $sql3="SELECT A.*,B.txt_fname from tab_post as A inner JOIN tab_artists as B on A.int_artist_id=B.int_artist_id "
                 . "WHERE A.int_artist_id=$id AND A.txt_filepath LIKE '%.mp4'";
         $query3=$this->db->query($sql3);
         $result['video']=$query3->result_array();
+		
         $sql4=" select A.* from tab_comments as A inner join tab_artists as B on A.int_user_id=B.int_artist_id where A.int_user_id=$id";
         $query4=$this->db->query($sql4);
         $sql5="select A.int_artist_id,A.txt_fname,A.txt_lname,A.txt_profile_image,(select count(int_follower_id) from tab_follow as C"
                 . " where C.int_following_id=B.int_following_id)as followers from tab_follow as B inner JOIN"
-                . " tab_artists as A on B.int_follower_id=A.int_artist_id WHERE int_following_id=$id";
+                . " tab_artists as A on B.int_follower_id=A.int_artist_id WHERE int_following_id='$id'";
         $query5=$this->db->query($sql5);
         $result['follower']=$query5->result_array();
         $result['followers']=$query5->row_array();
         $result['comment']=$query4->result_array();
+		
          $sql6="select * from tab_catagories where int_sub_catagory=0";
         $query6=$this->db->query($sql6);
         $result['category']=$query6->result_array();
-         $sql_select="select * from tab_follow where int_follower_id=$visitor and int_following_id=$id  ";
+		
+        $sql_select="select * from tab_follow where int_follower_id='$visitor' and int_following_id='$id'";
          $query7=$this->db->query($sql_select);
          $result['flag1']=$query7->row_array();
+		 //print_r($result['flag1']);
          $sql8="SELECT A.*,B.txt_fname,B.txt_lname FROM tab_post  as A inner join tab_artists as B on A.int_artist_id=B.int_artist_id order by int_post_id desc limit 5";
          $query8=$this->db->query($sql8);
          $result['rec_video']=$query8->result_array();
-         $sql9="select A.*,B.txt_fname,B.txt_lname from tab_post as A inner JOIN tab_artists as B on A.int_artist_id=B.int_artist_id order by int_views desc limit 5";
+		 
+         /*$sql9="select A.*,B.txt_fname,B.txt_lname from tab_post as A inner JOIN tab_artists as B on A.int_artist_id=B.int_artist_id order by int_views desc limit 5";
          $query9=$this->db->query($sql9);
-         $result['most_view_video']=$query9->result_array();
+         $result['most_view_video']=$query9->result_array();*/
+		
+		// print_r($result['flag1']);
          if($result['flag1']>0)
-         {
+            {
              $result['flag']=1;
-         }
+             }
          else
-         {
+           {
              $result['flag']=0;
-         }
+           }
          //print_r($result['flag']);die;
          
         //print_r($result['video']);die;

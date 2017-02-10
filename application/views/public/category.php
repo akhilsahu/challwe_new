@@ -1,6 +1,6 @@
 <!--breadcrumbs-->
 <?php 
-//print_r($sub_cat);die;
+//print_r($cat);die;
 ?>
             <section id="breadcrumb">
                 <div class="row">
@@ -54,7 +54,7 @@
             <section class="category-content">
                 <div class="row">
                     <!-- left side content area -->
-                    <?php foreach($cat['video'] as $cat_vid) { ?>
+                    
                     <div class="large-8 columns">
                         <section class="content content-with-sidebar">
                             <!-- newest video -->
@@ -729,7 +729,8 @@
                         <div class="googleAdv">
                             <a href="#"><img src="images/goodleadv.png" alt="googel ads"></a>
                         </div><!-- End ad Section -->
-                    </div><!-- end left side content area -->
+                    </div>
+                    <!-- end left side content area -->
                     <!-- sidebar -->
                     <div class="large-4 columns">
                         <aside class="secBg sidebar">
@@ -1060,4 +1061,4 @@ If" href="https://t.co/jtUNeYAFSVIf">https://t.co/jtUNeYAFSV If</a> not then ple
                         </aside>
                     </div><!-- end sidebar -->
                 </div>
-            </section><!-- End Category Content-->
+            </section>

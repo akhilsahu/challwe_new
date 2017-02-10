@@ -444,7 +444,7 @@
                                     <div class="large-2 small-6 medium-3 columns">
                                         <div class="follower">
                                             <div class="follower-img">
-                                                <img src="<?php echo base_url(); ?>assets/images/follower2.png" alt="followers">
+                                                <img src="<?php echo base_url(); ?>/assets/images/follower2.png" alt="followers">
                                             </div>
                                             <span>John Doe</span>
                                             <button type="submit" name="follow">Subscribe</button>
@@ -600,12 +600,12 @@
                                     <div class="widgetContent">
                                         <ul class="profile-overview">
                                             <li class="clearfix"><a href="<?php echo site_url();?>/user/user_profile"><i class="fa fa-user"></i>about me</a></li>
-                                            <li class="clearfix"><a href="#"><i class="fa fa-video-camera"></i>Videos <span class="float-right">36</span></a></li>
+                                            <li class="clearfix"><a href="<?php echo site_url();?>/post/video"><i class="fa fa-video-camera"></i>Videos <span class="float-right">36</span></a></li>
                                             <li class="clearfix"><a href="#"><i class="fa fa-heart"></i>Favorite Videos<span class="float-right">50</span></a></li>
                                             <li class="clearfix"><a href="<?php echo site_url();?>/user/get_followers"><i class="fa fa-users"></i>Followers<span class="float-right"><?php echo $follow['pqr']; ?></span></a></li>
 											<li class="clearfix"><a href="<?php echo site_url();?>/user/profile_following"><i class="fa fa-users"></i>Following<span class="float-right"><?php echo $following['pqr']; ?></span></a></li>
                                             <li class="clearfix"><a href="<?php echo site_url();?>/user/userComments"><i class="fa fa-comments-o"></i>comments<span class="float-right"><?php echo $com['abc']; ?></span></a></li>
-                                            <li class="clearfix"><a href="profile-settings.html"><i class="fa fa-gears"></i>Profile Settings</a></li>
+                                            <li class="clearfix"><a href="<?php echo site_url();?>/user/profile_settings"><i class="fa fa-gears"></i>Profile Settings</a></li>
                                             <li class="clearfix"><a href="<?php echo site_url();?>/user/logout"><i class="fa fa-sign-out"></i>Logout</a></li>
                                         </ul>
                                         <a href="submit-post.html" class="button"><i class="fa fa-plus-circle"></i>Submit Video</a>
@@ -913,9 +913,13 @@ function getUserComments(){
 				html+='<div class="comment-text">';
 				html+='<p>'+value.txt_comments+'</p></div>';
 				html+='<div class="comment-btns">';
-				html+='<span><a href="#"><i class="fa fa-thumbs-o-up"></i></a> | <a href="#">';
-				html+='<i class="fa fa-thumbs-o-down"></i></a></span>';
-				html+='<span><a href="#"><i class="fa fa-share"></i>Reply</a></span>';
+				html+='<span><a><i class="fa fa-thumbs-o-up" oNclick="like('+value.int_artist_id+','+value.int_pcid+');"';
+                html+='></i></a>';
+				html+='<span class="likes">&nbsp;'+value.int_like_count+'</span>|<a>';
+				html+='<i class="fa fa-thumbs-o-down" oNclick="dislike('+value.int_artist_id+','+value.int_pcid+');"';
+				html+='></i></a>';
+				html+='<span class="dislike">&nbsp;'+value.int_dislike_count+'</span></span>';
+				html+='<span><a><i class="fa fa-share"></i>Reply</a></span>';
 				html+='<span class="reply float-right hide-reply"></span></div></div></div>';				
 				});
 				$("#id_comments").append(html);
@@ -931,6 +935,8 @@ function getUserComments(){
 			},
 		});
 }
+
+         
 function addcomment(){
   if($("#commentText").val()!=''){
   //$("#commentText").val('');	
@@ -963,4 +969,63 @@ function addcomment(){
 $(document).ready(function(){
 	getUserComments();
 });
+
+function like(id,pid){
+	
+	var id=id;
+	//alert(id);
+	var pid=pid;
+	//alert(pid);
+	$.ajax({
+        type:'POST',
+        url:"<?php echo site_url().'/user/count_like/'?>",
+        data:
+		{
+			'id': id,
+			'pid': pid
+		},
+		dataType: 'json',
+        success:function(data)
+		{
+			//alert(data);
+            if(data)
+			{
+             $.each(data, function(key, value) { 
+			    //alert(value.int_like_count);
+				getUserComments();
+			 });
+				
+			}
+        }
+    });
+}	
+function dislike(id,pid){
+	
+	var id=id;
+	var pid=pid;
+	
+	$.ajax({
+        type:'POST',
+        url:"<?php echo site_url().'/user/count_dislike/'?>",
+        data:
+		{
+			'id': id,
+			'pid': pid
+		},
+		dataType: 'json',
+        success:function(data)
+		{
+			
+            if(data)
+			{
+             $.each(data, function(key, value) { 
+			    
+				getUserComments();
+			 });
+				
+			}
+        }
+    });	 
+	
+} 
 </script>

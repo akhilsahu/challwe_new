@@ -650,12 +650,10 @@
                      url: "<?php echo site_url().'/user/follow/'?>"+id,
                     // datatype:json,
                      success:function(response){
-                       // var follow=JSON.parse(response);
-                       if(response=="success")
+                        // alert(response);
+                        var follow=response;
+                       if(response.trim()=="success")
                        {
-                           //alert("follow");
-                        //var a=0;
-                        
                         $("#btn_follow").hide();
                         $("#btn_unfollow").show();
                         $(".no_follower").html(parseInt($(".no_follower").html())+1);
@@ -681,7 +679,7 @@
                     $.ajax({
                      url: "<?php echo site_url().'/user/unfollow/'?>"+id,
                      success:function(response){
-                       if(response=="success")
+                       if(response.trim()=="success")
                        {
                          
                          $("#btn_follow").show();

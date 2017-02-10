@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Artist extends CI_Controller {
+class Post extends CI_Controller {
 
 	public $user;
    
@@ -18,7 +18,8 @@ class Artist extends CI_Controller {
 
     }
 	
-	public function index(){
+	public function index()
+	{
 /*		$data['page']='home';
 		$data['page_title']='Home';
     	$this->load->view('public/page',$data);*/
@@ -26,23 +27,15 @@ class Artist extends CI_Controller {
 
 	public function create_post()
 	{
-		$data=$this->session->userdata('user');
-		$data['com']=$this->Artist_Model->getcomments($data['int_artist_id']);
-		$data['pro']=$this->Artist_Model->get_profile_detail($data['txt_email']);
-		$data['follow']=$this->Artist_Model->get_all_followers($data['pro'][0]['int_artist_id']);
-		$data['following']=$this->Artist_Model->get_all_following($data['pro'][0]['int_artist_id']);
-        
 		$data['page']='create_post';
 		$data['page_title']='Create Post';
-		$data['pro']=$this->Artist_Model->get_profile_detail($data['txt_email']);
-		//print_r($data['pro']);exit;
         $this->load->view('artist/page',$data);
 	}
 	
 	function addPost() 
 	{
 		$data=$this->input->post();
-		//print_r()
+		//print_r($data);exit;
 		if($_FILES['post_file']['name']!=''){
 			$img_type=array("image/jpeg","image/jpg","image/png","image/gif");
 			$video_type=array("video/webm","video/mp4","video/avi");
@@ -54,18 +47,58 @@ class Artist extends CI_Controller {
 			
 			if ($filetype!=0){
 				$ext=explode(".",$_FILES["post_file"]["name"]);		
-				$filename=$postId;
+				//$filename=$postId;
 				$imgtype=$_FILES["post_file"]["type"];
 				$file_name=$filename.".".$ext[count($ext)-1];
-				$filepath="blog_media/".$file_name;
+				//print_r($file_name);exit;
+				$filepath="post_media/".date("YmdHis").$file_name;
+			//	print_r($filepath);exit;
 				move_uploaded_file($_FILES['post_file']['tmp_name'],$filepath);
 				$data['filepath']=$filepath;
 			}
 		}
 		$data['post_type']=$filetype;
+		//print_r($data);exit;
 		$abc=$this->Post_Model->addPost($data);
-		redirect('artist/create_post','refresh');
+		//print_r($abc);exit;
+		redirect('post/create_post','refresh');
     }
-    
-    
+	
+	public function video()
+	{
+		$data=$this->session->userdata('user');
+		$data['com']=$this->Artist_Model->getcomments($data['int_artist_id']);
+        $data['pro']=$this->Artist_Model->get_profile_detail($data['txt_email']);
+        $data['follow']=$this->Artist_Model->get_all_followers($data['pro'][0]['int_artist_id']);
+		$data['following']=$this->Artist_Model->get_all_following($data['pro'][0]['int_artist_id']);
+		$data['vedio']=$this->Post_Model->video_data();
+		//print_r($data['vedio']);exit;
+		$data['page']='profile-video';
+		$data['page_title']='Profile-Video';
+        $this->load->view('public/page',$data);
+	}
+	
+	public function vedio_del($id)
+	{
+		
+		$data=$this->Post_Model->video_delete($id);
+		if($data)
+		{
+			echo 'success';
+		}
+		else
+		{
+			echo 'fail';
+		}
+	
+	}
+	
+	public function play_vedio($id)
+	
+	{
+		$data['get']=$this->Post_Model->get_views($id);
+		$counter=$data['get'][0]['int_views'];
+		$counter1=$counter+1;
+	   $data['update']=$this->Post_Model->update_views($id,$counter1);
+	}
 }

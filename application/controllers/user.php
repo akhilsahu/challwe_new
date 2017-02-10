@@ -30,8 +30,8 @@ class User extends CI_Controller
 		$data['page']='category';
 		$data['page_title']='Category';
                 $data['cat']= $this->user_model->category();
-                $this->load->view('public/page',$data);
-               //print_r($data['category']);exit;
+               $this->load->view('public/page',$data);
+               //print_r($data['cat']);exit;
 	}
         public function sub_category($id)
                 
@@ -105,6 +105,7 @@ class User extends CI_Controller
 		$data['page_title']='Profile-following';
         $this->load->view('public/page',$data);
 	}
+	
 	public function delete_following($id)           
 		{
 			
@@ -170,15 +171,30 @@ class User extends CI_Controller
         $this->load->view('public/page',$data);
        }
 
- }
+    }
 
- function logout()
- {
- $this->session->sess_destroy();
- redirect('User','refresh');
- }
- function  view_profile($id)
- {  
+		function logout()
+		 {
+		 $this->session->sess_destroy();
+		 redirect('User','refresh');
+		 }
+ 
+		function  view_profile($id)
+		 {  
+			 $user=$this->session->userdata('user');
+			 //print_r($user);
+			 $data['page']='view_profile';
+			 $data['page_title']='Profile';
+			 $data['pro']=$this->Artist_Model->profile_view($id,$user['int_artist_id']);
+			 //$data['follow']=$this->Artist_Model->profile_view($data['pro']['artist']['int_artist_id']);
+			 //$data['following']=$this->Artist_Model->profile_view($data['pro']['artist']['int_artist_id']);
+			 //$data['com']=$this->Artist_Model->getcomments($$data['pro']['artist']['int_artist_id']);
+			 //print_r($data['pro']);exit;
+			 $this->load->view('public/page',$data);
+		 
+		 }   
+		/* function  view_profile($id)
+    {  
      $user=$this->session->userdata('user');
      //echo $user['int_artist_id'];die;
      //echo $this->session['int_artist_id'];die;
@@ -186,19 +202,79 @@ class User extends CI_Controller
      $data['pro']=$this->Artist_Model->profile_view($id,$user['int_artist_id']);
     $this->load->view('public/page',$data);
    //print_r($data['pro']['category']);
-     
+	}*/
 
-	  function add_comment()
+	 public function add_comment()
+	
 	{
 		$abc=$this->input->post('comment');
 		//print_r($data);exit;
 		$data['details']=$this->Artist_Model->add_comment($abc);
-		echo json_encode($data['details']);		
+		echo json_encode($data['details']);	
+		
+	}
+	
+	
+	 public function get_comment()
+	{
+		
+		$abc=$this->input->post('comment');
+		$data=$this->session->userdata('user');
+		//$data['pro']=$this->Artist_Model->get_profile_detail($data['txt_email']);
+		if($data['txt_email']=='') die();
+		$data['details']=$this->Artist_Model->getAllUsercomments($data['int_artist_id']);
+		$data['com']=$this->Artist_Model->getcomments($data['int_artist_id']);
+		//print_r($data['details']);
+		echo json_encode($data['details']);	
+		
+	}
+	
+	public function userComments()
+	{
+		$data=$this->session->userdata('user');
+		$data['com']=$this->Artist_Model->getcomments($data['int_artist_id']);
+		$data['pro']=$this->Artist_Model->get_profile_detail($data['txt_email']);
+		$data['follow']=$this->Artist_Model->get_all_followers($data['pro'][0]['int_artist_id']);
+		$data['following']=$this->Artist_Model->get_all_following($data['pro'][0]['int_artist_id']);
+		$data['page']='usercomment';
+		$data['page_title']='comments';
+        $this->load->view('public/page',$data);
+	}
+	
+	public function profile_settings()
+	{
+		$data=$this->session->userdata('user');
+		$data['com']=$this->Artist_Model->getcomments($data['int_artist_id']);
+		$data['pro']=$this->Artist_Model->get_profile_detail($data['txt_email']);
+		$data['follow']=$this->Artist_Model->get_all_followers($data['pro'][0]['int_artist_id']);
+		$data['following']=$this->Artist_Model->get_all_following($data['pro'][0]['int_artist_id']);
+        //print_r($data);exit;
+		$data['result']=$this->user_model->get_profile_settings($data['int_artist_id']);
+		//print_r($data['result']);exit;
+		$data['get_data']=$this->user_model->insert_update($data['int_artist_id']);
+		//print_r($data['get_data']);exit;
+		$data['page']='profile-settings';
+		$data['page_title']='Profile-Settings';
+        $this->load->view('public/page',$data);
 	}
     
-
- }
-function  follow($id)
+	public function count_like()
+	{
+		$abc=$this->input->post('id');
+		$xyz=$this->input->post('pid');
+		$data=$this->Artist_Model->countlikes($abc,$xyz);
+		echo json_encode($data);
+		
+	}
+	public function count_dislike()
+	{
+		$abc=$this->input->post('id');
+		$xyz=$this->input->post('pid');
+		$data=$this->Artist_Model->countdislikes($abc,$xyz);
+		echo json_encode($data);
+		
+	}
+	function  follow($id)
     {
          $user=$this->session->userdata('user');
       //echo $user['int_artist_id'];die;
