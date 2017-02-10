@@ -87,18 +87,26 @@ class Blog extends CI_Controller
 		}
 	}
 	
-	public function search_blog()
-	{
-	$data['bloglist'] =$this->Blog_Model->search_blog();
+	public function search_blog(){
+	$data['bloglist'] =  $this->Blog_Model->search_blog();
+	$data['update']=$this->Blog_Model->update_views($id,$data['blog_single'][0]['int_views']);
+	$data['most_viewed']=$this->Blog_Model->most_viewed();
+	$data['recent_viewed']=$this->Blog_Model->recent_viewed();
+	$data['get_all_categories']=$this->Blog_Model->get_all_category();
 	$data['page']='search_blog';
 	$this->load->view('public/page',$data);
 	}
 
- /*function logout(){
- $this->session->sess_destroy();
- redirect('User','refresh');
+ function get_blog_categories($id){
+ $data['get_all_blog']=$this->Blog_Model->get_blog_categories($id);
+ $data['update']=$this->Blog_Model->update_views($id,$data['blog_single'][0]['int_views']);
+	$data['most_viewed']=$this->Blog_Model->most_viewed();
+	$data['recent_viewed']=$this->Blog_Model->recent_viewed();
+	$data['get_all_categories']=$this->Blog_Model->get_all_category();
+ $data['page']='get_blog_categories';
+	$this->load->view('public/page',$data);
 }
-*/
+
 
 
 }

@@ -78,7 +78,7 @@
                                                 <i class="fa fa-comments-o"></i>
                                             </div>
                                             <div class="li-text float-left">
-						<a href="<?php echo site_url(); ?>/user/userComments">
+						                    <a href="<?php echo site_url(); ?>/user/userComments">
                                                 <p class="number-text"><?php echo $com['abc']; ?></p>
                                                 <span>comments</span></a>
                                             </div>

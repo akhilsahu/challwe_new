@@ -133,8 +133,8 @@
                                     <div class="large-2 small-6 medium-3 columns">
                                         <div class="follower">
                                             <div class="follower-img" >
-											<a href="<?php echo site_url() ;?>/user/profile_follower/<?php echo $fol['int_artist_id']?>">
-                                                <img src="<?php echo base_url().$fol['txt_profile_image']; ?>" alt="followers"></a>
+											<a href="<?php echo site_url() ;?>/user/view_profile/<?php echo $fol['int_artist_id']?>">
+                                                <img src="<?php echo base_url().$fol['txt_profile_image']; ?>" alt="followers">
 											</a>	
                                             </div>
                                             <span><?php echo $fol['txt_fname'].' '.$fol['txt_lname']; ?></span>
